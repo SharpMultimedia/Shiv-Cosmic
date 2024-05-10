@@ -1,5 +1,5 @@
 """
-ASGI config for astro project.
+ASGI config for Shiv_Cosmic project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'astro.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Shiv_Cosmic.settings')
 
 application = get_asgi_application()
