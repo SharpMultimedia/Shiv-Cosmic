@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Astrology Data Form</title>
 
-  <link rel="stylesheet" href="{% static 'css/style.css'%}">
+  <link rel="stylesheet" href="/static/css/style.css">
 
 </head>
 
@@ -89,6 +89,14 @@
             {% csrf_token %}
 
             <div class="inputBx">
+              <input type="text" id="name" name="name" placeholder="Name" required>
+            </div>
+
+            <div class="inputBx">
+              <input type="text" id="gender" name="gender" placeholder="Gender" required>
+            </div>
+
+            <div class="inputBx">
                 <input type="number" id="day" name="day" placeholder="Day" required>
             </div>
 
@@ -116,7 +124,15 @@
             </div>
 
             <div class="inputBx">
+              <input type="text" id="language" name="language" placeholder="Language" required>
+            </div>
+
+            <div class="inputBx">
                 <input type="number" id="tzone" name="tzone" step="any" placeholder="Timezone" required>
+            </div>
+
+            <div class="inputBx">
+              <input type="text" id="place" name="place" placeholder="Birth Place" required>
             </div>
 
             <div class="inputBx formBtn">
