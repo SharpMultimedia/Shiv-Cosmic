@@ -3,6 +3,11 @@ import base64
 import json
 from django.shortcuts import render
 
+# Mail
+from django.core.mail import send_mail, BadHeaderError
+from django.conf import settings    
+from django.contrib import messages
+
 # Create your views here.
 def index(request):
     if request.method == 'POST':
@@ -68,7 +73,21 @@ def index(request):
             if response.status_code == 200:
                 # Process the response data here
                 astrology_data = response.json()
+                pdf_url = astrology_data.get('pdf_url')
                 print(astrology_data)
+                try:
+                    e_message = f"Hello,\n Please check the attached link to open the PDF: {pdf_url} \n\nKind Regards\nTeam Sharp Multimedia"
+                    send_mail(
+                        "You Have Received PDF of your request",
+                        e_message,
+                        settings.EMAIL_HOST_USER,
+                        ["sns.it@yahoo.com"],
+                        fail_silently=False
+                    )
+                    messages.success(request, "Message Was Sent Successfully")
+                except BadHeaderError as e:
+                    # Log or print the exception for debugging
+                    print(f"Error sending email: {e}")
                 return render(request, 'result.html', {'astrology_data': astrology_data})
             else:
                 print("Error:", response.status_code)

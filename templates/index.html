@@ -13,126 +13,171 @@
 
 <body>
 
-  <!-- <div>
-    <div class="navContianer">
-      <div>
-        <img src="/templates/Logo.png" alt="logo" loading="lazy">
-      </div>
-
-      <div class="navHeading">
-        <h1>
-          Form Data
-        </h1>
-      </div>
-    </div>
-
-
-    <form action="" method="post">
-      {% csrf_token %}
-      <label for="day">Day:</label>
-      <input type="number" id="day" name="day" required>
-      <br><br>
-
-      <label for="month">Month:</label>
-      <input type="number" id="month" name="month" required>
-      <br><br>
-
-      <label for="year">Year:</label>
-      <input type="number" id="year" name="year" required>
-      <br><br>
-
-      <label for="hour">Hour:</label>
-      <input type="number" id="hour" name="hour" required>
-      <br><br>
-
-      <label for="min">Minute:</label>
-      <input type="number" id="min" name="min" required>
-      <br><br>
-
-      <label for="lat">Latitude:</label>
-      <input type="number" id="lat" name="lat" step="any" required>
-      <br><br>
-
-      <label for="lon">Longitude:</label>
-      <input type="number" id="lon" name="lon" step="any" required>
-      <br><br>
-
-      <label for="tzone">Timezone:</label>
-      <input type="number" id="tzone" name="tzone" step="any" required>
-      <br><br>
-
-      <input type="submit" value="Submit">
-    </form>
-
-  </div> -->
 
 
   <section class="formContainer">
 
-    <div class="box">
+    <div class="rowMain">
 
-      <div class="square" style="--i:0;"></div>
-      <div class="square" style="--i:1;"></div>
-      <div class="square" style="--i:2;"></div>
-      <div class="square" style="--i:3;"></div>
-      <div class="square" style="--i:4;"></div>
-      <div class="square" style="--i:5;"></div>
+      <div class="colLeft">
+        <div class="contentBG">
+          <img src="/static/assets/icons/App icon.png" alt="logo" loading="lazy">
+          <h1>Shiv Cosmic Energy Solutions</h1>
+          <p>Shiv Cosmic Energy Solutions is a company that is devoted to helping people achieve a harmonious and
+            fulfilled life by providing personalized solutions based on the ancient wisdom of astrology and Vastu
+            Shastra. The company believes that everyone's birth chart holds the key to understanding their unique energy
+            patterns and potential. By aligning with these cosmic energies, one can unlock paths to success, health, and
+            happiness.</p>
 
-      <div class="container">
+            <p class="contentpara">At Shiv Cosmic Energy Solutions, they offer comprehensive consultations where they analyze your birth chart and align it with Vastu principles to provide tailored solutions for various aspects of your life, including health, wealth, and relationships.</p>
+        </div>
+      </div>
+
+
+      <div class="colRight">
+
         <div class="form">
+
           <div class="formHead">
-            <img src="{% static 'assets/icons/Logo.jpg'%}" alt="logo" loading="lazy">
-            <h2>Enter Your Details</h2>
+
+            <h2>Enter Your Birth Details</h2>
+            <p>Please fill out the information below.</p>
           </div>
 
           <form method="post">
             {% csrf_token %}
 
-            <div class="inputBx">
-              <input type="text" id="name" name="name" placeholder="Name" required>
+
+            <div class="dataBox">
+
+              <div class="inputBx">
+                <div class="formLabel">
+                  <label for="#">Name</label>
+                </div>
+                <div>
+                  <input type="text" id="name" name="name" autocomplete="off" required>
+                </div>
+              </div>
+
+              <div class="inputBx">
+                <div class="formLabel">
+                  <label for="#">Gender</label>
+                </div>
+                <div>
+                  <input type="text" id="gender" name="gender" required>
+                </div>
+              </div>
+
             </div>
 
-            <div class="inputBx">
-              <input type="text" id="gender" name="gender" placeholder="Gender" required>
+
+            <div class="dataBox">
+              <div class="inputBx">
+                <div class="formLabel">
+                  <label for="#">Day</label>
+                </div>
+                <div>
+                  <input type="number" id="day" name="day" required>
+                </div>
+              </div>
+
+              <div class="inputBx">
+                <div class="formLabel">
+                  <label for="#">Month</label>
+                </div>
+                <div>
+                  <input type="number" id="month" name="month" required>
+                </div>
+              </div>
             </div>
 
-            <div class="inputBx">
-                <input type="number" id="day" name="day" placeholder="Day" required>
+
+            <div class="dataBox">
+              <div class="inputBx">
+                <div class="formLabel" class="formLabel">
+                  <label for="#">Year</label>
+                </div>
+                <div>
+                  <input type="number" id="year" name="year" required>
+                </div>
+              </div>
+
+              <div class="inputBx">
+                <div class="formLabel" class="formLabel">
+                  <label for="#">Hour</label>
+                </div>
+                <div>
+                  <input type="number" id="hour" name="hour" required>
+                </div>
+              </div>
             </div>
 
-            <div class="inputBx">
-                <input type="number" id="month" name="month" placeholder="Month" required>
+
+            <div class="dataBox">
+              <div class="inputBx">
+                <div class="formLabel">
+                  <label for="#">Min</label>
+                </div>
+
+                <div>
+                  <input type="number" id="min" name="min" required>
+                </div>
+              </div>
+
+              <div class="inputBx">
+                <div class="formLabel">
+                  <label for="#">Latitude</label>
+                </div>
+                <div>
+                  <input type="number" id="lat" name="lat" step="any" required>
+                </div>
+              </div>
             </div>
 
-            <div class="inputBx">
-                <input type="number" id="year" name="year" placeholder="Year" required>
+
+            <div class="dataBox">
+              <div class="inputBx">
+                <div class="formLabel">
+                  <label for="#">Longitude</label>
+                </div>
+
+                <div>
+                  <input type="number" id="lon" name="lon" step="any" required>
+                </div>
+              </div>
+
+              <div class="inputBx">
+                <div class="formLabel">
+                  <label for="#">Language</label>
+                </div>
+                <div>
+                  <input type="text" id="language" name="language" required>
+                </div>
+              </div>
             </div>
 
-            <div class="inputBx">
-                <input type="number" id="hour" name="hour" placeholder="Hour" required>
-            </div>
 
-            <div class="inputBx">
-                <input type="number" id="min" name="min" placeholder="Min" required>
-            </div>
 
-            <div class="inputBx">
-                <input type="number" id="lat" name="lat" step="any" placeholder="Latitude" required>
-            </div>
-            <div class="inputBx">
-                <input type="number" id="lon" name="lon" step="any" placeholder="Longitude" required>
-            </div>
 
-            <div class="inputBx">
-              <input type="text" id="language" name="language" placeholder="Language" required>
-            </div>
+            <div class="dataBox">
+              <div class="inputBx">
+                <div class="formLabel">
+                  <label for="#">Timezone</label>
+                </div>
+                <div>
+                  <input type="number" id="tzone" name="tzone" step="any" required>
+                </div>
+              </div>
 
-            <div class="inputBx">
-                <input type="number" id="tzone" name="tzone" step="any" placeholder="Timezone" required>
-            </div>
+              <div class="inputBx">
+                <div class="formLabel">
+                  <label for="#">Birth Place</label>
+                </div>
+                <div>
+                  <input type="text" id="place" name="place" required>
+                </div>
+              </div>
 
-            <div class="inputBx">
-              <input type="text" id="place" name="place" placeholder="Birth Place" required>
             </div>
 
             <div class="inputBx formBtn">
@@ -142,10 +187,19 @@
           </form>
 
         </div>
+
+
       </div>
 
     </div>
   </section>
+
+
+
+  <!-- old commit commited code  -->
+
+
+
 
 </body>
 
