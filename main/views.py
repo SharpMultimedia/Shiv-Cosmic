@@ -119,6 +119,7 @@ def index(request):
     days = list(range(1, 32))
     months = list(range(1, 13))
     years = list(range(1900, 2025))
+    years.reverse()
     hours = list(range(0, 24))
     minutes = list(range(0, 60))
 
