@@ -13,7 +13,7 @@
 
 
 .formContainer {
-    padding: 80px 120px;
+    padding: 20px 120px;
     background-image: url("/static/assets/images/Astology.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -144,7 +144,8 @@
     color: rgb(206 171 92 / 89%);
 }
 
-.inputBx input {
+.inputBx input,
+.inputBx select {
     width: 100%;
     outline: none;
     border: none;
@@ -154,6 +155,10 @@
     padding-left: 20px;
     font-size: 16px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.selectBx {
+    width: 32%;
 }
 
 .inputBx input[type="submit"] {
