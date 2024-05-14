@@ -2,6 +2,7 @@ import requests
 import base64
 import json
 from django.shortcuts import render
+from django.http import JsonResponse
 
 # Mail
 from django.core.mail import send_mail, BadHeaderError
@@ -21,11 +22,31 @@ def index(request):
         year = int(request.POST.get('year'))
         hour = int(request.POST.get('hour'))
         minute = int(request.POST.get('min'))
-        lat = float(request.POST.get('lat'))
-        lon = float(request.POST.get('lon'))
+        # lat = float(request.POST.get('lat'))
+        # lon = float(request.POST.get('lon'))
         language = request.POST.get('language')
-        tzone = float(request.POST.get('tzone'))
+        # tzone = float(request.POST.get('tzone'))
         place = request.POST.get('place')
+
+         # Get latitude, longitude, and timezone
+        lat = request.POST.get('lat')
+        lon = request.POST.get('lon')
+        tzone = request.POST.get('tzone')
+
+        # Validate and convert lat, lon, tzone to float
+        try:
+            lat = float(lat)
+            lon = float(lon)
+            tzone = float(tzone)
+        except ValueError as e:
+            print(f"Error converting to float: {e}")
+            messages.error(request, "Invalid location data.")
+            return render(request, 'index.html')
+
+        # print(lat)
+        # print(lon)
+        # print(tzone)
+        # return JsonResponse({"message": "Data received successfully"})
 
         # Your API credentials
         userId = '4545'
@@ -75,6 +96,7 @@ def index(request):
                 astrology_data = response.json()
                 pdf_url = astrology_data.get('pdf_url')
                 print(astrology_data)
+                print(data)
                 try:
                     e_message = f"Hello,\n Please check the attached link to open the PDF: {pdf_url} \n\nKind Regards\nTeam Sharp Multimedia"
                     send_mail(
@@ -94,5 +116,17 @@ def index(request):
         except Exception as e:
             print("Error:", e)
 
-    return render(request, 'index.html')
+    days = list(range(1, 32))
+    months = list(range(1, 13))
+    years = list(range(1900, 2025))
+    hours = list(range(0, 24))
+    minutes = list(range(0, 60))
+
+    return render(request, 'index.html',{
+        'days': days,
+        'months': months,
+        'years': years,
+        'hours': hours,
+        'minutes': minutes
+    })
 
