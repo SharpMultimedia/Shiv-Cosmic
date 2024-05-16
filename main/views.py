@@ -153,7 +153,7 @@ def process_payment(request):
                     "You Have Received PDF of your request",
                     e_message,
                     settings.EMAIL_HOST_USER,
-                    ["sns.it@yahoo.com"],
+                    ["sns.it@yahoo.com",email],
                     fail_silently=False
                 )
                 messages.success(request, "Message Was Sent Successfully")
