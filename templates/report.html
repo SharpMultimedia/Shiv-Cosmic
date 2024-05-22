@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Data Form Report</title>
-        <link rel="stylesheet" href="/static/css/style.css">
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Data Form Report</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
+</head>
+
 <body>
+
     <section class="reviewSec">
 
         <div class="reviewMain">
@@ -76,12 +81,12 @@
                         <div class="reviewD">
                             <h2>Review Birth Details</h2>
                             <div class="reviewSubD">
-                                <h5>{{ form_data.name }}</h5>
+                                <h5>Prasad</h5>
                                 <div class="reviewDate">
-                                    <h6>{{ form_data.day }}/{{ form_data.month }}/{{ form_data.year }}</h6>
-                                    <h6>{{ form_data.hour }}:{{ form_data.minute }}</h6>
+                                    <h6>4 April, 1999</h6>
+                                    <h6>03:03 AM</h6>
                                 </div>
-                                <h6><img src="/static/assets/icons/location.png" alt="">{{ form_data.place }}</h6>
+                                <h6><img src="/static/assets/icons/location.png" alt=""> Nanded, Maharashtra</h6>
                             </div>
                         </div>
                     </div>
@@ -118,14 +123,13 @@
                 <!-- Email and number details  -->
 
                 <div class="formDetails">
-                    <form action="" method="post" action="{% url 'payment' %}">
-                        {% csrf_token %}
+                    <form action="">
                         <div class="EmailDetails">
                             <div>
                                 <label for="">Enter Your Email</label>
                             </div>
                             <div>
-                                <input type="email" id="email" name="email" placeholder="Enter Your Email">
+                                <input type="email" placeholder="Enter Your Email">
                             </div>
                         </div>
                         <div class="EmailDetails">
@@ -133,11 +137,8 @@
                                 <label for="">Enter Your Mobile number</label>
                             </div>
                             <div>
-                                <input type="number" id="mobile" name="mobile" placeholder="Enter Your Mobile number">
+                                <input type="number" placeholder="Enter Your Mobile number">
                             </div>
-                        </div>
-                        <div class="inputBx formBtn">
-                            <input type="submit" value="Pay Now">
                         </div>
                     </form>
                 </div>
@@ -145,36 +146,7 @@
             </div>
         </div>
     </section>
-    <!-- <h1>Payment Page</h1>
-    <form method="post" action="{% url 'payment' %}">
-        {% csrf_token %}
-        
-        <div>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" value="{{ form_data.name }}" readonly>
-        </div>
 
-        <div>
-            <label for="birthdate">Birthdate:</label>
-            <input type="text" id="birthdate" name="birthdate" value="{{ form_data.day }}/{{ form_data.month }}/{{ form_data.year }}" readonly>
-        </div>
-
-        <div>
-            <label for="time">Time:</label>
-            <input type="text" id="time" name="time" value="{{ form_data.hour }}:{{ form_data.minute }}" readonly>
-        </div>
-
-        <div>
-            <label for="mobile">Mobile Number:</label>
-            <input type="text" id="mobile" name="mobile" required>
-        </div>
-
-        <div>
-            <label for="email">Email ID:</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-
-        <button type="submit">Pay Now</button>
-    </form> -->
 </body>
+
 </html>
