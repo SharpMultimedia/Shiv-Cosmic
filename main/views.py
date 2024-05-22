@@ -77,48 +77,6 @@ def index(request):
         'hours': hours,
         'minutes': minutes
     })
-
-
-# def payment(request):
-#     if request.method == 'POST':
-#         mobile = request.POST.get('mobile')
-
-#         MAINPAYLOAD = {
-#         "merchantId": "WOODSONLINE",
-#         "merchantTransactionId": shortuuid.uuid(),
-#         "merchantUserId": "MUID123",
-#         "amount": 10000,
-#         "redirectUrl": "http://127.0.0.1:8000/phonepay/return-to-me/",
-#         "redirectMode": "POST",
-#         "callbackUrl": "http://127.0.0.1:8000/phonepay/return-to-me/",
-#         "mobileNumber": "9999999999",
-#         "paymentInstrument": {
-#             "type": "PAY_PAGE"
-#         }
-#         }
-#         INDEX = "1"
-#         ENDPOINT = "/pg/v1/pay"
-#         SALTKEY = "bc723c15-6ff9-40b4-a959-d161ef663df2"
-        
-#         base64String = base64_encode(MAINPAYLOAD)
-#         mainString = base64String + ENDPOINT + SALTKEY
-#         sha256Val = calculate_sha256_string(mainString)
-#         checkSum = sha256Val + '###' + INDEX
-    
-#         headers = {
-#             'Content-Type': 'application/json',
-#             'X-VERIFY': checkSum,
-#             'accept': 'application/json',
-#         }
-#         json_data = {
-#             'request': base64String,
-#         }
-#         response = requests.post('https://api-preprod.phonepe.com/pg/v1/pay', headers=headers, json=json_data)
-#         responseData = response.json()
-#         print(responseData)
-#         return redirect(responseData['data']['instrumentResponse']['redirectInfo']['url'])
-#     else:    
-#         return render(request, 'payment.html')
         
 def calculate_sha256_string(input_string):
     sha256 = hashlib.sha256()
@@ -132,24 +90,33 @@ def base64_encode(input_dict):
 
 
 def payment(request):
+    form_data = request.session.get('form_data', {})
     if request.method == 'POST':
-        url = "https://api.phonepe.com/apis/hermes/pg/v1/pay"
-        MERCHANT_ID = "WOODSONLINE"
+        email = request.POST.get('email')
+        mobile = request.POST.get('mobile')
+        
+        # Construct the dynamic URLs
+        base_url = request.build_absolute_uri('/')
+        redirectUrl = base_url + 'payment_return/'
+        callbackUrl = base_url + 'payment_return/'
+
+        url = "https://api-preprod.phonepe.com/apis/pg-sandbox/pg/v1/pay"
+        MERCHANT_ID = "PGTESTPAYUAT77"
         MERCHANT_USER_ID = "MUID123"
-        REDIRECT_URL = "http://127.0.0.1:8000/payment_return/"
-        CALLBACK_URL = "http://127.0.0.1:8000/payment_return/"
-        API_KEY = "bc723c15-6ff9-40b4-a959-d161ef663df2"
+        REDIRECT_URL = redirectUrl
+        CALLBACK_URL = callbackUrl
+        API_KEY = "14fa5465-f8a7-443f-8477-f986b8fcfde9"
         ENDPOINT = "/pg/v1/pay"
         INDEX = '1'
         payload = {
             "merchantId": MERCHANT_ID,
             "merchantTransactionId": shortuuid.uuid(),
             "merchantUserId": MERCHANT_USER_ID,
-            "amount": 10 * 100,  # Amount in paise
+            "amount": 1 * 100,  # Amount in paise
             "redirectUrl": REDIRECT_URL,
             "redirectMode": "POST",
             "callbackUrl": CALLBACK_URL,
-            "mobileNumber": '8954857433',
+            "mobileNumber": mobile,
             "paymentInstrument": {
                 "type": "PAY_PAGE"
             }
@@ -175,6 +142,8 @@ def payment(request):
         response = requests.post(url, headers=headers, json=json_data)
         response_data = response.json()
         print(response_data)
+        request.session['mobile'] = mobile
+        request.session['email'] = email
         try:
             response_data = response.json()
         except json.JSONDecodeError:
@@ -185,7 +154,7 @@ def payment(request):
         else:
             return HttpResponse(f"Payment request failed: {response.text}", status=response.status_code)
     else:
-        return render(request, 'payment.html')
+        return render(request, 'payment.html', {'form_data': form_data})
 
 @csrf_exempt     
 def payment_return(request):
@@ -213,7 +182,7 @@ def payment_return(request):
         response_data = response.json()
         print(response_data)
          
-        return render(request, 'payment_successful.html')
+        return redirect('process_payment')
 
 def process_payment(request):
     # Here you would integrate with a payment gateway.
@@ -222,6 +191,8 @@ def process_payment(request):
     form_data = request.session.get('form_data')
     mobile = request.session.get('mobile')
     email = request.session.get('email')
+
+    print(email,mobile + "This is test")
 
     if not form_data:
         return redirect('index')

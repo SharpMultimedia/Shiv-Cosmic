@@ -10,7 +10,36 @@
     box-sizing: border-box;
 }
 
+h1,
+h2,
+h5,
+h6 {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+}
 
+h1 {
+    font-weight: 900;
+}
+
+h2 {
+    font-weight: 700;
+}
+
+h5,
+h6 {
+    font-weight: 500;
+}
+
+p,
+a,
+button,
+input,
+label {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+}
 
 .formContainer {
     padding: 20px 120px;
@@ -50,18 +79,12 @@
 }
 
 .contentBG h1 {
-    font-family: "Roboto", sans-serif;
-    font-weight: 900;
-    font-style: normal;
     font-size: 25px;
     margin: 25px 0;
     color: rgb(206, 171, 92);
 }
 
 .contentBG p {
-    font-family: "Roboto", sans-serif;
-    font-weight: 500;
-    font-style: normal;
     font-size: 16px;
     color: rgb(69, 57, 31);
     line-height: 28px;
@@ -105,17 +128,11 @@
 
     letter-spacing: 1px;
     margin: 25px 0;
-    font-family: "Roboto", sans-serif;
-    font-weight: 900;
-    font-style: normal;
     font-size: 25px;
 }
 
 .formHead p {
-    color: rgb(69, 57, 31);
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+    color: #45391f;
     font-size: 17px;
 }
 
@@ -137,9 +154,6 @@
 }
 
 .formLabel label {
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    font-style: normal;
     font-size: 17px;
     color: rgb(206 171 92 / 89%);
 }
@@ -225,3 +239,158 @@ input::placeholder {
 
 
 @media (max-width:868px) {} */
+
+
+
+/* review page */
+
+.reviewSec {
+    background-image: url("/static/assets/images/pattern.jpg");
+    height: 1120px;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.reviewMain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.reviewContainer {
+    background: #fff;
+    padding: 3rem;
+    width: 58%;
+    border-radius: 10px;
+}
+
+.reviewContainer h1 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.inputContainer {
+    border: 2px solid #ae633f;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.radioBtn {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.radioData {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.labels label,
+.radioBtn h2 {
+    font-size: 17px;
+    color: #4e4127;
+}
+
+.labels {
+    margin-left: 15px;
+}
+
+.radioData h6 {
+    color: rgb(234 88 12);
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.radioData input[type="radio"] {
+    border: 1px solid red;
+}
+
+.priceContainer h2 strike {
+    margin-right: 15px;
+    color: #6f6f6f !important;
+}
+
+.reviewDetails {
+    width: 100%;
+    margin: 30px 0;
+    display: flex;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+}
+
+.reviewCard {
+    width: 48%;
+}
+
+.reviewSubD {
+    background: #f5d0be;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.reviewD h2 {
+    font-size: 19px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.reviewS {
+    margin-top: 25px;
+}
+
+.reviewSubD h5 {
+    font-size: 18px;
+}
+
+.reviewDate {
+    display: flex;
+    margin: 15px 0;
+}
+
+.reviewDate h6 {
+    margin-right: 25px;
+}
+
+.reviewSubD h6 {
+    font-size: 17px;
+}
+
+.reviewSubD h6 img {
+    width: 18px;
+}
+
+.langSelect select {
+    width: 100%;
+    padding: 12px 5px;
+    border-radius: 10px;
+}
+
+.langSelect select option {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+}
+
+.formDetails input {
+    width: 100%;
+    padding: 12px 10px;
+    border-radius: 10px;
+    border: 2px solid #a3a3a3;
+    color: #454545;
+}
+
+.EmailDetails {
+    margin-bottom: 25px;
+}
+
+.EmailDetails input {
+    margin-top: 15px;
+}
