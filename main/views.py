@@ -1,6 +1,17 @@
 import requests
+import time
 import base64
 import json
+import jsons
+import hashlib
+import shortuuid
+import datetime
+from django.shortcuts import render, redirect
+from .models import Payment
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+
+
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from django.urls import reverse
@@ -67,19 +78,142 @@ def index(request):
         'minutes': minutes
     })
 
-def payment(request):
-    form_data = request.session.get('form_data', {})
-    if request.method == 'POST':
-        mobile = request.POST.get('mobile')
-        email = request.POST.get('email')
+
+# def payment(request):
+#     if request.method == 'POST':
+#         mobile = request.POST.get('mobile')
+
+#         MAINPAYLOAD = {
+#         "merchantId": "WOODSONLINE",
+#         "merchantTransactionId": shortuuid.uuid(),
+#         "merchantUserId": "MUID123",
+#         "amount": 10000,
+#         "redirectUrl": "http://127.0.0.1:8000/phonepay/return-to-me/",
+#         "redirectMode": "POST",
+#         "callbackUrl": "http://127.0.0.1:8000/phonepay/return-to-me/",
+#         "mobileNumber": "9999999999",
+#         "paymentInstrument": {
+#             "type": "PAY_PAGE"
+#         }
+#         }
+#         INDEX = "1"
+#         ENDPOINT = "/pg/v1/pay"
+#         SALTKEY = "bc723c15-6ff9-40b4-a959-d161ef663df2"
         
-        # Save mobile and email to session
-        request.session['mobile'] = mobile
-        request.session['email'] = email
+#         base64String = base64_encode(MAINPAYLOAD)
+#         mainString = base64String + ENDPOINT + SALTKEY
+#         sha256Val = calculate_sha256_string(mainString)
+#         checkSum = sha256Val + '###' + INDEX
+    
+#         headers = {
+#             'Content-Type': 'application/json',
+#             'X-VERIFY': checkSum,
+#             'accept': 'application/json',
+#         }
+#         json_data = {
+#             'request': base64String,
+#         }
+#         response = requests.post('https://api-preprod.phonepe.com/pg/v1/pay', headers=headers, json=json_data)
+#         responseData = response.json()
+#         print(responseData)
+#         return redirect(responseData['data']['instrumentResponse']['redirectInfo']['url'])
+#     else:    
+#         return render(request, 'payment.html')
+        
+def calculate_sha256_string(input_string):
+    sha256 = hashlib.sha256()
+    sha256.update(input_string.encode('utf-8'))
+    return sha256.hexdigest()
 
-        return redirect('process_payment')
+def base64_encode(input_dict):
+    json_data = json.dumps(input_dict)
+    data_bytes = json_data.encode('utf-8')
+    return base64.b64encode(data_bytes).decode('utf-8')
 
-    return render(request, 'payment.html', {'form_data': form_data})
+
+def payment(request):
+    if request.method == 'POST':
+        url = "https://api.phonepe.com/apis/hermes/pg/v1/pay"
+        MERCHANT_ID = "WOODSONLINE"
+        MERCHANT_USER_ID = "MUID123"
+        REDIRECT_URL = "http://127.0.0.1:8000/payment_return/"
+        CALLBACK_URL = "http://127.0.0.1:8000/payment_return/"
+        API_KEY = "bc723c15-6ff9-40b4-a959-d161ef663df2"
+        ENDPOINT = "/pg/v1/pay"
+        INDEX = '1'
+        payload = {
+            "merchantId": MERCHANT_ID,
+            "merchantTransactionId": shortuuid.uuid(),
+            "merchantUserId": MERCHANT_USER_ID,
+            "amount": 10 * 100,  # Amount in paise
+            "redirectUrl": REDIRECT_URL,
+            "redirectMode": "POST",
+            "callbackUrl": CALLBACK_URL,
+            "mobileNumber": '8954857433',
+            "paymentInstrument": {
+                "type": "PAY_PAGE"
+            }
+        }
+
+        # Base64 encode the payload
+        base64_string = base64_encode(payload)
+
+        # Calculate checksum using API key
+        sha256_val = calculate_sha256_string(base64_string + ENDPOINT + API_KEY)
+        check_sum = sha256_val + '###' + INDEX
+
+        headers = {
+            "accept": "application/json",
+            'X-VERIFY': check_sum,
+            "Content-Type": "application/json"
+        }
+
+        json_data = {
+            'request': base64_string,
+        }
+
+        response = requests.post(url, headers=headers, json=json_data)
+        response_data = response.json()
+        print(response_data)
+        try:
+            response_data = response.json()
+        except json.JSONDecodeError:
+            return HttpResponse(f"Failed to decode JSON response:\n{response.text}", status=response.status_code)
+
+        if 'data' in response_data and 'instrumentResponse' in response_data['data'] and 'redirectInfo' in response_data['data']['instrumentResponse']:
+            return redirect(response_data['data']['instrumentResponse']['redirectInfo']['url'])
+        else:
+            return HttpResponse(f"Payment request failed: {response.text}", status=response.status_code)
+    else:
+        return render(request, 'payment.html')
+
+@csrf_exempt     
+def payment_return(request):
+    print('payment-return')
+    INDEX = "1"
+    SALTKEY = "bc723c15-6ff9-40b4-a959-d161ef663df2"
+    merchantId = "WOODSONLINE"
+    form_data = request.POST
+    form_data_dict = dict(form_data)
+    transaction_id = form_data.get('transactionId', None)
+    print(transaction_id)
+    if transaction_id:
+        request_url = f'https://api.phonepe.com/apis/hermes/pg/v1/status/{merchantId}/{transaction_id}'
+        sha256_Pay_load_String = f'/pg/v1/status/{merchantId}/{transaction_id}{SALTKEY}'
+        sha256_val = calculate_sha256_string(sha256_Pay_load_String)
+        checksum = sha256_val + '###' + INDEX
+
+        headers = {
+            'Content-Type': 'application/json',
+            'X-VERIFY': checksum,
+            'X-MERCHANT-ID': transaction_id,
+            'accept': 'application/json',
+        }
+        response = requests.get(request_url, headers=headers)
+        response_data = response.json()
+        print(response_data)
+         
+        return render(request, 'payment_successful.html')
 
 def process_payment(request):
     # Here you would integrate with a payment gateway.
