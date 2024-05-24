@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Data Form Report</title>
-        <link rel="stylesheet" href="/static/css/style.css">
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Form Report</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
 <body>
     <section class="reviewSec">
 
         <div class="reviewMain">
-            <img src="/static/assets/icons/App icon.png" alt="">
+            <img src="/static/assets/icons/App icon.png" alt="" class="logoPNG">
 
             <div class="reviewContainer">
                 <h1>Limited-time Offer!</h1>
@@ -18,11 +20,13 @@
                 <!-- offer  -->
 
                 <div class="inputContainer">
-                    <div class="radioBtn">
 
-                        <div class="radioData">
+
+                    <div class="radioBtn">
+                        <div class="radioData checkbox">
                             <div>
-                                <input type="radio" id="s-option" name="selector">
+                                <input type="checkbox" id="s-option" name="selector">
+                                <div class="checkbox__checkmark"></div>
                             </div>
                             <div class="labels">
                                 <label for="s-option">Varshphal Report</label>
@@ -31,15 +35,16 @@
                         </div>
 
                         <div class="priceContainer">
-                            <h2><strike>₹495.00</strike> ₹384.00 </h2>
+                            <h5><strike>₹495.00</strike> ₹384.00 </h5>
                         </div>
-
                     </div>
 
                     <div class="radioBtn">
-                        <div class="radioData">
+                        <div class="radioData checkbox">
                             <div>
-                                <input type="radio" id="d-option" name="selector">
+                                <input type="checkbox" id="d-option" name="selector">
+                                <div class="checkbox__checkmark"></div>
+
                             </div>
                             <div class="labels">
                                 <label for="d-option">Your Premium Kundli</label>
@@ -48,14 +53,15 @@
                         </div>
 
                         <div class="priceContainer">
-                            <h2><strike>₹495.00</strike> ₹384.00 </h2>
+                            <h5><strike>₹495.00</strike> ₹384.00 </h5>
                         </div>
                     </div>
 
                     <div class="radioBtn">
-                        <div class="radioData">
+                        <div class="radioData checkbox">
                             <div>
-                                <input type="radio" id="e-option" name="selector">
+                                <input type="checkbox" id="e-option" name="selector">
+                                <div class="checkbox__checkmark"></div>
                             </div>
                             <div class="labels">
                                 <label for="e-option"> Best Combo Offer </label>
@@ -63,7 +69,7 @@
                             </div>
                         </div>
                         <div class="priceContainer">
-                            <h2><strike>₹495.00</strike> ₹384.00 </h2>
+                            <h5><strike>₹495.00</strike> ₹384.00 </h5>
                         </div>
                     </div>
 
@@ -81,7 +87,8 @@
                                     <h6>{{ form_data.day }}/{{ form_data.month }}/{{ form_data.year }}</h6>
                                     <h6>{{ form_data.hour }}:{{ form_data.minute }}</h6>
                                 </div>
-                                <h6><img src="/static/assets/icons/location.png" alt="">{{ form_data.place }}</h6>
+                                <h6><img src="/static/assets/icons/location-pin-svgrepo-com.svg" alt="">{{
+                                    form_data.place }}</h6>
                             </div>
                         </div>
                     </div>
@@ -177,4 +184,5 @@
         <button type="submit">Pay Now</button>
     </form> -->
 </body>
+
 </html>
