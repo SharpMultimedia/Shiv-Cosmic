@@ -42,7 +42,7 @@ label {
 }
 
 .formContainer {
-    padding: 20px 120px;
+    padding: 80px 120px;
     background-image: url("/static/assets/images/Astology.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -125,15 +125,14 @@ label {
 
 .formHead h2 {
     color: rgb(206, 171, 92);
-
     letter-spacing: 1px;
-    margin: 25px 0;
+    margin-bottom: 15px;
     font-size: 25px;
 }
 
 .formHead p {
     color: #45391f;
-    font-size: 17px;
+    font-size: 16px;
 }
 
 .dataBox {
@@ -146,7 +145,6 @@ label {
 .inputBx {
     position: relative;
     width: 49%;
-    margin-bottom: 20px;
 }
 
 .formLabel {
@@ -210,43 +208,15 @@ input::placeholder {
     width: 100%;
     align-items: center;
     justify-content: center;
+    margin-top: 20px;
 }
-
-/* @media (min-width:320px) and (max-width: 374px) {
-    .container {
-        width: 240px;
-        padding: 30px;
-    }
-
-    .formContainer {
-        padding: 30px;
-    }
-}
-
-@media (min-width:375px) and (max-width: 424px) {
-    .container {
-        width: 280px;
-        padding: 30px;
-    }
-}
-
-@media (min-width:425px) and (max-width: 767px) {
-    .container {
-        width: 325px;
-        padding: 30px;
-    }
-}
-
-
-@media (max-width:868px) {} */
-
 
 
 /* review page */
 
 .reviewSec {
     background-image: url("/static/assets/images/pattern.jpg");
-    height: 1120px;
+    padding: 40px 0;
     width: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -258,6 +228,11 @@ input::placeholder {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
+}
+
+.logoPNG {
+    margin-bottom: 25px;
 }
 
 .reviewContainer {
@@ -270,12 +245,12 @@ input::placeholder {
 .reviewContainer h1 {
     text-align: center;
     margin-bottom: 25px;
+    color: rgb(206, 171, 92);
 }
 
 .inputContainer {
-    border: 2px solid #ae633f;
+    border: 2px solid #AE633F;
     padding: 2rem;
-    border-radius: 10px;
 }
 
 .radioBtn {
@@ -289,6 +264,79 @@ input::placeholder {
     align-items: center;
     justify-content: center;
 }
+
+/* checkbox input  */
+
+
+.checkbox {
+    display: inline-block;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkbox input:checked~.checkbox__checkmark {
+    background-color: #ceab5c;
+}
+
+.checkbox input:checked~.checkbox__checkmark:after {
+    opacity: 1;
+}
+
+.checkbox:hover input~.checkbox__checkmark {
+    background-color: #eee;
+}
+
+.checkbox:hover input:checked~.checkbox__checkmark {
+    background-color: #ceab5c;
+}
+
+.checkbox .checkbox__checkmark {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    transition: background-color 0.25s ease;
+    border-radius: 4px;
+}
+
+.checkbox .checkbox__checkmark:after {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 4px;
+    width: 5px;
+    height: 10px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.checkbox .checkbox__body {
+    color: #333;
+    line-height: 1.4;
+    font-size: 16px;
+}
+
+
+/* -----  */
+
 
 .labels label,
 .radioBtn h2 {
@@ -310,7 +358,12 @@ input::placeholder {
     border: 1px solid red;
 }
 
-.priceContainer h2 strike {
+.priceContainer h5 {
+    font-size: 17px;
+
+}
+
+.priceContainer h5 strike {
     margin-right: 15px;
     color: #6f6f6f !important;
 }
@@ -331,9 +384,9 @@ input::placeholder {
 }
 
 .reviewSubD {
-    background: #f5d0be;
+    background: #AE633F;
     padding: 25px;
-    border-radius: 10px;
+    color: white;
 }
 
 .reviewD h2 {
@@ -341,6 +394,7 @@ input::placeholder {
     border-bottom: 1px solid #ddd;
     padding-bottom: 20px;
     margin-bottom: 20px;
+    color: #ceab5c;
 }
 
 .reviewS {
@@ -362,16 +416,23 @@ input::placeholder {
 
 .reviewSubD h6 {
     font-size: 17px;
+    display: flex;
 }
 
 .reviewSubD h6 img {
     width: 18px;
+    margin-right: 6px;
 }
 
 .langSelect select {
     width: 100%;
     padding: 12px 5px;
-    border-radius: 10px;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+
+    border: 2px solid #a3a3a3;
+    color: #454545;
 }
 
 .langSelect select option {
@@ -382,7 +443,7 @@ input::placeholder {
 .formDetails input {
     width: 100%;
     padding: 12px 10px;
-    border-radius: 10px;
+
     border: 2px solid #a3a3a3;
     color: #454545;
 }
@@ -391,6 +452,249 @@ input::placeholder {
     margin-bottom: 25px;
 }
 
+.EmailDetails label {
+    color: rgb(206, 171, 92);
+
+}
+
 .EmailDetails input {
     margin-top: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ------- Responsive work --------  */
+
+@media (max-width:868px) {
+    .reviewSec {
+        padding: 25px 0;
+    }
+
+    .rowMain {
+        display: block;
+    }
+
+    .formContainer {
+        padding: 15px;
+    }
+
+    .colLeft {
+        width: 100%;
+    }
+
+    .contentBG {
+        padding: 20px;
+        border-radius: 15px 15px 0 0;
+    }
+
+    .contentBG h1 {
+        font-size: 22px;
+    }
+
+    .contentBG p {
+        font-size: 15px;
+    }
+
+    .colRight {
+        width: 100%;
+    }
+
+    .form {
+        padding: 15px;
+        border-radius: 0 0 15px 15px;
+    }
+
+    .formHead h2 {
+        font-size: 22px;
+        margin: 0 0 15px 0;
+    }
+
+    .formHead p {
+        font-size: 16px;
+    }
+
+    .dataBox {
+        display: block;
+    }
+
+    .inputBx {
+        width: 100%;
+    }
+
+    .formLabel label {
+        font-size: 16px;
+    }
+
+    .inputBx input,
+    .inputBx select {
+        padding-left: 10px;
+        font-size: 15px;
+    }
+
+    .inputBx input[type="submit"] {
+        max-width: 150px;
+        font-size: 15px;
+    }
+
+
+    /* payment page  */
+
+
+    .reviewMain {
+        padding: 0 15px;
+    }
+
+    .logoPNG {
+        margin-bottom: 20px;
+    }
+
+    .reviewContainer {
+        padding: 1rem;
+        width: 100%;
+    }
+
+    .inputContainer {
+        padding: 0.8rem;
+    }
+
+    .checkbox {
+        padding-left: 20px;
+    }
+
+    .labels label,
+    .radioBtn h2 {
+        font-size: 16px;
+    }
+
+    .radioData h6 {
+        font-size: 14px;
+    }
+
+    .priceContainer h5 {
+        font-size: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: end;
+    }
+
+    .priceContainer h5 strike {
+        margin: 0;
+        margin-bottom: 5px;
+    }
+
+    .reviewDetails {
+        display: block;
+    }
+
+    .reviewCard {
+        width: 100%;
+    }
+
+    .reviewSubD {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    .reviewSubD h5 {
+        font-size: 17px;
+    }
+
+    .reviewSubD h6 {
+        font-size: 16px;
+    }
+
+    .reviewD h2 {
+        font-size: 18px;
+    }
+
+    .langSelect select {
+        font-size: 14px;
+    }
+
+    .reviewDetails {
+        padding-bottom: 25px;
+        margin-bottom: 25px;
+    }
+
+    .EmailDetails input {
+        font-size: 15px;
+    }
+}
+
+@media (min-width:320px) and (max-width: 374px) {
+
+    .container {
+        width: 240px;
+        padding: 30px;
+    }
+}
+
+@media (min-width:375px) and (max-width: 424px) {
+    .container {
+        width: 280px;
+        padding: 30px;
+    }
+}
+
+@media (min-width:425px) and (max-width: 767px) {
+    .container {
+        width: 325px;
+        padding: 30px;
+    }
+}
+
+
+@media (min-width:869px) and (max-width: 1100px) {
+
+    .formContainer {
+        padding: 100px 40px;
+    }
+
+    .contentBG {
+        padding: 25px;
+    }
+
+    .form {
+        padding: 25px;
+    }
+
+    .inputBx input,
+    .inputBx select {
+        padding-left: 10px;
+    }
+
+    .reviewContainer {
+        background: #fff;
+        padding: 3rem;
+        width: 80%;
+        border-radius: 10px;
+    }
+
+    /* payment page  */
+
+    .reviewContainer {
+        width: 80%;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1400px) {
+    .formContainer {
+        padding: 115px 40px;
+    }
+}
+
+
+@media (min-width: 1600px) {
+    .formContainer {
+        padding: 120px 60px;
+    }
 }
