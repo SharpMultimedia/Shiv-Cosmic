@@ -2,7 +2,6 @@ import requests
 import time
 import base64
 import json
-
 import hashlib
 import shortuuid
 import datetime
@@ -10,7 +9,7 @@ from django.shortcuts import render, redirect
 from .models import Payment
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
-
+from django.core.mail import EmailMessage
 
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
@@ -246,21 +245,29 @@ def process_payment(request):
             pdf_url = astrology_data.get('pdf_url')
             print(astrology_data)
             print(data)
+
+            # Download the PDF file
+            pdf_response = requests.get(pdf_url)
+            pdf_content = pdf_response.content
+
             try:
-                e_message = (f"Hello,\n Please check the attached link to open the PDF: {pdf_url} \n\n"
-                             f"Name: {form_data['name']}\n"
-                             f"Birthdate: {form_data['day']}/{form_data['month']}/{form_data['year']}\n"
-                             f"Time: {form_data['hour']}:{form_data['minute']}\n"
-                             f"Mobile: {mobile}\n"
-                             f"Email: {email}\n\n"
-                             "Kind Regards\nTeam Sharp Multimedia")
-                send_mail(
+                email_message = EmailMessage(
                     "You Have Received PDF of your request",
-                    e_message,
+                    "Please find the attached PDF document.\n\n"
+                    f"Name: {form_data['name']}\n"
+                    f"Birthdate: {form_data['day']}/{form_data['month']}/{form_data['year']}\n"
+                    f"Time: {form_data['hour']}:{form_data['minute']}\n"
+                    f"Mobile: {mobile}\n"
+                    f"Email: {email}\n\n"
+                    "Kind Regards\nTeam Sharp Multimedia",
                     settings.EMAIL_HOST_USER,
-                    ["sns.it@yahoo.com",email],
-                    fail_silently=False
+                    ["sns.it@yahoo.com", email],
                 )
+
+                # Attach the PDF file
+                email_message.attach('astrology_report.pdf', pdf_content, 'application/pdf')
+                email_message.send()
+
                 messages.success(request, "Message Was Sent Successfully")
             except BadHeaderError as e:
                 # Log or print the exception for debugging

@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Astrology Data Form</title>
 
-  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAw4lWm5g4yYzLaV1wB8pygAzx5Gq-MDo0&libraries=places"></script>
 
   <script>
@@ -53,8 +53,27 @@
 
     document.addEventListener("DOMContentLoaded", function() {
         initAutocomplete();
+
+        // Prevent form submission with Enter key
+        document.querySelector('form').addEventListener('keydown', function(event) {
+            if (event.key === 'Enter' && event.target.id === 'place') {
+                event.preventDefault();
+            }
+        });
+
+        // Ensure form submission after place selection
+        document.querySelector('form').addEventListener('submit', function(event) {
+            const placeInput = document.getElementById('place');
+            const lat = document.getElementById('lat').value;
+            const lon = document.getElementById('lon').value;
+
+            if (!placeInput.value || !lat || !lon) {
+                event.preventDefault();
+                alert("Please select a valid place.");
+            }
+        });
     });
-</script>
+  </script>
 
 </head>
 
@@ -66,7 +85,7 @@
 
       <div class="colLeft">
         <div class="contentBG">
-          <img src="/static/assets/icons/App icon.png" alt="logo" loading="lazy">
+          <img src="{% static 'assets/icons/App icon.png' %}" alt="logo" loading="lazy">
           <h1>Shiv Cosmic Energy Solutions</h1>
           <p>Shiv Cosmic Energy Solutions is a company that is devoted to helping people achieve a harmonious and
             fulfilled life by providing personalized solutions based on the ancient wisdom of astrology and Vastu
@@ -74,10 +93,9 @@
             patterns and potential. By aligning with these cosmic energies, one can unlock paths to success, health, and
             happiness.</p>
 
-            <p class="contentpara">At Shiv Cosmic Energy Solutions, they offer comprehensive consultations where they analyze your birth chart and align it with Vastu principles to provide tailored solutions for various aspects of your life, including health, wealth, and relationships.</p>
+          <p class="contentpara">At Shiv Cosmic Energy Solutions, they offer comprehensive consultations where they analyze your birth chart and align it with Vastu principles to provide tailored solutions for various aspects of your life, including health, wealth, and relationships.</p>
         </div>
       </div>
-
 
       <div class="colRight">
 
@@ -92,12 +110,11 @@
           <form method="post">
             {% csrf_token %}
 
-
             <div class="dataBox">
 
               <div class="inputBx">
                 <div class="formLabel">
-                  <label for="#">Name</label>
+                  <label for="name">Name</label>
                 </div>
                 <div>
                   <input type="text" id="name" placeholder="Your Name" name="name" autocomplete="off" required>
@@ -106,31 +123,30 @@
 
               <div class="inputBx">
                 <div class="formLabel">
-                  <label for="#">Gender</label>
+                  <label for="gender">Gender</label>
                 </div>
                 <div>
                   <select id="gender" name="gender" required>
-                        <option value="" disabled selected> Gender </option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="other">Other</option>
+                    <option value="" disabled selected>Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
                   </select>
                 </div>
               </div>
 
             </div>
 
-
             <div class="dataBox">
               <div class="inputBx selectBx">
                 <div class="formLabel">
-                  <label for="#">Day</label>
+                  <label for="day">Day</label>
                 </div>
                 <div>
                   <select id="day" name="day" required>
-                    <option value="" disabled selected> DD </option>
+                    <option value="" disabled selected>DD</option>
                     {% for day in days %}
-                        <option value="{{ day }}">{{ day }}</option>
+                      <option value="{{ day }}">{{ day }}</option>
                     {% endfor %}
                   </select>
                 </div>
@@ -138,94 +154,69 @@
 
               <div class="inputBx selectBx">
                 <div class="formLabel">
-                  <label for="#">Month</label>
+                  <label for="month">Month</label>
                 </div>
                 <div>
                   <select id="month" name="month" required>
-                    <option value="" disabled selected> MM </option>
+                    <option value="" disabled selected>MM</option>
                     {% for month in months %}
-                        <option value="{{ month }}">{{ month }}</option>
+                      <option value="{{ month }}">{{ month }}</option>
                     {% endfor %}
                   </select>
                 </div>
               </div>
               <div class="inputBx selectBx">
-                <div class="formLabel" class="formLabel">
-                  <label for="#">Year</label>
+                <div class="formLabel">
+                  <label for="year">Year</label>
                 </div>
                 <div>
                   <select id="year" name="year" required>
-                    <option value="" disabled selected> YYYY </option>
+                    <option value="" disabled selected>YYYY</option>
                     {% for year in years %}
-                        <option value="{{ year }}">{{ year }}</option>
+                      <option value="{{ year }}">{{ year }}</option>
                     {% endfor %}
                   </select>
                 </div>
               </div>
             </div>
 
-
             <div class="dataBox">
               <div class="inputBx">
-                <div class="formLabel" class="formLabel">
-                  <label for="#">Hour</label>
+                <div class="formLabel">
+                  <label for="hour">Hour</label>
                 </div>
                 <div>
                   <select id="hour" name="hour" required>
-                    <option value="" disabled selected> HH </option>
+                    <option value="" disabled selected>HH</option>
                     {% for hour in hours %}
-                        <option value="{{ hour }}">{{ hour }}</option>
+                      <option value="{{ hour }}">{{ hour }}</option>
                     {% endfor %}
                   </select>
                 </div>
               </div>
               <div class="inputBx">
                 <div class="formLabel">
-                  <label for="#">Minutes</label>
+                  <label for="min">Minutes</label>
                 </div>
-
                 <div>
                   <select id="min" name="min" required>
-                    <option value="" disabled selected> MM </option>
+                    <option value="" disabled selected>MM</option>
                     {% for minute in minutes %}
-                        <option value="{{ minute }}">{{ minute }}</option>
+                      <option value="{{ minute }}">{{ minute }}</option>
                     {% endfor %}
                   </select>
                 </div>
               </div>
             </div>
 
-
-            <!-- <div class="dataBox">
-              <div class="inputBx">
-                <div class="formLabel">
-                  <label for="#">Longitude</label>
-                </div>
-
-                <div>
-                  <input type="number" id="lon" name="lon" step="any" required>
-                </div>
-              </div>              
-
-              <div class="inputBx">
-                <div class="formLabel">
-                  <label for="#">Latitude</label>
-                </div>
-                <div>
-                  <input type="number" id="lat" name="lat" step="any" required>
-                </div>
-              </div>
-            </div> -->
-
-
             <div class="dataBox">
               <div class="inputBx">
                 <div class="formLabel">
-                  <label for="#">Language</label>
+                  <label for="language">Language</label>
                 </div>
                 <div>
                   <select id="language" name="language" required>
-                    <option value="" disabled selected> Language </option>
+                    <option value="" disabled selected>Language</option>
                     <option value="english">English</option>
                     <option value="hindi">हिंदी</option>
                   </select>
@@ -234,31 +225,16 @@
 
               <div class="inputBx">
                 <div class="formLabel">
-                  <label for="#">Birth Place</label>
+                  <label for="place">Birth Place</label>
                 </div>
                 <div>
                   <input type="text" id="place" name="place" required>
-                  <input type="hidden" id="tzone" name="tzone" step="any" required>
+                  <input type="hidden" id="tzone" name="tzone" required>
                   <input type="hidden" id="lat" name="lat">
                   <input type="hidden" id="lon" name="lon">
-
                 </div>
               </div>
             </div>
-
-
-
-
-            <!-- <div class="dataBox">
-              <div class="inputBx">
-                <div class="formLabel">
-                  <label for="#">Timezone</label>
-                </div>
-                <div>
-                  <input type="number" id="tzone" name="tzone" step="any" required>
-                </div>
-              </div>
-            </div> -->
 
             <div class="inputBx formBtn">
               <input type="submit" value="Submit">
@@ -267,7 +243,6 @@
           </form>
 
         </div>
-
 
       </div>
 
