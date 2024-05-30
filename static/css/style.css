@@ -169,6 +169,11 @@ label {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
+.inputBx input:focus, select:focus {
+    border: 1px solid #000; /* Change this color to whatever you like */
+    outline: none; /* Remove the default outline */
+}
+
 .selectBx {
     width: 32%;
 }
