@@ -470,12 +470,64 @@ input::placeholder {
 
 
 
+/* result page  */
 
+.resultSec {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
 
+    background: #f1f1f1;
+}
 
+.resultContent {
+    border: 1px solid #d4d4d4;
+    max-width: 900px;
+    padding: 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.resultContent img {
+    width: 85px;
+}
 
+.resultContent h2 {
+    font-size: 22px;
+    margin: 20px 0;
+}
 
+.resultContent p {
+    font-size: 16px;
+    line-height: 25px;
+    text-align: center;
+}
+
+.resultContent button img {
+    max-width: 32px;
+    padding-right: 8px;
+}
+
+.resultContent button {
+    display: flex;
+    align-items: center;
+    padding: 12px 50px;
+    border: none;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: .7s;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 15px;
+    margin-top: 20px;
+    background: #ae633f;
+    color: white;
+}
 
 /* ------- Responsive work --------  */
 
@@ -644,6 +696,33 @@ input::placeholder {
 
     .EmailDetails input {
         font-size: 15px;
+    }
+
+    /* result page  */
+
+    .resultSec {
+        padding: 0 15px;
+    }
+
+    .resultContent {
+        padding: 20px;
+    }
+
+    .resLogo img {
+        max-width: 145px;
+    }
+
+    .resultContent img {
+        width: 75px;
+    }
+
+    .resultContent h2 {
+        font-size: 20px;
+    }
+
+    .resultContent p {
+        font-size: 15px;
+
     }
 }
 
