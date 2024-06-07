@@ -209,8 +209,8 @@ def process_payment(request):
         return redirect('index')
 
     # Your API credentials
-    userId = '4545'
-    apiKey = 'ByVOIaODH57QRVi6CqswHXGlcpDvj7tZBRoorY'
+    userId = '616659'
+    apiKey = '73d704711428670b973f180f43b26f92'
 
     # API endpoint
     api = 'basic_horoscope_pdf'
