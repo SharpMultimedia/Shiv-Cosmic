@@ -167,13 +167,22 @@ label {
     font-size: 16px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     transition: all 0.5s ease-in-out;
+}
 
+.inputBx select {
+    background: white;
 }
 
 .inputBx input:focus,
 select:focus {
     background: #f1f1f1;
+    outline: none;
 }
+
+/* .inputBx input.filled,
+.inputBx select.filled {
+    background-color: #F1E7D0;
+} */
 
 .selectBx {
     width: 32%;
