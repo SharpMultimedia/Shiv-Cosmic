@@ -10,13 +10,12 @@ from .models import Payment
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import EmailMessage
-
-from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from django.urls import reverse
 from django.core.mail import send_mail, BadHeaderError
 from django.conf import settings    
 from django.contrib import messages
+from requests.exceptions import RequestException
 
 def index(request):
     if request.method == 'POST':
@@ -138,11 +137,18 @@ def payment(request):
             'request': base64_string,
         }
 
-        response = requests.post(url, headers=headers, json=json_data)
-        response_data = response.json()
-        print(response_data)
-        request.session['mobile'] = mobile
-        request.session['email'] = email
+        try:
+            response = requests.post(url, headers=headers, json=json_data, timeout=10)
+            response.raise_for_status()  # Raise an HTTPError for bad responses
+            response_data = response.json()
+            print(response_data)
+            request.session['mobile'] = mobile
+            request.session['email'] = email
+        except requests.exceptions.RequestException as e:
+            print(f"Request failed: {e}")
+            messages.error(request, "There was an error processing your payment. Please try again.")
+            return render(request, 'payment.html', {'form_data': form_data})
+
         try:
             response_data = response.json()
         except json.JSONDecodeError:
@@ -177,9 +183,15 @@ def payment_return(request):
             'X-MERCHANT-ID': transaction_id,
             'accept': 'application/json',
         }
-        response = requests.get(request_url, headers=headers)
-        response_data = response.json()
-        print(response_data)
+        try:
+            response = requests.get(request_url, headers=headers, timeout=10)
+            # response.raise_for_status()  # Raise an HTTPError for bad responses
+            response_data = response.json()
+            print(response_data)
+        except requests.exceptions.RequestException as e:
+            print(f"Request failed: {e}")
+            messages.error(request, "There was an error retrieving the payment status. Please try again.")
+            return render(request, 'payment_return.html', {'form_data': form_data})
          
         return redirect('process_payment')
 
@@ -212,13 +224,13 @@ def process_payment(request):
         'month': form_data['month'],
         'year': form_data['year'],
         'hour': form_data['hour'],
-        'min': form_data['minute'],
-        'lat': form_data['lat'],
-        'lon': form_data['lon'],
+        'minute': form_data['minute'],
+        'latitude': form_data['lat'],
+        'longitude': form_data['lon'],
         'language': form_data['language'],
-        'tzone': form_data['tzone'],
+        'timezone': form_data['tzone'],
         'place': form_data['place'],
-        'chart_style': 'EAST_INDIAN',
+        'chart_style': 'NORTH_INDIAN',
         'footer_link': 'shivcosmic.com',
         'logo_url': 'https://static.wixstatic.com/media/84af2a_7e90f12303024e74a4e8a10f9edb1802~mv2.png/v1/crop/x_0,y_2,w_512,h_508/fill/w_161,h_160,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/App%20icon_2_512X512_edited.png',
         'company_name': 'Shiv Cosmic',
@@ -238,7 +250,8 @@ def process_payment(request):
     }
 
     try:
-        response = requests.post(url, data=json.dumps(data), headers=headers)
+        response = requests.post(url, data=json.dumps(data), headers=headers, timeout=10)
+        response.raise_for_status()  # Raise an HTTPError for bad responses
         if response.status_code == 200:
             # Process the response data here
             astrology_data = response.json()
@@ -247,21 +260,23 @@ def process_payment(request):
             print(data)
 
             # Download the PDF file
-            pdf_response = requests.get(pdf_url)
+            pdf_response = requests.get(pdf_url, timeout=10)
+            pdf_response.raise_for_status()
             pdf_content = pdf_response.content
 
             try:
                 email_message = EmailMessage(
-                    "You Have Received PDF of your request",
+                    f"Kundali Report for {form_data['name']}",
                     "Please find the attached PDF document.\n\n"
                     f"Name: {form_data['name']}\n"
                     f"Birthdate: {form_data['day']}/{form_data['month']}/{form_data['year']}\n"
                     f"Time: {form_data['hour']}:{form_data['minute']}\n"
                     f"Mobile: {mobile}\n"
                     f"Email: {email}\n\n"
-                    "Kind Regards\nTeam Sharp Multimedia",
+                    "Kind Regards\nTeam Shiv Cosmic",
                     settings.EMAIL_HOST_USER,
-                    ["sns.it@yahoo.com", email],
+                    [email],
+                    cc=["info.shivcosmic@gmail.com"]
                 )
 
                 # Attach the PDF file
@@ -275,7 +290,7 @@ def process_payment(request):
             return render(request, 'result.html', {'astrology_data': astrology_data})
         else:
             print("Error:", response.status_code)
-    except Exception as e:
-        print("Error:", e)
+    except requests.exceptions.RequestException as e:
+        print(f"Request failed: {e}")
 
     return render(request, 'result.html')
