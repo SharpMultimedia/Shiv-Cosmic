@@ -99,18 +99,18 @@ def payment(request):
         callbackUrl = base_url + 'payment_return/'
 
         url = "https://api.phonepe.com/apis/hermes/pg/v1/pay"
-        MERCHANT_ID = "M22REVYZNMPVY"
-        MERCHANT_USER_ID = "MUID123"
+        MERCHANT_ID = "WOODSONLINE"
+        MERCHANT_USER_ID = "MUID1"
         REDIRECT_URL = redirectUrl
         CALLBACK_URL = callbackUrl
-        API_KEY = "f35e2d5a-2d92-4cea-8404-7ef608af3522"
+        API_KEY = "bc723c15-6ff9-40b4-a959-d161ef663df2"
         ENDPOINT = "/pg/v1/pay"
         INDEX = '1'
         payload = {
             "merchantId": MERCHANT_ID,
             "merchantTransactionId": shortuuid.uuid(),
             "merchantUserId": MERCHANT_USER_ID,
-            "amount": 499 * 100,  # Amount in paise
+            "amount": 1 * 100,  # Amount in paise
             "redirectUrl": REDIRECT_URL,
             "redirectMode": "POST",
             "callbackUrl": CALLBACK_URL,
