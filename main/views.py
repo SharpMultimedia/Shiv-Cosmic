@@ -203,94 +203,101 @@ def process_payment(request):
     mobile = request.session.get('mobile')
     email = request.session.get('email')
 
-    print(email,mobile + "This is test")
-
     if not form_data:
         return redirect('index')
 
-    # Your API credentials
-    userId = '616659'
-    apiKey = '73d704711428670b973f180f43b26f92'
+    # Check if the API response is already in the session
+    astrology_data = request.session.get('astrology_data')
+    pdf_content = request.session.get('pdf_content')
 
-    # API endpoint
-    api = 'basic_horoscope_pdf'
-    url = "https://pdf.astrologyapi.com/v1/" + api
+    if not astrology_data or not pdf_content:
+        # Your API credentials
+        userId = '616659'
+        apiKey = '73d704711428670b973f180f43b26f92'
 
-    # Data to be sent in the request
-    data = {
-        'name': form_data['name'],
-        'gender': form_data['gender'],
-        'day': form_data['day'],
-        'month': form_data['month'],
-        'year': form_data['year'],
-        'hour': form_data['hour'],
-        'minute': form_data['minute'],
-        'latitude': form_data['lat'],
-        'longitude': form_data['lon'],
-        'language': form_data['language'],
-        'timezone': form_data['tzone'],
-        'place': form_data['place'],
-        'chart_style': 'NORTH_INDIAN',
-        'footer_link': 'shivcosmic.com',
-        'logo_url': 'https://static.wixstatic.com/media/84af2a_7e90f12303024e74a4e8a10f9edb1802~mv2.png/v1/crop/x_0,y_2,w_512,h_508/fill/w_161,h_160,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/App%20icon_2_512X512_edited.png',
-        'company_name': 'Shiv Cosmic',
-        'company_info': '(Unit of Natural Healing and Meditation Center) \n an ISO 9000:2015 Certified Organization',
-        'domain_url': 'https://www.shivcosmic.com',
-        'company_email': 'info.nhmcpune@gmail.com',
-        'company_landline': '+91 9175932752',
-        'company_mobile': '+91 9175932752',
-    }
+        # API endpoint
+        api = 'basic_horoscope_pdf'
+        url = "https://pdf.astrologyapi.com/v1/" + api
 
-    # Authorization header
-    auth = "Basic " + base64.b64encode((userId + ":" + apiKey).encode()).decode()
+        # Data to be sent in the request
+        data = {
+            'name': form_data['name'],
+            'gender': form_data['gender'],
+            'day': form_data['day'],
+            'month': form_data['month'],
+            'year': form_data['year'],
+            'hour': form_data['hour'],
+            'minute': form_data['minute'],
+            'latitude': form_data['lat'],
+            'longitude': form_data['lon'],
+            'language': form_data['language'],
+            'timezone': form_data['tzone'],
+            'place': form_data['place'],
+            'chart_style': 'NORTH_INDIAN',
+            'footer_link': 'shivcosmic.com',
+            'logo_url': 'https://static.wixstatic.com/media/84af2a_7e90f12303024e74a4e8a10f9edb1802~mv2.png/v1/crop/x_0,y_2,w_512,h_508/fill/w_161,h_160,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/App%20icon_2_512X512_edited.png',
+            'company_name': 'Shiv Cosmic',
+            'company_info': '(Unit of Natural Healing and Meditation Center) \n an ISO 9000:2015 Certified Organization',
+            'domain_url': 'https://www.shivcosmic.com',
+            'company_email': 'info.nhmcpune@gmail.com',
+            'company_landline': '+91 9175932752',
+            'company_mobile': '+91 9175932752',
+        }
 
-    headers = {
-        "Authorization": auth,
-        "Content-Type": "application/json"
-    }
+        # Authorization header
+        auth = "Basic " + base64.b64encode((userId + ":" + apiKey).encode()).decode()
 
+        headers = {
+            "Authorization": auth,
+            "Content-Type": "application/json"
+        }
+
+        try:
+            response = requests.post(url, data=json.dumps(data), headers=headers, timeout=10)
+            response.raise_for_status()  # Raise an HTTPError for bad responses
+            if response.status_code == 200:
+                # Process the response data here
+                astrology_data = response.json()
+                pdf_url = astrology_data.get('pdf_url')
+
+                # Download the PDF file
+                pdf_response = requests.get(pdf_url, timeout=10)
+                pdf_response.raise_for_status()
+                pdf_content = pdf_response.content
+
+                # Save the astrology data and PDF content to the session
+                request.session['astrology_data'] = astrology_data
+                request.session['pdf_content'] = pdf_content
+
+            else:
+                print("Error:", response.status_code)
+        except requests.exceptions.RequestException as e:
+            print(f"Request failed: {e}")
+            return render(request, 'result.html')
+
+    # Send the email with the PDF attachment
     try:
-        response = requests.post(url, data=json.dumps(data), headers=headers, timeout=10)
-        response.raise_for_status()  # Raise an HTTPError for bad responses
-        if response.status_code == 200:
-            # Process the response data here
-            astrology_data = response.json()
-            pdf_url = astrology_data.get('pdf_url')
-            print(astrology_data)
-            print(data)
+        email_message = EmailMessage(
+            f"Kundali Report for {form_data['name']}",
+            "Please find the attached PDF document.\n\n"
+            f"Name: {form_data['name']}\n"
+            f"Birthdate: {form_data['day']}/{form_data['month']}/{form_data['year']}\n"
+            f"Time: {form_data['hour']}:{form_data['minute']}\n"
+            f"Mobile: {mobile}\n"
+            f"Email: {email}\n\n"
+            "Kind Regards\nTeam Shiv Cosmic",
+            settings.EMAIL_HOST_USER,
+            [email],
+            cc=["info.shivcosmic@gmail.com"]
+        )
 
-            # Download the PDF file
-            pdf_response = requests.get(pdf_url, timeout=10)
-            pdf_response.raise_for_status()
-            pdf_content = pdf_response.content
+        # Attach the PDF file
+        email_message.attach('astrology_report.pdf', pdf_content, 'application/pdf')
+        email_message.send()
 
-            try:
-                email_message = EmailMessage(
-                    f"Kundali Report for {form_data['name']}",
-                    "Please find the attached PDF document.\n\n"
-                    f"Name: {form_data['name']}\n"
-                    f"Birthdate: {form_data['day']}/{form_data['month']}/{form_data['year']}\n"
-                    f"Time: {form_data['hour']}:{form_data['minute']}\n"
-                    f"Mobile: {mobile}\n"
-                    f"Email: {email}\n\n"
-                    "Kind Regards\nTeam Shiv Cosmic",
-                    settings.EMAIL_HOST_USER,
-                    [email],
-                    cc=["info.shivcosmic@gmail.com"]
-                )
+        messages.success(request, "Message Was Sent Successfully")
+    except BadHeaderError as e:
+        # Log or print the exception for debugging
+        print(f"Error sending email: {e}")
 
-                # Attach the PDF file
-                email_message.attach('astrology_report.pdf', pdf_content, 'application/pdf')
-                email_message.send()
-
-                messages.success(request, "Message Was Sent Successfully")
-            except BadHeaderError as e:
-                # Log or print the exception for debugging
-                print(f"Error sending email: {e}")
-            return render(request, 'result.html', {'astrology_data': astrology_data})
-        else:
-            print("Error:", response.status_code)
-    except requests.exceptions.RequestException as e:
-        print(f"Request failed: {e}")
-
-    return render(request, 'result.html')
+    return render(request, 'result.html', {'astrology_data': astrology_data})
