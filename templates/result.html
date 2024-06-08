@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/static/css/style.css">
-  <title>Astrology Data Result</title>
+  <title>Kundali / Horoscope report</title>
 </head>
 
 <body>
@@ -25,12 +25,18 @@
     
     <div class="resultContent">
       <img src="/static/assets/icons/success.png" alt="">
-      <h2>Astrology Data Result</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti nemo eius velit accusantium, delectus quo.</p>
+      <h2>Kundali / Horoscope report</h2>
+      <p>Thank you for making a payment, you will get your kundali /horoscope report on your email. 
+        else you can download now from here. click on download button.</p>
 
       <p>You will be receiving an email shortly with invoice from your ......</p>
 
-      <button><img src="/static/assets/icons/pdf.svg" alt=""> Download PDF</button>
+      {% if astrology_data %}
+        <a href="{{ astrology_data.pdf_url }}" target="_blank"><button><img src="/static/assets/icons/pdf.svg" alt=""> Download PDF</button></a>
+      {% else %}
+        <p>No astrology data available.</p>
+      {% endif %}
+
     </div>
   </section>
 

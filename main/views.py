@@ -98,12 +98,12 @@ def payment(request):
         redirectUrl = base_url + 'payment_return/'
         callbackUrl = base_url + 'payment_return/'
 
-        url = "https://api-preprod.phonepe.com/apis/pg-sandbox/pg/v1/pay"
-        MERCHANT_ID = "PGTESTPAYUAT77"
+        url = "https://api.phonepe.com/apis/hermes/pg/v1/pay"
+        MERCHANT_ID = "M22REVYZNMPVY"
         MERCHANT_USER_ID = "MUID123"
         REDIRECT_URL = redirectUrl
         CALLBACK_URL = callbackUrl
-        API_KEY = "14fa5465-f8a7-443f-8477-f986b8fcfde9"
+        API_KEY = "f35e2d5a-2d92-4cea-8404-7ef608af3522"
         ENDPOINT = "/pg/v1/pay"
         INDEX = '1'
         payload = {
@@ -208,9 +208,9 @@ def process_payment(request):
 
     # Check if the API response is already in the session
     astrology_data = request.session.get('astrology_data')
-    pdf_content = request.session.get('pdf_content')
+    pdf_content_b64 = request.session.get('pdf_content_b64')
 
-    if not astrology_data or not pdf_content:
+    if not astrology_data or not pdf_content_b64:
         # Your API credentials
         userId = '616659'
         apiKey = '73d704711428670b973f180f43b26f92'
@@ -264,40 +264,42 @@ def process_payment(request):
                 pdf_response = requests.get(pdf_url, timeout=10)
                 pdf_response.raise_for_status()
                 pdf_content = pdf_response.content
+                pdf_content_b64 = base64.b64encode(pdf_content).decode('utf-8')
 
                 # Save the astrology data and PDF content to the session
                 request.session['astrology_data'] = astrology_data
-                request.session['pdf_content'] = pdf_content
+                request.session['pdf_content_b64'] = pdf_content_b64
+
+                try:
+                    email_message = EmailMessage(
+                        f"Kundali Report for {form_data['name']}",
+                        "Please find the attached PDF document.\n\n"
+                        f"Name: {form_data['name']}\n"
+                        f"Birthdate: {form_data['day']}/{form_data['month']}/{form_data['year']}\n"
+                        f"Time: {form_data['hour']}:{form_data['minute']}\n"
+                        f"Mobile: {mobile}\n"
+                        f"Email: {email}\n\n"
+                        "Kind Regards\nTeam Shiv Cosmic",
+                        settings.EMAIL_HOST_USER,
+                        [email],
+                        cc=["info.shivcosmic@gmail.com"]
+                    )
+
+                    # Attach the PDF file
+                    email_message.attach('astrology_report.pdf', pdf_content, 'application/pdf')
+                    email_message.send()
+
+                    messages.success(request, "Message Was Sent Successfully")
+                except BadHeaderError as e:
+                    # Log or print the exception for debugging
+                    print(f"Error sending email: {e}")
 
             else:
                 print("Error:", response.status_code)
         except requests.exceptions.RequestException as e:
             print(f"Request failed: {e}")
             return render(request, 'result.html')
-
-    # Send the email with the PDF attachment
-    try:
-        email_message = EmailMessage(
-            f"Kundali Report for {form_data['name']}",
-            "Please find the attached PDF document.\n\n"
-            f"Name: {form_data['name']}\n"
-            f"Birthdate: {form_data['day']}/{form_data['month']}/{form_data['year']}\n"
-            f"Time: {form_data['hour']}:{form_data['minute']}\n"
-            f"Mobile: {mobile}\n"
-            f"Email: {email}\n\n"
-            "Kind Regards\nTeam Shiv Cosmic",
-            settings.EMAIL_HOST_USER,
-            [email],
-            cc=["info.shivcosmic@gmail.com"]
-        )
-
-        # Attach the PDF file
-        email_message.attach('astrology_report.pdf', pdf_content, 'application/pdf')
-        email_message.send()
-
-        messages.success(request, "Message Was Sent Successfully")
-    except BadHeaderError as e:
-        # Log or print the exception for debugging
-        print(f"Error sending email: {e}")
+    else:
+        messages.info(request, "Your PDF has already been sent to your email. Please check your inbox.")
 
     return render(request, 'result.html', {'astrology_data': astrology_data})
