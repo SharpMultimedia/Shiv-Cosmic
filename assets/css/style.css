@@ -163,14 +163,20 @@ label {
     border: none;
     border: 1px solid rgb(25 22 22 / 20%);
     padding: 11px 10px;
-    padding-left: 20px;
     font-size: 16px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     transition: all 0.5s ease-in-out;
+    color: rgb(69, 57, 31);
+
+}
+
+.inputBx input::placeholder {
+    font-weight: 400;
 }
 
 .inputBx select {
     background: white;
+    font-size: 14px;
 }
 
 .inputBx input:focus,
@@ -227,6 +233,65 @@ input::placeholder {
 }
 
 
+
+
+/* faqs  */
+
+.faqs {
+    max-width: 700px;
+    padding-bottom: 1rem;
+    /* border-bottom: 1px solid #f4f6f8; */
+    cursor: pointer;
+}
+
+.faqs h3 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.questions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgb(25 22 22 / 20%);
+    padding: 11px 10px;
+    color: rgb(69, 57, 31);
+    font-size: 14px;
+}
+
+.answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1.4s ease;
+}
+
+.answer p {
+    color: rgb(69, 57, 31);
+    font-weight: 400;
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 25px;
+    font-family: "Roboto", sans-serif;
+    padding-left: 25px;
+
+}
+
+.faqs.active .answer {
+    max-height: 300px;
+}
+
+.faqs.active i {
+    transform: rotate(180deg);
+}
+
+.fa-chevron-down {
+    transition: transform .5s ease-in;
+}
+
+
+
+
 /* review page */
 
 .reviewSec {
@@ -268,6 +333,7 @@ input::placeholder {
     padding: 2rem;
 }
 
+
 .radioBtn {
     display: flex;
     justify-content: space-between;
@@ -303,7 +369,7 @@ input::placeholder {
 }
 
 .checkbox input:checked~.checkbox__checkmark {
-    background-color: #ceab5c;
+    background-color: #00adef;
 }
 
 .checkbox input:checked~.checkbox__checkmark:after {
@@ -315,7 +381,7 @@ input::placeholder {
 }
 
 .checkbox:hover input:checked~.checkbox__checkmark {
-    background-color: #ceab5c;
+    background-color: #00adef;
 }
 
 .checkbox .checkbox__checkmark {
@@ -359,9 +425,7 @@ input::placeholder {
     color: #4e4127;
 }
 
-.labels {
-    margin-left: 15px;
-}
+
 
 .radioData h6 {
     color: rgb(234 88 12);
@@ -463,8 +527,15 @@ input::placeholder {
     color: #454545;
 }
 
+.pForm {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
 .EmailDetails {
     margin-bottom: 25px;
+    width: 48%;
 }
 
 .EmailDetails label {
@@ -652,6 +723,11 @@ input::placeholder {
         font-size: 16px;
     }
 
+    .labels {
+        margin-left: 10px;
+
+    }
+
     .radioData h6 {
         font-size: 14px;
     }
@@ -701,6 +777,14 @@ input::placeholder {
     .reviewDetails {
         padding-bottom: 25px;
         margin-bottom: 25px;
+    }
+
+    .pForm {
+        display: block;
+    }
+
+    .EmailDetails {
+        width: 100%;
     }
 
     .EmailDetails input {
