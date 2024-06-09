@@ -99,11 +99,11 @@ def payment(request):
         callbackUrl = base_url + 'payment_return/'
 
         url = "https://api.phonepe.com/apis/hermes/pg/v1/pay"
-        MERCHANT_ID = "WOODSONLINE"
-        MERCHANT_USER_ID = "MUID1"
+        MERCHANT_ID = "M22REVYZNMPVY"
+        MERCHANT_USER_ID = "MUID123"
         REDIRECT_URL = redirectUrl
         CALLBACK_URL = callbackUrl
-        API_KEY = "bc723c15-6ff9-40b4-a959-d161ef663df2"
+        API_KEY = "f35e2d5a-2d92-4cea-8404-7ef608af3522"
         ENDPOINT = "/pg/v1/pay"
         INDEX = '1'
         payload = {
@@ -116,7 +116,7 @@ def payment(request):
             "callbackUrl": CALLBACK_URL,
             "mobileNumber": mobile,
             "paymentInstrument": {
-                "type": "PAY_PAGE"
+                "type": "PAY_PAGE",
             }
         }
 
@@ -165,8 +165,8 @@ def payment(request):
 def payment_return(request):
     print('payment-return')
     INDEX = "1"
-    SALTKEY = "bc723c15-6ff9-40b4-a959-d161ef663df2"
-    merchantId = "WOODSONLINE"
+    SALTKEY = "f35e2d5a-2d92-4cea-8404-7ef608af3522"
+    merchantId = "M22REVYZNMPVY"
     form_data = request.POST
     form_data_dict = dict(form_data)
     transaction_id = form_data.get('transactionId', None)
