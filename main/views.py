@@ -110,7 +110,7 @@ def payment(request):
             "merchantId": MERCHANT_ID,
             "merchantTransactionId": shortuuid.uuid(),
             "merchantUserId": MERCHANT_USER_ID,
-            "amount": 1 * 100,  # Amount in paise
+            "amount": 499 * 100,  # Amount in paise
             "redirectUrl": REDIRECT_URL,
             "redirectMode": "POST",
             "callbackUrl": CALLBACK_URL,
