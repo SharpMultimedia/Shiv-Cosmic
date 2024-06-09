@@ -8,74 +8,77 @@
   <title>Astrology Data Form</title>
 
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAw4lWm5g4yYzLaV1wB8pygAzx5Gq-MDo0&libraries=places"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+   />
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAw4lWm5g4yYzLaV1wB8pygAzx5Gq-MDo0&libraries=places"></script>
 
   <script>
 
     function initAutocomplete() {
-        const input = document.getElementById('place');
-        const autocomplete = new google.maps.places.Autocomplete(input);
+      const input = document.getElementById('place');
+      const autocomplete = new google.maps.places.Autocomplete(input);
 
-        autocomplete.addListener('place_changed', function() {
-            const place = autocomplete.getPlace();
-            if (!place.geometry) {
-                input.value = '';
-                return;
-            }
+      autocomplete.addListener('place_changed', function () {
+        const place = autocomplete.getPlace();
+        if (!place.geometry) {
+          input.value = '';
+          return;
+        }
 
-            const lat = place.geometry.location.lat();
-            const lon = place.geometry.location.lng();
+        const lat = place.geometry.location.lat();
+        const lon = place.geometry.location.lng();
 
-            document.getElementById('lat').value = lat;
-            document.getElementById('lon').value = lon;
+        document.getElementById('lat').value = lat;
+        document.getElementById('lon').value = lon;
 
-            fetchTimezone(lat, lon);
-        });
+        fetchTimezone(lat, lon);
+      });
     }
 
     function fetchTimezone(lat, lon) {
-        const timestamp = Math.floor(Date.now() / 1000); // current time in seconds since epoch
-        const timezoneApiUrl = `https://maps.googleapis.com/maps/api/timezone/json?location=${lat},${lon}&timestamp=${timestamp}&key=AIzaSyAw4lWm5g4yYzLaV1wB8pygAzx5Gq-MDo0`;
+      const timestamp = Math.floor(Date.now() / 1000); // current time in seconds since epoch
+      const timezoneApiUrl = `https://maps.googleapis.com/maps/api/timezone/json?location=${lat},${lon}&timestamp=${timestamp}&key=AIzaSyAw4lWm5g4yYzLaV1wB8pygAzx5Gq-MDo0`;
 
-        fetch(timezoneApiUrl)
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === 'OK') {
-                    const tzone = data.rawOffset / 3600 + data.dstOffset / 3600; // converting offset from seconds to hours
-                    document.getElementById('tzone').value = tzone;
-                } else {
-                    console.error('Error fetching timezone:', data);
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
+      fetch(timezoneApiUrl)
+        .then(response => response.json())
+        .then(data => {
+          if (data.status === 'OK') {
+            const tzone = data.rawOffset / 3600 + data.dstOffset / 3600; // converting offset from seconds to hours
+            document.getElementById('tzone').value = tzone;
+          } else {
+            console.error('Error fetching timezone:', data);
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
     }
 
-    document.addEventListener("DOMContentLoaded", function() {
-        initAutocomplete();
+    document.addEventListener("DOMContentLoaded", function () {
+      initAutocomplete();
 
-        // Prevent form submission with Enter key
-        document.querySelector('form').addEventListener('keydown', function(event) {
-            if (event.key === 'Enter' && event.target.id === 'place') {
-                event.preventDefault();
-            }
-        });
+      // Prevent form submission with Enter key
+      document.querySelector('form').addEventListener('keydown', function (event) {
+        if (event.key === 'Enter' && event.target.id === 'place') {
+          event.preventDefault();
+        }
+      });
 
-        // Ensure form submission after place selection
-        document.querySelector('form').addEventListener('submit', function(event) {
-            const placeInput = document.getElementById('place');
-            const lat = document.getElementById('lat').value;
-            const lon = document.getElementById('lon').value;
+      // Ensure form submission after place selection
+      document.querySelector('form').addEventListener('submit', function (event) {
+        const placeInput = document.getElementById('place');
+        const lat = document.getElementById('lat').value;
+        const lon = document.getElementById('lon').value;
 
-            if (!placeInput.value || !lat || !lon) {
-                event.preventDefault();
-                alert("Please select a valid place.");
-            }
-        });
+        if (!placeInput.value || !lat || !lon) {
+          event.preventDefault();
+          alert("Please select a valid place.");
+        }
+      });
     });
 
-    
+
   </script>
 
 </head>
@@ -96,7 +99,9 @@
             patterns and potential. By aligning with these cosmic energies, one can unlock paths to success, health, and
             happiness.</p>
 
-          <p class="contentpara">At Shiv Cosmic Energy Solutions, they offer comprehensive consultations where they analyze your birth chart and align it with Vastu principles to provide tailored solutions for various aspects of your life, including health, wealth, and relationships.</p>
+          <p class="contentpara">At Shiv Cosmic Energy Solutions, they offer comprehensive consultations where they
+            analyze your birth chart and align it with Vastu principles to provide tailored solutions for various
+            aspects of your life, including health, wealth, and relationships.</p>
         </div>
       </div>
 
@@ -106,7 +111,7 @@
 
           <div class="formHead">
 
-            <h2>Enter Your Birth Details</h2>
+            <h2>Create your Kundli by Date of Birth</h2>
             <p>Please fill out the information below.</p>
           </div>
 
@@ -149,7 +154,7 @@
                   <select id="day" name="day" required>
                     <option value="" disabled selected>DD</option>
                     {% for day in days %}
-                      <option value="{{ day }}">{{ day }}</option>
+                    <option value="{{ day }}">{{ day }}</option>
                     {% endfor %}
                   </select>
                 </div>
@@ -163,7 +168,7 @@
                   <select id="month" name="month" required>
                     <option value="" disabled selected>MM</option>
                     {% for month in months %}
-                      <option value="{{ month }}">{{ month }}</option>
+                    <option value="{{ month }}">{{ month }}</option>
                     {% endfor %}
                   </select>
                 </div>
@@ -176,7 +181,7 @@
                   <select id="year" name="year" required>
                     <option value="" disabled selected>YYYY</option>
                     {% for year in years %}
-                      <option value="{{ year }}">{{ year }}</option>
+                    <option value="{{ year }}">{{ year }}</option>
                     {% endfor %}
                   </select>
                 </div>
@@ -192,7 +197,7 @@
                   <select id="hour" name="hour" required>
                     <option value="" disabled selected>HH</option>
                     {% for hour in hours %}
-                      <option value="{{ hour }}">{{ hour }}</option>
+                    <option value="{{ hour }}">{{ hour }}</option>
                     {% endfor %}
                   </select>
                 </div>
@@ -205,7 +210,7 @@
                   <select id="min" name="min" required>
                     <option value="" disabled selected>MM</option>
                     {% for minute in minutes %}
-                      <option value="{{ minute }}">{{ minute }}</option>
+                    <option value="{{ minute }}">{{ minute }}</option>
                     {% endfor %}
                   </select>
                 </div>
@@ -240,6 +245,33 @@
               </div>
             </div>
 
+
+
+            <div class="dataBox">
+              <div class="faqs">
+                <div class="questions">
+                  <h3>what you get in kundali</h3>
+                  <i class="fa fa-chevron-down"></i>
+                </div>
+
+                <div class="answer">
+                  <p>Basic Astrological Details</p>
+                  <p>1.Planetary Positions</p>
+                  <p>2.Horoscope Charts</p>
+                  <p>3.Divisional Charts</p>
+                  <p>4.House Cusps and Sandhi</p>
+                  <p>5.Vimshottari, Yogini, Dasha </p>
+                  <p>6.Favourable Points, Numerology Report</p>
+                  <p>7.Kalsarpa Dosha Manglik Analysis, Sadhesati Analysis
+                    Gemstone Suggestions, 
+                    LIFE, BENEFIC & LUCKY STONE
+                    Ascendant Report</p>
+           
+                </div>
+              </div>
+            </div>
+
+
             <div class="inputBx formBtn">
               <input type="submit" value="Submit">
             </div>
@@ -252,6 +284,21 @@
 
     </div>
   </section>
+
+
+  <script>
+    // ---- accordion ------ 
+
+    const faq = document.querySelectorAll(".faqs")
+    console.log(faq);
+    faq.forEach(faqs => {
+      faqs.addEventListener("click", () => {
+        faqs.classList.toggle("active")
+      })
+    })
+
+  </script>
+
 
 </body>
 
