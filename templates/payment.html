@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Form Report</title>
     <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 </head>
 
 <body>
@@ -22,7 +23,7 @@
                 <div class="inputContainer">
 
 
-                    <!-- <div class="radioBtn">
+                    <!-- <div class="radioBtn">z
                         <div class="radioData checkbox">
                             <div>
                                 <input type="checkbox" id="s-option" name="selector">
@@ -87,7 +88,8 @@
                                     <h6>{{ form_data.day }}/{{ form_data.month }}/{{ form_data.year }}</h6>
                                     <h6>{{ form_data.hour }}:{{ form_data.minute }}</h6>
                                 </div>
-                                <h6><img src="/static/assets/icons/location-pin-svgrepo-com.svg" alt="">{{form_data.place }}</h6>
+                                <h6><img src="/static/assets/icons/location-pin-svgrepo-com.svg"
+                                        alt="">{{form_data.place }}</h6>
                             </div>
                         </div>
                     </div>
@@ -97,12 +99,27 @@
                         <div class="reviewD">
                             <h2>Kundali / Horoscope Chart Style </h2>
 
-                            <div class="langSelect">
-                                <select name="" id="">
-                                    <option value="#">SOUTH_INDIAN </option>
-                                    <option value="#">EAST_INDIAN </option>
-                                    <option value="#">NORTH_INDIAN </option>
-                                </select>
+                            <div class="faqs">
+                                <div class="questions">
+                                    <h3>what you get in kundali</h3>
+
+                                    <i class="fa fa-chevron-down"></i>
+                                </div>
+
+                                <div class="answer">
+                                    <p>Basic Astrological Details</p>
+                                    <p>1.Planetary Positions</p>
+                                    <p>2.Horoscope Charts</p>
+                                    <p>3.Divisional Charts</p>
+                                    <p>4.House Cusps and Sandhi</p>
+                                    <p>5.Vimshottari, Yogini, Dasha </p>
+                                    <p>6.Favourable Points, Numerology Report</p>
+                                    <p>7.Kalsarpa Dosha Manglik Analysis, Sadhesati Analysis
+                                        Gemstone Suggestions,
+                                        LIFE, BENEFIC & LUCKY STONE
+                                        Ascendant Report</p>
+
+                                </div>
                             </div>
                         </div>
 
@@ -189,6 +206,22 @@
 
         <button type="submit">Pay Now</button>
     </form> -->
+
+
+
+
+    <script>
+        // ---- accordion ------ 
+    
+        const faq = document.querySelectorAll(".faqs")
+
+        faq.forEach(faqs => {
+          faqs.addEventListener("click", () => {
+            faqs.classList.toggle("active")
+          })
+        })
+    
+      </script>
 </body>
 
 </html>

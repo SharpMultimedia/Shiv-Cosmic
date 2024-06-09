@@ -503,21 +503,7 @@ input::placeholder {
     margin-right: 6px;
 }
 
-.langSelect select {
-    width: 100%;
-    padding: 12px 5px;
-    font-size: 15px;
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
 
-    border: 2px solid #a3a3a3;
-    color: #454545;
-}
-
-.langSelect select option {
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-}
 
 .formDetails input {
     width: 100%;
@@ -770,9 +756,7 @@ input::placeholder {
         font-size: 18px;
     }
 
-    .langSelect select {
-        font-size: 14px;
-    }
+
 
     .reviewDetails {
         padding-bottom: 25px;
