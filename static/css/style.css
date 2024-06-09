@@ -235,62 +235,6 @@ input::placeholder {
 
 
 
-/* faqs  */
-
-.faqs {
-    max-width: 700px;
-    padding-bottom: 1rem;
-    /* border-bottom: 1px solid #f4f6f8; */
-    cursor: pointer;
-}
-
-.faqs h3 {
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    font-size: 15px;
-}
-
-.questions {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: 1px solid rgb(25 22 22 / 20%);
-    padding: 11px 10px;
-    color: rgb(69, 57, 31);
-    font-size: 14px;
-}
-
-.answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 1.4s ease;
-}
-
-.answer p {
-    color: rgb(69, 57, 31);
-    font-weight: 400;
-    margin-top: 10px;
-    font-size: 14px;
-    line-height: 25px;
-    font-family: "Roboto", sans-serif;
-    padding-left: 25px;
-
-}
-
-.faqs.active .answer {
-    max-height: 300px;
-}
-
-.faqs.active i {
-    transform: rotate(180deg);
-}
-
-.fa-chevron-down {
-    transition: transform .5s ease-in;
-}
-
-
-
 
 /* review page */
 
@@ -353,11 +297,14 @@ input::placeholder {
     display: inline-block;
     position: relative;
     padding-left: 30px;
-    cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.mainCheckbox {
+    cursor: pointer;
 }
 
 .checkbox input {
@@ -368,21 +315,20 @@ input::placeholder {
     width: 0;
 }
 
-.checkbox input:checked~.checkbox__checkmark {
-    background-color: #00adef;
+input[type="checkbox"]:checked+.checkbox__checkmark {
+    background-color: #007bff;
+    /* Change color when checked */
 }
 
 .checkbox input:checked~.checkbox__checkmark:after {
     opacity: 1;
 }
 
-.checkbox:hover input~.checkbox__checkmark {
-    background-color: #eee;
+input[type="checkbox"] {
+    display: none;
+    /* Hide the default checkbox */
 }
 
-.checkbox:hover input:checked~.checkbox__checkmark {
-    background-color: #00adef;
-}
 
 .checkbox .checkbox__checkmark {
     position: absolute;
@@ -459,7 +405,11 @@ input::placeholder {
 }
 
 .reviewCard {
-    width: 48%;
+    width: 44%;
+}
+
+.reviewCardTwo {
+    width: 53%;
 }
 
 .reviewSubD {
@@ -503,7 +453,25 @@ input::placeholder {
     margin-right: 6px;
 }
 
+.getContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 15px;
+}
 
+.getContent {
+    width: 48%;
+}
+
+.getContent ul li {
+    font-weight: 400;
+    color: #4e4127;
+    font-size: 15px;
+    margin-bottom: 8px;
+    font-family: 'Roboto', sans-serif;
+
+}
 
 .formDetails input {
     width: 100%;
@@ -735,7 +703,8 @@ input::placeholder {
         display: block;
     }
 
-    .reviewCard {
+    .reviewCard,
+    .reviewCardTwo {
         width: 100%;
     }
 
@@ -756,7 +725,9 @@ input::placeholder {
         font-size: 18px;
     }
 
-
+    .getContent ul li {
+        font-size: 14px;
+    }
 
     .reviewDetails {
         padding-bottom: 25px;
