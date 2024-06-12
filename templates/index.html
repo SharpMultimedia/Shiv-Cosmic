@@ -113,7 +113,15 @@
             <h2>Create your Kundli by Date of Birth</h2>
             <p>Please fill out the information below.</p>
           </div>
-
+          {% if messages %}
+          <div class="messages">
+            {% for message in messages %}
+            <div class="alert {{ message.tags }}">
+              {{ message }}
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
           <form method="post">
             {% csrf_token %}
 

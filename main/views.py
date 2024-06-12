@@ -161,7 +161,43 @@ def payment(request):
     else:
         return render(request, 'payment.html', {'form_data': form_data})
 
-@csrf_exempt     
+# @csrf_exempt     
+# def payment_return(request):
+#     print('payment-return')
+#     INDEX = "1"
+#     SALTKEY = "bc723c15-6ff9-40b4-a959-d161ef663df2"
+#     merchantId = "WOODSONLINE"
+#     form_data = request.POST
+#     form_data_dict = dict(form_data)
+#     transaction_id = form_data.get('transactionId', None)
+#     print(transaction_id)
+#     if transaction_id:
+#         request_url = f'https://api.phonepe.com/apis/hermes/pg/v1/status/{merchantId}/{transaction_id}'
+#         sha256_Pay_load_String = f'/pg/v1/status/{merchantId}/{transaction_id}{SALTKEY}'
+#         sha256_val = calculate_sha256_string(sha256_Pay_load_String)
+#         checksum = sha256_val + '###' + INDEX
+
+#         headers = {
+#             'Content-Type': 'application/json',
+#             'X-VERIFY': checksum,
+#             'X-MERCHANT-ID': transaction_id,
+#             'accept': 'application/json',
+#         }
+#         try:
+#             response = requests.get(request_url, headers=headers, timeout=10)
+#             # response.raise_for_status()  # Raise an HTTPError for bad responses
+#             response_data = response.json()
+#             print(response_data)
+#         except requests.exceptions.RequestException as e:
+#             print(f"Request failed: {e}")
+#             messages.error(request, "There was an error retrieving the payment status. Please try again.")
+#             return render(request, 'payment_return.html', {'form_data': form_data})
+         
+#         return redirect('process_payment')
+
+
+
+@csrf_exempt
 def payment_return(request):
     print('payment-return')
     INDEX = "1"
@@ -171,6 +207,7 @@ def payment_return(request):
     form_data_dict = dict(form_data)
     transaction_id = form_data.get('transactionId', None)
     print(transaction_id)
+    
     if transaction_id:
         request_url = f'https://api.phonepe.com/apis/hermes/pg/v1/status/{merchantId}/{transaction_id}'
         sha256_Pay_load_String = f'/pg/v1/status/{merchantId}/{transaction_id}{SALTKEY}'
@@ -185,15 +222,25 @@ def payment_return(request):
         }
         try:
             response = requests.get(request_url, headers=headers, timeout=10)
-            # response.raise_for_status()  # Raise an HTTPError for bad responses
             response_data = response.json()
             print(response_data)
+
+            if response.status_code == 200:
+                if response_data.get('code') == 'PAYMENT_SUCCESS':
+                    request.session['form_data'] = form_data_dict
+                    return redirect('process_payment')
+                else:
+                    messages.error(request, "Payment was unsuccessful. Please try again.")
+            else:
+                messages.error(request, "Failed to retrieve payment status. Please try again.")
         except requests.exceptions.RequestException as e:
             print(f"Request failed: {e}")
             messages.error(request, "There was an error retrieving the payment status. Please try again.")
-            return render(request, 'payment_return.html', {'form_data': form_data})
-         
-        return redirect('process_payment')
+    else:
+        messages.error(request, "Invalid transaction ID.")
+        
+    return render(request, 'index.html', {'form_data': form_data})
+
 
 def process_payment(request):
     # Here you would integrate with a payment gateway.
