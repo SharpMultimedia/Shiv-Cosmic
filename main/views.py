@@ -318,3 +318,13 @@ def process_payment(request):
         messages.info(request, "Your PDF has already been sent to your email. Please check your inbox.")
 
     return render(request, 'result.html', {'astrology_data': astrology_data})
+
+def policy(request):
+    return render(request, 'policy.html')
+
+def returnrefund(request):
+    return render(request, 'return.html')
+
+def terms(request):
+    return render(request, 'terms.html')
+
