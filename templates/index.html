@@ -116,8 +116,8 @@
           {% if messages %}
           <div class="messages">
             {% for message in messages %}
-            <div class="alert {{ message.tags }}">
-              {{ message }}
+            <div style="text-align: center;" class="alert {{ message.tags }}">
+              <p>{{ message }}</p>
             </div>
             {% endfor %}
           </div>

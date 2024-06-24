@@ -99,11 +99,11 @@ def payment(request):
         callbackUrl = base_url + 'payment_return/'
 
         url = "https://api.phonepe.com/apis/hermes/pg/v1/pay"
-        MERCHANT_ID = "WOODSONLINE"
+        MERCHANT_ID = "M22REVYZNMPVY"
         MERCHANT_USER_ID = "MUID123"
         REDIRECT_URL = redirectUrl
         CALLBACK_URL = callbackUrl
-        API_KEY = "bc723c15-6ff9-40b4-a959-d161ef663df2"
+        API_KEY = "f35e2d5a-2d92-4cea-8404-7ef608af3522"
         ENDPOINT = "/pg/v1/pay"
         INDEX = '1'
         payload = {
@@ -161,53 +161,22 @@ def payment(request):
     else:
         return render(request, 'payment.html', {'form_data': form_data})
 
-# @csrf_exempt     
-# def payment_return(request):
-#     print('payment-return')
-#     INDEX = "1"
-#     SALTKEY = "bc723c15-6ff9-40b4-a959-d161ef663df2"
-#     merchantId = "WOODSONLINE"
-#     form_data = request.POST
-#     form_data_dict = dict(form_data)
-#     transaction_id = form_data.get('transactionId', None)
-#     print(transaction_id)
-#     if transaction_id:
-#         request_url = f'https://api.phonepe.com/apis/hermes/pg/v1/status/{merchantId}/{transaction_id}'
-#         sha256_Pay_load_String = f'/pg/v1/status/{merchantId}/{transaction_id}{SALTKEY}'
-#         sha256_val = calculate_sha256_string(sha256_Pay_load_String)
-#         checksum = sha256_val + '###' + INDEX
-
-#         headers = {
-#             'Content-Type': 'application/json',
-#             'X-VERIFY': checksum,
-#             'X-MERCHANT-ID': transaction_id,
-#             'accept': 'application/json',
-#         }
-#         try:
-#             response = requests.get(request_url, headers=headers, timeout=10)
-#             # response.raise_for_status()  # Raise an HTTPError for bad responses
-#             response_data = response.json()
-#             print(response_data)
-#         except requests.exceptions.RequestException as e:
-#             print(f"Request failed: {e}")
-#             messages.error(request, "There was an error retrieving the payment status. Please try again.")
-#             return render(request, 'payment_return.html', {'form_data': form_data})
-         
-#         return redirect('process_payment')
-
-
-
 @csrf_exempt
 def payment_return(request):
     print('payment-return')
     INDEX = "1"
-    SALTKEY = "bc723c15-6ff9-40b4-a959-d161ef663df2"
-    merchantId = "WOODSONLINE"
+    SALTKEY = "f35e2d5a-2d92-4cea-8404-7ef608af3522"
+    merchantId = "M22REVYZNMPVY"
     form_data = request.POST
     form_data_dict = dict(form_data)
     transaction_id = form_data.get('transactionId', None)
     print(transaction_id)
-    
+    print("Form dict : ")
+    print(form_data)
+
+    # Check the payment status
+    payment_status = form_data.get('code', None)
+
     if transaction_id:
         request_url = f'https://api.phonepe.com/apis/hermes/pg/v1/status/{merchantId}/{transaction_id}'
         sha256_Pay_load_String = f'/pg/v1/status/{merchantId}/{transaction_id}{SALTKEY}'
@@ -225,21 +194,20 @@ def payment_return(request):
             response_data = response.json()
             print(response_data)
 
-            if response.status_code == 200:
-                if response_data.get('code') == 'PAYMENT_SUCCESS':
-                    request.session['form_data'] = form_data_dict
-                    return redirect('process_payment')
-                else:
-                    messages.error(request, "Payment was unsuccessful. Please try again.")
+            if payment_status == 'PAYMENT_SUCCESS':
+                # request.session['form_data'] = form_data_dict
+                return redirect('process_payment')
             else:
-                messages.error(request, "Failed to retrieve payment status. Please try again.")
+                messages.error(request, "Payment was unsuccessful. Please try again.")
+                return redirect('index')  # Redirect to index if payment is unsuccessful
+
         except requests.exceptions.RequestException as e:
             print(f"Request failed: {e}")
             messages.error(request, "There was an error retrieving the payment status. Please try again.")
+            return redirect('index')  # Redirect to index if there's a request exception
     else:
         messages.error(request, "Invalid transaction ID.")
-        
-    return render(request, 'index.html', {'form_data': form_data})
+    return render(request, 'index.html', {'form_data': form_data})  # Default render if none of the above conditions match
 
 
 def process_payment(request):
@@ -329,7 +297,7 @@ def process_payment(request):
                         "Kind Regards\nTeam Shiv Cosmic",
                         settings.EMAIL_HOST_USER,
                         [email],
-                        cc=["info.shivcosmic@gmail.com"]
+                        # cc=["info.shivcosmic@gmail.com"]
                     )
 
                     # Attach the PDF file
