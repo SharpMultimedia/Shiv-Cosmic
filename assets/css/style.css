@@ -232,9 +232,63 @@ input::placeholder {
     margin-top: 20px;
 }
 
+/* footer  */
 
+.footerSec {
+    margin: 60px 120px 25px 120px;
+}
 
+.footerContent {
+    display: flex;
+    gap: 25px;
+}
 
+.footerTop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-bottom: 1px solid #ceab5c;
+}
+
+.footerTop ul {
+    display: flex;
+    gap: 35px;
+    margin: 25px 0 40px 0;
+}
+
+.footerTop ul li {
+    list-style: none;
+}
+
+.footerTop ul li a,
+.footerContent h2 {
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    color: #45391f;
+}
+
+.footerB {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.footerContent h2 {
+    font-size: 15px;
+}
+
+.footerB h5 {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    color: #45391f;
+    font-size: 15px;
+    text-align: center;
+}
 
 /* review page */
 
