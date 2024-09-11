@@ -17,6 +17,9 @@ from django.conf import settings
 from django.contrib import messages
 from requests.exceptions import RequestException
 
+def home(request):
+    return render(request, 'home_page/index.html')
+
 def index(request):
     if request.method == 'POST':
         # Get form data
