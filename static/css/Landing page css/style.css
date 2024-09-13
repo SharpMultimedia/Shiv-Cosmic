@@ -153,16 +153,170 @@ ul {
     padding: 2px 0;
 }
 
+
+/* --- Reiki Healing Workshop page ----  */
+
+
+.sub-pages {
+    background-image: url('/static/assets/images/major.jpg');
+    background-position: center center;
+    background-size: cover;
+    height: 510px;
+}
+
+.image-box-one,
+.image-box-two,
+.image-box-three,
+.image-box-four,
+.image-box-five,
+.image-box-six,
+.image-box-seven {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 2px solid #AE633F !important;
+}
+
+.image-box-one::before,
+.image-box-two::before,
+.image-box-three::before,
+.image-box-four::before,
+.image-box-five::before,
+.image-box-six::before,
+.image-box-seven::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 0;
+}
+
+
+.image-box-one.active::before {
+    background-image: url('https://img.freepik.com/free-photo/person-conducting-reiki-therapy_23-2149403947.jpg?t=st=1726146227~exp=1726149827~hmac=c63d0421b98aa5a00ed7e62766acaeb971d344337254bff0beaa84b81e2a77b2&w=996');
+    opacity: 1;
+    border-radius: 25px;
+}
+
+.image-box-two.active::before {
+    background-image: url('https://img.freepik.com/free-photo/spiritual-young-man-practicing-yoga-indoors_23-2149163293.jpg?t=st=1726146388~exp=1726149988~hmac=28716cddc911a2169d18820654824319bc2e9e0b084fb0a394541bc96eeae6ae&w=996');
+    opacity: 1;
+    border-radius: 25px;
+}
+
+.image-box-three.active::before {
+    background-image: url('https://img.freepik.com/free-photo/top-view-child-learning-how-count-home_23-2148524529.jpg?t=st=1726146487~exp=1726150087~hmac=2096f16d4697128b27fc8a3908a752ce147732b238c6257a9033341781190b28&w=996');
+    opacity: 1;
+    border-radius: 25px;
+}
+
+.image-box-four.active::before {
+    background-image: url('https://images.pexels.com/photos/1213049/pexels-photo-1213049.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    opacity: 1;
+    border-radius: 25px;
+}
+
+.image-box-five.active::before {
+    background-image: url('https://img.freepik.com/free-photo/close-up-hands-holding_23-2149153704.jpg?t=st=1726146907~exp=1726150507~hmac=4a3b29a8fae429db1cd23ce3b1047980ef32e48d091cfd7536e387fdf71d2704&w=996');
+    opacity: 1;
+    border-radius: 25px;
+}
+
+.image-box-six.active::before {
+    background-image: url('https://images.pexels.com/photos/1314133/pexels-photo-1314133.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    opacity: 1;
+    border-radius: 25px;
+}
+
+.image-box-seven.active::before {
+    background-image: url('https://images.pexels.com/photos/793012/pexels-photo-793012.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    opacity: 1;
+    border-radius: 25px;
+}
+
+.image-box-one:hover::before,
+.image-box-two:hover::before,
+.image-box-three:hover::before,
+.image-box-four:hover::before,
+.image-box-five:hover::before,
+.image-box-six:hover::before,
+.image-box-seven:hover::before {
+    opacity: 1;
+}
+
+.image-box-one h1,
+.image-box-one p,
+.image-box-two h1,
+.image-box-two p,
+.image-box-three h1,
+.image-box-three p,
+.image-box-four h1,
+.image-box-four p,
+.image-box-five h1,
+.image-box-five p,
+.image-box-six h1,
+.image-box-six p,
+.image-box-seven h1,
+.image-box-seven p {
+    position: relative;
+    z-index: 1;
+    color: #CEAB5C;
+}
+
+.image-box-one p,
+.image-box-two p,
+.image-box-three p,
+.image-box-four p,
+.image-box-five p,
+.image-box-six p,
+.image-box-seven p {
+    color: #282727;
+}
+
+.image-box-one.active p,
+.image-box-two.active p,
+.image-box-three.active p,
+.image-box-four.active p,
+.image-box-five.active p,
+.image-box-six.active p,
+.image-box-seven.active p {
+    color: #fff;
+}
+
+.reiki-form input,
+.reiki-form textarea {
+    border: #bcbcbc solid 1px;
+    width: 100%;
+    height: 40px;
+    background: transparent;
+    margin-top: 5px;
+    border-radius: 10px;
+    padding: 0 10px;
+}
+
+.reiki-form textarea {
+
+    height: 155px;
+}
+
+
+
 /* Responsive work  */
 
 
 @media (max-width:868px) {
+
     .astrological-image {
         max-width: 60% !important;
     }
 
     .Nav-section {
-        padding: 0 20px;
+        padding: 0 15px;
     }
 
     .mini-nav {
@@ -171,7 +325,7 @@ ul {
     }
 
     .main-container {
-        margin: 40px 25px;
+        margin: 40px 15px;
     }
 
     .category-cart {
@@ -181,22 +335,66 @@ ul {
     .teamSec .overlay {
         height: 990px;
     }
+
+
+    /* reiki healing workshop page  */
+
+    .sub-pages {
+        height: 540px;
+    }
 }
 
 @media (min-width:320px) and (max-width: 425px) {
     .hero-section {
         height: 715px;
     }
+
+    .benefit-img {
+        height: 1050px !important;
+    }
 }
 
+@media (min-width:320px) and (max-width: 375px) {
+
+    .benefit-img {
+        height: 1050px !important;
+    }
+}
+
+@media (min-width:375px) and (max-width: 598px) {
+
+    .benefit-img {
+        height: 920px !important;
+    }
+}
+
+@media (min-width:600px) and (max-width: 768px) {
+
+    .benefit-img {
+        height: 760px !important;
+    }
+}
 
 @media (min-width:768px) and (max-width: 1023px) {
+
+    .hero-section {
+        height: 701px;
+    }
+
     .astrological-image {
         max-width: 40% !important;
     }
 
     .teamSec .overlay {
         height: 400px;
+    }
+
+    .sub-pages {
+        height: 565px;
+    }
+
+    .benefit-img {
+        height: 530px !important;
     }
 }
 
@@ -216,10 +414,11 @@ ul {
         height: auto;
     }
 
-    .nav-top{
+    .nav-top {
         width: 25% !important;
     }
-    .loginBtn{
+
+    .loginBtn {
         width: 6% !important;
     }
 }
