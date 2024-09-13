@@ -10,14 +10,14 @@
 
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-     <!-- Input CSS Link-->
-     <link rel="stylesheet" href="{% static 'css/Landing page css/style.css' %}">
+  <!-- Input CSS Link-->
+  <link rel="stylesheet" href="{% static 'css/Landing page css/style.css' %}">
 
-     <!-- Tailwind CSS -->
-     <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-         <!-- font-awesome cdn  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+  <!-- font-awesome cdn  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 
   <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAw4lWm5g4yYzLaV1wB8pygAzx5Gq-MDo0&libraries=places"></script>
@@ -217,7 +217,7 @@
             <a href="{% url 'home' %}" class="text-[16px] hover:text-cyan-500 duration-500">Home</a>
           </li>
           <li class="mx-4 my-4 md:my-0">
-            <a href="#" class="text-[16px] hover:text-cyan-500 duration-500">Reiki Healing Workshop</a>
+            <a href="{% url 'reikhihealing' %}" class="text-[16px] hover:text-cyan-500 duration-500">Reiki Healing Workshop</a>
           </li>
           <li class="mx-4 my-4 md:my-0">
             <a href="#" class="text-[16px] hover:text-cyan-500 duration-500">Blog</a>
@@ -425,7 +425,7 @@
     </div>
   </section>
 
-<!-- old footer  -->
+  <!-- old footer  -->
   <!-- <footer>
     <div class="footerSec">
       <div class="footerTop">
@@ -451,64 +451,68 @@
     </div>
   </footer> -->
 
-<!-- new footer  -->
+  <!-- new footer  -->
 
-    <section class="bg-[#242323] lg:py-[60px] lg:px-[30px] xl:px-[100px] px-[25px] py-[20px]">
+  <section class="bg-[#242323] lg:py-[60px] lg:px-[30px] xl:px-[100px] px-[25px] py-[20px]">
 
-      <div class="w-full text-white md:flex justify-between footerBottom">
-          <div class="md:w-[24%] ">
-              <img src="/static/assets/images/Logo/logo.png" alt="">
-              <p class="mt-[5px]">Empowering lives through the wisdom of astrology and Vastu. Connect with Shiv Cosmic
-                  Energy Solutions
-                  for personalized guidance towards harmony, health, and prosperity.
-              </p>
-          </div>
-
-          <div class="md:w-[24%] my-[15px]">
-              <h1 class="text-[#CEAB5C] text-[21px] mb-[5px]">Quick Links</h1>
-              <ul>
-                  <li><a href="#">Privacy Policy </a></li>
-                  <li><a href="#">Terms and Conditions</a></li>
-                  <li><a href="#">Refund & Cancellation Policy </a></li>
-              </ul>
-          </div>
-
-          <div class="md:w-[24%]">
-              <h1 class="text-[#CEAB5C] text-[21px] mb-[5px]">Contact Information</h1>
-              <ul>
-                  <li>Email: info.nhmcpune@gmail.com</li>
-                  <li>Whatsapp: 9175932752</li>
-              </ul>
-          </div>
-          <div class="md:w-[24%] mt-[15px]">
-              <h1 class="text-[#CEAB5C] text-[21px] mb-[5px]">Follow us</h1>
-              <div>
-                  <a href="#">
-                      <i class="fa-brands fa-instagram"></i>
-                  </a>
-                  <a href="#" class="mx-[10px]">
-                      <i class="fa-brands fa-facebook-f"></i>
-                  </a>
-                  <a href="#">
-                      <i class="fa-brands fa-youtube"></i>
-                  </a>
-              </div>
-          </div>
+    <div class="w-full text-white md:flex justify-between footerBottom">
+      <div class="md:w-[24%] ">
+        <img src="/static/assets/images/Logo/logo.png" alt="">
+        <p class="mt-[5px]">Empowering lives through the wisdom of astrology and Vastu. Connect with Shiv
+          Cosmic
+          Energy Solutions
+          for personalized guidance towards harmony, health, and prosperity.
+        </p>
       </div>
 
-      <div class="text-white">
-          <h1 class="text-[#CEAB5C] text-[19px] mb-[5px]">We Do NOT Believe In "Get Rich Quick Programs"..</h1>
-          <p>We believe in hard and smart work, adding value and dedication to reach your goals. It's a fact that one
-              that does not do hard work will see no results whatsoever. The remedies and suggestions given in this
-              report may help you move towards achieving your goals. You will get no results whatsoever if you assume
-              by reading up information and reading the report your life will change with riches. Your results are
-              based on your actions. We never undertake any responsibility for any results. All suggestions and
-              information provided herein are in good faith, to the best of our knowledge, and based on the birth
-              details (date, time, and place) provided by you and successful outcomes in the past.</p>
+      <div class="md:w-[24%] my-[15px]">
+        <h1 class="text-[#CEAB5C] text-[21px] mb-[5px]">Quick Links</h1>
+        <ul>
+          <li><a href="{% url 'policy' %}">Privacy Policy </a></li>
+          <li><a href="{% url 'terms' %}">Terms and Conditions</a></li>
+          <li><a href="{% url 'return' %}">Refund & Cancellation Policy </a></li>
+        </ul>
       </div>
+
+      <div class="md:w-[24%]">
+        <h1 class="text-[#CEAB5C] text-[21px] mb-[5px]">Contact Information</h1>
+        <ul>
+          <li>Email: info.nhmcpune@gmail.com</li>
+          <li>Whatsapp: 9175932752</li>
+        </ul>
+      </div>
+      <div class="md:w-[24%] mt-[15px]">
+        <h1 class="text-[#CEAB5C] text-[21px] mb-[5px]">Follow us</h1>
+        <div>
+          <a href="#">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="#" class="mx-[10px]">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="#">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-white">
+      <h1 class="text-[#CEAB5C] text-[19px] mb-[5px]">We Do NOT Believe In "Get Rich Quick Programs"..</h1>
+      <p>We believe in hard and smart work, adding value and dedication to reach your goals. It's a fact that
+        one
+        that does not do hard work will see no results whatsoever. The remedies and suggestions given in
+        this
+        report may help you move towards achieving your goals. You will get no results whatsoever if you
+        assume
+        by reading up information and reading the report your life will change with riches. Your results are
+        based on your actions. We never undertake any responsibility for any results. All suggestions and
+        information provided herein are in good faith, to the best of our knowledge, and based on the birth
+        details (date, time, and place) provided by you and successful outcomes in the past.</p>
+    </div>
   </section>
 
-    <script src="/static/javascript/main.js"></script>
+  <script src="/static/javascript/main.js"></script>
 
 </body>
 

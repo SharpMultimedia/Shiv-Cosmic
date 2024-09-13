@@ -10,4 +10,5 @@ urlpatterns = [
     path('privacy_policy/', views.policy, name='policy'),
     path('terms_condition/', views.terms, name='terms'),
     path('return_and_refund/', views.returnrefund, name='return'),
+    path('reikhi_healing/', views.reikhihealing, name='reikhihealing'),
 ]
