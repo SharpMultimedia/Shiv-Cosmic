@@ -323,7 +323,7 @@ def process_payment(request):
     return render(request, 'result.html', {'astrology_data': astrology_data})
 
 def reikhihealing(request):
-    return render(request, 'reikhihealing.html')
+    return render(request, 'reikihealing.html')
 
 def policy(request):
     return render(request, 'policy.html')
