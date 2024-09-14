@@ -14,7 +14,7 @@
 /* #ffa57a  */
 h1,
 h2 {
-    font-family: "Philosopher", sans-serif;
+    font-family: "Philosopher", sans-serif !important;
     font-weight: 900;
     font-style: normal;
 }
@@ -161,7 +161,7 @@ ul {
 
 
 .sub-pages {
-    background-image: url('/static/assets/images/major.jpg');
+    background-image: url('/static/assets/images/major-min.jpg');
     background-position: center center;
     background-size: cover;
     height: 510px;
@@ -343,13 +343,13 @@ ul {
     /* reiki healing workshop page  */
 
     .sub-pages {
-        height: 540px;
+        height: 560px !important;
     }
 }
 
 @media (min-width:320px) and (max-width: 425px) {
     .hero-section {
-        height: 715px;
+        height: 670px;
     }
 
     .benefit-img {
@@ -365,7 +365,9 @@ ul {
 }
 
 @media (min-width:375px) and (max-width: 598px) {
-
+    .hero-section {
+        height: 695px;
+    }
     .benefit-img {
         height: 920px !important;
     }
