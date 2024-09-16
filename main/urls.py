@@ -11,4 +11,5 @@ urlpatterns = [
     path('terms_condition/', views.terms, name='terms'),
     path('return_and_refund/', views.returnrefund, name='return'),
     path('reikhi_healing/', views.reikhihealing, name='reikhihealing'),
+    path('contact_us/', views.contact, name='contact'),
 ]

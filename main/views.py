@@ -334,3 +334,5 @@ def returnrefund(request):
 def terms(request):
     return render(request, 'terms.html')
 
+def contact(request):
+    return render(request, 'contact.html')
