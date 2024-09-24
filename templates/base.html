@@ -7,9 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shiv-Cosmic</title>
 
-    <!-- Input CSS Link-->
-    <link rel="stylesheet" href="{% static 'css/Landing page css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="shortcut icon" href="/static/assets/images/Logo/favicon.png" type="image/x-icon">
+
+    <!-- Preload custom CSS files to prioritize loading -->
+    <link rel="preload" href="{% static 'css/style.css' %}" as="style">
+    <link rel="preload" href="{% static 'css/Landing page css/style.css' %}" as="style">
+
+    <!-- Main Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{% static 'css/Landing page css/style.css' %}" media="print" onload="this.media='all'">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -25,11 +31,8 @@
     <!-- swiper link  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-    <!-- font-awesome link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAw4lWm5g4yYzLaV1wB8pygAzx5Gq-MDo0&libraries=places"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAw4lWm5g4yYzLaV1wB8pygAzx5Gq-MDo0&libraries=places"
+        defer></script>
 
     <script>
         function initAutocomplete() {
@@ -99,20 +102,21 @@
 
 <body>
 
-
-
     <!-- Nav and Hero section  -->
+
     <header class="Nav-section hero-section {% block hero-image %}{% endblock hero-image %}">
 
         <!-- Navigation  -->
         <nav class="w-full pt-[10px] lg:p-5 md:flex items-center justify-between">
             <div class="lg:w-[10%] hidden md:flex justify-between items-center">
-                <a href="">
-                    <img class="max-w-[85px] lg:max-w-[125px]" src="/static/assets/images/Logo/logo.png" alt="logo">
+                <a href="{% url 'home' %}">
+                    <img class="max-w-[85px] lg:w-[100%]" src="/static/assets/images/Logo/logo.png" alt="logo"
+                        loading="lazy">
                 </a>
             </div>
 
             <!-- contact info  -->
+
             <div class="md:w-[82%]">
 
                 <div class="w-full mini-nav  md:flex">
@@ -212,10 +216,8 @@
                                     alt="logo">
                             </a>
                         </div>
-
                     </div>
                 </div>
-
 
                 <ul class="md:flex md:items-center md:z-auto md:static absolute w-full left-0
                                 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500 text-white
@@ -225,7 +227,8 @@
                         <a href="{% url 'home' %}" class="text-[16px] hover:text-cyan-500 duration-500">Home</a>
                     </li>
                     <li class="mx-4 my-4 md:my-0">
-                        <a href="{% url 'reikhihealing' %}" class="text-[16px] hover:text-cyan-500 duration-500">Reiki Healing Workshop</a>
+                        <a href="{% url 'reikhihealing' %}" class="text-[16px] hover:text-cyan-500 duration-500">Reiki
+                            Healing Workshop</a>
                     </li>
                     <li class="mx-4 my-4 md:my-0">
                         <a href="#" class="text-[16px] hover:text-cyan-500 duration-500">Blog</a>
@@ -252,7 +255,7 @@
 
         <!-- new footer  -->
 
-        <section class="bg-[#242323] lg:py-[60px] lg:px-[30px] xl:px-[100px] px-[25px] py-[20px]">
+        <!-- <section class="bg-[#242323] lg:py-[60px] lg:px-[30px] xl:px-[100px] px-[25px] py-[20px]">
 
             <div class="w-full text-white md:flex justify-between footerBottom">
                 <div class="md:w-[24%] ">
@@ -289,7 +292,8 @@
                         <a href="https://www.facebook.com/nhmcpune" class="mx-[10px]" target="_blank">
                             <i class="fa-brands fa-facebook-f"></i>
                         </a>
-                        <a href="https://www.youtube.com/channel/UCvM4OYpE1TArbmlIZFgBB7g?view_as=subscriber" target="_blank">
+                        <a href="https://www.youtube.com/channel/UCvM4OYpE1TArbmlIZFgBB7g?view_as=subscriber"
+                            target="_blank">
                             <i class="fa-brands fa-youtube"></i>
                         </a>
                     </div>
@@ -309,9 +313,101 @@
                     information provided herein are in good faith, to the best of our knowledge, and based on the birth
                     details (date, time, and place) provided by you and successful outcomes in the past.</p>
             </div>
+        </section> -->
+
+        <section>
+            <div class="video-background">
+                <video autoplay muted loop playsinline>
+                    <source src="/static/assets/videos/zodiac astrology video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="overlay"></div>
+
+                <div class="content flex items-center justify-center flex-col">
+                    <div class="w-full flex flex-col justify-center items-center footerBottom">
+                        <div class="w-[80%] md:flex justify-between">
+
+                            <div class="text-start md:w-[28%] my-[15px] flex flex-col justify-center">
+                                <h1 class="text-[#4F3E17] font-bold text-[21px] mb-[5px]">Quick Links</h1>
+                                <ul>
+                                    <li><a href="{% url 'policy' %}">Privacy Policy </a></li>
+                                    <li><a href="{% url 'terms' %}">Terms and Conditions</a></li>
+                                    <li><a href="{% url 'return' %}">Refund & Cancellation Policy </a></li>
+                                </ul>
+                            </div>
+
+                            <div class="md:w-[34%] flex flex-col items-center">
+                                <img src="/static/assets/images/Logo/logo.png" alt="">
+                                <p class="my-[10px] text-justify">Empowering lives through the wisdom of astrology and
+                                    Vastu.
+                                    Connect with
+                                    Shiv
+                                    Cosmic
+                                    Energy Solutions
+                                    for personalized guidance towards harmony, health, and prosperity.
+                                </p>
+
+                                <div>
+                                    <a href="https://www.instagram.com/shivcosmicenergysolutions/" target="_blank">
+                                        <i class="fa-brands fa-instagram text-[19px]"></i>
+                                    </a>
+                                    <a href="https://www.facebook.com/nhmcpune" class="mx-[10px]" target="_blank">
+                                        <i class="fa-brands fa-facebook-f text-[19px]"></i>
+                                    </a>
+                                    <a href="https://www.youtube.com/channel/UCvM4OYpE1TArbmlIZFgBB7g?view_as=subscriber"
+                                        target="_blank">
+                                        <i class="fa-brands fa-youtube text-[19px]"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+
+                            <div class="md:w-[32%] text-start flex flex-col justify-center pl-[60px]">
+                                <h1 class="text-[#4F3E17] font-bold text-[21px] mb-[5px]">Contact Information</h1>
+                                <ul>
+                                    <li>Email: info.nhmcpune@gmail.com</li>
+                                    <li>Whatsapp: 9175932752</li>
+                                </ul>
+                            </div>
+
+                            <!-- <div class="md:w-[24%] mt-[15px]">
+                                <h1 class="text-[#4F3E17] font-bold text-[21px] mb-[5px]">Follow us</h1>
+                                
+                            </div> -->
+
+                        </div>
+                    </div>
+
+
+                    <div class="text-whit">
+                        <h1 class="text-[#4F3E17] font-bold text-[19px] mb-[5px]">We Do NOT Believe In "Get Rich Quick
+                            Programs"..</h1>
+                        <p>We believe in hard and smart work, adding value and dedication to reach your goals. It's a
+                            fact that
+                            one
+                            that does not do hard work will see no results whatsoever. The remedies and suggestions
+                            given in
+                            this
+                            report may help you move towards achieving your goals. You will get no results whatsoever if
+                            you
+                            assume
+                            by reading up information and reading the report your life will change with riches. Your
+                            results are
+                            based on your actions. We never undertake any responsibility for any results. All
+                            suggestions and
+                            information provided herein are in good faith, to the best of our knowledge, and based on
+                            the birth
+                            details (date, time, and place) provided by you and successful outcomes in the past.</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <script src="/static/javascript/main.js"></script>
+        <!-- Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+        <script src="/static/javascript/main.js" defer></script>
+        <script src="/static/javascript/app.js"></script>
 
 </body>
 

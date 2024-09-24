@@ -102,20 +102,6 @@ ul {
     border-radius: 15px 0;
 }
 
-.teamSec .overlay {
-    width: 100%;
-    height: 550px;
-    background-color: #13130ae6;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 25px;
-}
-
 /* testimonial  */
 
 .swiper {
@@ -292,6 +278,7 @@ ul {
 }
 
 .reiki-form input,
+.reiki-form select,
 .reiki-form textarea {
     border: #bcbcbc solid 1px;
     width: 100%;
@@ -335,9 +322,7 @@ ul {
         top: 0;
     }
 
-    .teamSec .overlay {
-        height: 990px;
-    }
+
 
 
     /* reiki healing workshop page  */
@@ -390,9 +375,6 @@ ul {
         max-width: 40% !important;
     }
 
-    .teamSec .overlay {
-        height: 400px;
-    }
 
     .sub-pages {
         height: 565px;
