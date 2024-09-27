@@ -39,7 +39,8 @@
             <h1 class="text-[#4F3E17] text-[30px] lg:text-[45px] font-bold
                 text-left leading-[35px]">Unlock Your Cosmic Potential</h1>
 
-            <p class="my-[15px] md:my-[25px] text-justify">At Shiv Cosmic Energy Solutions, we offer personalized astrological
+            <p class="my-[15px] md:my-[25px] text-justify">At Shiv Cosmic Energy Solutions, we offer personalized
+                astrological
                 consultations that help you
                 navigate
                 your life’s path with clarity and purpose. Our expert astrologers and Vastu consultants analyze your
@@ -95,7 +96,8 @@
 
 <!-- services  -->
 
-<section class="main-container h-[100%] bg-[#F6EFE0] rounded-[25px] p-[20px] md:p-[40px] bg-center bg-cover bg-no-repeat" style="background-image: url('/static/assets/images/bg-v.png');">
+<section class="main-container h-[100%] bg-[#F6EFE0] rounded-[25px] p-[20px]
+     md:p-[40px] bg-center bg-cover bg-no-repeat" style="background-image: url('/static/assets/images/bg-v.png');">
 
     <h1 class="text-[#4F3E17] font-bold text-[35px] lg:text-[45px] text-center mb-[20px] md:mb-[40px]">Our Services</h1>
 
@@ -113,12 +115,16 @@
 
         <!-- Kundali  -->
         <div class="category-card md:w-[24%] flex items-center flex-col
-                       bg-[#fff]   rounded-[15px] overflow-hidden my-[15px] md:m-0">
-            <img src="/static/assets/images/Kundali.jpg" alt="Kundali.png" class="max-w-[145px] py-2" loading="lazy">
+                       bg-[#fff] rounded-[15px] overflow-hidden my-[15px] md:m-0">
 
-            <div class="w-full">
-                <h1 class="text-center text-[21px] py-2">Kundali</h1>
-            </div>
+            <a href="{% url 'index' %}">
+                <img src="/static/assets/images/Kundali.jpg" alt="Kundali.png" class="max-w-[145px] py-2"
+                    loading="lazy">
+
+                <div class="w-full">
+                    <h1 class="text-center text-[21px] py-2">Kundali</h1>
+                </div>
+            </a>
         </div>
 
         <!-- Astro-numerology  -->
@@ -157,16 +163,18 @@
 </section>
 
 <!-- Create Your Own Kundali Online  -->
- 
+
 <section class="main-container flex items-center 
     justify-center">
     <div class="w-full md:flex justify-between items-center">
 
         <div class="md:w-[60%] text-center md:text-left">
-            <h1 class="text-[#4F3E17] text-[35px] lg:text-[45px] font-bold leading-[40px] md:leading-[48px] mb-[20px] md:mb-[40px]">Create Your Own
+            <h1
+                class="text-[#4F3E17] text-[35px] lg:text-[45px] font-bold leading-[40px] md:leading-[48px] mb-[20px] md:mb-[40px] text-start">
+                Create Your Own
                 Kundali Online</h1>
 
-            <p class="text-[17px] leading-[29px]">Unlock the secrets of the stars with our exclusive online
+            <p class="text-[17px] leading-[29px] text-start">Unlock the secrets of the stars with our exclusive online
                 Horoscope service! For just Rs 499, gain
                 access
                 to personalized insights and predictions delivered straight to your inbox in a convenient PDF
@@ -262,7 +270,9 @@
 </section>
 
 <!-- Team  -->
-<section class="main-container bg-[#F6EFE0] px-[20px] lg:px-[40px] pt-[60px] pb-[80px] rounded-[25px] overflow-hidden bg-center bg-cover bg-no-repeat" style="background-image: url('/static/assets/images/bg-v.png');">
+<section class="main-container bg-[#F6EFE0] px-[20px] lg:px-[40px] pt-[60px]
+     pb-[80px] rounded-[25px] overflow-hidden bg-center bg-cover bg-no-repeat"
+    style="background-image: url('/static/assets/images/bg-v.png');">
 
     <div class="w-full md:flex justify-between">
 
@@ -495,6 +505,6 @@
 </section>
 
 
-  <script src="/static/javascript/main.js" defer></script>
+<script src="/static/javascript/main.js" defer></script>
 
 {% endblock main-content %}
