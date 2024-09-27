@@ -7,7 +7,7 @@ import shortuuid
 import datetime
 from django.shortcuts import render, redirect
 from .models import Payment
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import EmailMessage
 from django.http import JsonResponse
@@ -335,4 +335,49 @@ def terms(request):
     return render(request, 'terms.html')
 
 def contact(request):
+    if request.method == "POST":
+        contact_name = request.POST['name']
+        contact_email = request.POST['email']
+        contact_number = request.POST['number']
+        city = request.POST['city']
+        contact_message = request.POST['message']
+
+        if len(contact_message) > 100:
+            messages.warning(request, "Maximum Lenght Of Message Is 100 chars")
+            return redirect("contact")
+
+        obj = Contact_Us(name=contact_name,email=contact_email,phone_number=contact_number,city=city,message=contact_message)
+
+        ''' Begin reCAPTCHA validation '''
+        recaptcha_response = request.POST.get('g-recaptcha-response')
+        url = 'https://www.google.com/recaptcha/api/siteverify'
+        values = {
+            'secret': settings.RECAPTCHA_PRIVATE_KEY,
+            'response': recaptcha_response
+            }
+        data = urllib.parse.urlencode(values).encode("utf-8")
+        req = Request(url, data)
+        response = urlopen(req)
+        result = json.load(response)
+        verify=result['success']
+        ''' End reCAPTCHA validation '''
+        print(verify)
+        if verify:
+            obj.save()
+
+            e_message = f"Dear Team,\n {contact_email} has dropped a message on tib.in\nName:{contact_name}\nEmail:{contact_email}\nPhone No:{contact_number}\nMessage:\n{contact_message}\nKind Regards\nTeam Sharp Multimedia"
+            send_mail(
+                "You Have Received A Message On Your Site",
+                e_message,
+                settings.EMAIL_HOST_USER,
+                ["developer.sharpmultimedia@gmail.com","srjagtap7@gmail.com"],
+                fail_silently=False
+            )
+
+            messages.success(request, "Thank You. We will contact you soon") 
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+
+        else:
+            messages.error(request, "Sorry please try again ") 
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))  
     return render(request, 'contact.html')
