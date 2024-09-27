@@ -1,22 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Kundali</title>
-    <link rel="stylesheet" href="/static/css/Landing page css/style.css">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- font-awesome cdn  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-
-</head>
-
-<body>
+{% extends 'base.html'%}
+{% load static %}
+{% block hero-image %} sub-pages {% endblock hero-image %}
+{% block main-content %}
 
     <!-- Don't remove this commented code   -->
 
@@ -122,29 +107,28 @@
         </nav> -->
 
 
-    <!-- Hero section  -->
+        <section class="mt-[30px]">
+            <div class="w-full flex justify-between flex-col-reverse lg:flex-row">
+        
+                <div class="w-full lg:w-[50%] flex flex-col justify-center mt-[20px]">
+        
+                    <h1 class="text-[#ffd169] md:text-[45px] text-[30px] leading-[34px]
+                             text-center lg:text-left mb-[20px]">Kundli</h1>
+        
+                    <div class="text-center lg:text-left">
+                        <a href="#" class="text-[#ff8e57]">Home </a>
+                        <span class="text-[#2FAFE3]"> - </span>
+                        <span class="text-[#ffd169]">Kundli</span>
+                    </div>
+                </div>
+        
+                <div class="w-full lg:w-[48%] flex justify-center items-center relative">
+                    <img src="/static/assets/images/kundli vector.png" alt="" class="astrological-image max-w-[45%]">
 
-    <section class="Nav-section hero-section sub-pages">
-        <div class="w-full flex justify-between flex-col-reverse lg:flex-row">
-
-            <div class="w-full lg:w-[50%] flex flex-col justify-center mt-[20px]">
-
-                <h1 class="text-[#ffd169] md:text-[45px] text-[30px]
-               text-center lg:text-left">Kundli</h1>
-
-                <div class="text-center lg:text-left">
-                    <a href="#" class="text-[#ff8e57]">Home </a>
-                    <span class="text-[#2FAFE3]"> - </span>
-                    <span class="text-[#ffd169]">Kundli</span>
                 </div>
             </div>
-
-            <div class="w-full lg:w-[48%] flex justify-center items-center relative">
-                <img src="/static/assets/images/kundli vector.png" alt="" class="astrological-image max-w-[44%]">
-            </div>
-        </div>
-    </section>
-
+        </section>
+        </header>
     <!-- Form  -->
 
     <section class="main-container flex items-center justify-center relative lg:h-[550px]
@@ -161,8 +145,8 @@
 
             <div class="xl:w-[60%] md:w-[75%] w-full">
 
-                <form action="" class="reiki-form w-full">
-
+                <form method="post" class="reiki-form w-full">
+                {% csrf_token %}
                     <div class="w-full md:flex justify-between">
 
                         <div class="md:w-[49%]">
@@ -170,7 +154,7 @@
                                 <label for="name">First Name</label>
                             </div>
                             <div>
-                                <input type="text" id="name" placeholder="Your Name" name="name" autocomplete="off">
+                                <input type="text" id="name" placeholder="Your Name" name="name" autocomplete="off" required>
                             </div>
                         </div>
 
@@ -184,7 +168,7 @@
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
                                     <option value="other">Other</option>
-                                </select>
+                                  </select>
                             </div>
                         </div>
 
@@ -199,9 +183,9 @@
                             <div>
                                 <select id="day" name="day" required>
                                     <option value="" disabled selected>DD</option>
-                                    <!-- {% for day in days %} -->
+                                    {% for day in days %}
                                     <option value="{{ day }}">{{ day }}</option>
-                                    <!-- {% endfor %} -->
+                                    {% endfor %}
                                 </select>
                             </div>
                         </div>
@@ -213,9 +197,9 @@
                             <div>
                                 <select id="month" name="month" required>
                                     <option value="" disabled selected>MM</option>
-                                    <!-- {% for month in months %} -->
+                                    {% for month in months %}
                                     <option value="{{ month }}">{{ month }}</option>
-                                    <!-- {% endfor %} -->
+                                    {% endfor %}
                                 </select>
                             </div>
                         </div>
@@ -227,9 +211,9 @@
                             <div>
                                 <select id="year" name="year" required>
                                     <option value="" disabled selected>YYYY</option>
-                                    <!-- {% for year in years %} -->
+                                    {% for year in years %}
                                     <option value="{{ year }}">{{ year }}</option>
-                                    <!-- {% endfor %} -->
+                                    {% endfor %}
                                 </select>
                             </div>
                         </div>
@@ -245,9 +229,9 @@
                             <div>
                                 <select id="hour" name="hour" required>
                                     <option value="" disabled selected>HH</option>
-                                    <!-- {% for hour in hours %} -->
+                                    {% for hour in hours %}
                                     <option value="{{ hour }}">{{ hour }}</option>
-                                    <!-- {% endfor %} -->
+                                    {% endfor %}
                                 </select>
                             </div>
                         </div>
@@ -259,9 +243,9 @@
                             <div>
                                 <select id="min" name="min" required>
                                     <option value="" disabled selected>MM</option>
-                                    <!-- {% for minute in minutes %} -->
+                                    {% for minute in minutes %}
                                     <option value="{{ minute }}">{{ minute }}</option>
-                                    <!-- {% endfor %} -->
+                                    {% endfor %}
                                 </select>
                             </div>
                         </div>
@@ -299,8 +283,9 @@
                     </div>
 
                     <div class="mt-[20px]">
-                        <button type="submit" class="w-full bg-[#AE633F] text-[#fff]
-                             py-[10px] rounded-[10px]">Send</button>
+
+                        <input class="submit_btn" type="submit" value="Submit">
+                        <!-- <button type="submit" class="w-full bg-[#AE633F] text-[#fff] py-[10px] rounded-[10px]">Send</button> -->
                     </div>
 
                 </form>
@@ -492,8 +477,4 @@
         </div>
     </section>
 
-
-    <script src="/static/javascript/main.js"></script>
-</body>
-
-</html>
+    {% endblock main-content %}

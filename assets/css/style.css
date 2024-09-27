@@ -16,6 +16,7 @@ h5,
 h6 {
     font-family: 'Roboto', sans-serif;
     font-style: normal;
+    font-display: swap;
 }
 
 h1 {
@@ -39,15 +40,16 @@ label {
     font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 500;
+    font-display: swap;
 }
 
-.formContainer {
+/* .formContainer {
     padding: 80px 120px;
     background-image: url("/static/assets/images/Astology.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
+} */
 
 .rowMain {
     width: 100%;
@@ -69,7 +71,7 @@ label {
 
 .contentBG {
     background: white;
-    padding: 35px;
+    padding-right: 35px;
     border-radius: 15px 0 0 15px;
 
 }
@@ -100,195 +102,6 @@ label {
 
 /* ----- form ----  */
 
-.form {
-    position: relative;
-    width: 100%;
-    padding: 35px;
-    border-radius: 15px;
-
-    /* background: rgb(255 255 255 / 95%); */
-    background-color: #fff;
-    backdrop-filter: blur(5px);
-    border-radius: 10px;
-    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
-}
-
-.formHead {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-.formHead img {
-    max-width: 81px;
-}
-
-.formHead h2 {
-    color: rgb(206, 171, 92);
-    letter-spacing: 1px;
-    margin-bottom: 15px;
-    font-size: 25px;
-}
-
-.formHead p {
-    color: #45391f;
-    font-size: 16px;
-}
-
-.dataBox {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 25px;
-}
-
-.inputBx {
-    position: relative;
-    width: 49%;
-}
-
-.formLabel {
-    margin-bottom: 6px;
-}
-
-.formLabel label {
-    font-size: 17px;
-    color: rgb(206 171 92 / 89%);
-}
-
-.inputBx input,
-.inputBx select {
-    width: 100%;
-    outline: none;
-    border: none;
-    border: 1px solid rgb(25 22 22 / 20%);
-    padding: 11px 10px;
-    font-size: 16px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: all 0.5s ease-in-out;
-    color: rgb(69, 57, 31);
-
-}
-
-.inputBx input::placeholder {
-    font-weight: 400;
-}
-
-.inputBx select {
-    background: white;
-    font-size: 14px;
-}
-
-.inputBx input:focus,
-select:focus {
-    background: #f1f1f1;
-    outline: none;
-}
-
-/* .inputBx input.filled,
-.inputBx select.filled {
-    background-color: #F1E7D0;
-} */
-
-.selectBx {
-    width: 32%;
-}
-
-.inputBx input[type="submit"] {
-    background: #fff;
-    color: #231f20;
-    max-width: 240px;
-    padding: 12px 10px;
-    box-shadow: none;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: .7s;
-
-    font-family: "Roboto", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-    font-size: 15px;
-}
-
-.inputBx input[type="submit"]:hover {
-    background: #ae633f;
-    color: #fff;
-    transition: .7s;
-}
-
-input::placeholder {
-    font-size: 15px;
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-
-.formBtn {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-/* footer  */
-
-.footerSec {
-    margin: 60px 120px 25px 120px;
-}
-
-.footerContent {
-    display: flex;
-    gap: 25px;
-}
-
-.footerTop {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    border-bottom: 1px solid #ceab5c;
-}
-
-.footerTop ul {
-    display: flex;
-    gap: 35px;
-    margin: 25px 0 40px 0;
-}
-
-.footerTop ul li {
-    list-style: none;
-}
-
-.footerTop ul li a,
-.footerContent h2 {
-    text-decoration: none;
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    color: #45391f;
-}
-
-.footerB {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 25px;
-}
-
-.footerContent h2 {
-    font-size: 15px;
-}
-
-.footerB h5 {
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    color: #45391f;
-    font-size: 15px;
-    text-align: center;
-}
 
 /* review page */
 
@@ -824,8 +637,9 @@ input[type="checkbox"] {
 
     .resultContent p {
         font-size: 15px;
-
     }
+
+
 }
 
 @media (min-width:320px) and (max-width: 374px) {
@@ -896,3 +710,5 @@ input[type="checkbox"] {
         padding: 120px 60px;
     }
 }
+
+

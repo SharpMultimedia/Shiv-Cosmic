@@ -44,7 +44,7 @@ def index(request):
         except ValueError as e:
             print(f"Error converting to float: {e}")
             messages.error(request, "Invalid location data.")
-            return render(request, 'index.html')
+            return render(request, 'kundali.html')
 
         # Save form data to session
         request.session['form_data'] = {
@@ -71,7 +71,7 @@ def index(request):
     hours = list(range(0, 24))
     minutes = list(range(0, 60))
 
-    return render(request, 'index.html', {
+    return render(request, 'kundali.html', {
         'days': days,
         'months': months,
         'years': years,
@@ -210,7 +210,7 @@ def payment_return(request):
             return redirect('index')  # Redirect to index if there's a request exception
     else:
         messages.error(request, "Invalid transaction ID.")
-    return render(request, 'index.html', {'form_data': form_data})  # Default render if none of the above conditions match
+    return render(request, 'Kundali.html', {'form_data': form_data})  # Default render if none of the above conditions match
 
 
 def process_payment(request):

@@ -49,12 +49,33 @@ p {
     opacity: 1 !important;
 }
 
+.sticky {
+    transition: all 0.3s ease-in-out;
+}
+
+
+.bg-custom {
+    background-color: #ae633f !important;
+}
+
+#astroTalk {
+    transition: display 0.3s ease-in-out;
+}
+
+#navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.4s ease, top 0.4s ease;
+}
+
+
 ul {
     position: relative;
 }
 
 .mini-nav {
-    border-bottom: 2px solid #d6d6d6;
+    border-bottom: 1px solid #d6d6d6;
     padding-bottom: 20px;
     margin-bottom: 20px;
 }
@@ -67,7 +88,7 @@ ul {
     height: 801px;
 }
 
-.image-home{
+.image-home {
     background-image: url('https://images.pexels.com/photos/2598081/pexels-photo-2598081.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
 }
 
@@ -102,20 +123,6 @@ ul {
     border-radius: 15px 0;
 }
 
-.teamSec .overlay {
-    width: 100%;
-    height: 550px;
-    background-color: #13130ae6;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 25px;
-}
-
 /* testimonial  */
 
 .swiper {
@@ -146,7 +153,7 @@ ul {
 
 /* --- footer ---  */
 
-.footerBottom {
+/* .footerBottom {
     border-bottom: 1px solid #AE633F;
     padding-bottom: 25px;
     margin-bottom: 25px;
@@ -154,17 +161,60 @@ ul {
 
 .footerBottom ul li {
     padding: 2px 0;
+} */
+
+/* --------- footer video -----  */
+
+.video-background {
+    position: relative;
+    width: 100%;
+    height: 65%;
+    overflow: hidden;
 }
 
+.video-background video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -2;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: #c1c1c1cc; */
+    background: #f6efe0e8;
+    z-index: -1;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    color: #0b0b0b;
+    text-align: center;
+    padding: 40px 100px;
+}
 
 /* --- Reiki Healing Workshop page ----  */
 
-
 .sub-pages {
-    background-image: url('/static/assets/images/major-min.jpg');
+    background-image: url('/static/assets/images/blue-bg\ 2.jpg');
     background-position: center center;
     background-size: cover;
     height: 510px;
+}
+
+.subImage {
+    max-width: 240px;
 }
 
 .image-box-one,
@@ -199,46 +249,45 @@ ul {
     z-index: 0;
 }
 
-
 .image-box-one.active::before {
-    background-image: url('https://img.freepik.com/free-photo/person-conducting-reiki-therapy_23-2149403947.jpg?t=st=1726146227~exp=1726149827~hmac=c63d0421b98aa5a00ed7e62766acaeb971d344337254bff0beaa84b81e2a77b2&w=996');
-    opacity: 1;
+    background-image: url('/static/assets/images/Foundations\ of\ Reiki.jpg');
+    opacity: 0.3;
     border-radius: 25px;
 }
 
 .image-box-two.active::before {
-    background-image: url('https://img.freepik.com/free-photo/spiritual-young-man-practicing-yoga-indoors_23-2149163293.jpg?t=st=1726146388~exp=1726149988~hmac=28716cddc911a2169d18820654824319bc2e9e0b084fb0a394541bc96eeae6ae&w=996');
-    opacity: 1;
+    background-image: url('/static/assets/images/Chakra\ Alignment.jpeg');
+    opacity: 0.3;
     border-radius: 25px;
 }
 
 .image-box-three.active::before {
-    background-image: url('https://img.freepik.com/free-photo/top-view-child-learning-how-count-home_23-2148524529.jpg?t=st=1726146487~exp=1726150087~hmac=2096f16d4697128b27fc8a3908a752ce147732b238c6257a9033341781190b28&w=996');
-    opacity: 1;
+    background-image: url('/static/assets/images/Hands-on\ Practice.jpg');
+    opacity: 0.3;
     border-radius: 25px;
 }
 
 .image-box-four.active::before {
-    background-image: url('https://images.pexels.com/photos/1213049/pexels-photo-1213049.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-    opacity: 1;
+    background-image: url('/static/assets/images/Self-Healing\ Techniques.jpeg');
+    opacity: 0.3;
     border-radius: 25px;
 }
 
 .image-box-five.active::before {
-    background-image: url('https://img.freepik.com/free-photo/close-up-hands-holding_23-2149153704.jpg?t=st=1726146907~exp=1726150507~hmac=4a3b29a8fae429db1cd23ce3b1047980ef32e48d091cfd7536e387fdf71d2704&w=996');
-    opacity: 1;
+    background-image: url('/static/assets/images/Healing\ Others.jpg');
+    opacity: 0.3;
     border-radius: 25px;
 }
 
 .image-box-six.active::before {
     background-image: url('https://images.pexels.com/photos/1314133/pexels-photo-1314133.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-    opacity: 1;
+    opacity: 0.3;
     border-radius: 25px;
 }
 
 .image-box-seven.active::before {
     background-image: url('https://images.pexels.com/photos/793012/pexels-photo-793012.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-    opacity: 1;
+    opacity: 0.3;
     border-radius: 25px;
 }
 
@@ -249,7 +298,7 @@ ul {
 .image-box-five:hover::before,
 .image-box-six:hover::before,
 .image-box-seven:hover::before {
-    opacity: 1;
+    opacity: 0.3;
 }
 
 .image-box-one h1,
@@ -268,7 +317,7 @@ ul {
 .image-box-seven p {
     position: relative;
     z-index: 1;
-    color: #CEAB5C;
+    color: #4F3E17;
 }
 
 .image-box-one p,
@@ -288,10 +337,11 @@ ul {
 .image-box-five.active p,
 .image-box-six.active p,
 .image-box-seven.active p {
-    color: #fff;
+    /* color: #fff; */
 }
 
 .reiki-form input,
+.reiki-form select,
 .reiki-form textarea {
     border: #bcbcbc solid 1px;
     width: 100%;
@@ -302,12 +352,23 @@ ul {
     padding: 0 10px;
 }
 
-.reiki-form textarea {
+.reiki-form input::placeholder,
+.reiki-form select::placeholder,
+.reiki-form textarea::placeholder {
+    color: #424242;
+}
 
+.reiki-form textarea {
     height: 155px;
 }
 
 
+/* ---- kundli page -----  */
+.submit_btn{
+    background: #AE633F !important;
+    cursor: pointer;
+    color: white;
+}
 
 /* Responsive work  */
 
@@ -335,8 +396,12 @@ ul {
         top: 0;
     }
 
-    .teamSec .overlay {
-        height: 990px;
+    .video-background {
+        height: 100% !important;
+    }
+
+    .content {
+        padding: 20px 20px !important;
     }
 
 
@@ -345,7 +410,9 @@ ul {
     .sub-pages {
         height: 560px !important;
     }
+
 }
+
 
 @media (min-width:320px) and (max-width: 425px) {
     .hero-section {
@@ -355,22 +422,40 @@ ul {
     .benefit-img {
         height: 1050px !important;
     }
+
+    .subImage {
+        max-width: 180px;
+    }
 }
 
 @media (min-width:320px) and (max-width: 375px) {
+
+    .subImage {
+        max-width: 145px;
+    }
 
     .benefit-img {
         height: 1050px !important;
     }
 }
 
+@media (min-width:425px) and (max-width: 598px) {
+    .subImage {
+        max-width: 204px;
+    }
+}
+
 @media (min-width:375px) and (max-width: 598px) {
+
     .hero-section {
         height: 695px;
     }
+
     .benefit-img {
         height: 920px !important;
     }
+
+
 }
 
 @media (min-width:600px) and (max-width: 768px) {
@@ -390,9 +475,6 @@ ul {
         max-width: 40% !important;
     }
 
-    .teamSec .overlay {
-        height: 400px;
-    }
 
     .sub-pages {
         height: 565px;

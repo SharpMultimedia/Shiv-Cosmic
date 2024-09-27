@@ -1,32 +1,4 @@
-// testimonial slider 
 
-var swiper = new Swiper(".testimonial-slider", {
-    slidesPerView: 3,
-    spaceBetween: 30,
-    loop: true,
-    speed: 9000,
-    autoplay: {
-        delay: 1,
-        disableOnInteraction: false
-    },
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-    breakpoints: {
-        320: {
-            slidesPerView: 1,
-        },
-        1024: {
-            slidesPerView: 2,
-            spaceBetween: 20
-        },
-        1280: {
-            slidesPerView: 3,
-            spaceBetween: 20
-        }
-    }
-});
 
 
 // Navigation 
@@ -53,5 +25,73 @@ function closeMenu() {
     list.classList.remove('open');
 }
 
+// ------ sticky navigation ------ 
 
+let lastScrollTop = 0;
+const navbar = document.getElementById('navbar');
+
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+
+    // Change navbar background on scroll
+    if (scrollTop > 0) {
+        navbar.style.backgroundColor = '#AE633F'; // Change to your desired color
+    } else {
+        navbar.style.backgroundColor = 'transparent'; // Restore transparency
+    }
+
+    // Throttle scroll event to reduce flickering
+    if (Math.abs(scrollTop - lastScrollTop) > 5) {
+        lastScrollTop = scrollTop;
+    }
+});
+
+
+// astroTalk div hide & show 
+
+let isScrolling;
+
+window.addEventListener('scroll', () => {
+    clearTimeout(isScrolling);
+
+    isScrolling = setTimeout(() => {
+        const navbar = document.getElementById('astroTalk');
+        if (window.scrollY > 0) {
+            navbar.style.display = 'none';
+        } else {
+            navbar.style.display = 'flex';
+        }
+    }, 50); // Adjust this value as needed
+});
+
+
+// testimonial slider 
+
+var swiper = new Swiper(".testimonial-slider", {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    loop: true,
+    speed: 9000,
+    // autoplay: {
+    //     delay: 1,
+    //     disableOnInteraction: false
+    // },
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    breakpoints: {
+        320: {
+            slidesPerView: 1,
+        },
+        1024: {
+            slidesPerView: 2,
+            spaceBetween: 20
+        },
+        1280: {
+            slidesPerView: 3,
+            spaceBetween: 30
+        }
+    }
+});
 
