@@ -13,158 +13,159 @@
 
     <!-- font-awesome cdn  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
 </head>
 
 <body>
 
-    <section>
-        <!-- Nav and Hero section  -->
-        <header class="Nav-section hero-section sub-pages">
+    <!-- Don't remove this commented code   -->
 
-            <!-- Navigation  -->
-            <nav class="w-full pt-[10px] lg:p-5 md:flex items-center justify-between">
-                <div class="lg:w-[10%] hidden md:flex justify-between items-center">
-                    <a href="{% url 'home' %}">
-                        <img class="max-w-[85px] lg:max-w-[125px]" src="/static/assets/images/Logo/logo.png" alt="logo"
-                            loading="lazy">
-                    </a>
+    <!-- contact info  -->
+    <!-- <div class="w-full mini-nav md:flex">
+
+            <div id="astroTalk" class="w-full md:flex lg:pt-[20px] justify-end">
+
+     
+
+                <div class="nav-top lg:w-[28%] md:w-[42%] flex items-center gap-[10px]">
+                    <div class="w-[14%]">
+                        <div
+                            class="w-[35px] h-[35px] lg:w-[42px] lg:h-[42px] bg-[#AE633F] rounded-[50%] text-white flex items-center justify-center">
+                            <i class="far fa-comment-dots text-[17px] lg:text-[19px]"></i>
+                        </div>
+                    </div>
+                    <div class="w-[90%]">
+                        <span class="text-[14px] lg:text-[15px]"> AstroTalk -</span>
+                        <span class="text-[14px] lg:text-[15px]">+ (91) 9175932752</span>
+                    </div>
                 </div>
 
-                <!-- contact info  -->
 
-                <div class="md:w-[82%]">
+                <div class="nav-top lg:w-[33%] md:w-[54%] flex items-center gap-[10px] my-[10px] lg:m-0">
+                    <div class="w-[14%]">
+                        <div
+                            class="w-[35px] h-[35px] lg:w-[42px] lg:h-[42px] bg-[#AE633F] rounded-[50%] text-white flex items-center justify-center">
+                            <i class="fa-solid fa-envelope text-[17px] lg:text-[19px]"></i>
+                        </div>
+                    </div>
+                    <div class="w-[90%]">
+                        <span class="text-[14px] lg:text-[15px]"> AstroHelp -</span>
+                        <span class="text-[14px] lg:text-[15px]">info@nhmcpune@gmail.com</span>
+                    </div>
+                </div>
 
-                    <div class="w-full mini-nav  md:flex">
+            </div>
 
-                        <div class="w-full md:flex lg:pt-[20px] justify-end">
+        </div> -->
 
-                            <!-- AstroTalk  -->
-                            <div class="nav-top lg:w-[28%] md:w-[42%] flex items-center gap-[10px]">
-                                <div class="w-[14%]">
-                                    <div class="w-[35px] h-[35px] lg:w-[42px] lg:h-[42px] bg-[#AE633F] rounded-[50%] text-white
-                            flex items-center justify-center">
-                                        <i class="far fa-comment-dots text-[17px] lg:text-[19px]"></i>
-                                    </div>
-                                </div>
-                                <div class="w-[90%]">
-                                    <span class="text-[#fff] text-[14px] lg:text-[15px]"> AstroTalk -</span>
-                                    <span class="text-[#fff] text-[14px] lg:text-[15px]">+ (91) 9175932752</span>
-                                </div>
-                            </div>
+    <!-- Navigation  -->
+    <!-- <nav id="navbar"
+            class="w-full pt-[10px] lg:p-5 md:flex items-center justify-between sticky top-0 z-[1000] bg-transparent transition-all duration-300">
 
-                            <!-- AstroHelp  -->
-                            <div class="nav-top lg:w-[33%] md:w-[54%] flex items-center gap-[10px] my-[10px] lg:m-0">
-                                <div class="w-[14%]">
-                                    <div class="w-[35px] h-[35px] lg:w-[42px] lg:h-[42px] bg-[#AE633F] rounded-[50%] text-white
-                                flex items-center justify-center">
-                                        <i class="fa-solid fa-envelope text-[17px] lg:text-[19px]"></i>
-                                    </div>
-                                </div>
-                                <div class="w-[90%]">
-                                    <span class="text-[#fff] text-[14px] lg:text-[15px]"> AstroHelp -</span>
-                                    <span class="text-[#fff] text-[14px] lg:text-[15px]">info@nhmcpune@gmail.com</span>
-                                </div>
+
+            <div class="lg:w-[10%] hidden md:flex justify-between items-center">
+                <a href="{% url 'home' %}">
+                    <img class="max-w-[85px] lg:max-w-[125px]" src="/static/assets/images/Logo/logo.png" alt="logo"
+                        loading="lazy">
+                </a>
+            </div>
+
+            <div class="md:w-[82%]">
+
+                <div class="flex">
+
+                    <div class="w-full flex justify-between items-center flex-row-reverse">
+
+                        <div class="w-[40%] lg:w-[100%] flex justify-end">
+                            <div class="text-3xl cursor-pointer mx-2 md:hidden block" onclick="Menu(this)">
+                                <i class="fas fa-bars text-[#CEAB5C]"></i>
                             </div>
                         </div>
 
-                    </div>
-
-                    <div class="flex">
-
-                        <div class="w-full flex justify-between items-center flex-row-reverse">
-
-                            <div class="w-[40%] lg:w-[100%] flex justify-end">
-                                <div class="text-3xl cursor-pointer mx-2 md:hidden block" onclick="Menu(this)">
-                                    <i class="fas fa-bars text-[#CEAB5C]"></i>
-                                </div>
-                            </div>
-
-                            <!-- mobile view logo  -->
-
-                            <div class="flex justify-center md:hidden">
-                                <a href="">
-                                    <img class="max-w-[85px] lg:max-w-[105px]" src="/static/assets/images/Logo/logo.png"
-                                        alt="logo">
-                                </a>
-                            </div>
+                        <div class="flex justify-center md:hidden">
+                            <a href="">
+                                <img class="max-w-[85px] lg:max-w-[105px]" src="/static/assets/images/Logo/logo.png"
+                                    alt="logo">
+                            </a>
                         </div>
-                    </div>
 
-                    <ul class="md:flex md:items-center md:z-auto md:static absolute w-full left-0
-                                md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500 text-white
-                                 bg-[#ae633f] md:bg-inherit justify-end">
-
-                        <li class="mx-4 my-4 md:my-0 z-[100]">
-                            <a href="{% url 'home' %}" class="text-[16px] hover:text-cyan-500 duration-500">Home</a>
-                        </li>
-                        <li class="mx-4 my-4 md:my-0">
-                            <a href="{% url 'reikhihealing' %}"
-                                class="text-[16px] hover:text-cyan-500 duration-500">Reiki
-                                Healing Workshop</a>
-                        </li>
-                        <li class="mx-4 my-4 md:my-0">
-                            <a href="#" class="text-[16px] hover:text-cyan-500 duration-500">Blog</a>
-                        </li>
-                        <li class="mx-4 my-4 md:my-0">
-                            <a href="#" class="text-[16px] hover:text-cyan-500 duration-500">Testimonial</a>
-                        </li>
-                        <li class="mx-4 my-4 md:my-0">
-                            <a href="{% url 'contact' %}"
-                                class="text-[16px] hover:text-cyan-500 duration-500">Contact</a>
-                        </li>
-
-                        <!-- Close Icon Inside the List -->
-                        <li class="w-[35px] h-[35px] bg-[#CEAB5C] rounded-[50%] flex items-center
-                     justify-center absolute top-0 right-0 mt-4 mr-4 cursor-pointer md:hidden">
-                            <i class="fa-solid fa-x text-[15px]" onclick="closeMenu()"></i>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-
-
-            <section class="mt-[30px]">
-                <div class="w-full flex justify-between flex-col-reverse lg:flex-row">
-
-                    <div class="w-full lg:w-[50%] flex flex-col justify-center mt-[20px]">
-
-                        <h1 class="text-[#ffe4a8] md:text-[45px] text-[30px]
-                       text-center lg:text-left">Kundli</h1>
-
-                        <div class="text-center lg:text-left">
-                            <a href="#" class="text-[#ff8e57]">Home </a>
-                            <span class="text-[#2FAFE3]"> - </span>
-                            <span class="text-[#ffe4a8]">Kundli</span>
-                        </div>
-                    </div>
-
-                    <div class="w-full lg:w-[48%] flex justify-center items-center relative">
-                        <img src="/static/assets/images/Frame (11).png" alt="" class="astrological-image max-w-[44%]">
                     </div>
                 </div>
-            </section>
-        </header>
+
+                <ul class="md:flex md:items-center md:z-auto md:static absolute w-full left-0
+                    md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500 
+                     bg-[#ae633f] md:bg-inherit justify-end">
+
+                    <li class="mx-4 my-4 md:my-0 z-[100]">
+                        <a href="{% url 'home' %}" class="text-[16px] hover:text-cyan-500 duration-500">Home</a>
+                    </li>
+                    <li class="mx-4 my-4 md:my-0">
+                        <a href="{% url 'reikhihealing' %}" class="text-[16px] hover:text-cyan-500 duration-500">Reiki
+                            Healing Workshop</a>
+                    </li>
+                    <li class="mx-4 my-4 md:my-0">
+                        <a href="#" class="text-[16px] hover:text-cyan-500 duration-500">Blog</a>
+                    </li>
+                    <li class="mx-4 my-4 md:my-0">
+                        <a href="#" class="text-[16px] hover:text-cyan-500 duration-500">Testimonial</a>
+                    </li>
+                    <li class="mx-4 my-4 md:my-0">
+                        <a href="{% url 'contact' %}" class="text-[16px] hover:text-cyan-500 duration-500">Contact</a>
+                    </li>
+
+                    <li class="w-[35px] h-[35px] bg-[#CEAB5C] rounded-[50%] flex items-center
+         justify-center absolute top-0 right-0 mt-4 mr-4 cursor-pointer md:hidden">
+                        <i class="fa-solid fa-x text-[15px]" onclick="closeMenu()"></i>
+                    </li>
+                </ul>
+            </div>
+        </nav> -->
+
+
+    <!-- Hero section  -->
+
+    <section class="Nav-section hero-section sub-pages">
+        <div class="w-full flex justify-between flex-col-reverse lg:flex-row">
+
+            <div class="w-full lg:w-[50%] flex flex-col justify-center mt-[20px]">
+
+                <h1 class="text-[#ffd169] md:text-[45px] text-[30px]
+               text-center lg:text-left">Kundli</h1>
+
+                <div class="text-center lg:text-left">
+                    <a href="#" class="text-[#ff8e57]">Home </a>
+                    <span class="text-[#2FAFE3]"> - </span>
+                    <span class="text-[#ffd169]">Kundli</span>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-[48%] flex justify-center items-center relative">
+                <img src="/static/assets/images/kundli vector.png" alt="" class="astrological-image max-w-[44%]">
+            </div>
+        </div>
     </section>
 
     <!-- Form  -->
-    <section class="main-container flex items-center justify-center relative h-[550px]
+
+    <section class="main-container flex items-center justify-center relative lg:h-[550px]
                bg-cover bg-center bg-no-repeat">
         <div class="md:w-[50%] absolute md:left-[25%] left-0 inset-0 opacity-25 bg-cover bg-center bg-no-repeat"
             style="background-image: url('/static/assets/images/Group\ 22.png');">
         </div>
 
         <div class="w-full relative z-10 flex justify-center items-center flex-col">
-            <h1 class="text-[#4F3E17] font-bold text-[35px] lg:text-[32px] text-center md:mb-[60px] mb-[40px]">
+            <h1
+                class="text-[#4F3E17] font-bold text-[35px] lg:text-[32px] text-center md:mb-[60px] mb-[20px] leading-[32px]">
                 Fill Out Your Details to Receive Your Personalized Kundli
             </h1>
 
-            <div class="xl:w-[60%] md:w-[75%]">
+            <div class="xl:w-[60%] md:w-[75%] w-full">
 
                 <form action="" class="reiki-form w-full">
 
-                    <div class="w-full flex justify-between">
+                    <div class="w-full md:flex justify-between">
 
-                        <div class="w-[49%]">
+                        <div class="md:w-[49%]">
                             <div>
                                 <label for="name">First Name</label>
                             </div>
@@ -173,7 +174,7 @@
                             </div>
                         </div>
 
-                        <div class="w-[49%]">
+                        <div class="md:w-[49%] mt-[10px] lg:m-0">
                             <div>
                                 <label for="gender">Gender</label>
                             </div>
@@ -189,9 +190,9 @@
 
                     </div>
 
-                    <div class="w-full flex justify-between my-[20px]">
+                    <div class="w-full md:flex justify-between lg:my-[20px]">
 
-                        <div class="w-[32%]">
+                        <div class="md:w-[32%] mt-[10px] lg:m-0">
                             <div>
                                 <label for="day">Day</label>
                             </div>
@@ -205,7 +206,7 @@
                             </div>
                         </div>
 
-                        <div class="w-[32%]">
+                        <div class="md:w-[32%] mt-[10px] lg:m-0">
                             <div>
                                 <label for="month">Month</label>
                             </div>
@@ -219,7 +220,7 @@
                             </div>
                         </div>
 
-                        <div class="w-[32%]">
+                        <div class="md:w-[32%] mt-[10px] lg:m-0">
                             <div>
                                 <label for="year">Year</label>
                             </div>
@@ -235,9 +236,9 @@
 
                     </div>
 
-                    <div class="w-full flex justify-between">
+                    <div class="w-full md:flex justify-between">
 
-                        <div class="w-[49%]">
+                        <div class="md:w-[49%] mt-[10px] lg:m-0">
                             <div>
                                 <label for="hour">Hour</label>
                             </div>
@@ -251,7 +252,7 @@
                             </div>
                         </div>
 
-                        <div class="w-[49%]">
+                        <div class="md:w-[49%] mt-[10px] lg:m-0">
                             <div>
                                 <label for="min">Minutes</label>
                             </div>
@@ -267,9 +268,9 @@
 
                     </div>
 
-                    <div class="w-full flex justify-between my-[20px]">
+                    <div class="w-full md:flex justify-between lg:my-[20px]">
 
-                        <div class="w-[49%]">
+                        <div class="md:w-[49%] mt-[10px] lg:m-0">
                             <div>
                                 <label for="language">Kundali / Horoscope language</label>
                             </div>
@@ -283,7 +284,7 @@
                             </div>
                         </div>
 
-                        <div class="w-[49%]">
+                        <div class="md:w-[49%] mt-[10px] lg:m-0">
                             <div>
                                 <label for="place">Birth Place</label>
                             </div>
@@ -309,16 +310,20 @@
     </section>
 
     <!-- Kundli -->
-    <section class="main-container h-[100%] bg-[#F6EFE0] rounded-[25px] p-[40px] bg-center bg-cover bg-no-repeat"
+
+    <section
+        class="main-container h-[100%] bg-[#F6EFE0] rounded-[25px] p-[20px] md:p-[40px] bg-center bg-cover bg-no-repeat"
         style="background-image: url('/static/assets/images/bg-v.png');">
 
-        <div class="w-full flex justify-between">
-            <div class="w-[48%]">
+        <div class="w-full md:flex justify-between">
+            <div class="md:w-[48%]">
                 <h1 class="text-[#4F3E17] font-bold text-[35px] lg:text-[28px] mb-[20px]">What is Kundli
                 </h1>
 
-                <p>The word "kundli" is derived from the Sanskrit word "kundala," which means "coiled snake." In Vedic
-                    astrology, a kundli is a Birth Chart or a Horoscope. It is a graphical representation of a person's
+                <p>The word "kundli" is derived from the Sanskrit word "kundala," which means "coiled snake." In
+                    Vedic
+                    astrology, a kundli is a Birth Chart or a Horoscope. It is a graphical representation of a
+                    person's
                     birth details, planetary positions, and other astrological aspects.</p>
 
                 <p class="mt-4">Based on ancient Vedic principles, Kundli has the power to reveal what you are truly
@@ -328,7 +333,7 @@
                     personality, characteristics, attributes, habits, strengths, weaknesses, & so on.</p>
             </div>
 
-            <div class="w-[48%]">
+            <div class="md:w-[48%] mt-[20px] lg:m-0">
                 <img src="/static/assets/images/kundali-2.jpeg" alt="kundali" loading="lazy"
                     class="rounded-[15px] w-full">
             </div>
@@ -340,16 +345,21 @@
 
     <section class="main-container">
         <div>
-            <h1 class="text-[#4F3E17] font-bold text-[35px] lg:text-[32px] text-center md:mb-[40px] mb-[40px]">Tailored
+            <h1
+                class="text-[#4F3E17] font-bold text-[35px] lg:text-[32px] leading-[32px] text-center md:mb-[40px] mb-[20px]">
+                Tailored
                 Astrological Insights in Your Preferred Language</h1>
-            <p>Our astrology service stands out by offering you the unique ability to choose your preferred language for
+            <p>Our astrology service stands out by offering you the unique ability to choose your preferred language
+                for
                 your kundli. Whether you are most comfortable with Hindi, English, or Marathi, we ensure that your
                 horoscope is not only accurate but also accessible in the language that resonates with you the most.
-                This allows you to connect deeply with the insights and guidance provided, making the experience more
+                This allows you to connect deeply with the insights and guidance provided, making the experience
+                more
                 personalized and meaningful.
             </p>
 
-            <p class="mt-4">Understanding the nuances of your astrological chart is essential, and language should never
+            <p class="mt-4">Understanding the nuances of your astrological chart is essential, and language should
+                never
                 be a barrier. With our service, you have the flexibility to receive your kundli in the language that
                 best fits your cultural and personal preferences. Whether you want to explore your horoscope in your
                 mother tongue or share it with someone who speaks a different language, we make it easy for you to
@@ -358,108 +368,121 @@
     </section>
 
     <!-- 1 Free Counsultation Call  -->
-    <section class="main-container h-[100%] bg-[#F6EFE0] rounded-[25px] p-[40px] bg-center bg-cover bg-no-repeat"
+
+    <section
+        class="main-container h-[100%] bg-[#F6EFE0] rounded-[25px] p-[20px] md:p-[40px] bg-center bg-cover bg-no-repeat"
         style="background-image: url('/static/assets/images/bg-v.png');">
 
-        <div class="w-full flex justify-between">
-            <div class="w-[48%]">
+        <div class="w-full md:flex justify-between">
+            <div class="md:w-[48%]">
                 <img src="/static/assets/images/astro.jpg" alt="kundali" loading="lazy" class="rounded-[15px] w-full">
             </div>
 
-            <div class="w-[48%]">
-                <h1 class="text-[#4F3E17] font-bold text-[35px] lg:text-[28px] mb-[20px]">1 Free Counsultation Call</h1>
+            <div class="md:w-[48%] mt-[20px] md:m-0">
+                <h1 class="text-[#4F3E17] font-bold text-[35px] lg:text-[28px] mb-[20px]">1 Free Counsultation Call
+                </h1>
 
                 <strong>Get Started with a Free Consultation Call</strong>
-                <p>TTo ensure that you receive the most accurate and personalized astrological guidance, we offer a
-                    complimentary consultation call with every kundli. This free consultation gives you the opportunity
-                    to discuss your horoscope in detail with our expert astrologers, helping you understand the deeper
+                <p class="mt-[10px] lg:m-0">TTo ensure that you receive the most accurate and personalized astrological
+                    guidance, we offer a
+                    complimentary consultation call with every kundli. This free consultation gives you the
+                    opportunity
+                    to discuss your horoscope in detail with our expert astrologers, helping you understand the
+                    deeper
                     meanings and implications of your celestial chart. Whether you have specific questions or simply
-                    wish to gain a clearer perspective on your life path, this consultation is designed to provide you
+                    wish to gain a clearer perspective on your life path, this consultation is designed to provide
+                    you
                     with valuable insights and clarity.</p>
 
                 <p class="mt-4">Our goal is to make astrology accessible and beneficial for everyone. This free
-                    consultation call is our way of ensuring that you feel confident and informed as you navigate the
-                    complex world of astrology. By connecting directly with our astrologers, you can explore your kundli
+                    consultation call is our way of ensuring that you feel confident and informed as you navigate
+                    the
+                    complex world of astrology. By connecting directly with our astrologers, you can explore your
+                    kundli
                     with expert guidance, allowing you to make the most of the wisdom it offers.</p>
             </div>
-
-
-
         </div>
     </section>
 
     <!-- What you get in Kundli  -->
     <section class="main-container">
         <div>
-            <h1 class="text-[#4F3E17] font-bold text-[35px] lg:text-[32px] text-center md:mb-[40px] mb-[40px]">What you
+            <h1 class="text-[#4F3E17] font-bold text-[35px] lg:text-[32px] text-center md:mb-[40px] mb-[20px]">What
+                you
                 get in Kundli</h1>
 
             <p>Our detailed kundli service provides you with a wealth of astrological insights, carefully crafted to
-                guide you through every aspect of your life. From basic astrological details and planetary positions to
+                guide you through every aspect of your life. From basic astrological details and planetary positions
+                to
                 intricate horoscope and divisional charts, we leave no stone unturned in mapping out your celestial
                 influences. You’ll receive a thorough analysis of house cusps, Sandhi, and various dashas, including
                 Vimshottari and Yogini, ensuring that you understand the timing and impact of cosmic events on your
                 journey.</p>
 
-            <p class="mt-4">But we don’t stop at the basics. Our kundli package also delves into specialized areas such
-                as Kalsarpa Dosha, Manglik analysis, and Sadhesati effects, helping you navigate challenges and harness
-                your strengths. Alongside this, you’ll receive personalized numerology reports, gemstone suggestions,
+            <p class="mt-4">But we don’t stop at the basics. Our kundli package also delves into specialized areas
+                such
+                as Kalsarpa Dosha, Manglik analysis, and Sadhesati effects, helping you navigate challenges and
+                harness
+                your strengths. Alongside this, you’ll receive personalized numerology reports, gemstone
+                suggestions,
                 and an ascendant report, all tailored to enhance your life and luck. Whether you’re seeking to
-                understand your life's path, discover your benefic and lucky stones, or gain a deeper understanding of
+                understand your life's path, discover your benefic and lucky stones, or gain a deeper understanding
+                of
                 your ascendant, our comprehensive kundli offers everything you need to make informed decisions and
                 thrive.</p>
 
             <div class="mt-4">
-                <div class="w-full flex justify-between">
-                    <div class="w-[24%] flex items-center gap-[12px]">
+                <div class="w-full md:flex justify-between">
+                    <div class="md:w-[24%] flex items-center gap-[12px]">
                         <img src="/static/assets/images/Frame (15).png" alt="Frame" loading="lazy">
                         <h2>Basic Astrological Details</h2>
                     </div>
-                    <div class="w-[24%] flex items-center gap-[12px]">
+                    <div class="md:w-[24%] flex items-center gap-[12px] my-[10px] lg:m-0">
                         <img src="/static/assets/images/Frame (15).png" alt="Frame" loading="lazy">
                         <h2>Planetary Positions</h2>
                     </div>
-                    <div class="w-[24%] flex items-center gap-[12px]">
+                    <div class="md:w-[24%] flex items-center gap-[12px]">
                         <img src="/static/assets/images/Frame (15).png" alt="Frame" loading="lazy">
                         <h2>Horoscope Charts</h2>
                     </div>
-                    <div class="w-[24%] flex items-center gap-[12px]">
+                    <div class="md:w-[24%] flex items-center gap-[12px] my-[10px] lg:m-0">
                         <img src="/static/assets/images/Frame (15).png" alt="Frame" loading="lazy">
                         <h2>Divisional Charts</h2>
                     </div>
                 </div>
-                <div class="w-full flex justify-between my-[15px]">
-                    <div class="w-[24%] flex items-center gap-[12px]">
+
+                <div class="w-full md:flex justify-between lg:my-[15px]">
+                    <div class="md:w-[24%] flex items-center gap-[12px]">
                         <img src="/static/assets/images/Frame (15).png" alt="Frame" loading="lazy">
                         <h2>House Cusps and Sandhi</h2>
                     </div>
-                    <div class="w-[24%] flex items-center gap-[12px]">
+                    <div class="md:w-[24%] flex items-center gap-[12px] my-[10px] lg:m-0">
                         <img src="/static/assets/images/Frame (15).png" alt="Frame" loading="lazy">
                         <h2>Vimshottari, Yogini, Dasha</h2>
                     </div>
-                    <div class="w-[24%] flex items-center gap-[12px]">
+                    <div class="md:w-[24%] flex items-center gap-[12px]">
                         <img src="/static/assets/images/Frame (15).png" alt="Frame" loading="lazy">
                         <h2>Favourable Points, Numerology Report</h2>
                     </div>
-                    <div class="w-[24%] flex items-center gap-[12px]">
+                    <div class="md:w-[24%] flex items-center gap-[12px] my-[10px] lg:m-0">
                         <img src="/static/assets/images/Frame (15).png" alt="Frame" loading="lazy">
                         <h2>Kalsarpa Dosha Manglik Analysis</h2>
                     </div>
                 </div>
-                <div class="w-full flex justify-between">
-                    <div class="w-[24%] flex items-center gap-[12px]">
+                <div class="w-full md:flex justify-between">
+                    <div class="md:w-[24%] flex items-center gap-[12px]">
                         <img src="/static/assets/images/Frame (15).png" alt="Frame" loading="lazy">
                         <h2>Sadhesati Analysis</h2>
                     </div>
-                    <div class="w-[24%] flex items-center gap-[12px]">
+                    <div class="md:w-[24%] flex items-center gap-[12px] my-[10px] lg:m-0">
                         <img src="/static/assets/images/Frame (15).png" alt="Frame" loading="lazy">
                         <h2>Gemstone Suggestions</h2>
                     </div>
-                    <div class="w-[24%] flex items-center gap-[12px]">
+                    <div class="md:w-[24%] flex items-center gap-[12px]">
                         <img src="/static/assets/images/Frame (15).png" alt="Frame" loading="lazy">
                         <h2>LIFE, BENEFIC & LUCKY STONE</h2>
                     </div>
-                    <div class="w-[24%] flex items-center gap-[12px]">
+                    <div class="md:w-[24%] flex items-center gap-[12px] my-[10px] lg:m-0">
                         <img src="/static/assets/images/Frame (15).png" alt="Frame" loading="lazy">
                         <h2>Ascendant Report</h2>
                     </div>
@@ -470,6 +493,7 @@
     </section>
 
 
+    <script src="/static/javascript/main.js"></script>
 </body>
 
 </html>

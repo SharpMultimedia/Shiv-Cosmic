@@ -25,6 +25,45 @@ function closeMenu() {
     list.classList.remove('open');
 }
 
+// ------ sticky navigation ------ 
+
+let lastScrollTop = 0;
+const navbar = document.getElementById('navbar');
+
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+
+    // Change navbar background on scroll
+    if (scrollTop > 0) {
+        navbar.style.backgroundColor = '#AE633F'; // Change to your desired color
+    } else {
+        navbar.style.backgroundColor = 'transparent'; // Restore transparency
+    }
+
+    // Throttle scroll event to reduce flickering
+    if (Math.abs(scrollTop - lastScrollTop) > 5) {
+        lastScrollTop = scrollTop;
+    }
+});
+
+
+// astroTalk div hide & show 
+
+let isScrolling;
+
+window.addEventListener('scroll', () => {
+    clearTimeout(isScrolling);
+
+    isScrolling = setTimeout(() => {
+        const navbar = document.getElementById('astroTalk');
+        if (window.scrollY > 0) {
+            navbar.style.display = 'none';
+        } else {
+            navbar.style.display = 'flex';
+        }
+    }, 50); // Adjust this value as needed
+});
+
 
 // testimonial slider 
 
