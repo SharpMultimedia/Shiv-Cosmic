@@ -300,7 +300,7 @@ def process_payment(request):
                         "Kind Regards\nTeam Shiv Cosmic",
                         settings.EMAIL_HOST_USER,
                         [email],
-                        # cc=["info.shivcosmic@gmail.com"]
+                        cc=["info.shivcosmic@gmail.com"]
                     )
 
                     # Attach the PDF file
