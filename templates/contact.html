@@ -57,8 +57,11 @@
                     <label for="name">Message</label>
                     <textarea name="message" id="message" placeholder="Enter your Message"></textarea>
                 </div>
+
+                <!-- Hidden reCAPTCHA token field -->
+                <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
                 <div class="mt-[20px]">
-                    <button type="submit" class="w-full bg-[#AE633F] text-[#fff] py-[10px] rounded-[10px] g-recaptcha" data-sitekey="6LcPftUpAAAAAFn_tCyqIOY-wknp3FxAI3vJexUo" data-callback='onSubmit' data-action='submit'>Send Message</button>
+                    <button type="submit" class="w-full bg-[#AE633F] text-[#fff] py-[10px] rounded-[10px]" >Send Message</button>
                 </div>
             </form>
 
@@ -122,11 +125,17 @@
     </div>
 </section>
 
-    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcPftUpAAAAAFn_tCyqIOY-wknp3FxAI3vJexUo"></script>
-    <!-- Replace the variables below. -->
-    <script>
-        function onSubmit(token) {
+<script src="https://www.google.com/recaptcha/api.js?render={{ RECAPTCHA_SITE_KEY }}"></script>
+<script>
+    function onSubmit(token) {
         document.getElementById("contact-form").submit();
-        }
-    </script>
+    }
+    
+    grecaptcha.ready(function() {
+        grecaptcha.execute('{{ RECAPTCHA_SITE_KEY }}', {action: 'submit'}).then(function(token) {
+            // Add the token to the form
+            document.getElementById('g-recaptcha-response').value = token;
+        });
+    });
+</script>
 {% endblock main-content %}

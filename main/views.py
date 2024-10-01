@@ -348,6 +348,7 @@ def verify_recaptcha(response_token):
 def contact(request):
     if request.method == 'POST':
         recaptcha_response = request.POST.get('g-recaptcha-response')
+        print(recaptcha_response)
         if verify_recaptcha(recaptcha_response):
             name = request.POST.get('name')
             email = request.POST.get('email')
