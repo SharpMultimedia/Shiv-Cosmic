@@ -39,25 +39,26 @@
 
         <div class="md:w-[52%]">
 
-            <form action="" class="reiki-form w-full">
+            {% for message in messages %}
+                <p style="text-align:center ;" id="messages">{{message}}</p>
+            {% endfor %}
+
+            <form id="contact-form" class="reiki-form w-full" method="POST">
+                {% csrf_token %}
                 <div>
                     <label for="name">Name</label>
-                    <input type="text" placeholder="Enter your Name">
+                    <input type="text" placeholder="Enter your Name" name="name" required>
                 </div>
                 <div class="my-[20px]">
-                    <label for="name">Email</label>
-                    <input type="text" placeholder="Enter your Name">
+                    <label for="email">Email</label>
+                    <input type="email" placeholder="Enter your Email" name="email" required>
                 </div>
                 <div>
                     <label for="name">Message</label>
-                    <textarea name="" id="" placeholder="Enter your Message"></textarea>
-
+                    <textarea name="message" id="message" placeholder="Enter your Message"></textarea>
                 </div>
-                <script src='https://www.google.com/recaptcha/api.js'></script>
-                <div class="g-recaptcha" data-sitekey="6LcPftUpAAAAAFn_tCyqIOY-wknp3FxAl3vJexUo"></div>
                 <div class="mt-[20px]">
-                    <button type="submit" class="w-full bg-[#AE633F] text-[#fff] py-[10px]
-                        rounded-[10px]">Send Message</button>
+                    <button type="submit" class="w-full bg-[#AE633F] text-[#fff] py-[10px] rounded-[10px] g-recaptcha" data-sitekey="6LcPftUpAAAAAFn_tCyqIOY-wknp3FxAI3vJexUo" data-callback='onSubmit' data-action='submit'>Send Message</button>
                 </div>
             </form>
 
@@ -121,4 +122,11 @@
     </div>
 </section>
 
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcPftUpAAAAAFn_tCyqIOY-wknp3FxAI3vJexUo"></script>
+    <!-- Replace the variables below. -->
+    <script>
+        function onSubmit(token) {
+        document.getElementById("contact-form").submit();
+        }
+    </script>
 {% endblock main-content %}

@@ -11,3 +11,11 @@ class Payment(models.Model):
 
     def __str__(self):
         return self.payment_id
+    
+class Contact(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    message = models.CharField(max_length=1000)
+
+    def __str__(self):
+        return self.name

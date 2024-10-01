@@ -4,18 +4,18 @@ import base64
 import json
 import hashlib
 import shortuuid
-import datetime
 from django.shortcuts import render, redirect
-from .models import Payment
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import EmailMessage
-from django.http import JsonResponse
-from django.urls import reverse
 from django.core.mail import send_mail, BadHeaderError
 from django.conf import settings    
 from django.contrib import messages
-from requests.exceptions import RequestException
+from .models import Contact
+
+import urllib
+from urllib.request import urlopen,Request
+import json
 
 def home(request):
     return render(request, 'home_page/index.html')
@@ -334,50 +334,35 @@ def returnrefund(request):
 def terms(request):
     return render(request, 'terms.html')
 
+def verify_recaptcha(response_token):
+    """ Verifies reCAPTCHA token with Google """
+    url = "https://www.google.com/recaptcha/api/siteverify"
+    data = {
+        'secret': settings.RECAPTCHA_PRIVATE_KEY,
+        'response': response_token
+    }
+    response = requests.post(url, data=data)
+    result = response.json()
+    return result.get('success', False)
+
 def contact(request):
-    if request.method == "POST":
-        contact_name = request.POST['name']
-        contact_email = request.POST['email']
-        contact_number = request.POST['number']
-        city = request.POST['city']
-        contact_message = request.POST['message']
-
-        if len(contact_message) > 100:
-            messages.warning(request, "Maximum Lenght Of Message Is 100 chars")
-            return redirect("contact")
-
-        obj = Contact_Us(name=contact_name,email=contact_email,phone_number=contact_number,city=city,message=contact_message)
-
-        ''' Begin reCAPTCHA validation '''
+    if request.method == 'POST':
         recaptcha_response = request.POST.get('g-recaptcha-response')
-        url = 'https://www.google.com/recaptcha/api/siteverify'
-        values = {
-            'secret': settings.RECAPTCHA_PRIVATE_KEY,
-            'response': recaptcha_response
-            }
-        data = urllib.parse.urlencode(values).encode("utf-8")
-        req = Request(url, data)
-        response = urlopen(req)
-        result = json.load(response)
-        verify=result['success']
-        ''' End reCAPTCHA validation '''
-        print(verify)
-        if verify:
-            obj.save()
-
-            e_message = f"Dear Team,\n {contact_email} has dropped a message on tib.in\nName:{contact_name}\nEmail:{contact_email}\nPhone No:{contact_number}\nMessage:\n{contact_message}\nKind Regards\nTeam Sharp Multimedia"
-            send_mail(
-                "You Have Received A Message On Your Site",
-                e_message,
-                settings.EMAIL_HOST_USER,
-                ["developer.sharpmultimedia@gmail.com","srjagtap7@gmail.com"],
-                fail_silently=False
-            )
-
-            messages.success(request, "Thank You. We will contact you soon") 
-            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
-
+        if verify_recaptcha(recaptcha_response):
+            name = request.POST.get('name')
+            email = request.POST.get('email')
+            message = request.POST.get('message')
+            
+            Contact.name = name
+            Contact.email = email
+            Contact.message = message
+            Contact.save()
+            messages.success(request, 'Form submitted successfully!')
         else:
-            messages.error(request, "Sorry please try again ") 
-            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))  
-    return render(request, 'contact.html')
+            messages.error(request, 'Invalid reCAPTCHA. Please try again.')
+        
+        return redirect('contact')
+    
+    return render(request, 'contact.html', {
+        'RECAPTCHA_SITE_KEY': settings.RECAPTCHA_PUBLIC_KEY
+    })
