@@ -10,13 +10,14 @@
     --Tertiary-colors: #CEAB5C;
 }
 
-/* #efb73d  */
-/* #ffa57a  */
+
+
 h1,
 h2 {
     font-family: "Philosopher", sans-serif !important;
     font-weight: 900;
     font-style: normal;
+    line-height: 28px;
 }
 
 h5,
@@ -63,8 +64,9 @@ p {
 }
 
 #navbar {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
     z-index: 1000;
     transition: background-color 0.4s ease, top 0.4s ease;
 }
@@ -74,11 +76,11 @@ ul {
     position: relative;
 }
 
-.mini-nav {
+/* .mini-nav {
     border-bottom: 1px solid #d6d6d6;
     padding-bottom: 20px;
     margin-bottom: 20px;
-}
+} */
 
 .hero-section {
     background-position: center;
@@ -89,7 +91,7 @@ ul {
 }
 
 .image-home {
-    background-image: url('https://images.pexels.com/photos/2598081/pexels-photo-2598081.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-image: url('/static/assets/images/t.jpeg');
 }
 
 .astrological-image {
@@ -115,6 +117,18 @@ ul {
     transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 }
 
+/* animated hover effect on button  */
+
+.hoverEffect {
+    transition: all 0.3s ease-in-out;
+}
+
+.hoverEffect:Hover {
+    background: #CEAB5C;
+    /* background: #85302b; */
+}
+
+/* --------- end -------- */
 
 /* team  */
 
@@ -362,9 +376,9 @@ ul {
     height: 155px;
 }
 
-
 /* ---- kundli page -----  */
-.submit_btn{
+
+.submit_btn {
     background: #AE633F !important;
     cursor: pointer;
     color: white;
@@ -496,9 +510,13 @@ ul {
 }
 
 
-@media only screen and (min-width: 1920px) {
+@media only screen and (min-width: 1820px) {
     .hero-section {
-        height: auto;
+        height: 1060px;
+    }
+
+    .astroheroimage {
+        top: -140% !important;
     }
 
     .nav-top {
@@ -507,5 +525,322 @@ ul {
 
     .loginBtn {
         width: 6% !important;
+    }
+}
+
+
+
+
+/* -------- New Design Landing page For only testing -------  */
+
+.gradientBtn {
+    background-image: linear-gradient(to right top, #ae633f, #b87444,
+            #c1864a, #c89852, #ceab5c);
+}
+
+.gradient-text {
+    /* background: linear-gradient(to right top, #ae633f, #b87444, #c1864a,
+            #c89852, #ceab5c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+    font-weight: 900;
+    color: #ffff89;
+}
+
+.ServicesBG {
+    /* background: linear-gradient(to right top, #ae633f, #b87444, #c1864a, #c89852, #ceab5c); */
+    background-image: linear-gradient(to right top, #ce9378, #d4a07c, #d8ad82,
+            #dcba88, #dec791);
+}
+
+.service-icon {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(81deg) brightness(102%) contrast(102%);
+}
+
+.serviceCard {
+    box-shadow: 0 2px 30px rgba(23, 15, 73, .1);
+    border-radius: 75px 4px 4px 4px;
+}
+
+.rotate-icon {
+    transform: rotate(45deg);
+    /* Rotate by 45 degrees */
+}
+
+.rotate-icon img {
+    transform: rotate(-45deg);
+}
+
+.lineBelow {
+    border-top: 2px solid #5cb8d8;
+    margin-bottom: 10px;
+    border-radius: 15px;
+}
+
+.swiper-slide {
+    background: transparent !important;
+}
+
+/* buy kundli button animation  */
+
+.btn {
+    position: relative;
+    display: inline-block;
+    padding: 12px 36px;
+    margin: 10px;
+    color: #fff;
+    font-size: 15px;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-sizing: border-box;
+}
+
+.btn--snakeBorder {
+    background-image: linear-gradient(to right top, #ae633f, #b87444, #c1864a,
+            #c89852, #ceab5c);
+    overflow: hidden;
+}
+
+.btn--snakeBorder::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    bottom: 2px;
+}
+
+.btn--snakeBorder span {
+    position: absolute;
+}
+
+.btn--snakeBorder span:nth-child(1) {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right top, #eb1c24, #f22887, #c367d3, #6f92f4, #01acea);
+    animation: borderAnimation1 2s linear infinite;
+}
+
+@keyframes borderAnimation1 {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.btn--snakeBorder span:nth-child(2) {
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to right top, #eb1c24, #f22887, #c367d3, #6f92f4, #01acea);
+    animation: borderAnimation2 2s linear infinite;
+    animation-delay: 1s;
+}
+
+@keyframes borderAnimation2 {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+.btn--snakeBorder span:nth-child(3) {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right top, #eb1c24, #f22887, #c367d3, #6f92f4, #01acea);
+    animation: borderAnimation3 2s linear infinite;
+}
+
+@keyframes borderAnimation3 {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.btn--snakeBorder span:nth-child(4) {
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to top, #0c002b, #1779ff);
+    animation: borderAnimation4 2s linear infinite;
+    animation-delay: 1s;
+}
+
+@keyframes borderAnimation4 {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+.graph-white {
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(281deg) brightness(101%) contrast(103%);
+}
+
+.process-step::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50px;
+    right: 0;
+    bottom: 0;
+    width: 2px;
+    height: 45px;
+    background-color: #89604d;
+}
+
+.cardkundliInfo {
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-color: #744732;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 3px 3px 0px 0px #744732;
+}
+
+
+/* ----- faqs ---------  */
+
+.accordion .accordion-item {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.accordion .accordion-item button[aria-expanded='true'] {
+    border-bottom: 1px solid #CEAB5C;
+}
+
+.accordion button {
+    position: relative;
+    display: block;
+    text-align: left;
+    width: 100%;
+    padding: 1em 0;
+    /* color: #7288a2; */
+    color: #fff;
+    font-size: 1.15rem;
+    font-weight: 400;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.accordion button:hover,
+.accordion button:focus {
+    cursor: pointer;
+    color: var(--Tertiary-colors);
+}
+
+.accordion button:hover::after,
+.accordion button:focus::after {
+    cursor: pointer;
+    color: var(--Tertiary-colors);
+    border: 1px solid #CEAB5C;
+}
+
+.accordion button .accordion-title {
+    padding: 1em 1.5em 1em 0;
+    font-family: "Philosopher", sans-serif !important;
+    font-weight: 700;
+    font-size: 19px;
+}
+
+.accordion button .icon {
+    display: inline-block;
+    position: absolute;
+    top: 18px;
+    right: 0;
+    width: 22px;
+    height: 22px;
+    border: 1px solid;
+    border-radius: 22px;
+}
+
+.accordion button .icon::before {
+    display: block;
+    position: absolute;
+    content: '';
+    top: 9px;
+    left: 5px;
+    width: 10px;
+    height: 2px;
+    background: currentColor;
+}
+
+.accordion button .icon::after {
+    display: block;
+    position: absolute;
+    content: '';
+    top: 5px;
+    left: 9px;
+    width: 2px;
+    height: 10px;
+    background: currentColor;
+}
+
+.accordion button[aria-expanded='true'] {
+    color: #CEAB5C;
+}
+
+.accordion button[aria-expanded='true'] .icon::after {
+    width: 0;
+}
+
+.accordion button[aria-expanded='true']+.accordion-content {
+    opacity: 1;
+    max-height: 9em;
+    transition: all 600ms linear;
+    will-change: opacity, max-height;
+}
+
+.accordion .accordion-content {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 600ms linear, max-height 600ms linear;
+    will-change: opacity, max-height;
+}
+
+.accordion .accordion-content p {
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 1.5em 0;
+    color: white;
+    line-height: 28px;
+}
+
+
+@media (max-width:868px) {
+
+    .astrological-image {
+        max-width: 100% !important;
+    }
+
+    .hero-section {
+        height: 550px;
+    }
+
+    .btn {
+        font-size: 14px;
     }
 }
