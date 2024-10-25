@@ -105,13 +105,14 @@
 
     <!-- Nav and Hero section  -->
 
-    <header class="Nav-section hero-section {% block hero-image %}{% endblock hero-image %}">
+    <header class="Nav-section hero-section {% block hero-image %}{% endblock hero-image %} relative">
 
         <!-- Navigation  -->
-        <nav class="w-full pt-[10px] md:flex items-center justify-between">
+
+        <nav  class="w-full pt-[10px] md:flex items-center justify-between">
             <div class="lg:w-[10%] hidden md:flex justify-between items-center">
                 <a href="{% url 'home' %}">
-                    <img class="lg:w-[100%]" src="/static/assets/images/Logo/logo.png" alt="logo"
+                    <img class="lg:w-[100%] md:max-w-[105px]" src="/static/assets/images/Logo/shiv cosmic logo high res.png" alt="logo"
                         loading="lazy">
                 </a>
             </div>
@@ -122,10 +123,9 @@
 
                 <div class="w-full mini-nav  md:flex">
 
-                    <div class="w-full md:flex lg:pt-[20px] justify-end">
+                    <!-- <div class="w-full md:flex lg:pt-[20px] justify-end">
 
-                        <!-- AstroTalk  -->
-                        <div class="nav-top lg:w-[28%] md:w-[42%] flex items-center gap-[10px]">
+                        <div class="nav-top lg:w-[25%] md:w-[42%] flex items-center gap-[10px]">
                             <div class="w-[14%]">
                                 <div class="w-[35px] h-[35px] lg:w-[42px] lg:h-[42px] bg-[#AE633F] rounded-[50%] text-white
                             flex items-center justify-center">
@@ -138,47 +138,22 @@
                             </div>
                         </div>
 
-                        <!-- AstroHelp  -->
-                        <div class="nav-top lg:w-[33%] md:w-[54%] flex items-center gap-[10px] my-[10px] lg:m-0">
-                            <div class="w-[14%]">
+      
+
+                        <div class="nav-top lg:w-[33%] md:w-[54%] flex items-center md:justify-end gap-[10px] my-[10px] lg:m-0">
+                            <div class="w-[11%]">
                                 <div class="w-[35px] h-[35px] lg:w-[42px] lg:h-[42px] bg-[#AE633F] rounded-[50%] text-white
                                 flex items-center justify-center">
                                     <i class="fa-solid fa-envelope text-[17px] lg:text-[19px]"></i>
                                 </div>
                             </div>
-                            <div class="w-[90%]">
+                            <div class="">
                                 <span class="text-[#fff] text-[14px] lg:text-[15px]"> AstroHelp -</span>
                                 <span class="text-[#fff] text-[14px] lg:text-[15px]">info.nhmcpune@gmail.com</span>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Login  -->
-
-                    <!-- <div class="w-[20%] md:flex items-center hidden pt-[20px] justify-end">
-
-                        <div class="w-[21%] flex items-center">
-                            <a href="">
-                                <div
-                                    class="w-[35px] h-[35px] lg:w-[42px] lg:h-[42px] bg-[#AE633F] rounded-[50%] text-white flex items-center justify-center">
-                                    <i class="fa-solid fa-right-to-bracket"></i>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="w-[25%] md:w-[45%] xl:w-[25%] loginBtn flex justify-end">
-                            <a href="#" class="text-[#fff] text-[14px] lg:text-[15px]">Login</a>
-                        </div>
                     </div> -->
 
-                    <!-- mobile view logo  -->
-
-                    <!-- <div class="flex justify-center md:hidden">
-                        <a href="">
-                            <img class="max-w-[85px] lg:max-w-[105px]" src="/static/assets/images/Logo/logo.png"
-                                alt="logo">
-                        </a>
-                    </div> -->
                 </div>
 
                 <div class="flex">
@@ -191,29 +166,11 @@
                             </div>
                         </div>
 
-                        <!-- Mobile view login button -->
-                        <!-- <div class="w-[40%] md:hidden">
-                            <div class="w-full flex items-center lg:justify-end
-                              ">
-                                <a href="">
-                                    <div class="w-[35%]">
-                                        <div class="w-[42px] h-[42px] bg-[#AE633F] rounded-[50%] text-white
-                                            flex items-center justify-center">
-                                            <i class="fa-solid fa-right-to-bracket text-[17px] lg:text-[19px]"></i>
-                                        </div>
-                                    </div>
-                                    <div class="w-[38%] flex justify-end">
-                                        <a href="#" class="text-[#fff]">Login</a>
-                                    </div>
-                                </a>
-                            </div>
-                        </div> -->
-
                         <!-- mobile view logo  -->
 
                         <div class="flex justify-center md:hidden">
                             <a href="">
-                                <img class="max-w-[85px] lg:max-w-[105px]" src="/static/assets/images/Logo/logo.png"
+                                <img class="max-w-[85px] lg:max-w-[105px]" src="/static/assets/images/Logo/s"
                                     alt="logo">
                             </a>
                         </div>
@@ -224,20 +181,20 @@
                                 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500 text-white
                                  bg-[#ae633f] md:bg-inherit justify-end">
 
-                    <li class="mx-4 my-4 md:my-0 z-[100]">
+                    <li class="ml-4 my-4 md:my-0 z-[100]">
                         <a href="{% url 'home' %}" class="text-[16px] hover:text-cyan-500 duration-500">Home</a>
                     </li>
-                    <li class="mx-4 my-4 md:my-0">
+                    <li class="ml-4 my-4 md:my-0 z-[100]">
                         <a href="{% url 'reikhihealing' %}" class="text-[16px] hover:text-cyan-500 duration-500">Reiki
                             Healing Workshop</a>
                     </li>
-                    <li class="mx-4 my-4 md:my-0">
+                    <li class="ml-4 my-4 md:my-0 z-[100]">
                         <a href="#" class="text-[16px] hover:text-cyan-500 duration-500">Blog</a>
                     </li>
-                    <li class="mx-4 my-4 md:my-0">
+                    <li class="ml-4 my-4 md:my-0 z-[100]">
                         <a href="#" class="text-[16px] hover:text-cyan-500 duration-500">Testimonial</a>
                     </li>
-                    <li class="mx-4 my-4 md:my-0">
+                    <li class="ml-4 my-4 md:my-0 z-[100]">
                         <a href="{% url 'contact' %}" class="text-[16px] hover:text-cyan-500 duration-500">Contact</a>
                     </li>
 
