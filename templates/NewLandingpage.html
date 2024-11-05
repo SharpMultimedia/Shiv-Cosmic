@@ -28,7 +28,7 @@
 
 <body>
 
-    <main class="mb-[80px]">
+    <main>
 
         <!-- Navigation and Hero section  -->
         <header class="Nav-section hero-section image-home relative">
@@ -219,7 +219,7 @@
                         related
                         problems.</p>
 
-                    <a href="#" class="flex justify-center md:block mt-[15px]">
+                    <a href="{% url 'index' %}" class="flex justify-center md:block mt-[15px]">
                         <button class="hoverEffect bg-[#EBC3C1] text-[#222222] py-[7px] px-[35px]
                                 rounded-[10px]">Buy Kundli</button>
                     </a>
@@ -422,7 +422,7 @@
             style="background-image: url('/static/assets/images/q.jpg');">
 
             <div class="text-center mb-[30px] lg:mb-[45px]">
-                <h1 class="font-bold text-[38px] gradient-text">We are</h1>
+                <h1 class="font-bold text-[38px] gradient-text">We Are</h1>
             </div>
 
             <div class="border-[#CEAB5C] border-2 borer-solid rounded-[10px] p-[15px] lg:p-[40px]">
@@ -492,6 +492,88 @@
     </main>
 
 
+    <section>
+        <div class="video-background">
+            <video autoplay muted loop playsinline>
+                <source src="/static/assets/videos/zodiac astrology video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="overlay"></div>
+
+            <div class="content flex items-center justify-center flex-col">
+                <div class="w-full flex flex-col justify-center items-center footerBottom">
+
+                    <div class="w-full lg:w-[80%] md:flex justify-between">
+
+                        <div class="text-start md:w-[28%] my-[15px] flex flex-col justify-center">
+                            <h1 class="text-[#4F3E17] font-bold text-[21px] mb-[5px]">Quick Links</h1>
+                            <ul>
+                                <li><a href="{% url 'policy' %}">Privacy Policy </a></li>
+                                <li><a href="{% url 'terms' %}">Terms and Conditions</a></li>
+                                <li><a href="{% url 'return' %}">Refund & Cancellation Policy </a></li>
+                            </ul>
+                        </div>
+
+                        <div class="md:w-[34%] md:flex flex-col items-center">
+                            <img src="/static/assets/images/Logo/logo.png" alt="">
+                            <p class="my-[10px] text-justify">Empowering lives through the wisdom of astrology and
+                                Vastu.
+                                Connect with
+                                Shiv
+                                Cosmic
+                                Energy Solutions
+                                for personalized guidance towards harmony, health, and prosperity.
+                            </p>
+
+                            <div class="my-4 flex items-start lg:block">
+                                <a href="https://www.instagram.com/shivcosmicenergysolutions/" target="_blank">
+                                    <i class="fa-brands fa-instagram text-[19px]"></i>
+                                </a>
+                                <a href="https://www.facebook.com/nhmcpune" class="mx-[10px]" target="_blank">
+                                    <i class="fa-brands fa-facebook-f text-[19px]"></i>
+                                </a>
+                                <a href="https://www.youtube.com/channel/UCvM4OYpE1TArbmlIZFgBB7g?view_as=subscriber"
+                                    target="_blank">
+                                    <i class="fa-brands fa-youtube text-[19px]"></i>
+                                </a>
+                            </div>
+                        </div>
+
+
+                        <div class="md:w-[32%] text-start flex flex-col justify-center lg:pl-[60px] pb-[15px]">
+                            <h1 class="text-[#4F3E17] font-bold text-[21px] mb-[5px]">Contact Information</h1>
+                            <ul>
+                                <li>Email: info.nhmcpune@gmail.com</li>
+                                <li>Whatsapp: +(91) 9175932752</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="">
+                    <h1 class="text-[#4F3E17] text-start md:text-center font-bold text-[19px] mb-[10px]">We Do NOT Believe In "Get Rich Quick
+                        Programs"..</h1>
+                    <p>We believe in hard and smart work, adding value and dedication to reach your goals. It's a
+                        fact that
+                        one
+                        that does not do hard work will see no results whatsoever. The remedies and suggestions
+                        given in
+                        this
+                        report may help you move towards achieving your goals. You will get no results whatsoever if
+                        you
+                        assume
+                        by reading up information and reading the report your life will change with riches. Your
+                        results are
+                        based on your actions. We never undertake any responsibility for any results. All
+                        suggestions and
+                        information provided herein are in good faith, to the best of our knowledge, and based on
+                        the birth
+                        details (date, time, and place) provided by you and successful outcomes in the past.</p>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 

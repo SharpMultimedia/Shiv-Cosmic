@@ -18,7 +18,7 @@ from urllib.request import urlopen,Request
 import json
 
 def home(request):
-    return render(request, 'home_page/index.html')
+    return render(request, 'NewLandingpage.html')
 
 def index(request):
     if request.method == 'POST':
