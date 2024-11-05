@@ -28,7 +28,7 @@
 
 <body>
 
-    <main class="mb-[80px]">
+    <main>
 
         <!-- Navigation and Hero section  -->
         <header class="Nav-section hero-section image-home relative">
@@ -135,7 +135,8 @@
             </nav>
 
             <section class="w-full overflow-hidden flex items-center justify-center">
-                <div class="w-full absolute top-[-14%] md:top-[-50%] lg:top-[-52%] xl:top-[-100%] left-0 overflow-hidden astroheroimage">
+                <div
+                    class="w-full absolute top-[-14%] md:top-[-50%] lg:top-[-52%] xl:top-[-100%] left-0 overflow-hidden astroheroimage">
                     <img src="/static/assets/images/Group Test.png" alt=""
                         class="w-full opacity-[0.1] astrological-image ">
                 </div>
@@ -167,16 +168,16 @@
 
         <!-- fixed button  -->
 
-        <section class="w-full fixed bottom-0 z-[100]">
-            <div class="w-[100%] py-[10px] lg:py-[20px] rounded-tl-[10px] rounded-tr-[10px] flex items-center justify-center bg-center bg-cover bg-no-repeat"
-                style="background-image: url('/static/assets/images/blue-bg\ 2.jpg');">
+        <section class="w-full fixed bottom-0 z-[100] pr-[0px] lg:pr-[30px]">
+            <div class="w-[100%] py-[10px] lg:py-[20px] rounded-tl-[10px] rounded-tr-[10px] flex items-center justify-end bg-center bg-cover bg-no-repeat"
+                >
                 <a href="{% url 'index' %}">
                     <button class="btn btn--snakeBorder">
                         <span></span>
                         <span></span>
                         <span></span>
                         <span></span>
-                        Buy Your Personalized Kundli
+                        Get Your Kundli
                     </button>
                 </a>
             </div>
@@ -195,15 +196,15 @@
 
                 <div class="md:w-[48%] flex flex-col justify-center">
                     <h1
-                        class="text-[35px] leading-[35px] lg:text-[42px] lg:eading-[48px] text-center md:text-left mt-[15px] xl:m-0 gradient-text">
+                        class="text-[32px] leading-[35px] lg:text-[42px] lg:eading-[48px] text-center md:text-left mt-[15px] xl:m-0 gradient-text">
                         Make your dreams come true</h1>
 
-                    <p class="text-[#fff] text-[17px] lg:text-[18px] mt-[15px] text-center md:text-left">Discover
+                    <p class="text-[#fff] text-[16px] lg:text-[17px] mt-[15px] text-center md:text-left">Discover
                         Solutions through Expert Online Janam
                         Kundli
                         Analysis Report!</p>
 
-                    <p class="my-[15px] text-[#fff] text-justify lg:text-start">The main purpose with which one’s
+                    <p class="my-[15px] text-[15px] lg:text-[16px] text-[#fff] text-justify lg:text-start">The main purpose with which one’s
                         janam Kundli report is developed
                         and sent
                         online
@@ -212,14 +213,14 @@
                         DOB
                         Analysis and houses.</p>
 
-                    <p class="text-[#fff] text-justify lg:text-start">Our Vedic expert kundali report finds solutions
+                    <p class="text-[#fff] text-[15px] lg:text-[16px] text-justify lg:text-start">Our Vedic expert kundali report finds solutions
                         to all love, career, marriage
                         & business more
                         related
                         problems.</p>
 
-                    <a href="#" class="flex justify-center md:block mt-[15px]">
-                        <button class="hoverEffect bg-[#EBC3C1] text-[#222222] py-[5px] px-[25px]
+                    <a href="{% url 'index' %}" class="flex justify-center md:block mt-[15px]">
+                        <button class="hoverEffect bg-[#EBC3C1] text-[#222222] py-[7px] px-[35px]
                                 rounded-[10px]">Buy Kundli</button>
                     </a>
 
@@ -231,7 +232,7 @@
         <section class="bg-center bg-cover bg-no-repeat px-[15px] py-[25px] xl:px-[100px] xl:py-[60px]"
             style="background-image: url('/static/assets/images/shiv-cosmic\ \ Purple-bg.jpg');">
 
-            <div class="text-center mb-[45px]">
+            <div class="text-center mb-[30px] lg:mb-[45px]">
                 <h1 class="font-bold text-[32px] lg:text-[38px] text-[#fff]">Services</h1>
             </div>
 
@@ -270,7 +271,7 @@
                         <img src="/static/assets/icons/numerology.png" alt="" class="service-icon max-w-[45px]">
                     </div>
 
-                    <h1 class="text-[22px] font-bold text-center mb-[10px] mt-[20px]">Astro-numerology</h1>
+                    <h1 class="text-[22px] font-bold text-center mb-[10px] mt-[20px]"> Astro mapping</h1>
                     <div class="lineBelow"></div>
                     <p class="text-center text-[15px] lg:text-[16px]">Astro-numerology blends astrology and numerology
                         to analyze planetary
@@ -284,7 +285,7 @@
                         <img src="/static/assets/icons/lotus-position.png" alt="" class="service-icon max-w-[45px]">
                     </div>
 
-                    <h1 class="text-[22px] font-bold text-center mb-[10px] mt-[20px]">Reki & yoga</h1>
+                    <h1 class="text-[22px] font-bold text-center mb-[10px] mt-[20px]">Astro-vastu</h1>
                     <div class="lineBelow"></div>
                     <p class="text-center text-[15px] lg:text-[16px]">Reiki and Yoga combine energy healing and physical
                         practice to promote
@@ -301,14 +302,14 @@
             <div class="w-full flex justify-between flex-col-reverse md:flex-row">
 
                 <div class="md:w-[49%] flex flex-col justify-center">
-                    <h1 class="text-[32px] lg:text-[40px] gradient-text mt-[15px] md:m-0">Cosmic Chart Analysis</h1>
+                    <h1 class="text-[30px] lg:text-[40px] gradient-text mt-[15px] md:m-0">Cosmic Chart Analysis</h1>
 
-                    <p class="my-3 text-[16px] lg:text-[17px] text-[#fff]">Unlock the secrets of your birth chart and
+                    <p class="my-3 text-[15px] lg:text-[17px] text-[#fff]">Unlock the secrets of your birth chart and
                         gain a deeper
                         understanding of your personality, strengths, and challenges with our comprehensive birth
                         chart analysis.</p>
 
-                    <p class="text-[16px] lg:text-[17px] text-[#fff]">​Get personalized solutions for various aspects of
+                    <p class="text-[15px] lg:text-[17px] text-[#fff]">​Get personalized solutions for various aspects of
                         your life,
                         including
                         health, wealth, and relationships, to achieve your goals and live a fulfilling life.</p>
@@ -319,7 +320,7 @@
 
                 <div class="md:w-[49%]">
                     <div class="">
-                        <img src="/static/assets/images/ekaterina.jpg" alt="" class="rounded-[5px]">
+                        <img src="/static/assets/images/ekaterina.jpg" alt="" class="w-full h-auto lg:h-[395px]  object-cover rounded-[5px]">
                     </div>
                 </div>
             </div>
@@ -327,15 +328,15 @@
             <div class="w-full md:flex justify-between mt-[20px]">
                 <div class="md:w-[49%]">
                     <div class="">
-                        <img src="/static/assets/images/gabby.jpg" alt="" class="rounded-[5px]">
+                        <img src="/static/assets/images/gabby.jpg" alt="" class="w-full h-auto lg:h-[395px]  object-cover rounded-[5px]">
                     </div>
                 </div>
                 <div class="md:w-[49%] flex flex-col justify-center">
                     <div class="pl-0 lg:pl-[20px]">
-                        <h1 class="text-[32px] lg:text-[40px] gradient-text mt-[15px] md:m-0">Cosmic Vastu Energy
+                        <h1 class="text-[30px] lg:text-[40px] gradient-text mt-[15px] md:m-0 leading-[35px]">Cosmic Vastu Energy
                             Alignment </h1>
 
-                        <p class="my-3 text-[16px] lg:text-[17px] text-[#fff]">Harmonize your living or working space
+                        <p class="my-3 text-[15px] lg:text-[17px] text-[#fff]">Harmonize your living or working space
                             with the cosmic
                             energies of
                             Vastu Shastra. Our expert consultants will align your environment according to your birth
@@ -360,7 +361,7 @@
         <!-- Testimonial  -->
         <section class="bg-center bg-cover bg-no-repeat px-[15px] py-[25px] xl:px-[100px] xl:py-[60px]"
             style="background-image: url('/static/assets/images/shiv-cosmic\ \ Purple-bg.jpg');">
-            <div class="text-center mb-[45px]">
+            <div class="text-center mb-[30px] lg:mb-[45px]">
                 <h1 class="font-bold text-[32px] lg:text-[38px] text-[#fff]">
                     More Positive Feedback from our Clients</h1>
             </div>
@@ -420,8 +421,8 @@
         <section class="bg-center bg-cover bg-no-repeat px-[15px] py-[25px] xl:px-[100px] xl:py-[60px]"
             style="background-image: url('/static/assets/images/q.jpg');">
 
-            <div class="text-center mb-[45px]">
-                <h1 class="font-bold text-[38px] gradient-text">We are</h1>
+            <div class="text-center mb-[30px] lg:mb-[45px]">
+                <h1 class="font-bold text-[38px] gradient-text">We Are</h1>
             </div>
 
             <div class="border-[#CEAB5C] border-2 borer-solid rounded-[10px] p-[15px] lg:p-[40px]">
@@ -430,15 +431,16 @@
 
                 <div class="w-full md:flex justify-between">
                     <div class="md:w-[48%]">
-                        <img src="/static/assets/images/Dr.Shivsharan.jpg" alt="Dr.Shivsharan"
-                            class="w-full h-auto lg:h-[450px] 2xl:h-auto object-cover bg-[#0D1728] rounded-[10px]" loading="lazy">
+                        <img src="/static/assets/images/Shivcosmic Founder new.jpg" alt="Dr.Shivsharan"
+                            class="w-full h-auto lg:h-[450px] 2xl:h-auto object-cover bg-[#0D1728] rounded-[10px]"
+                            loading="lazy">
                     </div>
                     <div class="md:w-[48%] flex flex-col justify-center mb-[30px] md:mb-0">
-                        <h1 class="text-[25px] lg:text-[28px] font-bold gradient-text mt-[15px] lg:mt-0">Dr. Shivsharan
+                        <h1 class="text-[24px] lg:text-[28px] font-bold gradient-text mt-[15px] lg:mt-0 mb-[3px]">Dr. Shivsharan
                             Manshetti</h1>
-                        <h5 class="text-[17px] lg:text-[18px] text-[#fff]">Vastu Shastra and Astrologer</h5>
+                        <h5 class="text-[16px] lg:text-[18px] text-[#fff]">Vastu Shastra and Astrologer</h5>
 
-                        <p class="text-[16px] lg:text-[17px] my-[20px] text-[#fff]">Discover a realm of healing and
+                        <p class="text-[15px] lg:text-[17px] my-[20px] text-[#fff]">Discover a realm of healing and
                             celestial wisdom
                             under the
                             guidance of Dr. Shivsharan
@@ -446,7 +448,7 @@
                             understanding of energy problems and their solutions, he has earned recognition as the Best
                             in his field.</p>
 
-                        <p class="text-[16px] lg:text-[17px] text-[#fff]">he have intuitive abilities enable him to
+                        <p class="text-[15px] lg:text-[17px] text-[#fff]">he have intuitive abilities enable him to
                             delve into the
                             intricacies of
                             energy imbalances,
@@ -457,27 +459,28 @@
 
                 <!-- Team Member 2 -->
 
-                <div class="w-full md:flex justify-between">
+                <div class="w-full flex justify-between flex-col-reverse md:flex-row">
 
                     <div class="md:w-[48%] flex flex-col justify-center">
-                        <h1 class="text-[28px] font-bold gradient-text"> Swati Manshetti</h1>
-                        <h5 class="text-[17px] lg:text-[18px] text-[#fff]">Award-Winning Energy Healer and Astrologer</h5>
+                        <h1 class="text-[24px] lg:text-[28px] font-bold gradient-text mt-[15px] lg:mt-0 mb-[3px]"> Swati Manshetti</h1>
+                        <h5 class="text-[16px] lg:text-[18px] text-[#fff]">Award-Winning Energy Healer and Astrologer
+                        </h5>
 
-                        <p class="text-[17px] my-[20px] text-[#fff]">Welcome to a realm of healing and enlightenment,
+                        <p class="text-[15px] lg:text-[17px] my-[20px] text-[#fff]">Welcome to a realm of healing and enlightenment,
                             where your
                             well-being takes precedence. I am Swati Manshetti, an acclaimed Energy Healer and
                             Astrologer, committed to helping individuals overcome challenges and realize their full
                             potential.</p>
 
-                        <p class="text-[17px] text-[#fff]">Recognized as the Best Energy Healer and Astrologer, I take
+                        <p class="text-[15px] lg:text-[17px] text-[#fff]">Recognized as the Best Energy Healer and Astrologer, I take
                             pride in the
                             transformative results experienced by my clients. With deep expertise, I offer personalized
                             solutions through intuitive insight and extensive knowledge of healing techniques, guiding
                             you on a journey of self-discovery and healing.</p>
                     </div>
 
-                    <div class="md:w-[48%] mt-[15px] lg:mt-0">
-                        <img src="/static/assets/images/Swati_Manshetti.jpg" alt="Swati_Manshetti"
+                    <div class="md:w-[48%] mb-[15px] lg:mb-0">
+                        <img src="/static/assets/images/Shivcosmic Founder 1.jpg" alt="Swati_Manshetti"
                             class="w-full h-auto lg:h-[450px] 2xl:h-auto object-cover rounded-[10px]" loading="lazy">
                     </div>
 
@@ -489,15 +492,102 @@
     </main>
 
 
+    <section>
+        <div class="video-background">
+            <video autoplay muted loop playsinline>
+                <source src="/static/assets/videos/zodiac astrology video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="overlay"></div>
+
+            <div class="content flex items-center justify-center flex-col">
+                <div class="w-full flex flex-col justify-center items-center footerBottom">
+
+                    <div class="w-full lg:w-[80%] md:flex justify-between">
+
+                        <div class="text-start md:w-[28%] my-[15px] flex flex-col justify-center">
+                            <h1 class="text-[#4F3E17] font-bold text-[21px] mb-[5px]">Quick Links</h1>
+                            <ul>
+                                <li><a href="{% url 'policy' %}">Privacy Policy </a></li>
+                                <li><a href="{% url 'terms' %}">Terms and Conditions</a></li>
+                                <li><a href="{% url 'return' %}">Refund & Cancellation Policy </a></li>
+                            </ul>
+                        </div>
+
+                        <div class="md:w-[34%] md:flex flex-col items-center">
+                            <img src="/static/assets/images/Logo/logo.png" alt="">
+                            <p class="my-[10px] text-justify">Empowering lives through the wisdom of astrology and
+                                Vastu.
+                                Connect with
+                                Shiv
+                                Cosmic
+                                Energy Solutions
+                                for personalized guidance towards harmony, health, and prosperity.
+                            </p>
+
+                            <div class="my-4 flex items-start lg:block">
+                                <a href="https://www.instagram.com/shivcosmicenergysolutions/" target="_blank">
+                                    <i class="fa-brands fa-instagram text-[19px]"></i>
+                                </a>
+                                <a href="https://www.facebook.com/nhmcpune" class="mx-[10px]" target="_blank">
+                                    <i class="fa-brands fa-facebook-f text-[19px]"></i>
+                                </a>
+                                <a href="https://www.youtube.com/channel/UCvM4OYpE1TArbmlIZFgBB7g?view_as=subscriber"
+                                    target="_blank">
+                                    <i class="fa-brands fa-youtube text-[19px]"></i>
+                                </a>
+                            </div>
+                        </div>
+
+
+                        <div class="md:w-[32%] text-start flex flex-col justify-center lg:pl-[60px] pb-[15px]">
+                            <h1 class="text-[#4F3E17] font-bold text-[21px] mb-[5px]">Contact Information</h1>
+                            <ul>
+                                <li>Email: info.nhmcpune@gmail.com</li>
+                                <li>Whatsapp: +(91) 9175932752</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="">
+                    <h1 class="text-[#4F3E17] text-start md:text-center font-bold text-[19px] mb-[10px]">We Do NOT Believe In "Get Rich Quick
+                        Programs"..</h1>
+                    <p>We believe in hard and smart work, adding value and dedication to reach your goals. It's a
+                        fact that
+                        one
+                        that does not do hard work will see no results whatsoever. The remedies and suggestions
+                        given in
+                        this
+                        report may help you move towards achieving your goals. You will get no results whatsoever if
+                        you
+                        assume
+                        by reading up information and reading the report your life will change with riches. Your
+                        results are
+                        based on your actions. We never undertake any responsibility for any results. All
+                        suggestions and
+                        information provided herein are in good faith, to the best of our knowledge, and based on
+                        the birth
+                        details (date, time, and place) provided by you and successful outcomes in the past.</p>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
-        var swiper = new Swiper(".mySwiper", {
+        // Initialize Swiper
+        const swiper = new Swiper(".mySwiper", {
             slidesPerView: 4,
             spaceBetween: 30,
             loop: true,
-
+            speed: 5000,
+            autoplay: {
+                delay: 3000, // delay between slides
+                disableOnInteraction: false, // keeps autoplay active after user interactions
+            },
             breakpoints: {
                 320: {
                     slidesPerView: 1,
@@ -509,8 +599,25 @@
                     slidesPerView: 4,
                 },
             },
-
         });
+
+        // Select Swiper container and add event listeners
+        const swiperContainer = document.querySelector('.mySwiper');
+
+        swiperContainer.addEventListener('mouseenter', () => {
+            if (swiper && swiper.autoplay) {
+                swiper.autoplay.stop();
+                // console.log('Autoplay stopped');
+            }
+        });
+
+        swiperContainer.addEventListener('mouseleave', () => {
+            if (swiper && swiper.autoplay) {
+                swiper.autoplay.start();
+                // console.log('Autoplay resumed');
+            }
+        });
+
 
     </script>
 
