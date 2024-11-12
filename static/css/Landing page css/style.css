@@ -364,12 +364,24 @@ ul {
     margin-top: 5px;
     border-radius: 10px;
     padding: 0 10px;
+    color: white;
 }
 
-.reiki-form input::placeholder,
+/* .reiki-form input::placeholder,
 .reiki-form select::placeholder,
 .reiki-form textarea::placeholder {
     color: #424242;
+} */
+.reiki-form input::placeholder,
+.reiki-form select::placeholder,
+.reiki-form textarea::placeholder {
+    color: #fff;
+    font-size: 14px;
+}
+.reiki-form input:focus,
+.reiki-form select:focus,
+.reiki-form textarea:focus {
+    outline: none;
 }
 
 .reiki-form textarea {
@@ -552,6 +564,15 @@ ul {
     color: #ffff89;
 }
 
+.gradient-text-2 {
+    background: linear-gradient(to right top, #ae633f, #b87444, #c1864a,
+            #c89852, #ceab5c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+
+}
+
 .ServicesBG {
     /* background: linear-gradient(to right top, #ae633f, #b87444, #c1864a, #c89852, #ceab5c); */
     background-image: linear-gradient(to right top, #ce9378, #d4a07c, #d8ad82,
@@ -716,15 +737,15 @@ ul {
     bottom: 0;
     width: 2px;
     height: 45px;
-    background-color: #89604d;
+    background-color: #ffff89;
 }
 
 .cardkundliInfo {
     border-style: solid;
     border-width: 1px 1px 1px 1px;
-    border-color: #744732;
+    border-color: #42c4ff;
     border-radius: 5px 5px 5px 5px;
-    box-shadow: 3px 3px 0px 0px #744732;
+    box-shadow: 3px 3px 0px 0px #42c4ff;
 }
 
 
@@ -852,4 +873,17 @@ ul {
         padding: 10px 12px;
         font-size: 12px;
     }
+}
+
+/* new reiki page  */
+
+.meditationBox {
+    /* background-image: linear-gradient(to right top, #efefef, #c3bfd4, #9a91b8,
+            #74649c, #4e3a7f); */
+    background-image: linear-gradient(to right top, #b698e3, #9b7fc9,
+     #8167b0, #675097, #4e3a7f);
+    padding: 0px 15px 0px 0;
+}
+.meditationBox img{
+    border-radius: 5px 0 0 5px;
 }
