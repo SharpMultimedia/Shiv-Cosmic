@@ -419,6 +419,7 @@ ul {
     }
 
 
+
     /* reiki healing workshop page  */
 
     .sub-pages {
@@ -512,7 +513,7 @@ ul {
 
 @media only screen and (min-width: 1820px) {
     .hero-section {
-        height: 1060px;
+        height: 900px;
     }
 
     .astroheroimage {
@@ -528,7 +529,11 @@ ul {
     }
 }
 
-
+@media only screen and (min-width: 2250px) {
+    .astroheroimage {
+        top: -195% !important;
+    }
+}
 
 
 /* -------- New Design Landing page For only testing -------  */
@@ -559,7 +564,8 @@ ul {
 
 .serviceCard {
     box-shadow: 0 2px 30px rgba(23, 15, 73, .1);
-    border-radius: 75px 4px 4px 4px;
+    /* border-radius: 75px 4px 4px 4px; */
+    border-radius: 40px;
 }
 
 .rotate-icon {
@@ -603,6 +609,8 @@ ul {
     background-image: linear-gradient(to right top, #ae633f, #b87444, #c1864a,
             #c89852, #ceab5c);
     overflow: hidden;
+    font-weight: 600;
+    font-size: 14px;
 }
 
 .btn--snakeBorder::before {
@@ -837,10 +845,11 @@ ul {
     }
 
     .hero-section {
-        height: 550px;
+        height: 510px;
     }
 
     .btn {
-        font-size: 14px;
+        padding: 10px 12px;
+        font-size: 12px;
     }
 }
