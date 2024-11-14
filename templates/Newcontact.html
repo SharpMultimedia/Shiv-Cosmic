@@ -1,34 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
-
-    <!-- Main Custom CSS -->
-    <link rel="stylesheet" href="/static/css/Landing page css/style.css" media="print" onload="this.media='all'">
-
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- font-awesome cdn  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-
-    <!-- Philosopher & Roboto font Link -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
-</head>
-
-<body>
-
+{% extends 'base.html'%}
+{% load static %}
+{% block hero-image %} image-contact {% endblock hero-image %}
+{% block main-content %}
     <!-- ------- Hero section ------  -->
 
     <section class="bg-center h-[680px] bg-cover bg-no-repeat px-[100px] py-[60px] flex
-             items-center justify-center  flex-col"
-        style="background-image: url('/static/assets/images/Contact\ banner.jpg');">
+             items-center justify-center  flex-col">
 
         <div class="w-[80%] text-center">
             <h1 class="font-bold text-[45px] text-[#fff] leading-[42px]"><strong class="text-[#ffff89]">Contact
@@ -36,7 +13,7 @@
             </h1>
         </div>
     </section>
-
+</header>
 
     <!-- form  -->
 
@@ -49,6 +26,7 @@
             <div class="md:w-[52%]">
 
                 <form id="contact-form" class="reiki-form w-full" method="POST">
+                    {% csrf_token %}
                     <input type="hidden" name="csrfmiddlewaretoken"
                         value="9pxVmpJn5RTXszoIgmk2lhJwgM0923E6OWhaFVYb4kXclKb2dxYNmXW8sM9HzcbT">
                     <div>
@@ -136,6 +114,4 @@
     </section>
 
     <script src="/static/javascript/main.js"></script>
-</body>
-
-</html>
+    {% endblock main-content %}

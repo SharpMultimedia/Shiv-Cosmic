@@ -71,7 +71,7 @@ def index(request):
     hours = list(range(0, 24))
     minutes = list(range(0, 60))
 
-    return render(request, 'kundali.html', {
+    return render(request, 'Newkundli.html', {
         'days': days,
         'months': months,
         'years': years,
@@ -323,7 +323,7 @@ def process_payment(request):
     return render(request, 'result.html', {'astrology_data': astrology_data})
 
 def reikhihealing(request):
-    return render(request, 'reikihealing.html')
+    return render(request, 'Newreiki.html')
 
 def policy(request):
     return render(request, 'policy.html')
@@ -333,6 +333,8 @@ def returnrefund(request):
 
 def terms(request):
     return render(request, 'terms.html')
+def getkundali(request):
+    return render(request, 'getkundali.html')
 
 def verify_recaptcha(response_token):
     """ Verifies reCAPTCHA token with Google """
@@ -364,6 +366,6 @@ def contact(request):
         
         return redirect('contact')
     
-    return render(request, 'contact.html', {
+    return render(request, 'Newcontact.html', {
         'RECAPTCHA_SITE_KEY': settings.RECAPTCHA_PUBLIC_KEY
     })

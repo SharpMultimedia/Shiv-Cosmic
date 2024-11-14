@@ -93,6 +93,13 @@ ul {
 .image-home {
     background-image: url('/static/assets/images/t.jpeg');
 }
+.image-reiki {
+    background-image: url('/static/assets/images/adult-meditating.jpg');
+}
+.image-contact {
+    background-image: url('/static/assets/images/Contact banner.jpg');
+}
+
 
 .astrological-image {
     animation: animName 18s linear infinite;
@@ -221,10 +228,10 @@ ul {
 /* --- Reiki Healing Workshop page ----  */
 
 .sub-pages {
-    background-image: url('/static/assets/images/blue-bg\ 2.jpg');
-    background-position: center center;
+    /* background-image: url('/static/assets/images/blue-bg\ 2.jpg'); */
+    /* background-position: center center;
     background-size: cover;
-    height: 510px;
+    height: 510px; */
 }
 
 .subImage {
