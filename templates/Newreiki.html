@@ -1,0 +1,380 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block hero-image %} image-reiki {% endblock hero-image %}
+{% block main-content %}
+<!-- ------- Hero section ------  -->
+
+<section class="bg-center bg-cover bg-no-repeat flex
+             items-center flex-col relative">
+
+    <div class="w-[80%] text-center absolute lg:top-[270px] top-[310px]">
+        <h1 class="font-bold text-[40px] lg:text-[45px] text-[#fff] leading-[42px]"><strong class="text-[#35c0ff]">Reiki
+                Healing</strong>
+        </h1>
+    </div>
+
+</section>
+</header>
+
+<!-- fixed button  -->
+
+<section class="w-full fixed bottom-0 z-[100] pr-[0px] lg:pr-[30px]">
+    <div
+        class="w-[100%] py-[10px] lg:py-[20px] rounded-tl-[10px] rounded-tr-[10px] flex items-center justify-end bg-center bg-cover bg-no-repeat">
+        <a href="{% url 'index' %}">
+            <button class="btn btn--snakeBorder">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Get Your Kundli
+            </button>
+        </a>
+    </div>
+</section>
+
+<!-- Heeling points  -->
+<section class="bg-center bg-cover bg-no-repeat px-[25px] py-[15px] xl:px-[100px] xl:py-[60px]
+                      flex flex-col items-center" style="background-image: url('/static/assets/images/q.jpg');">
+
+    <div class="w-full flex items-center flex-col">
+        <h1 class="font-bold lg:text-[35px] text-[32px] text-[#fff] leading-[38px] text-center mb-[20px]"> Unlock Your
+            Inner
+            Healing Power: <strong class="gradient-text">Join Our Reiki Healing Workshop</strong>
+        </h1>
+        <p class="w-[80%] text-center text-[#fff] text-[16px] lg:text-[18px]">Our Reiki Healing Workshop is a unique
+            opportunity to
+            delve
+            into the ancient practice of channeling universal life force energy. Led by experienced Reiki masters,
+            this workshop is designed to provide you with comprehensive knowledge and practical skills in the world
+            of energy healing.</p>
+    </div>
+
+    <!-- Mediation points  -->
+
+    <div class="w-[90%] mt-[20px] md:mt-[45px]">
+
+        <div class="flex items-center justify-center">
+            <div class="md:w-[48%] flex justify-between meditationBox rounded-[5px]">
+                <div class="w-[25%]">
+                    <img src="/static/assets/icons/1.png" alt="">
+                </div>
+                <div class="w-[74%] flex flex-col justify-center">
+                    <h1 class="text-[21px] text-[#ffff89] ">Foundations of Reiki</h1>
+                    <p class="text-[15px] text-[#fff] mt-1">Gain a solid understanding of Reiki's origins,
+                        principles,
+                        and the science behind energy
+                        healing.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full md:flex justify-between md:my-[25px]">
+            <div class="md:w-[48%] flex justify-between meditationBox rounded-[5px] my-[20px] md:m-0">
+                <div class="w-[25%]">
+                    <img src="/static/assets/icons/2.png" alt="" class="bg-[#fff] h-[100px]">
+                </div>
+                <div class="w-[74%] flex flex-col justify-center">
+                    <h1 class="text-[21px] text-[#ffff89] ">Chakra Alignment</h1>
+                    <p class="text-[15px] text-[#fff] mt-1">Learn how to identify and balance energy centers within
+                        your body to promote holistic wellness.</p>
+                </div>
+            </div>
+            <div class="md:w-[48%] flex justify-between meditationBox rounded-[5px] my-[20px] md:m-0">
+                <div class="w-[25%]">
+                    <img src="/static/assets/icons/3.png" alt="" class="h-[100px]">
+                </div>
+                <div class="w-[74%] flex flex-col justify-center">
+                    <h1 class="text-[21px] text-[#ffff89] ">Hands-on Practice</h1>
+                    <p class="text-[15px] text-[#fff] mt-1">Experience the power of Reiki firsthand through guided
+                        practice sessions. Develop your ability to sense and direct energy.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full md:flex justify-between md:my-[25px]">
+            <div class="md:w-[48%] flex justify-between meditationBox rounded-[5px]">
+                <div class="w-[25%]">
+                    <img src="/static/assets/icons/4.jpeg" alt="" class="h-[100px]">
+                </div>
+                <div class="w-[74%] flex flex-col justify-center">
+                    <h1 class="text-[21px] text-[#ffff89] ">Self-Healing Techniques</h1>
+                    <p class="text-[15px] text-[#fff] mt-1">Discover how to use Reiki for your own well-being,
+                        relieving stress and promoting relaxation.</p>
+                </div>
+            </div>
+            <div class="md:w-[48%] flex justify-between meditationBox rounded-[5px] my-[20px] md:m-0">
+                <div class="w-[25%]">
+                    <img src="/static/assets/icons/5.png" alt="" class="bg-[#fff] h-[100px]">
+                </div>
+                <div class="w-[74%] flex flex-col justify-center">
+                    <h1 class="text-[21px] text-[#ffff89] ">Healing Others</h1>
+                    <p class="text-[15px] text-[#fff] mt-1">Master the art of offering Reiki healing to others.
+                        Understand the ethical considerations and proper techniques for healing sessions.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full md:flex justify-between">
+            <div class="md:w-[48%] flex justify-between meditationBox rounded-[5px]">
+                <div class="w-[25%]">
+                    <img src="/static/assets/icons/6.jpeg" alt="" class="h-[100px]">
+                </div>
+                <div class="w-[74%] flex flex-col justify-center">
+                    <h1 class="text-[21px] text-[#ffff89] ">Attunements</h1>
+                    <p class="text-[15px] text-[#fff] mt-1">Receive attunements that open your energetic channels,
+                        enhancing your ability to connect with and channel healing energy.</p>
+                </div>
+            </div>
+            <div class="md:w-[48%] flex justify-between meditationBox rounded-[5px] mt-[20px] md:m-0">
+                <div class="w-[25%]">
+                    <img src="/static/assets/icons/7.jpeg" alt="" class="h-[100px]">
+                </div>
+                <div class="w-[74%] flex flex-col justify-center">
+                    <h1 class="text-[21px] text-[#ffff89] ">Integration and Empowerment</h1>
+                    <p class="text-[15px] text-[#fff] mt-1">Learn to integrate Reiki principles into your daily
+                        life, fostering a continuous state of balance and harmony.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Who Can Attend  -->
+<section class="bg-center bg-cover bg-no-repeat px-[25px] py-[15px] xl:px-[100px] xl:py-[60px]
+    flex flex-col items-center" style="background-image: url('/static/assets/images/5441113.jpg');">
+
+    <div class="w-full md:flex justify-between">
+        <div class="md:w-[20%]">
+            <h1 class="text-[#ffff89] font-bold text-[30px] text-center mb-[10px] md:m-0">Who Can Attend !</h1>
+        </div>
+        <div class="md:w-[70%]">
+            <p class="text-center text-[#fff] text-[16px]">
+                Whether you're completely new to energy healing or looking to deepen your existing practice, this
+                workshop is open to all levels of experience. No prior knowledge is required—just an open heart and
+                a
+                willingness to explore the realms of healing energy.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Benefits  -->
+<section class="bg-center bg-cover bg-no-repeat px-[25px] py-[15px] xl:px-[100px] xl:py-[60px]"
+    style="background-image: url('/static/assets/images/shiv-cosmic\ \ Purple-bg.jpg');">
+
+    <div class="w-full md:flex justify-between">
+
+        <!-- Benefits of Reiki  -->
+
+        <div class="md:w-[45%] active">
+            <h1 class="text-[#ffff89] font-bold text-[30px] lg:text-[35px] text-center mb-[20px] md:mb-[40px]">
+                Benefits of Reiki
+            </h1>
+
+            <div class="">
+
+                <div class="w-full flex items-center gap-[20px]">
+                    <div class="w-[10%]">
+                        <div
+                            class="w-[35px] h-[35px] lg:w-[42px] lg:h-[42px] bg-[#AE633F] rounded-[50%] text-white flex items-center justify-center">
+                            <i class="fas fa-spa text-[15px] lg:text-[19px]"></i>
+                        </div>
+                    </div>
+                    <div class="w-[88%]">
+                        <p class="text-[#fff]"> Experience deep relaxation and stress reduction.</p>
+                    </div>
+                </div>
+
+                <div class="w-full flex items-center gap-[20px] my-[20px]">
+                    <div class="w-[10%]">
+                        <div
+                            class="w-[35px] h-[35px] lg:w-[42px] lg:h-[42px] bg-[#AE633F] rounded-[50%] text-white flex items-center justify-center">
+                            <i class="fas fa-eye text-[15px] lg:text-[19px]"></i>
+                        </div>
+                    </div>
+                    <div class="w-[88%]">
+                        <p class="text-[#fff]">Enhance your intuition and connection to your inner self.</p>
+                    </div>
+                </div>
+
+                <div class="w-full flex items-center gap-[20px] my-[20px]">
+                    <div class="w-[10%]">
+                        <div
+                            class="w-[35px] h-[35px] lg:w-[42px] lg:h-[42px] bg-[#AE633F] rounded-[50%] text-white flex items-center justify-center">
+                            <i class="fas fa-key text-[15px] lg:text-[19px]"></i>
+                        </div>
+                    </div>
+                    <div class="w-[88%]">
+                        <p class="text-[#fff]">Unlock your potential to heal yourself and others.</p>
+                    </div>
+                </div>
+
+                <div class="w-full flex items-center gap-[20px] my-[20px]">
+                    <div class="w-[10%]">
+                        <div
+                            class="w-[35px] h-[35px] lg:w-[42px] lg:h-[42px] bg-[#AE633F] rounded-[50%] text-white flex items-center justify-center">
+                            <i class="fas fa-seedling text-[15px] lg:text-[19px]"></i>
+                        </div>
+                    </div>
+                    <div class="w-[88%]">
+                        <p class="text-[#fff]">Foster a sense of balance and overall well-being.</p>
+                    </div>
+                </div>
+
+                <div class="w-full flex items-center gap-[20px] my-[20px]">
+                    <div class="w-[10%]">
+                        <div
+                            class="w-[35px] h-[35px] lg:w-[42px] lg:h-[42px] bg-[#AE633F] rounded-[50%] text-white flex items-center justify-center">
+                            <i class="fas fa-tools text-[15px] lg:text-[19px]"></i>
+                        </div>
+                    </div>
+                    <div class="w-[88%]">
+                        <p class="text-[#fff]">Gain a valuable tool for personal growth and transformation.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="border-l-[#CEAB5C] border-l border-solid"></div>
+
+        <!-- Reserve Your Spot -->
+        <div class="md:w-[47%] lg:pl-[25px] p-0">
+            <h1 class="text-[#ffff89] font-bold text-[30px] lg:text-[35px] text-center md:mb-[40px] mb-[20px]">
+                Reserve
+                Your
+                Spot</h1>
+
+            <p class="leading-[28px] text-[#fff]">Spaces are limited, so make sure to secure your spot in our Reiki
+                Healing
+                Workshop. Embark on a
+                journey of self-discovery, healing, and empowerment that will leave you with lifelong tools for
+                wellness.</p>
+
+            <p class="my-[15px] leading-[28px] text-[#fff]">Join us in exploring the boundless potential of Reiki.
+                Together, let's
+                awaken the healer within and
+                embark on a path of holistic transformation.
+            </p>
+
+            <p class="leading-[28px] text-[#fff]">For inquiries and reservations, <br>
+
+                Contact: 9175912752</p>
+        </div>
+    </div>
+</section>
+
+<!-- testimonial  -->
+
+<section class="bg-center bg-cover bg-no-repeat px-[25px] py-[15px] xl:px-[100px] xl:py-[60px]
+    flex flex-col items-center" style="background-image: url('/static/assets/images/5441113.jpg');">
+
+    <div class="mb-[20px]">
+        <h1 class="font-bold text-[35px] text-[#fff] leading-[38px] text-center mb-[20px]"> <strong
+                class="gradient-text">Testimonial</strong>
+        </h1>
+    </div>
+
+    <div class="w-full md:flex justify-between">
+        <div class="md:w-[48%]">
+            <iframe class="w-[100%] h-[315px]" src="https://www.youtube.com/embed/2OfF6oSs-eY?autoplay=1"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="md:w-[48%] mt-[20px] md:m-0">
+            <iframe class="w-[100%] h-[315px]" src="https://www.youtube.com/embed/6geFnXobarY"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+</section>
+
+<!-- form  -->
+<section
+    class="bg-center bg-cover bg-no-repeat px-[25px] py-[15px] xl:px-[100px] xl:py-[60px] flex items-center justify-center flex-col"
+    style="background-image: url('/static/assets/images/shiv-cosmic\ \ Purple-bg.jpg');">
+
+    <div class="mb-[20px]">
+        <h1 class="font-bold text-[35px] text-[#fff] leading-[38px] text-center mb-[20px]">
+            I want to join Workshop, <strong class="gradient-text"> Sign me up!</strong>
+        </h1>
+    </div>
+
+    <div class="xl:w-[60%] md:w-[75%] w-full active">
+
+        <form action="" class="reiki-form w-full">
+
+            <div class="w-full md:flex justify-between">
+                <div class="md:w-[48%]">
+                    <div class="">
+                        <label for="" class="text-[#fff]">First Name</label>
+                    </div>
+                    <div class="">
+                        <input type="text" placeholder="Enter your First Name">
+                    </div>
+                </div>
+
+                <div class="md:w-[48%] mt-[10px] lg:m-0">
+                    <div>
+                        <label for="" class="text-[#fff]">Last Name</label>
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Enter your Last Name">
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full md:flex justify-between my-[10px] lg:my-[20px]">
+
+                <div class="md:w-[48%]">
+                    <div class="">
+                        <label for="" class="text-[#fff]">Phone no</label>
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Enter your Phone Number">
+                    </div>
+                </div>
+
+                <div class="md:w-[48%] mt-[10px] lg:m-0">
+                    <div>
+                        <label for="" class="text-[#fff]">Email</label>
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Enter your Email">
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="w-full flex justify-between">
+                <div class="w-full">
+                    <div>
+                        <label for="" class="text-[#fff]">Message</label>
+                    </div>
+                    <div class="">
+                        <textarea name="" id="" placeholder="Enter your Message"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-[10px]">
+                <button type="submit" class="w-full bg-[#AE633F] text-[#fff]
+                     py-[10px] rounded-[10px]">Send</button>
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<script src="/static/javascript/main.js"></script>
+{% endblock main-content %}
