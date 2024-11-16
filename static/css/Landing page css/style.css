@@ -45,6 +45,12 @@ p {
     padding: 0 100px;
 } */
 
+.nav-bar {
+    background-color: #d2833680;
+    z-index: 9999;
+    box-shadow: 0 2px 30px rgba(23, 15, 73, .1);
+}
+
 .open {
     top: 0px !important;
     opacity: 1 !important;
@@ -95,14 +101,14 @@ ul {
 }
 
 .image-reiki {
-    background-image: url('/static/assets/images/Reiki\ Heeling\ Banner.jpg');
-    height: 420px;
+    background-image: url('/static/assets/images/reiki\ banner.jpg');
+    height: 560px;
 
 }
 
 .image-contact {
-    background-image: url('/static/assets/images/Contact\ us\ Banner.jpg');
-    height: 420px;
+    background-image: url('/static/assets/images/contact\ banner.jpg');
+    height: 560px;
 }
 
 
@@ -566,7 +572,7 @@ ul {
 .gradientBtn {
     background-image: linear-gradient(to right top, #ae633f, #b87444,
             #c1864a, #c89852, #ceab5c);
-            transition: all 0.5s;
+    transition: all 0.5s;
 }
 
 .gradient-text {
