@@ -1,37 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shiv-cosmic </title>
-
-    <!-- Main Custom CSS -->
-    <link rel="stylesheet" href="/static/css/Landing page css/style.css" media="print" onload="this.media='all'">
-
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- font-awesome cdn  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-
-    <!-- Philosopher & Roboto font Link -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
-
-    <!-- swiper link  -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-</head>
-
-<body>
-
-    <main>
-        
-        <!-- Navigation and Hero section  -->
-        <header class="Nav-section hero-section image-home relative">
+{% extends 'base.html'%}
+{% load static %}
+{% block hero-image %} image-home {% endblock hero-image %}
+{% block main-content %}
      
             <!-- Hero section  -->
             <section class="w-full overflow-hidden flex items-center justify-center">
@@ -401,89 +371,7 @@
     </main>
 
 
-    <section>
-        <div class="video-background">
-            <video autoplay muted loop playsinline>
-                <source src="/static/assets/videos/zodiac astrology video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="overlay"></div>
-
-            <div class="content flex items-center justify-center flex-col">
-                <div class="w-full flex flex-col justify-center items-center footerBottom">
-
-                    <div class="w-full lg:w-[80%] md:flex justify-between">
-
-                        <div class="text-start md:w-[28%] my-[15px] flex flex-col justify-center">
-                            <h1 class="text-[#4F3E17] font-bold text-[21px] mb-[5px]">Quick Links</h1>
-                            <ul>
-                                <li><a href="{% url 'policy' %}">Privacy Policy </a></li>
-                                <li><a href="{% url 'terms' %}">Terms and Conditions</a></li>
-                                <li><a href="{% url 'return' %}">Refund & Cancellation Policy </a></li>
-                            </ul>
-                        </div>
-
-                        <div class="md:w-[34%] md:flex flex-col items-center">
-                            <img src="/static/assets/images/Logo/logo.png" alt="">
-                            <p class="my-[10px] text-justify">Empowering lives through the wisdom of astrology and
-                                Vastu.
-                                Connect with
-                                Shiv
-                                Cosmic
-                                Energy Solutions
-                                for personalized guidance towards harmony, health, and prosperity.
-                            </p>
-
-                            <div class="my-4 flex items-start lg:block">
-                                <a href="https://www.instagram.com/shivcosmicenergysolutions/" target="_blank">
-                                    <i class="fa-brands fa-instagram text-[19px]"></i>
-                                </a>
-                                <a href="https://www.facebook.com/nhmcpune" class="mx-[10px]" target="_blank">
-                                    <i class="fa-brands fa-facebook-f text-[19px]"></i>
-                                </a>
-                                <a href="https://www.youtube.com/channel/UCvM4OYpE1TArbmlIZFgBB7g?view_as=subscriber"
-                                    target="_blank">
-                                    <i class="fa-brands fa-youtube text-[19px]"></i>
-                                </a>
-                            </div>
-                        </div>
-
-
-                        <div class="md:w-[32%] text-start flex flex-col justify-center lg:pl-[60px] pb-[15px]">
-                            <h1 class="text-[#4F3E17] font-bold text-[21px] mb-[5px]">Contact Information</h1>
-                            <ul>
-                                <li>Email: info.nhmcpune@gmail.com</li>
-                                <li>Whatsapp: +(91) 9175932752</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="">
-                    <h1 class="text-[#4F3E17] text-start md:text-center font-bold text-[19px] mb-[10px]">We Do NOT
-                        Believe In "Get Rich Quick
-                        Programs"..</h1>
-                    <p>We believe in hard and smart work, adding value and dedication to reach your goals. It's a
-                        fact that
-                        one
-                        that does not do hard work will see no results whatsoever. The remedies and suggestions
-                        given in
-                        this
-                        report may help you move towards achieving your goals. You will get no results whatsoever if
-                        you
-                        assume
-                        by reading up information and reading the report your life will change with riches. Your
-                        results are
-                        based on your actions. We never undertake any responsibility for any results. All
-                        suggestions and
-                        information provided herein are in good faith, to the best of our knowledge, and based on
-                        the birth
-                        details (date, time, and place) provided by you and successful outcomes in the past.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
@@ -533,6 +421,4 @@
 
 
     <script src="/static/javascript/main.js"></script>
-</body>
-
-</html>
+{% endblock main-content %}
