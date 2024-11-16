@@ -20,7 +20,10 @@ import json
 def home(request):
     return render(request, 'NewLandingpage.html')
 
-def index(request):
+def kundali(request):
+    return render(request, 'Newkundli.html')
+
+def horoscopeform(request):
     if request.method == 'POST':
         # Get form data
         name = request.POST.get('name')
@@ -71,7 +74,7 @@ def index(request):
     hours = list(range(0, 24))
     minutes = list(range(0, 60))
 
-    return render(request, 'Newkundli.html', {
+    return render(request, 'buykundali.html', {
         'days': days,
         'months': months,
         'years': years,
