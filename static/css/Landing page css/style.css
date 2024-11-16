@@ -41,9 +41,9 @@ p {
     font-style: normal;
 }
 
-.Nav-section {
+/* .Nav-section {
     padding: 0 100px;
-}
+} */
 
 .open {
     top: 0px !important;
@@ -93,11 +93,16 @@ ul {
 .image-home {
     background-image: url('/static/assets/images/t.jpeg');
 }
+
 .image-reiki {
-    background-image: url('/static/assets/images/adult-meditating.jpg');
+    background-image: url('/static/assets/images/Reiki\ Heeling\ Banner.jpg');
+    height: 420px;
+
 }
+
 .image-contact {
-    background-image: url('/static/assets/images/Contact banner.jpg');
+    background-image: url('/static/assets/images/Contact\ us\ Banner.jpg');
+    height: 420px;
 }
 
 
@@ -385,6 +390,7 @@ ul {
     color: #fff;
     font-size: 14px;
 }
+
 .reiki-form input:focus,
 .reiki-form select:focus,
 .reiki-form textarea:focus {
@@ -412,9 +418,9 @@ ul {
         max-width: 60% !important;
     }
 
-    .Nav-section {
+    /* .Nav-section {
         padding: 0 15px;
-    }
+    } */
 
     .mini-nav {
         padding-bottom: 10px;
@@ -520,9 +526,9 @@ ul {
 }
 
 @media (min-width:1024px) and (max-width: 1200px) {
-    .Nav-section {
+    /* .Nav-section {
         padding: 0 30px;
-    }
+    } */
 
     .main-container {
         margin: 30px 30px;
@@ -560,6 +566,7 @@ ul {
 .gradientBtn {
     background-image: linear-gradient(to right top, #ae633f, #b87444,
             #c1864a, #c89852, #ceab5c);
+            transition: all 0.5s;
 }
 
 .gradient-text {
@@ -880,6 +887,15 @@ ul {
         padding: 10px 12px;
         font-size: 12px;
     }
+
+    .accordion button .accordion-title {
+        font-size: 18px;
+    }
+
+    .accordion .accordion-content p {
+        font-size: 15px;
+        margin: 1em 0;
+    }
 }
 
 /* new reiki page  */
@@ -888,9 +904,10 @@ ul {
     /* background-image: linear-gradient(to right top, #efefef, #c3bfd4, #9a91b8,
             #74649c, #4e3a7f); */
     background-image: linear-gradient(to right top, #b698e3, #9b7fc9,
-     #8167b0, #675097, #4e3a7f);
+            #8167b0, #675097, #4e3a7f);
     padding: 0px 15px 0px 0;
 }
-.meditationBox img{
+
+.meditationBox img {
     border-radius: 5px 0 0 5px;
 }

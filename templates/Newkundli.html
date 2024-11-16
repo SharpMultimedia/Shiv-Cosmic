@@ -26,21 +26,23 @@
 
     <!-- ------- Hero section ------  -->
 
-    <section class="bg-center h-[520px] bg-cover bg-no-repeat px-[100px] py-[60px] flex
+    <section class="bg-center h-[520px] bg-cover bg-no-repeat px-[15px] py-[25px]
+     lg:px-[100px] py-lg:[60px] flex
              items-center  flex-col" style="background-image: url('/static/assets/images/Sub-Banner.jpg');">
 
-        <div class="bg-[#fff] w-[80%] h-[40px] flex items-center justify-center rounded-[10px] mb-[40px]">
-            <h1 class="font-bold text-[21px] text-[#222222]">Attention If You're Seeking Life Guidance – Get Your
+        <div class="bg-[#fff] md:w-[80%] h-auto flex items-center justify-center rounded-[10px] mb-[0px] lg:mb-[40px] py-[8px]">
+            <h1 class="font-bold text-[19px] lg:text-[21px] text-[#222222] text-center">Attention If You're Seeking Life Guidance –
+                Get Your
                 Personalized Janam Kundli Report Today!</h1>
         </div>
 
-        <div class="w-[80%] text-center mt-[40px]">
-            <h1 class="font-bold text-[38px] text-[#fff] leading-[42px]">Unlock the <strong
+        <div class="md:w-[80%] text-center mt-[40px]">
+            <h1 class="font-bold text-[28px] xl:text-[38px] text-[#fff] leading-[35px] lg:leading-[42px]">Unlock the <strong
                     class="text-[#42c4ff]">Secrets of Your Future</strong> with an
                 Accurate Janam Kundli Report – Delivered
                 Instantly!</h1>
 
-            <p class="text-[#fff] text-[18px] mt-[20px]">Unlock personalized insights into your love life, finances,
+            <p class="text-[#fff] text-[16px] lg:text-[18px] mt-[20px]">Unlock personalized insights into your love life, finances,
                 health, and career
                 through the wisdom of ancient
                 Vedic astrology <br> with a detailed Kundli based on your birth date and time.</p>
@@ -50,18 +52,36 @@
 
     </section>
 
+     <!-- fixed button  -->
+
+     <section class="w-full fixed bottom-0 z-[100] pr-[0px] lg:pr-[30px]">
+        <div class="w-[100%] py-[10px] lg:py-[20px] rounded-tl-[10px] rounded-tr-[10px] flex items-center justify-end bg-center bg-cover bg-no-repeat"
+            >
+            <a href="{% url 'index' %}">
+                <button class="btn btn--snakeBorder">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Get Your Kundli
+                </button>
+            </a>
+        </div>
+    </section>
+    
     <!-- Kundli  -->
+
     <section class="flex items-center flex-col justify-center">
         <div class="">
             <img src="/static/assets/images/kundli.png" alt="">
         </div>
 
-        <div class="w-[50%] flex justify-between my-[15px]">
-            <div class="w-[50%] flex items-center justify-end gap-[10px]">
+        <div class="md:w-[50%] md:flex justify-between my-[15px]">
+            <div class="md:w-[50%] flex items-center justify-end gap-[10px]">
                 <i class="fa-solid fa-face-smile text-[22px] text-[#AE633F]"></i>
                 <p class="text-[17px]">1.2 lakh+ Astroparivar kundli members</p>
             </div>
-            <div class="w-[35%] flex items-center justify-end gap-[10px]">
+            <div class="md:w-[35%] flex items-center md:justify-end gap-[10px]">
                 <i class="fa-solid fa-circle-check text-[22px] text-[#AE633F]"></i>
                 <p class="text-[17px]">100% Accurate Predictions</p>
             </div>
@@ -78,19 +98,19 @@
 
     <!-- Janam Kundli Report -->
 
-    <section class="bg-center bg-cover bg-no-repeat px-[100px] py-[60px] mt-[60px]"
+    <section class="bg-center bg-cover bg-no-repeat px-[15px] py-[25px] xl:px-[100px] xl:py-[60px] mt-[20px]  lg:mt-[60px]"
         style="background-image: url('/static/assets/images/q.jpg');">
 
         <div>
-            <h1 class="font-bold text-[35px] text-[#fff] leading-[38px] text-center mb-[40px]">This Janam Kundli
+            <h1 class="font-bold text-[32px] lg:text-[35px] text-[#fff] leading-[38px] text-center mb-[40px]">This Janam Kundli
                 Report is designed to help you address and <strong class="gradient-text">overcome all these
                     challenges in your life.</strong>
             </h1>
 
-            <div class="w-full flex justify-between">
+            <div class="w-full md:flex justify-between">
 
                 <!-- left col  -->
-                <div class="w-[32%]">
+                <div class="md:w-[32%]">
 
                     <div class="w-full">
                         <div
@@ -100,7 +120,7 @@
 
                         <div class="w-[90%]">
                             <h1 class="font-bold text-[20px] text-[#ffff89]">Relationship Problems</h1>
-                            <p class="text-justify text-[#fff]">Are you struggling to develop & maintain healthy
+                            <p class="text-justify text-[#fff] text-[15px] lg:text-[16px]">Are you struggling to develop & maintain healthy
                                 relationships with
                                 your family and loved
                                 ones? Know about your life partner in your kundli report.</p>
@@ -116,7 +136,7 @@
 
                         <div class="w-[90%]">
                             <h1 class="font-bold text-[20px] text-[#ffff89]">Business Problems</h1>
-                            <p class="text-justify text-[#fff]">Struggling with business goals? Overcome losses and
+                            <p class="text-justify text-[#fff] text-[15px] lg:text-[16px]">Struggling with business goals? Overcome losses and
                                 financial
                                 challenges. Boost earnings with personalized finance insights from your online Janam
                                 Kundli report!</p>
@@ -131,7 +151,7 @@
 
                         <div class="w-[90%]">
                             <h1 class="font-bold text-[20px] text-[#ffff89]">Financial Troubles</h1>
-                            <p class="text-justify text-[#fff]">Struggling to Make Ends Meet Due to Financial Troubles?
+                            <p class="text-justify text-[#fff] text-[15px] lg:text-[16px]">Struggling to Make Ends Meet Due to Financial Troubles?
                                 Unable to
                                 save your hard- earned
                                 money? Discover Effective Solutions in detailed Kundli & Financial analysis report by
@@ -143,12 +163,12 @@
                 </div>
 
                 <!-- middle col  -->
-                <div class="w-[30%]">
+                <div class="md:w-[30%] my-[20px] md:m-0">
                     <img src="/static/assets/images/kundli format.png" alt="kundli-format">
                 </div>
 
                 <!-- right col  -->
-                <div class="w-[33%] pl-[30px]">
+                <div class="md:w-[33%] pl-[0px] md:pl-[30px]">
 
                     <div class="w-full">
                         <div
@@ -158,7 +178,7 @@
 
                         <div class="w-[90%]">
                             <h1 class="font-bold text-[20px] text-[#ffff89]">Love troubles</h1>
-                            <p class="text-justify text-[#fff]">Facing a lack of love from your partner? Is your partner
+                            <p class="text-justify text-[#fff] text-[15px] lg:text-[16px]">Facing a lack of love from your partner? Is your partner
                                 losing
                                 interest in you? Feeling Unloved & Unhappy in Your Relationship? Get Expert Insights in
                                 kundli report.</p>
@@ -173,7 +193,7 @@
 
                         <div class="w-[90%]">
                             <h1 class="font-bold text-[20px] text-[#ffff89]">Career Prospects</h1>
-                            <p class="text-justify text-[#fff]">Longing for a Luxurious Lifestyle? Facing Challenges in
+                            <p class="text-justify text-[#fff] text-[15px] lg:text-[16px]">Longing for a Luxurious Lifestyle? Facing Challenges in
                                 getting
                                 dream job? Struggling with Government Job Exams? Low Grades? Get complete career
                                 analysis to Ace Exams & Secure Jobs, Even Abroad with online janam kundli report.</p>
@@ -188,7 +208,7 @@
 
                         <div class="w-[90%]">
                             <h1 class="font-bold text-[20px] text-[#ffff89]">Home and Luxury</h1>
-                            <p class="text-justify text-[#fff]">Longing for a Luxurious Lifestyle? Have troubles at home
+                            <p class="text-justify text-[#fff] text-[15px] lg:text-[16px]">Longing for a Luxurious Lifestyle? Have troubles at home
                                 &
                                 neighborhood? Unable to build a new home & life? Get solutions & in-depth analysis in
                                 Your Kundli Report.</p>
@@ -204,17 +224,18 @@
 
     <!-- Process step to create your Personalised Kundli  -->
 
-    <section class="bg-center bg-cover bg-no-repeat px-[100px] py-[60px]"
+    <section class="bg-center bg-cover bg-no-repeat px-[25px] py-[15px] xl:px-[100px] xl:py-[60px]"
         style="background-image: url('/static/assets/images/shiv-cosmic\ \ Purple-bg.jpg');">
 
-        <h1 class="font-bold text-[35px] text-[#fff] leading-[38px] text-center mb-[40px]">Here’s <strong
+        <h1 class="font-bold text-[32px] lg:text-[35px] text-[#fff] leading-[38px] text-center mb-[40px]">Here’s <strong
                 class="gradient-text">the 5-step process</strong> to create your Personalised Kundli</h1>
 
-        <div class="flex justify-between">
+        <div class="md:flex justify-between">
             <!-- 01  -->
-            <div class="w-[19%] flex flex-col items-center">
-                <h1 class="text-[#fff] text-[19px] font-bold mb-[5px]">Enter Your Details</h1>
-                <p class="text-[#fff] text-center">Kindly provide your complete birth details, including date, exact time, and place of birth, to initiate Kundali creation</p>
+            <div class="md:w-[19%] flex flex-col items-center">
+                <h1 class="text-[#fff] text-[19px] font-bold mb-[5px] text-center">Enter Your Details</h1>
+                <p class="text-[#fff] text-center text-[15px] lg:text-[16px]">Kindly provide your complete birth details, including date, exact
+                    time, and place of birth, to initiate Kundali creation</p>
 
                 <div class="relative process-step pt-[45px]">
                     <div class="w-[100px] h-[100px] bg-center bg-cover bg-no-repeat flex items-center justify-center"
@@ -226,9 +247,9 @@
 
             <!-- 02 -->
 
-            <div class="w-[19%] flex flex-col items-center">
-                <h1 class="text-[#fff] text-[19px] font-bold mb-[5px]">Preparation of Birth Charts</h1>
-                <p class="text-[#fff] text-center">Our experts will meticulously prepare your personalized birth charts
+            <div class="md:w-[19%] flex flex-col items-center my-[20px] md:m-0">
+                <h1 class="text-[#fff] text-[19px] font-bold mb-[5px] text-center">Preparation of Birth Charts</h1>
+                <p class="text-[#fff] text-center text-[15px] lg:text-[16px]">Our experts will meticulously prepare your personalized birth charts
                     using Vedic astrology principles.</p>
 
                 <div class="relative process-step pt-[45px]">
@@ -241,9 +262,10 @@
 
             <!-- 03  -->
 
-            <div class="w-[19%] flex flex-col items-center">
-                <h1 class="text-[#fff] text-[19px] font-bold mb-[5px]">Expert Chart Analysis</h1>
-                <p class="text-[#fff] text-center">Get a detailed analysis from leading Kundali experts, offering profound insights and understanding into your life journey</p>
+            <div class="md:w-[19%] flex flex-col items-center">
+                <h1 class="text-[#fff] text-[19px] font-bold mb-[5px] text-center">Expert Chart Analysis</h1>
+                <p class="text-[#fff] text-center text-[15px] lg:text-[16px]">Get a detailed analysis from leading Kundali experts, offering
+                    profound insights and understanding into your life journey</p>
 
                 <div class="relative process-step pt-[45px]">
                     <div class="w-[100px] h-[100px] bg-center bg-cover bg-no-repeat flex items-center justify-center"
@@ -255,9 +277,9 @@
 
             <!-- 04  -->
 
-            <div class="w-[19%] flex flex-col items-center">
-                <h1 class="text-[#fff] text-[19px] font-bold mb-[5px]">Identifying Challenges</h1>
-                <p class="text-[#fff] text-center">We’ll help you uncover potential challenges reflected in your
+            <div class="md:w-[19%] flex flex-col items-center my-[20px] md:m-0">
+                <h1 class="text-[#fff] text-[19px] font-bold mb-[5px] text-center">Identifying Challenges</h1>
+                <p class="text-[#fff] text-center text-[15px] lg:text-[16px]">We’ll help you uncover potential challenges reflected in your
                     Kundali, offering clarity on your life's path.</p>
 
                 <div class="relative process-step pt-[45px]">
@@ -270,10 +292,10 @@
 
             <!-- 05  -->
 
-            <div class="w-[19%] flex flex-col items-center">
+            <div class="md:w-[19%] flex flex-col items-center">
                 <!-- <h1 class="text-[#fff] text-[19px] font-bold">Personalized Solutions Provided</h1> -->
-                <h1 class="text-[#fff] text-[19px] font-bold mb-[5px]">Custom Solutions</h1>
-                <p class="text-[#fff] text-center">Based on your analysis, we’ll deliver tailored solutions to empower
+                <h1 class="text-[#fff] text-[19px] font-bold mb-[5px] text-center">Custom Solutions</h1>
+                <p class="text-[#fff] text-center text-[15px] lg:text-[16px]">Based on your analysis, we’ll deliver tailored solutions to empower
                     you and guide you toward your dreams.</p>
 
                 <div class="relative process-step pt-[45px]">
@@ -372,35 +394,35 @@
     </section>
 
     <!-- What will you get in kundli ?  -->
-    <section class="bg-center bg-cover bg-no-repeat px-[100px] py-[60px]"
+    <section class="bg-center bg-cover bg-no-repeat px-[15px] py-[25px] xl:px-[100px] xl:py-[60px]"
         style="background-image: url('/static/assets/images/q.jpg');">
-        <h1 class="font-bold text-[35px] text-[#fff] leading-[38px] text-center mb-[40px]">This <strong
+        <h1 class="font-bold text-[32px] lg:text-[35px] text-[#fff] leading-[38px] text-center mb-[40px]">This <strong
                 class="gradient-text">What will you get </strong>
             in your Personalized Online Janam Kundli?
         </h1>
 
 
-        <div class="w-full flex justify-between">
-            <div class="w-[24%] p-[20px] rounded-[10px] cardkundliInfo">
+        <div class="w-full md:flex justify-between">
+            <div class="md:w-[24%] p-[20px] rounded-[10px] cardkundliInfo">
                 <h1 class="font-bold text-[21px] mb-[10px] gradient-text">Dosh & Dasha's analysis</h1>
                 <p class="text-[16px] text-[#fff]">Detailed report of doshas – Kuja (Mangal), Shani (Saturn), Rahu-Ketu,
                     Dasha &
                     remedies, from mantras
                     to rituals.</p>
             </div>
-            <div class="w-[24%] p-[20px] rounded-[10px] cardkundliInfo">
+            <div class="md:w-[24%] p-[20px] rounded-[10px] cardkundliInfo my-[20px] md:m-0">
                 <h1 class="font-bold text-[21px] mb-[10px] gradient-text">All yog report</h1>
                 <p class="text-[16px] text-[#fff]">Know about the yogs that are formed in your kundali-hana, Raja, Graha
                     Maitri,
                     Budhaditya, and Sri Yoga. Unlock wealth, career growth, relationships, intellect.</p>
             </div>
-            <div class="w-[24%] p-[20px] rounded-[10px] cardkundliInfo">
+            <div class="md:w-[24%] p-[20px] rounded-[10px] cardkundliInfo my-[20px] md:m-0">
                 <h1 class="font-bold text-[21px] mb-[10px] gradient-text">Gemstone recommendation</h1>
                 <p class="text-[16px] text-[#fff]">When, Why, & How to wear gems by the best gemologist in india. Get
                     personalized
                     gemstone recommendations based on your kundli report.</p>
             </div>
-            <div class="w-[24%] p-[20px] rounded-[10px] cardkundliInfo">
+            <div class="md:w-[24%] p-[20px] rounded-[10px] cardkundliInfo">
                 <h1 class="font-bold text-[21px] mb-[10px] gradient-text">Puja recommendation</h1>
                 <p class="text-[16px] text-[#fff]">Puja's to do suggestions by studying Kundli's dosha remedies. The
                     rituals are
@@ -409,28 +431,28 @@
 
         </div>
 
-        <div class="w-full flex justify-between mt-[20px]">
-            <div class="w-[24%] p-[20px] rounded-[10px] cardkundliInfo">
+        <div class="w-full md:flex justify-between mt-[20px]">
+            <div class="md:w-[24%] p-[20px] rounded-[10px] cardkundliInfo">
                 <h1 class="font-bold text-[21px] mb-[10px] gradient-text">Ank Jyotish recommendation</h1>
                 <p class="text-[16px] text-[#fff]">A numerological analysis of your numbers gives out details of your
                     personality,
                     nature, and behaviors.</p>
             </div>
-            <div class="w-[24%] p-[20px] rounded-[10px] cardkundliInfo">
+            <div class="md:w-[24%] p-[20px] rounded-[10px] cardkundliInfo my-[20px] md:m-0">
                 <h1 class="font-bold text-[21px] mb-[10px] gradient-text">Monthly prediction
                     for 1 year</h1>
                 <p class="text-[16px] text-[#fff]">Know what this year has got for you through a detailed report of your
                     monthly
                     horoscope.</p>
             </div>
-            <div class="w-[24%] p-[20px] rounded-[10px] cardkundliInfo">
+            <div class="md:w-[24%] p-[20px] rounded-[10px] cardkundliInfo my-[20px] md:m-0">
                 <h1 class="font-bold text-[21px] mb-[10px] gradient-text">Yearly prediction
                     for 10 years</h1>
                 <p class="text-[16px] text-[#fff]">Know what this decade has got for you through a detailed report of
                     your monthly
                     horoscope.</p>
             </div>
-            <div class="w-[24%] p-[20px] rounded-[10px] cardkundliInfo">
+            <div class="md:w-[24%] p-[20px] rounded-[10px] cardkundliInfo">
                 <h1 class="font-bold text-[21px] mb-[10px] gradient-text">Astrograph/
                     Bhavbal graph</h1>
                 <p class="text-[16px] text-[#fff]">Get a personalized astrograph through your Kundali and horoscope
@@ -439,7 +461,7 @@
 
         </div>
 
-        <div class="flex items-center justify-center mt-[40px]">
+        <div class="flex items-center justify-center mt-[20px] lg:mt-[40px]">
             <a href="#">
                 <button class="btn btn--snakeBorder">
                     Buy Your Personalized Kundli
@@ -450,18 +472,18 @@
 
     <!-- Faqs  -->
 
-    <section class="bg-center bg-cover bg-no-repeat px-[100px] py-[60px]"
+    <section class="bg-center bg-cover bg-no-repeat px-[15px] py-[25px] xl:px-[100px] xl:py-[60px]"
         style="background-image: url('/static/assets/images/shiv-cosmic\ \ Purple-bg.jpg');">
 
-        <h1 class="font-bold text-[35px] text-[#fff] leading-[38px] text-center mb-[40px]">This
+        <h1 class="font-bold text-[32px] lg:text-[35px] text-[#fff] leading-[38px] text-center mb-[40px]">This
             Frequently Asked Questions <strong class="gradient-text">(FAQs): </strong>
         </h1>
 
         <div class="w-full">
 
-            <div class="accordion flex justify-between">
+            <div class="accordion md:flex justify-between">
 
-                <div class="w-[48%]">
+                <div class="md:w-[48%]">
 
                     <div class="accordion-item">
                         <button id="accordion-button-1" aria-expanded="false">
@@ -580,7 +602,7 @@
 
                 </div>
 
-                <div class="w-[48%]">
+                <div class="md:w-[48%]">
 
                     <div class="accordion-item">
                         <button id="accordion-button-5" aria-expanded="false">

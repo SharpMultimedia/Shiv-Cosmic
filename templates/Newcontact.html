@@ -2,116 +2,137 @@
 {% load static %}
 {% block hero-image %} image-contact {% endblock hero-image %}
 {% block main-content %}
-    <!-- ------- Hero section ------  -->
+<!-- ------- Hero section ------  -->
 
-    <section class="bg-center h-[680px] bg-cover bg-no-repeat px-[100px] py-[60px] flex
-             items-center justify-center  flex-col">
+<section class="bg-center bg-cover bg-no-repeat flex
+             items-center justify-center flex-col relative">
 
-        <div class="w-[80%] text-center">
-            <h1 class="font-bold text-[45px] text-[#fff] leading-[42px]"><strong class="text-[#ffff89]">Contact
-                    us</strong>
-            </h1>
-        </div>
-    </section>
+    <div class="w-[80%] text-center absolute top-[135px] lg:top-[90px]">
+        <h1 class="font-bold text-[45px] text-[#fff] leading-[42px]"><strong class="text-[#ffff89]">Contact
+                us</strong>
+        </h1>
+    </div>
+
+</section>
 </header>
 
-    <!-- form  -->
+<!-- form  -->
 
-    <section class="bg-center bg-cover bg-no-repeat px-[100px] py-[60px]"
-        style="background-image: url('/static/assets/images/shiv-cosmic\ \ Purple-bg.jpg');">
+<section class="bg-center bg-cover bg-no-repeat px-[15px] py-[25px] xl:px-[100px] xl:py-[60px]"
+    style="background-image: url('/static/assets/images/shiv-cosmic\ \ Purple-bg.jpg');">
 
-        <div
-            class="category-card md:w-[100%] md:flex justify-between relative z-10 border-[#CEAB5C] border xl:p-[60px] p-[20px] border-solid rounded-[15px]">
+    <div
+        class="category-card md:w-[100%] md:flex justify-between relative z-10 border-[#CEAB5C] border xl:p-[60px] p-[20px] border-solid rounded-[15px]">
 
-            <div class="md:w-[52%]">
+        <div class="md:w-[52%]">
 
-                <form id="contact-form" class="reiki-form w-full" method="POST">
-                    {% csrf_token %}
-                    <input type="hidden" name="csrfmiddlewaretoken"
-                        value="9pxVmpJn5RTXszoIgmk2lhJwgM0923E6OWhaFVYb4kXclKb2dxYNmXW8sM9HzcbT">
-                    <div>
-                        <label for="name" class="text-[#fff]">Name</label>
-                        <input type="text" placeholder="Enter your Name" name="name" required="" autocomplete="off">
-                    </div>
-                    <div class="my-[20px]">
-                        <label for="email" class="text-[#fff]">Email</label>
-                        <input type="email" placeholder="Enter your Email" name="email" required="" autocomplete="off">
-                    </div>
-                    <div>
-                        <label for="name" class="text-[#fff]">Message</label>
-                        <textarea name="message" id="message" placeholder="Enter your Message"
-                            autocomplete="off"></textarea>
-                    </div>
+            <form id="contact-form" class="reiki-form w-full" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="csrfmiddlewaretoken"
+                    value="9pxVmpJn5RTXszoIgmk2lhJwgM0923E6OWhaFVYb4kXclKb2dxYNmXW8sM9HzcbT">
+                <div>
+                    <label for="name" class="text-[#fff]">Name</label>
+                    <input type="text" placeholder="Enter your Name" name="name" required="" autocomplete="off">
+                </div>
+                <div class="my-[20px]">
+                    <label for="email" class="text-[#fff]">Email</label>
+                    <input type="email" placeholder="Enter your Email" name="email" required="" autocomplete="off">
+                </div>
+                <div>
+                    <label for="name" class="text-[#fff]">Message</label>
+                    <textarea name="message" id="message" placeholder="Enter your Message"
+                        autocomplete="off"></textarea>
+                </div>
 
-                    <!-- Hidden reCAPTCHA token field -->
-                    <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
-                    <div class="mt-[20px]">
-                        <button type="submit" class="w-full bg-[#AE633F] text-[#fff] py-[10px] rounded-[10px]">Send
-                            Message</button>
-                    </div>
-                </form>
+                <!-- Hidden reCAPTCHA token field -->
+                <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
+                <div class="mt-[20px]">
+                    <button type="submit" class="w-full bg-[#AE633F] text-[#fff] py-[10px] rounded-[10px]">Send
+                        Message</button>
+                </div>
+            </form>
 
+        </div>
+
+        <div class="w-[1%] border-l-[#CEAB5C] border-l border-solid"></div>
+        <div class="md:w-[40%]">
+
+            <h1 class="text-[#ffff89] font-bold text-[25px] mb-[15px] leading-[31px] mt-[20px]">Natural Healing and
+                Meditation
+                Center
+                Pune
+                Book an Appointment for Readings and Consultations</h1>
+
+            <div>
+                <h1 class="text-[#ffcc58] font-bold text-[20px] mb-[5px]">Visit Us At Our Location</h1>
+                <p class="text-[#fff]">Wagholi, Pune, Maharashtra, India</p>
             </div>
 
-            <div class="w-[1%] border-l-[#CEAB5C] border-l border-solid"></div>
-            <div class="md:w-[40%]">
-
-                <h1 class="text-[#ffff89] font-bold text-[25px] mb-[15px] leading-[31px] mt-[20px]">Natural Healing and
-                    Meditation
-                    Center
-                    Pune
-                    Book an Appointment for Readings and Consultations</h1>
-
+            <div class="my-[15px]">
+                <div class="mb-[5px]">
+                    <h1 class="text-[#ffcc58] font-bold text-[20px] mb-[5px]">Mobile </h1>
+                    <p class="text-[#fff]">+(91) 9175932752</p>
+                </div>
                 <div>
-                    <h1 class="text-[#ffcc58] font-bold text-[20px] mb-[5px]">Visit Us At Our Location</h1>
-                    <p class="text-[#fff]">Wagholi, Pune, Maharashtra, India</p>
+                    <h1 class="text-[#ffcc58] font-bold text-[20px] mb-[5px]">Email</h1>
+                    <p class="text-[#fff]"> info.nhmcpune@gmail.com</p>
                 </div>
+            </div>
 
-                <div class="my-[15px]">
-                    <div class="mb-[5px]">
-                        <h1 class="text-[#ffcc58] font-bold text-[20px] mb-[5px]">Mobile </h1>
-                        <p class="text-[#fff]">+(91) 9175932752</p>
-                    </div>
-                    <div>
-                        <h1 class="text-[#ffcc58] font-bold text-[20px] mb-[5px]">Email</h1>
-                        <p class="text-[#fff]"> info.nhmcpune@gmail.com</p>
-                    </div>
-                </div>
-
+            <div>
+                <h1 class="text-[#ffcc58] font-bold text-[20px] mb-[5px]">Connect With Us </h1>
                 <div>
-                    <h1 class="text-[#ffcc58] font-bold text-[20px] mb-[5px]">Connect With Us </h1>
-                    <div>
-                        <a href="https://www.instagram.com/shivcosmicenergysolutions/" target="_blank">
-                            <i class="fa-brands fa-instagram text-[#fff]"></i>
-                        </a>
-                        <a href="https://www.facebook.com/nhmcpune" class="mx-[10px]" target="_blank">
-                            <i class="fa-brands fa-facebook-f text-[#fff]"></i>
-                        </a>
-                        <a href="https://www.youtube.com/channel/UCvM4OYpE1TArbmlIZFgBB7g?view_as=subscriber"
-                            target="_blank">
-                            <i class="fa-brands fa-youtube text-[#fff]"></i>
-                        </a>
-                    </div>
+                    <a href="https://www.instagram.com/shivcosmicenergysolutions/" target="_blank">
+                        <i class="fa-brands fa-instagram text-[#fff]"></i>
+                    </a>
+                    <a href="https://www.facebook.com/nhmcpune" class="mx-[10px]" target="_blank">
+                        <i class="fa-brands fa-facebook-f text-[#fff]"></i>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCvM4OYpE1TArbmlIZFgBB7g?view_as=subscriber"
+                        target="_blank">
+                        <i class="fa-brands fa-youtube text-[#fff]"></i>
+                    </a>
                 </div>
-
             </div>
 
         </div>
 
-    </section>
+    </div>
 
-    <!-- map  -->
+</section>
 
-    <section class="bg-center bg-cover bg-no-repeat px-[15px] py-[25px] xl:px-[100px] xl:py-[60px]
+<!-- fixed button  -->
+
+<section class="w-full fixed bottom-0 z-[100] pr-[0px] lg:pr-[30px]">
+    <div
+        class="w-[100%] py-[10px] lg:py-[20px] rounded-tl-[10px] rounded-tr-[10px] flex items-center justify-end bg-center bg-cover bg-no-repeat">
+        <a href="{% url 'index' %}">
+            <button class="btn btn--snakeBorder">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Get Your Kundli
+            </button>
+        </a>
+    </div>
+</section>
+
+<!-- map  -->
+
+<section class="bg-center bg-cover bg-no-repeat px-[25px] py-[15px] xl:px-[100px] xl:py-[60px]
     flex flex-col items-center" style="background-image: url('/static/assets/images/5441113.jpg');">
 
     <div class="w-full flex items-center justify-center">
-        <div class="w-[85%]">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30256.03564113212!2d73.95876815407868!3d18.573837881898054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c3819fdef877%3A0xd4193e985f354be0!2sWagholi%2C%20Pune%2C%20Maharashtra%20412207!5e0!3m2!1sen!2sin!4v1726309503984!5m2!1sen!2sin" width="100%" height="450" style="border:0; border-radius: 15px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="md:w-[85%]">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30256.03564113212!2d73.95876815407868!3d18.573837881898054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c3819fdef877%3A0xd4193e985f354be0!2sWagholi%2C%20Pune%2C%20Maharashtra%20412207!5e0!3m2!1sen!2sin!4v1726309503984!5m2!1sen!2sin"
+                width="100%" height="450" style="border:0; border-radius: 15px;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
-    
-    </section>
 
-    <script src="/static/javascript/main.js"></script>
-    {% endblock main-content %}
+</section>
+
+<script src="/static/javascript/main.js"></script>
+{% endblock main-content %}
