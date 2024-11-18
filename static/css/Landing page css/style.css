@@ -103,12 +103,24 @@ ul {
 .image-reiki {
     background-image: url('/static/assets/images/reiki\ banner.jpg');
     height: 560px;
-
 }
 
 .image-contact {
     background-image: url('/static/assets/images/contact\ banner.jpg');
     height: 560px;
+}
+
+.personalised-banner {
+    background-image: url('/static/assets/images/Sub-Banner.jpg');
+}
+
+.kundli-hero {
+    height: 560px;
+}
+
+.paymentPage-banner,
+.resultPage-banner {
+    background-image: url('/static/assets/images/q.jpg');
 }
 
 
@@ -449,13 +461,13 @@ ul {
         padding: 20px 20px !important;
     }
 
-
-
     /* reiki healing workshop page  */
 
     .sub-pages {
         height: 560px !important;
     }
+
+
 
 }
 
@@ -532,19 +544,40 @@ ul {
 }
 
 @media (min-width:1024px) and (max-width: 1200px) {
-    /* .Nav-section {
-        padding: 0 30px;
-    } */
 
     .main-container {
         margin: 30px 30px;
     }
+
 }
 
 
 @media only screen and (min-width: 1820px) {
+    .hero-head {
+        top: 340px !important;
+    }
+
     .hero-section {
         height: 900px;
+    }
+
+    .image-contact,
+    .image-reiki,
+    .kundli-hero {
+        height: 650px;
+    }
+
+    .subHeader {
+        top: 475px !important;
+    }
+
+    .subHeaderContact {
+        top: 240px !important;
+    }
+
+    .subHeader h1,
+    .subHeaderContact h1 {
+        font-size: 60px !important;
     }
 
     .astroheroimage {
@@ -563,6 +596,10 @@ ul {
 @media only screen and (min-width: 2250px) {
     .astroheroimage {
         top: -195% !important;
+    }
+    .personalised-banner{
+        height: 800px !important;
+        justify-content: center;
     }
 }
 
@@ -885,7 +922,8 @@ ul {
         max-width: 100% !important;
     }
 
-    .hero-section {
+    .hero-section,
+    .kundli-hero {
         height: 510px;
     }
 
@@ -916,4 +954,51 @@ ul {
 
 .meditationBox img {
     border-radius: 5px 0 0 5px;
+}
+
+.custom-dropdown {
+    position: relative;
+    cursor: pointer;
+}
+
+.custom-dropdown .selected {
+    border: #bcbcbc solid 1px;
+    width: 100%;
+    height: 40px;
+    background: transparent;
+    margin-top: 5px;
+    border-radius: 10px;
+    padding: 0 10px;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.custom-dropdown .options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #694CA7;
+    border: 1px solid #694CA7;
+    border-radius: 5px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 10;
+}
+
+.custom-dropdown.open .options {
+    display: block;
+}
+
+.custom-dropdown .options li {
+    padding: 10px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.custom-dropdown .options li:hover {
+    background: #532F89;
 }

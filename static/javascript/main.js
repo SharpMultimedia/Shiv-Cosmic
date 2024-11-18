@@ -83,7 +83,48 @@ window.addEventListener('scroll', () => {
 });
 
 
-// testimonial slider 
+
+// ----------------- Custom-dropdown (Select tag) in kundli page --------- 
+
+// Initialize all custom dropdowns
+document.querySelectorAll('.custom-dropdown').forEach(dropdown => {
+    const selected = dropdown.querySelector('.selected');
+    const optionsContainer = dropdown.querySelector('.options');
+    const options = optionsContainer.querySelectorAll('li');
+
+    // Toggle dropdown open/close
+    selected.addEventListener('click', function (e) {
+        e.stopPropagation(); // Prevent click from propagating to the document
+        closeAllDropdowns(); // Close other dropdowns
+        dropdown.classList.toggle('open');
+    });
+
+    // Handle option click
+    options.forEach(option => {
+        option.addEventListener('click', function (e) {
+            e.stopPropagation(); // Prevent click from propagating
+            selected.textContent = this.textContent;
+            selected.setAttribute('data-value', this.getAttribute('data-value'));
+            dropdown.classList.remove('open'); // Close dropdown
+        });
+    });
+});
+
+// Close all dropdowns when clicking outside
+document.addEventListener('click', function () {
+    closeAllDropdowns();
+});
+
+// Utility function to close all dropdowns
+function closeAllDropdowns() {
+    document.querySelectorAll('.custom-dropdown.open').forEach(openDropdown => {
+        openDropdown.classList.remove('open');
+    });
+}
+
+
+
+// ------------- Testimonial slider --------------
 
 var swiper = new Swiper(".testimonial-slider", {
     slidesPerView: 3,
@@ -112,5 +153,7 @@ var swiper = new Swiper(".testimonial-slider", {
         }
     }
 });
+
+
 
 

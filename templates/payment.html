@@ -6,23 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>Data Form Report</title>
+
+    <link rel="stylesheet" href="/static/css/Landing page css/style.css">
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
-    <section class="reviewSec">
 
-        <div class="reviewMain">
-            <img src="/static/assets/icons/App icon.png" alt="" class="logoPNG">
+    <section class="bg-center bg-cover bg-no-repeat px-[15px] py-[25px] xl:px-[100px] xl:py-[60px]
+    flex flex-col items-center justify-center paymentPage-banner">
 
-            <div class="reviewContainer">
-                <h1>Limited-time Offer!</h1>
+        <div>
+            <img src="/static/assets/images/Logo/shiv cosmic logo w.png" alt=""
+                class="max-w-[150px] md:max-w-[180px] lg:max-w-[210px]">
+        </div>
+
+        <div class="reviewMain mt-[40px] md:p-[30px] lg:p-[40px]">
+
+            <div class="w-full">
+
+                <div class="w-full flex items-center flex-col">
+                    <h1 class="font-bold text-[24px] lg:text-[35px] text-[#fff] leading-[38px]
+                     text-center mb-[20px] lg:mb-[40px]">
+                        Limited-time <strong class="gradient-text">Offer</strong>
+                    </h1>
+                </div>
 
                 <!-- offer  -->
-
                 <div class="inputContainer">
-
 
                     <!-- <div class="radioBtn">z
                         <div class="radioData checkbox">
@@ -42,6 +57,7 @@
                     </div> -->
 
                     <div class="radioBtn">
+
                         <div class="radioData checkbox">
                             <label for="d-option" class="mainCheckbox">
                                 <div>
@@ -49,7 +65,8 @@
                                     <div class="checkbox__checkmark"></div>
                                 </div>
                                 <div class="labels">
-                                    <label for="d-option">Your Premium Kundli/Horoscope</label>
+                                    <label for="d-option" class="text-[#fff] text-[17px]">Your Premium
+                                        Kundli/Horoscope</label>
                                     <!-- <h6>Your Yearly Predictions</h6> -->
                                 </div>
                             </label>
@@ -84,14 +101,18 @@
                     <div class="reviewCard">
                         <div class="reviewD">
                             <h2>Review Birth Details</h2>
+
                             <div class="reviewSubD">
                                 <h5>{{ form_data.name }}</h5>
+
                                 <div class="reviewDate">
                                     <h6>{{ form_data.day }}/{{ form_data.month }}/{{ form_data.year }}</h6>
                                     <h6>{{ form_data.hour }}:{{ form_data.minute }}</h6>
                                 </div>
-                                <h6><img src="/static/assets/icons/location-pin-svgrepo-com.svg"
-                                        alt="">{{form_data.place }}</h6>
+                                <h6>
+                                    <img src="/static/assets/icons/location-pin-svgrepo-com.svg"
+                                        alt="">{{form_data.place }}
+                                </h6>
                             </div>
                         </div>
                     </div>
@@ -99,9 +120,9 @@
 
                     <div class="reviewCardTwo">
                         <div class="reviewD">
-                            <h2>what you get in kundali?</h2>
+                            <h2>What you get in kundali?</h2>
 
-                            <div class="getContainer">
+                            <div class="getContainer md:flex">
                                 <div class="getContent">
 
                                     <ul>
@@ -148,11 +169,12 @@
 
                 <div class="formDetails">
                     <form action="" method="post" action="{% url 'payment' %}">
-                        {% csrf_token %}
+                        <!-- {% csrf_token %} -->
+
                         <div class="pForm">
                             <div class="EmailDetails">
                                 <div>
-                                    <label for="">Enter Your Email</label>
+                                    <label for="" class="text-[#fff] text-[16px]">Enter Your Email</label>
                                 </div>
                                 <div>
                                     <input type="email" id="email" name="email" placeholder="Enter Your Email" required>
@@ -160,7 +182,7 @@
                             </div>
                             <div class="EmailDetails">
                                 <div>
-                                    <label for="">Enter Your Mobile number</label>
+                                    <label for="" class="text-[#fff] text-[16px]">Enter Your Mobile number</label>
                                 </div>
                                 <div>
                                     <input type="number" id="mobile" name="mobile"
@@ -169,8 +191,8 @@
                             </div>
                         </div>
 
-                        <div class="inputBx formBtn">
-                            <input type="submit" value="Pay Now">
+                        <div class="">
+                            <input type="submit" value="Pay Now" class="submit_btn text-[15px]">
                         </div>
                     </form>
                 </div>
@@ -178,6 +200,7 @@
             </div>
         </div>
     </section>
+
 
 
     <!-- <h1>Payment Page</h1>

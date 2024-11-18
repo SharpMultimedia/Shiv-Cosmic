@@ -4,7 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/Landing page css/style.css">
   <link rel="stylesheet" href="/static/css/style.css">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <title>Kundali / Horoscope report</title>
 </head>
 
@@ -17,23 +21,26 @@
     <p>No astrology data available.</p>
   {% endif %} -->
 
-  <section class="resultSec">
+  <section class="bg-center bg-cover bg-no-repeat px-[15px] py-[25px] xl:px-[100px] xl:py-[60px]
+  flex flex-col items-center justify-center h-[660px] lg:h-[750px] resultPage-banner">
 
-    <div class="resLogo">
-      <img src="/static/assets/icons/App icon.png" alt="" class="logoPNG">
+    <div>
+      <img src="/static/assets/images/Logo/shiv cosmic logo w.png" alt=""
+        class="max-w-[150px] md:max-w-[180px] lg:max-w-[210px]">
     </div>
-    
-    <div class="resultContent">
+
+    <div class="resultContent mt-[40px]">
       <img src="/static/assets/icons/success.png" alt="">
-      <h2>Kundali / Horoscope report</h2>
-      <p>Thank you for making a payment, you will get your kundali /horoscope report on your email. 
+      <h2 class="text-[#fff]">Kundali / Horoscope report</h2>
+      <p class="text-[#fff]">Thank you for making a payment, you will get your kundali /horoscope report on your email.
         else you can download now from here. click on download button.</p>
 
-      {% if astrology_data %}
-        <a href="{{ astrology_data.pdf_url }}" target="_blank"><button><img src="/static/assets/icons/pdf.svg" alt=""> Download PDF</button></a>
-      {% else %}
-        <p>No astrology data available.</p>
-      {% endif %}
+      <!-- {% if astrology_data %} -->
+      <a href="{{ astrology_data.pdf_url }}" target="_blank"><button><img src="/static/assets/icons/pdf.svg" alt="">
+          Download PDF</button></a>
+      <!-- {% else %} -->
+      <p class="text-[#fff]">No astrology data available.</p>
+      <!-- {% endif %} -->
 
     </div>
   </section>
