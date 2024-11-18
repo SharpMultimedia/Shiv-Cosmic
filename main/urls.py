@@ -3,7 +3,8 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('kundali', views.index, name='index'),
+    path('kundali-form', views.horoscopeform, name='horoscopeform'),
+    path('kundali', views.kundali, name='kundali'),
     path('payment/', views.payment, name='payment'),
     path('basic_horoscope/', views.basic_horoscope, name='basic_horoscope'),
     path('pro_horoscope/', views.pro_horoscope, name='pro_horoscope'),

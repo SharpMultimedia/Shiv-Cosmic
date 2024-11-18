@@ -1,42 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buy Kundali</title>
-
-    <link rel="shortcut icon" href="/static/assets/images/Logo/favicon.png" type="image/x-icon">
-
-    <!-- Preload custom CSS files to prioritize loading -->
-    <link rel="preload" href="/static/css/style.css" as="style">
-    <link rel="preload" href="/static/css/Landing page css/style.css" as="style">
-
-    <!-- Main Custom CSS -->
-    <link rel="stylesheet" href="/static/css/style.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="/static/css/Landing page css/style.css" media="print" onload="this.media='all'">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- font-awesome cdn  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-
-    <!-- Philosopher & Roboto font Link -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
-
-    <!-- swiper link  -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-</head>
-
-<body>
+{% extends 'base.html'%}
+{% load static %}
+{% block hero-image %} image-reiki {% endblock hero-image %}
+{% block main-content %}
 
     <!-- ------- Hero section ------  -->
 
+<<<<<<< HEAD
     <section class="w-full bg-center bg-cover bg-no-repeat flex
              items-center justify-center flex-col relative kundli-hero">
+=======
+    <section class="w-full h-[420px] bg-center bg-cover bg-no-repeat flex
+             items-center justify-center flex-col relative"
+        style="background-image: url('/static/assets/images/reiki\ banner.jpg');">
+>>>>>>> 3becd454fb2dbc9b48dd6c7f10fe45520d83948a
 
         <div class="w-[80%] text-center absolute top-[90px]">
             <h1 class="font-bold text-[45px] text-[#fff] leading-[42px]">
@@ -585,8 +561,12 @@
         </div>
     </section>
 
+<<<<<<< HEAD
 
     <script src="/static/javascript/main.js"></script>
 </body>
 
 </html>
+=======
+{% endblock main-content %}
+>>>>>>> 3becd454fb2dbc9b48dd6c7f10fe45520d83948a
