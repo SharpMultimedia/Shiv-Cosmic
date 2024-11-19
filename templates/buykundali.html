@@ -34,7 +34,7 @@
          border-solid rounded-[15px]">
 
             <form method="post" class="reiki-form w-full">
-
+                {% csrf_token %}
                 <div class="w-full md:flex justify-between">
 
                     <div class="md:w-[49%]">
@@ -83,9 +83,9 @@
                         <div class="custom-dropdown">
                             <div class="selected" data-value="">DD</div>
                             <ul class="options">
-                                <li data-value="1">1</li>
-                                <li data-value="2">2</li>
-                                <li data-value="3">3</li>
+                                {% for day in days %}
+                                <li data-value="{{ day }}">{{ day }}</li>
+                                {% endfor %}
                             </ul>
                         </div>
 
@@ -108,9 +108,9 @@
                         <div class="custom-dropdown">
                             <div class="selected" data-value="">MM</div>
                             <ul class="options">
-                                <li data-value="January">January</li>
-                                <li data-value="February">February</li>
-                                <li data-value="March">March</li>
+                                {% for month in months %}
+                                <li data-value="{{ month }}">{{ month }}</li>
+                                {% endfor %}
                             </ul>
                         </div>
 
@@ -132,9 +132,9 @@
                         <div class="custom-dropdown">
                             <div class="selected" data-value="">YYYY</div>
                             <ul class="options">
-                                <li data-value="1999">1999</li>
-                                <li data-value="2000">2000</li>
-                                <li data-value="2001">2001</li>
+                                {% for year in years %}
+                                <li data-value="{{ year }}">{{ year }}</li>
+                                {% endfor %}
                             </ul>
                         </div>
 
@@ -160,9 +160,9 @@
                         <div class="custom-dropdown">
                             <div class="selected" data-value="">HH</div>
                             <ul class="options">
-                                <li data-value="Hour">08</li>
-                                <li data-value="Hour">09</li>
-                                <li data-value="Hour">10</li>
+                                {% for hour in hours %}
+                                <li data-value="{{ hour }}">{{ hour }}</li>
+                                {% endfor %}
                             </ul>
                         </div>
 
@@ -184,9 +184,9 @@
                         <div class="custom-dropdown">
                             <div class="selected" data-value="">MM</div>
                             <ul class="options">
-                                <li data-value="Min">15</li>
-                                <li data-value="Min">16</li>
-                                <li data-value="Min">17</li>
+                                {% for minute in minutes %}
+                                <li data-value="{{ minute }}">{{ minute }}</li>
+                                {% endfor %}
                             </ul>
                         </div>
 
@@ -212,9 +212,9 @@
                         <div class="custom-dropdown">
                             <div class="selected" data-value="">Language</div>
                             <ul class="options">
-                                <li data-value="January">English</li>
-                                <li data-value="February">हिंदी</li>
-                                <li data-value="March">मराठी</li>
+                                <li data-value="en">English</li>
+                                <li data-value="hi">हिंदी</li>
+                                <li data-value="ma">मराठी</li>
                             </ul>
                         </div>
 
@@ -554,8 +554,4 @@
             </div>
         </div>
     </section>
-
-
-</body>
-
-</html>
+{% endblock main-content %}
