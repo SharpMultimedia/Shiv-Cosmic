@@ -98,7 +98,14 @@ def payment(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         mobile = request.POST.get('mobile')
-        
+
+        kundli_type = request.POST.get('kundliType', None)
+        print(kundli_type)
+
+        if kundli_type == "Basic Kundli":
+            amount = 299
+        else:
+            amount = 499
         # Construct the dynamic URLs
         base_url = request.build_absolute_uri('/')
         redirectUrl = base_url + 'payment_return/'
@@ -116,7 +123,7 @@ def payment(request):
             "merchantId": MERCHANT_ID,
             "merchantTransactionId": shortuuid.uuid(),
             "merchantUserId": MERCHANT_USER_ID,
-            "amount": 299 * 100,  # Amount in paise
+            "amount": amount * 100,  # Amount in paise
             "redirectUrl": REDIRECT_URL,
             "redirectMode": "POST",
             "callbackUrl": CALLBACK_URL,
@@ -180,6 +187,10 @@ def payment_return(request):
     print("Form dict : ")
     print(form_data)
 
+    # Retrieve kundli_type from the session
+    kundli_type = request.session.get('kundliType', None)
+    print(f"Kundli Type: {kundli_type}")
+
     # Check the payment status
     payment_status = form_data.get('code', None)
 
@@ -201,8 +212,14 @@ def payment_return(request):
             print(response_data)
 
             if payment_status == 'PAYMENT_SUCCESS':
-                # request.session['form_data'] = form_data_dict
-                return redirect('basic_horoscope')
+                # Redirect based on kundli_type
+                if kundli_type == "Basic Kundli":
+                    return redirect('basic_horoscope')
+                elif kundli_type == "Pro Kundli":
+                    return redirect('pro_horoscope')
+                else:
+                    messages.error(request, "Invalid Kundli type. Please try again.")
+                    return redirect('index')  # Redirect to index if kundli_type is invalid
             else:
                 messages.error(request, "Payment was unsuccessful. Please try again.")
                 return redirect('index')  # Redirect to index if payment is unsuccessful
@@ -213,7 +230,7 @@ def payment_return(request):
             return redirect('index')  # Redirect to index if there's a request exception
     else:
         messages.error(request, "Invalid transaction ID.")
-    return render(request, 'Kundali.html', {'form_data': form_data})  # Default render if none of the above conditions match
+    return render(request, 'Kundali.html', {'form_data': form_data})
 
 
 def basic_horoscope(request):

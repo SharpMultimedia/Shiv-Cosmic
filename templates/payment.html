@@ -61,7 +61,7 @@
                         <div class="radioData checkbox">
                             <label for="d-option" class="mainCheckbox">
                                 <div>
-                                    <input type="checkbox" id="d-option" name="selector">
+                                    <input type="checkbox" id="d-option" name="kundliType" value="Basic Kundli" class="kundli-checkbox" checked>
                                     <div class="checkbox__checkmark"></div>
                                 </div>
                                 <div class="labels">
@@ -71,7 +71,7 @@
                         </div>
 
                         <div class="priceContainer">
-                            <h5><strike>₹999.00</strike> ₹499.00 </h5>
+                            <h5><strike>₹699.00</strike> ₹299.00 </h5>
                         </div>
                     </div>
 
@@ -80,7 +80,7 @@
                         <div class="radioData checkbox">
                             <label for="d2-option" class="mainCheckbox">
                                 <div>
-                                    <input type="checkbox" id="d2-option" name="selector">
+                                    <input type="checkbox" id="d2-option" name="kundliType" value="Pro Kundli" class="kundli-checkbox">
                                     <div class="checkbox__checkmark"></div>
                                 </div>
                                 <div class="labels">
@@ -93,22 +93,6 @@
                             <h5><strike>₹999.00</strike> ₹499.00 </h5>
                         </div>
                     </div>
-
-                    <!-- <div class="radioBtn">
-                        <div class="radioData checkbox">
-                            <div>
-                                <input type="checkbox" id="e-option" name="selector">
-                                <div class="checkbox__checkmark"></div>
-                            </div>
-                            <div class="labels">
-                                <label for="e-option"> Best Combo Offer </label>
-                                <h6>Premium Kundli + Varshphal</h6>
-                            </div>
-                        </div>
-                        <div class="priceContainer">
-                            <h5><strike>₹495.00</strike> ₹384.00 </h5>
-                        </div>
-                    </div> -->
 
                 </div>
 
@@ -188,6 +172,9 @@
                     <form action="" method="post" action="{% url 'payment' %}">
                         {% csrf_token %}
 
+                        <!-- Hidden field for selected kundli type -->
+                        <input type="hidden" id="selectedKundli" name="kundliType" value="Basic Kundli">
+
                         <div class="pForm">
                             <div class="EmailDetails">
                                 <div>
@@ -218,41 +205,40 @@
         </div>
     </section>
 
+    <script>
+        // Get all checkboxes
+        const checkboxes = document.querySelectorAll('.kundli-checkbox');
+    
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function () {
+                if (this.checked) {
+                    // Uncheck all other checkboxes
+                    checkboxes.forEach(cb => {
+                        if (cb !== this) cb.checked = false;
+                    });
+                }
+            });
+        });
 
+        // Select all checkbox elements
+        const kundliCheckboxes = document.querySelectorAll('.kundli-checkbox');
+        const hiddenInput = document.getElementById('selectedKundli');
 
-    <!-- <h1>Payment Page</h1>
-    <form method="post" action="{% url 'payment' %}">
-        {% csrf_token %}
-        
-        <div>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" value="{{ form_data.name }}" readonly>
-        </div>
+        kundliCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function () {
+                if (this.checked) {
+                    // Uncheck all other checkboxes
+                    kundliCheckboxes.forEach(cb => {
+                        if (cb !== this) cb.checked = false;
+                    });
 
-        <div>
-            <label for="birthdate">Birthdate:</label>
-            <input type="text" id="birthdate" name="birthdate" value="{{ form_data.day }}/{{ form_data.month }}/{{ form_data.year }}" readonly>
-        </div>
-
-        <div>
-            <label for="time">Time:</label>
-            <input type="text" id="time" name="time" value="{{ form_data.hour }}:{{ form_data.minute }}" readonly>
-        </div>
-
-        <div>
-            <label for="mobile">Mobile Number:</label>
-            <input type="text" id="mobile" name="mobile" required>
-        </div>
-
-        <div>
-            <label for="email">Email ID:</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-
-        <button type="submit">Pay Now</button>
-    </form> -->
-
-
+                    // Update the hidden input's value
+                    const label = this.parentElement.nextElementSibling.textContent.trim();
+                    hiddenInput.value = label;
+                }
+            });
+        });
+    </script>
 
 
     <script>
