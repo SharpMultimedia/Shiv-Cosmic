@@ -119,36 +119,23 @@ label {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
+    width: 75%;
+    border: 1px solid #ffff89;
+    border-radius: 15px;
+    padding: 40px;
 }
 
-.logoPNG {
-    margin-bottom: 25px;
-}
-
-.reviewContainer {
-    background: #fff;
-    padding: 3rem;
-    width: 58%;
-    border-radius: 10px;
-}
-
-.reviewContainer h1 {
-    text-align: center;
-    margin-bottom: 25px;
-    color: rgb(206, 171, 92);
-}
 
 .inputContainer {
-    border: 2px solid #AE633F;
-    padding: 2rem;
+    border: 1px solid #ffff89;
+    padding: 1.5rem;
+    border-radius: 15px;
 }
 
 
 .radioBtn {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 15px;
 }
 
 .radioData {
@@ -232,11 +219,7 @@ input[type="checkbox"] {
 /* -----  */
 
 
-.labels label,
-.radioBtn h2 {
-    font-size: 17px;
-    color: #4e4127;
-}
+
 
 
 
@@ -252,12 +235,12 @@ input[type="checkbox"] {
 
 .priceContainer h5 {
     font-size: 17px;
-
+    color: #fff;
 }
 
 .priceContainer h5 strike {
     margin-right: 15px;
-    color: #6f6f6f !important;
+    color: #ffc3c3 !important;
 }
 
 .reviewDetails {
@@ -266,7 +249,7 @@ input[type="checkbox"] {
     display: flex;
     justify-content: space-between;
 
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #ffff89;
     padding-bottom: 40px;
     margin-bottom: 40px;
 }
@@ -280,17 +263,18 @@ input[type="checkbox"] {
 }
 
 .reviewSubD {
-    background: #AE633F;
+    background-image: linear-gradient(to right top, #b698e3, #9b7fc9, #8167b0, #675097, #4e3a7f);
     padding: 25px;
     color: white;
+    border-radius: 15px;
 }
 
 .reviewD h2 {
-    font-size: 19px;
-    border-bottom: 1px solid #ddd;
+    font-size: 17px;
+    border-bottom: 1px solid #ffff89;
     padding-bottom: 20px;
     margin-bottom: 20px;
-    color: #ceab5c;
+    color: #fff;
 }
 
 .reviewS {
@@ -321,7 +305,6 @@ input[type="checkbox"] {
 }
 
 .getContainer {
-    display: flex;
     justify-content: space-between;
     width: 100%;
     padding-left: 15px;
@@ -333,19 +316,30 @@ input[type="checkbox"] {
 
 .getContent ul li {
     font-weight: 400;
-    color: #4e4127;
-    font-size: 15px;
+    color: #fff;
+    font-size: 16px;
     margin-bottom: 8px;
     font-family: 'Roboto', sans-serif;
-
 }
 
 .formDetails input {
     width: 100%;
-    padding: 12px 10px;
+    height: 40px;
+    background: transparent;
+    margin-top: 5px;
+    border-radius: 10px;
+    padding: 0 10px;
+    color: white;
+    border: #bcbcbc solid 1px;
+}
 
-    border: 2px solid #a3a3a3;
-    color: #454545;
+.formDetails input:focus {
+    outline: none;
+}
+
+.formDetails input::placeholder {
+    color: white;
+    font-size: 14px;
 }
 
 .pForm {
@@ -359,16 +353,9 @@ input[type="checkbox"] {
     width: 48%;
 }
 
-.EmailDetails label {
-    color: rgb(206, 171, 92);
-
-}
-
 .EmailDetails input {
     margin-top: 15px;
 }
-
-
 
 
 /* result page  */
@@ -385,12 +372,13 @@ input[type="checkbox"] {
 }
 
 .resultContent {
-    border: 1px solid #d4d4d4;
+    border: 1px solid #ffff89;
     max-width: 900px;
     padding: 45px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 15px;
 }
 
 .resultContent img {
@@ -425,9 +413,10 @@ input[type="checkbox"] {
     font-weight: 500;
     font-style: normal;
     font-size: 15px;
-    margin-top: 20px;
+    margin: 20px 0;
     background: #ae633f;
     color: white;
+    border-radius: 10px;
 }
 
 /* ------- Responsive work --------  */
@@ -518,26 +507,11 @@ input[type="checkbox"] {
     /* payment page  */
 
 
-    .reviewMain {
-        padding: 0 15px;
-    }
-
-    .logoPNG {
-        margin-bottom: 20px;
-    }
-
-    .reviewContainer {
-        padding: 1rem;
-        width: 100%;
-    }
-
     .inputContainer {
         padding: 0.8rem;
     }
 
-    .checkbox {
-        padding-left: 20px;
-    }
+
 
     .labels label,
     .radioBtn h2 {
@@ -593,7 +567,7 @@ input[type="checkbox"] {
     }
 
     .getContent ul li {
-        font-size: 14px;
+        font-size: 15px;
     }
 
     .reviewDetails {
@@ -613,6 +587,33 @@ input[type="checkbox"] {
         font-size: 15px;
     }
 
+
+    .reviewMain {
+        width: 100%;
+        padding: 20px 10px;
+    }
+
+    .reviewDate {
+        display: block;
+        margin: 0;
+    }
+
+    .getContainer {
+        padding: 0px;
+        display: block;
+    }
+
+    .getContent {
+        width: 100%;
+    }
+
+    .reviewSubD h5,
+    .reviewDate h6 {
+        margin-bottom: 5px;
+    }
+
+
+
     /* result page  */
 
     .resultSec {
@@ -623,9 +624,6 @@ input[type="checkbox"] {
         padding: 20px;
     }
 
-    .resLogo img {
-        max-width: 145px;
-    }
 
     .resultContent img {
         width: 75px;

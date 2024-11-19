@@ -83,7 +83,9 @@ window.addEventListener('scroll', () => {
 });
 
 
-// testimonial slider 
+
+
+// --------- Testimonial slider ----------
 
 var swiper = new Swiper(".testimonial-slider", {
     slidesPerView: 3,
@@ -112,5 +114,7 @@ var swiper = new Swiper(".testimonial-slider", {
         }
     }
 });
+
+
 
 

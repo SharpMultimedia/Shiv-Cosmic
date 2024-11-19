@@ -103,12 +103,25 @@ ul {
 .image-reiki {
     background-image: url('/static/assets/images/reiki\ banner.jpg');
     height: 560px;
-
 }
 
 .image-contact {
     background-image: url('/static/assets/images/contact\ banner.jpg');
     height: 560px;
+}
+
+.personalised-banner {
+    background-image: url('/static/assets/images/Sub-Banner.jpg');
+}
+
+.kundli-hero {
+    background-image: url('/static/assets/images/buy\ kundli.jpg');
+    height: 560px;
+}
+
+.paymentPage-banner,
+.resultPage-banner {
+    background-image: url('/static/assets/images/q.jpg');
 }
 
 
@@ -223,8 +236,8 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;
-    /* background: #c1c1c1cc; */
-    background: #f6efe0e8;
+    /* background: #f6efe0e8; */
+    background: #442b58e8;
     z-index: -1;
 }
 
@@ -378,18 +391,45 @@ ul {
     border: #bcbcbc solid 1px;
     width: 100%;
     height: 40px;
-    background: transparent;
+    background: #8765C4;
     margin-top: 5px;
     border-radius: 10px;
     padding: 0 10px;
     color: white;
 }
 
-/* .reiki-form input::placeholder,
-.reiki-form select::placeholder,
-.reiki-form textarea::placeholder {
-    color: #424242;
-} */
+
+.reiki-form select option {
+    font-weight: 400 !important;
+}
+
+.optionLabel {
+    background: #fff;
+    color: violet;
+}
+
+/* Scrollbar styles for dropdown */
+
+select::-webkit-scrollbar {
+    width: 8px;
+}
+
+select::-webkit-scrollbar-track {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+select::-webkit-scrollbar-thumb {
+    background-color: #694CA7;
+    border-radius: 4px;
+}
+
+select::-webkit-scrollbar-thumb:hover {
+    background-color: #532F89;
+}
+
+
+
 .reiki-form input::placeholder,
 .reiki-form select::placeholder,
 .reiki-form textarea::placeholder {
@@ -449,13 +489,13 @@ ul {
         padding: 20px 20px !important;
     }
 
-
-
     /* reiki healing workshop page  */
 
     .sub-pages {
         height: 560px !important;
     }
+
+
 
 }
 
@@ -532,19 +572,40 @@ ul {
 }
 
 @media (min-width:1024px) and (max-width: 1200px) {
-    /* .Nav-section {
-        padding: 0 30px;
-    } */
 
     .main-container {
         margin: 30px 30px;
     }
+
 }
 
 
 @media only screen and (min-width: 1820px) {
+    .hero-head {
+        top: 340px !important;
+    }
+
     .hero-section {
         height: 900px;
+    }
+
+    .image-contact,
+    .image-reiki,
+    .kundli-hero {
+        height: 650px;
+    }
+
+    .subHeader {
+        top: 475px !important;
+    }
+
+    .subHeaderContact {
+        top: 240px !important;
+    }
+
+    .subHeader h1,
+    .subHeaderContact h1 {
+        font-size: 60px !important;
     }
 
     .astroheroimage {
@@ -563,6 +624,11 @@ ul {
 @media only screen and (min-width: 2250px) {
     .astroheroimage {
         top: -195% !important;
+    }
+
+    .personalised-banner {
+        height: 800px !important;
+        justify-content: center;
     }
 }
 
@@ -885,7 +951,8 @@ ul {
         max-width: 100% !important;
     }
 
-    .hero-section {
+    .hero-section,
+    .kundli-hero {
         height: 510px;
     }
 

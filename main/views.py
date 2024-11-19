@@ -116,7 +116,7 @@ def payment(request):
             "merchantId": MERCHANT_ID,
             "merchantTransactionId": shortuuid.uuid(),
             "merchantUserId": MERCHANT_USER_ID,
-            "amount": 499 * 100,  # Amount in paise
+            "amount": 299 * 100,  # Amount in paise
             "redirectUrl": REDIRECT_URL,
             "redirectMode": "POST",
             "callbackUrl": CALLBACK_URL,
@@ -202,7 +202,7 @@ def payment_return(request):
 
             if payment_status == 'PAYMENT_SUCCESS':
                 # request.session['form_data'] = form_data_dict
-                return redirect('process_payment')
+                return redirect('basic_horoscope')
             else:
                 messages.error(request, "Payment was unsuccessful. Please try again.")
                 return redirect('index')  # Redirect to index if payment is unsuccessful

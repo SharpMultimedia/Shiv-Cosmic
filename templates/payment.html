@@ -67,6 +67,9 @@
                                 <div class="labels">
                                     <label for="d-option" class="text-[#fff] text-[17px]">Your Premium
                                         Kundli/Horoscope</label>
+
+                                        <!-- <option value="basic">Basic</option>
+                                        <option value="pro">Pro</option> -->
                                     <!-- <h6>Your Yearly Predictions</h6> -->
                                 </div>
                             </label>
@@ -169,7 +172,7 @@
 
                 <div class="formDetails">
                     <form action="" method="post" action="{% url 'payment' %}">
-                        <!-- {% csrf_token %} -->
+                        {% csrf_token %}
 
                         <div class="pForm">
                             <div class="EmailDetails">
