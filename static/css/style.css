@@ -144,7 +144,7 @@ label {
     justify-content: center;
 }
 
-/* checkbox input  */
+/* ------ checkbox input ------  */
 
 
 .checkbox {
@@ -171,7 +171,6 @@ label {
 
 input[type="checkbox"]:checked+.checkbox__checkmark {
     background-color: #007bff;
-    /* Change color when checked */
 }
 
 .checkbox input:checked~.checkbox__checkmark:after {
@@ -180,9 +179,7 @@ input[type="checkbox"]:checked+.checkbox__checkmark {
 
 input[type="checkbox"] {
     display: none;
-    /* Hide the default checkbox */
 }
-
 
 .checkbox .checkbox__checkmark {
     position: absolute;

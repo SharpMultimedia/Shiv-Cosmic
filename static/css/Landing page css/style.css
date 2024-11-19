@@ -112,6 +112,8 @@ ul {
 
 .personalised-banner {
     background-image: url('/static/assets/images/Sub-Banner.jpg');
+    height: 520px;
+
 }
 
 .kundli-hero {
@@ -586,13 +588,17 @@ select::-webkit-scrollbar-thumb:hover {
     }
 
     .hero-section {
-        height: 900px;
+        height: 850px;
     }
 
     .image-contact,
     .image-reiki,
     .kundli-hero {
         height: 650px;
+    }
+
+    .personalised-banner {
+        height: 600px;
     }
 
     .subHeader {
