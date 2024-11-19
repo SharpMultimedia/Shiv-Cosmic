@@ -236,8 +236,8 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;
-    /* background: #c1c1c1cc; */
-    background: #f6efe0e8;
+    /* background: #f6efe0e8; */
+    background: #442b58e8;
     z-index: -1;
 }
 
@@ -391,18 +391,45 @@ ul {
     border: #bcbcbc solid 1px;
     width: 100%;
     height: 40px;
-    background: transparent;
+    background: #8765C4;
     margin-top: 5px;
     border-radius: 10px;
     padding: 0 10px;
     color: white;
 }
 
-/* .reiki-form input::placeholder,
-.reiki-form select::placeholder,
-.reiki-form textarea::placeholder {
-    color: #424242;
-} */
+
+.reiki-form select option {
+    font-weight: 400 !important;
+}
+
+.optionLabel {
+    background: #fff;
+    color: violet;
+}
+
+/* Scrollbar styles for dropdown */
+
+select::-webkit-scrollbar {
+    width: 8px;
+}
+
+select::-webkit-scrollbar-track {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+select::-webkit-scrollbar-thumb {
+    background-color: #694CA7;
+    border-radius: 4px;
+}
+
+select::-webkit-scrollbar-thumb:hover {
+    background-color: #532F89;
+}
+
+
+
 .reiki-form input::placeholder,
 .reiki-form select::placeholder,
 .reiki-form textarea::placeholder {
@@ -598,7 +625,8 @@ ul {
     .astroheroimage {
         top: -195% !important;
     }
-    .personalised-banner{
+
+    .personalised-banner {
         height: 800px !important;
         justify-content: center;
     }
@@ -955,51 +983,4 @@ ul {
 
 .meditationBox img {
     border-radius: 5px 0 0 5px;
-}
-
-.custom-dropdown {
-    position: relative;
-    cursor: pointer;
-}
-
-.custom-dropdown .selected {
-    border: #bcbcbc solid 1px;
-    width: 100%;
-    height: 40px;
-    background: transparent;
-    margin-top: 5px;
-    border-radius: 10px;
-    padding: 0 10px;
-    color: white;
-    display: flex;
-    align-items: center;
-}
-
-.custom-dropdown .options {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: #694CA7;
-    border: 1px solid #694CA7;
-    border-radius: 5px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    z-index: 10;
-}
-
-.custom-dropdown.open .options {
-    display: block;
-}
-
-.custom-dropdown .options li {
-    padding: 10px;
-    color: #fff;
-    cursor: pointer;
-}
-
-.custom-dropdown .options li:hover {
-    background: #532F89;
 }
