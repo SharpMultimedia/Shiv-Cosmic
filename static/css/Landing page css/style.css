@@ -10,8 +10,6 @@
     --Tertiary-colors: #CEAB5C;
 }
 
-
-
 h1,
 h2 {
     font-family: "Philosopher", sans-serif !important;
@@ -126,6 +124,10 @@ ul {
     background-image: url('/static/assets/images/q.jpg');
 }
 
+.numerology-hero{
+    background-image: url('/static/assets/images/numerology-banner.jpg');
+    height: 520px;
+}
 
 .astrological-image {
     animation: animName 18s linear infinite;
@@ -929,7 +931,7 @@ select::-webkit-scrollbar-thumb:hover {
 
 .accordion button[aria-expanded='true']+.accordion-content {
     opacity: 1;
-    max-height: 9em;
+    max-height: 19em;
     transition: all 600ms linear;
     will-change: opacity, max-height;
 }

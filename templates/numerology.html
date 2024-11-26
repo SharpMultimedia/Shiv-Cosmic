@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shiv-Cosmic</title>
+
+    <link rel="shortcut icon" href="/static/assets/images/Logo/favicon.png" type="image/x-icon">
+
+    <!-- Preload custom CSS files to prioritize loading -->
+    <link rel="preload" href="/static/css/style.css" as="style">
+    <link rel="preload" href="/static/css/Landing page css/style.css" as="style">
+
+    <!-- Main Custom CSS -->
+    <link rel="stylesheet" href="/static/css/style.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/static/css/Landing page css/style.css" media="print" onload="this.media='all'">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- font-awesome cdn  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+    <!-- Philosopher & Roboto font Link -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- swiper link  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+</head>
+
+<body>
+
+    <!-- hero section  -->
+    <section class="w-full bg-center bg-cover bg-no-repeat flex
+             items-center justify-center flex-col relative numerology-hero">
+
+        <div class="w-[80%] text-center absolute top-[90px]">
+            <h1 class="font-bold text-[45px] text-[#fff] leading-[42px]">
+                <strong class="text-[#ffff89]">
+
+            </h1>
+        </div>
+    </section>
+
+    <!-- form  -->
+    <section class="bg-center bg-cover bg-no-repeat px-[15px] py-[25px] xl:px-[100px] xl:py-[60px]
+                      flex flex-col items-center" style="background-image: url('/static/assets/images/q.jpg');">
+
+        <div class="w-full flex items-center flex-col">
+            <h1
+                class="font-bold text-[32px] lg:text-[35px] text-[#fff] leading-[38px] text-center mb-[20px] lg:mb-[40px]">
+                Unlock Your Lucky, Destiny and Friendly Numbers throughr <strong class="gradient-text">
+                    Numerology</strong>
+            </h1>
+        </div>
+
+        <div class="category-card md:w-[70%] w-full md:flex justify-between
+         z-10 border-[#CEAB5C] border xl:p-[60px] p-[20px]
+         border-solid rounded-[15px]">
+
+            <form method="post" class="reiki-form w-full">
+                <!-- {% csrf_token %} -->
+                <div class="w-full md:flex justify-between">
+
+                    <div class="md:w-[49%]">
+                        <div>
+                            <label for="name" class="text-[#fff]">Your Name</label>
+                        </div>
+                        <div>
+                            <input type="text" id="name" placeholder="YOUR NAME" name="name" autocomplete="off"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="md:w-[49%] mt-[10px] lg:m-0">
+                        <div>
+                            <label for="gender" class="text-[#fff]">Gender</label>
+                        </div>
+
+                        <div>
+                            <select id="gender" name="gender" required>
+                                <option value="" disabled selected>Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="w-full md:flex justify-between lg:my-[20px]">
+
+                    <div class="md:w-[32%] mt-[10px] lg:m-0">
+                        <div>
+                            <label for="day" class="text-[#fff]">Day</label>
+                        </div>
+
+                        <select id="day" name="day" required>
+                            <option value="" disabled selected class="optionLabel">DD</option>
+                            {% for day in days %}
+                            <option data-value="{{ day }}">{{ day }}</option>
+                            {% endfor %}
+                        </select>
+
+                    </div>
+
+                    <div class="md:w-[32%] mt-[10px] lg:m-0">
+                        <div>
+                            <label for="month" class="text-[#fff]">Month</label>
+                        </div>
+
+                        <div>
+                            <select id="month" name="month" required>
+                                <option value="" disabled selected>MM</option>
+                                {% for month in months %}
+                                <option value="{{ month }}">{{ month }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="md:w-[32%] mt-[10px] lg:m-0">
+                        <div>
+                            <label for="year" class="text-[#fff]">Year</label>
+                        </div>
+
+                        <div>
+                            <select id="year" name="year" required>
+                                <option value="" disabled selected>YYYY</option>
+                                {% for year in years %}
+                                <option value="{{ year }}">{{ year }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+                <div class="w-full md:flex justify-between lg:my-[20px]">
+
+                    <div class="md:w-[32%] mt-[10px] lg:m-0">
+                        <div>
+                            <label for="Latitide" class="text-[#fff]">Latitide</label>
+                        </div>
+
+                        <select id="latitide" name="latitide" required>
+                            <option value="" disabled selected class="optionLabel">Latitide</option>
+                            <option data-value="">latitide</option>
+                        </select>
+
+                    </div>
+
+                    <div class="md:w-[32%] mt-[10px] lg:m-0">
+                        <div>
+                            <label for="Logitude" class="text-[#fff]">Logitude</label>
+                        </div>
+
+                        <div>
+                            <select id="Logitude" name="Logitude" required>
+                                <option value="" disabled selected>Logitude</option>
+                                <option value="">Logitude</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="md:w-[32%] mt-[10px] lg:m-0">
+                        <div>
+                            <label for="TimeZone" class="text-[#fff]">TimeZone</label>
+                        </div>
+
+                        <div>
+                            <select id="TimeZone" name="TimeZone" required>
+                                <option value="" disabled selected>TimeZone</option>
+                            </select>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+                <div class="w-full md:flex justify-between">
+
+                    <div class="md:w-[49%] mt-[10px] lg:m-0">
+                        <div>
+                            <label for="hour" class="text-[#fff]">Hour</label>
+                        </div>
+
+                        <div>
+                            <select id="hour" name="hour" required>
+                                <option value="" disabled selected>HH</option>
+                                {% for hour in hours %}
+                                <option value="{{ hour }}">{{ hour }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="md:w-[49%] mt-[10px] lg:m-0">
+                        <div>
+                            <label for="min" class="text-[#fff]">Minutes</label>
+                        </div>
+
+                        <div>
+                            <select id="min" name="min" required>
+                                <option value="" disabled selected>MM</option>
+                                {% for minute in minutes %}
+                                <option value="{{ minute }}">{{ minute }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="w-full md:flex justify-between lg:my-[20px]">
+
+                    <div class="md:w-[49%] mt-[10px] lg:m-0">
+                        <div>
+                            <label for="language" class="text-[#fff]">Kundali / Horoscope language</label>
+                        </div>
+
+                        <div>
+                            <select id="language" name="language" required>
+                                <option value="" disabled selected>Language</option>
+                                <option value="en">English</option>
+                                <option value="hi">हिंदी</option>
+                                <option value="ma">मराठी</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="md:w-[49%] mt-[10px] lg:m-0">
+                        <div>
+                            <label for="place" class="text-[#fff]">Birth Place</label>
+                        </div>
+                        <div>
+                            <input type="text" id="place" name="place" placeholder="BIRTH PLACE" required>
+                            <input type="hidden" id="tzone" name="tzone" required>
+                            <input type="hidden" id="lat" name="lat">
+                            <input type="hidden" id="lon" name="lon">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="md:flex justify-end gap-[20px]">
+                    <!-- <div class="mt-[20px] w-[100%] lg:w-[20%]">
+                    <input class="submit_btn" type="submit" value="Buy Basic Kundali">
+                </div> -->
+                    <div class="mt-[20px] w-[100%] lg:w-[50%]">
+                        <input class="submit_btn" type="submit" value="Get Your Free Numerology Report Now">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </section>
+
+
+    <!-- About Numerology  -->
+    <section class="bg-center bg-cover bg-no-repeat px-[15px] py-[25px] xl:px-[100px] xl:py-[60px]"
+        style="background-image: url('/static/assets/images/shiv-cosmic\ \ Purple-bg.jpg');">
+
+        <div class="w-full md:flex justify-between">
+            <div class="w-[48%] hidden lg:block">
+                <img src="/static/assets/images/numerlogy.jpg" alt="" class="rounded-[15px]">
+            </div>
+            <div class="md:w-[48%] flex flex-col justify-center">
+                <p class="text-white text-justify">An ancient technique of deriving significance from various numbers, number
+                    combinations, letters, and
+                    symbols in your life. This art can assist us in tapping into the underlying patterns of the universe
+                    and revealing new truths about ourselves. Numerology explains the <strong class="text-[#ffff89]">
+                        Significance of the numbers concealed in our birth name and birth date.
+                    </strong> </p>
+
+                <p class="text-white my-[15px] text-justify">Numerology numbers are utilized to gain an understanding of a person's
+                    personality, strengths,
+                    vulnerabilities, emotions, abilities, aspirations, opportunities, difficulties, inner needs, and
+                    habits. Numerology <strong class="text-[#ffff89]">Reveals Information</strong> about our lives, our
+                    fate, and how we interact with others.
+                </p>
+
+
+                <a href="#">
+                    <button class="btn btn--snakeBorder m-0">
+                        Get Your Free Numerology Report Now
+                    </button>
+                </a>
+
+            </div>
+        </div>
+
+
+    </section>
+
+    <!-- Why Numerology  -->
+
+    <section class="bg-center bg-cover bg-no-repeat px-[15px] py-[25px] xl:px-[100px] xl:py-[60px]"
+        style="background-image: url('/static/assets/images/q.jpg');">
+
+        <div class="w-full md:flex justify-between">
+
+            <div class="md:w-[48%] bg-[#8765C4] p-[20px] lg:p-[40px] rounded-[15px] mb-[15px] md:m-0">
+                <div class="text-center mb-[10px] lg:mb-[15px] ">
+                    <h1 class="font-bold text-[28px] lg:text-[32px] text-[#ffff89]">What is Numerology?</h1>
+                </div>
+
+                <p class="text-[#fff] text-justify">The word, “numerology,” is the science of numbers. The Numerology word
+                    comes from the Latin root,
+                    “numerus,” which means number and the Greek word, “logos,” which refers word or thought. These
+                    number-thoughts, or numerology is an ancient method of divination where numerical vibrations are
+                    charted in order to determine or predict the pattern of trends for the future.</p>
+            </div>
+            <div class="md:w-[48%] bg-[#8765C4] p-[20px] lg:p-[40px] rounded-[15px]">
+                <div class="text-center mb-[1] lg:mb-[15px]">
+                    <h1 class="font-bold text-[28px] lg:text-[32px] text-[#ffff89]">Why Numerology?</h1>
+                </div>
+
+                <p class="text-[#fff] text-justify">Once you learn how to use numerology successfully and implement it in your
+                    daily life you will
+                    soon see how it can guide you on a path to personal fulfillment and enjoyment. Numerology can be
+                    used to find a compatible partner, choose a career, determine your destiny and allows for full
+                    advantage of lucky days, events and years.</p>
+            </div>
+
+    </section>
+
+    <!-- How does Numerology Work?  -->
+    <section class="bg-center bg-cover bg-no-repeat px-[15px] py-[25px] xl:px-[100px] xl:py-[60px]"
+        style="background-image: url('/static/assets/images/shiv-cosmic\ \ Purple-bg.jpg');">
+
+        <div class="w-full md:flex justify-between">
+
+            <div class="md:w-[60%] flex flex-col justify-center">
+                <div class=" mb-[10px] lg:mb-[15px] ">
+                    <h1 class="font-bold text-[28px] lg:text-[32px] text-[#ffff89]">How does Numerology Work?</h1>
+                </div>
+
+                <p class="text-white text-justify">Your ruling number can be calculated by <strong class="text-[#ffff89]">Adding the
+                        numbers</strong> from <a href="{% url 'horoscopeform' %}" class="underline-offset-1">your birth
+                        date</a>. In other words, your ruling number is the sum of your birthdays. Your numerology
+                    number serves as a <strong class="text-[#ffff89]">
+                        Road map for your life.
+                    </strong> </p>
+
+                <p class="text-white my-[15px] text-justify">Using the Numerology Calculator, you can obtain detailed information
+                    about your parents, partner, children, health, career, and job. Numerology provides a mathematical
+                    formula that directs your <strong class="text-[#ffff89]">Karmic Pathway</strong> based on your date
+                    of birth and name. As you move forward in your life, the day of your birth indicates your chosen
+                    mission.
+                </p>
+
+                <p class="text-white mb-[15px] text-justify">A Free Numerology Report will tell you anything, from discovering facts
+                    about a person to learning
+                    about the world. Without a doubt, it is regarded as a universal language of numbers, and a <strong
+                        class="text-[#ffff89]">Free Vedic Numerology Calculator</strong> can assist you in comprehending
+                    that language. Vedic Rishi presents you with a complete numerology report of the Astro Numerology
+                    Calculator based on Vedic Principles, which allows us to better understand ourselves as individuals
+                    and the world.</p>
+                <a href="#">
+                    <button class="btn btn--snakeBorder m-0">
+                        Get Your Free Numerology Report Now
+                    </button>
+                </a>
+
+            </div>
+            <div class="w-[35%] hidden lg:block">
+                <img src="/static/assets/images/numerology1.jpg" alt="" class="rounded-[15px]">
+            </div>
+        </div>
+
+
+    </section>
+
+    <!-- Faqs  -->
+    <section class="bg-center bg-cover bg-no-repeat px-[15px] py-[25px] xl:px-[100px] xl:py-[60px]"
+        style="background-image: url('/static/assets/images/shiv-cosmic\ \ Purple-bg.jpg');">
+
+        <h1 class="font-bold text-[32px] lg:text-[35px] text-[#fff] leading-[38px] text-center mb-[40px]">FAQs about
+            <strong class="gradient-text">Numerology </strong>
+        </h1>
+
+        <div class="w-full">
+
+            <div class="accordion md:flex justify-between">
+
+                <div class="md:w-[48%]">
+
+                    <div class="accordion-item">
+                        <button id="accordion-button-1" aria-expanded="false">
+                            <span class="accordion-title">How to find numerology numbers?
+                            </span>
+                            <span class="icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>
+                                The most straightforward way to begin working with numerology is to examine your date of
+                                birth. Take the numerical value of your date of birth, add all the digits together by
+                                category (year, month, day), and keep adding each digit until you reach a single digit.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button id="accordion-button-2" aria-expanded="false">
+                            <span class="accordion-title">How does numerology work?</span>
+                            <span class="icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>
+                                The purpose of numerology is to discover the root number. Subtract digits until you get
+                                to a single digit, excluding 11 and 22. This single digit represents your Life Path
+                                Number. In astrology, your Life Path Number is similar to your Sun Sign: it reveals your
+                                identity, including your strengths, weaknesses, talents, and ambitions.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button id="accordion-button-3" aria-expanded="false">
+                            <span class="accordion-title">Which is the most powerful number in numerology?</span>
+                            <span class="icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion-content">
+                            <p class="mb-[5px]">
+                                According to numerology experts, the number 22 is the most powerful in numerology. Most
+                                numerologists believe that the master numbers 11, 22, and 33 are the pinnacle of
+                                numerology power. The three are thought to have the best chance of success. Remember
+                                that all multi-digit numbers in numerology are always reduced to a single digit.
+                            </p>
+
+                            <p>If the numerology number obtained from a chart is 11, 22, or 33, you will not be able to
+                                reduce it to a single digit because the three are master numbers, also known as the
+                                triangle of enlightenment.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button id="accordion-button-4" aria-expanded="false">
+                            <span class="accordion-title">What is an enemy number in numerology?</span>
+                            <span class="icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>
+                                Numbers become hostile in numerology when they are in vibration with one another in
+                                certain combinations. Each number has a friendly number, an enemy number, and a neutral
+                                number. Avoid the enemy number because it is bad when it appears in a dangerous
+                                combination. Using our Numerology Calculator, determine which number is your enemy's
+                                number.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button id="accordion-button-5" aria-expanded="false">
+                            <span class="accordion-title">How do I find friendly numbers?</span>
+                            <span class="icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>
+                                Numerology can be used to determine compatibility in a relationship between two people
+                                who have different numbers. The friendly numbers are those where compatibility is strong
+                                and fruitful. You can use our Numerology Calculator to find out which number is friendly
+                                to yours.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button id="accordion-button-5" aria-expanded="false">
+                            <span class="accordion-title">Is numerology really effective?</span>
+                            <span class="icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>
+                                Numerology can be helpful if you apply it to your daily life and live by it. Numbers are
+                                all around you. It has the potential to lead to personal fulfillment and enjoyment. By
+                                making a specific change in your life, you can reap all the benefits. You can make wiser
+                                decisions and make more meaningful choices as a result.
+                            </p>
+                        </div>
+                    </div>
+
+        
+
+                </div>
+
+                <div class="md:w-[48%]">
+                    <div class="accordion-item">
+                        <button id="accordion-button-5" aria-expanded="false">
+                            <span class="accordion-title">Can numerology predict the future?</span>
+                            <span class="icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>
+                                Numerology predicts what your future may hold. Numerologists use these nine digits
+                                (0-9), as well as the date, time, and other relevant circumstances, to forecast one's
+                                future events. You can expect to learn more about the paths available to you and your
+                                destiny to take specific paths.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button id="accordion-button-5" aria-expanded="false">
+                            <span class="accordion-title">Which numerology is more accurate?</span>
+                            <span class="icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>
+                                Each numerology system is unique, whether it's Pythagorean numerology or Chaldean
+                                numerology. Chaldean is popular due to its accuracy. The algorithms and personalities of
+                                Chaldean Numerology are distinct and one-of-a-kind. This system is based on the numbers
+                                1 through 8.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button id="accordion-button-5" aria-expanded="false">
+                            <span class="accordion-title">Are there different types of numerology?</span>
+                            <span class="icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>
+                                There are different types of Numerology systems that exist, and people follow, like:
+                            </p>
+
+                            <ul>
+                                <li> 1. Chaldean Numerology </li>
+                                <li> 2. Kabbalah Numerology</li>
+                                <li> 3. Tamil Numerology</li>
+                                <li> 4. Western/Pythagorean Numerology</li>
+                            </ul>
+                            <p>Each style of Numerology has its own method of reading numbers and reaching conclusions.
+                                Every Numerology method expresses very different, specific, and unique information,
+                                allowing people to learn more about themselves.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button id="accordion-button-5" aria-expanded="false">
+                            <span class="accordion-title">What is a numerology reading?</span>
+                            <span class="icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>
+                                A numerology reading occurs when a numerologist analyses your number chart and predicts
+                                numerous life-changing numbers. A numerology reading entails a lot of calculation. These
+                                calculations can go into several layers of detail, with individual numbers and number
+                                combinations holding different meanings.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button id="accordion-button-5" aria-expanded="false">
+                            <span class="accordion-title">What is a master number in numerology?</span>
+                            <span class="icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>
+                                According to numerology, the master numbers are 11, 22, and 33. These three numbers are
+                                known as the "Triangle of Enlightenment." These two-digit numbers are thought to be
+                                incredibly powerful. They can be extremely positive or overall negative.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="/static/javascript/main.js" defer></script>
+    <script src="/static/javascript/app.js"></script>
+
+</body>
+
+</html>
