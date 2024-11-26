@@ -359,8 +359,8 @@ def pro_horoscope(request):
 
     if not astrology_data or not pdf_content_b64:
         # Your API credentials
-        userId = '4545'
-        apiKey = 'ByVOIaODH57QRVi6CqswHXGlcpDvj7tZBRoorY'
+        userId = '616659'
+        apiKey = '73d704711428670b973f180f43b26f92'
 
         # API endpoint
         api = 'pro_horoscope_pdf'
@@ -462,6 +462,7 @@ def returnrefund(request):
 
 def terms(request):
     return render(request, 'terms.html')
+
 def getkundali(request):
     return render(request, 'getkundali.html')
 
@@ -498,3 +499,6 @@ def contact(request):
     return render(request, 'Newcontact.html', {
         'RECAPTCHA_SITE_KEY': settings.RECAPTCHA_PUBLIC_KEY
     })
+
+def numerology(request):
+    return render(request, 'numerology.html')
