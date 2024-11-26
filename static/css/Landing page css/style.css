@@ -39,10 +39,6 @@ p {
     font-style: normal;
 }
 
-/* .Nav-section {
-    padding: 0 100px;
-} */
-
 .nav-bar {
     background-color: #d2833680;
     z-index: 9999;
@@ -54,9 +50,34 @@ p {
     opacity: 1 !important;
 }
 
+/* Desktop view: Show dropdown on hover */
+li.relative:hover .absolute {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Mobile view: Hide dropdown by default */
+@media (max-width: 767px) {
+    li.relative .absolute {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    li.relative.open .absolute {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
 .sticky {
     transition: all 0.3s ease-in-out;
 }
+
+
+/* --- Dropdown Nav link ---  */
+
+
+
 
 
 .bg-custom {
@@ -124,7 +145,7 @@ ul {
     background-image: url('/static/assets/images/q.jpg');
 }
 
-.numerology-hero{
+.numerology-hero {
     background-image: url('/static/assets/images/numerology-banner.jpg');
     height: 520px;
 }

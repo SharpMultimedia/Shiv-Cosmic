@@ -109,7 +109,6 @@
 
         <!-- Navigation  -->
         <nav class="w-full flex items-center justify-between py-[8px] px-[15px] xl:px-[100px] nav-bar">
-
             <div class="md:w-[31%]">
                 <div class="flex">
                     <div class="w-full flex justify-between items-center">
@@ -123,30 +122,35 @@
 
                 <ul class="md:flex md:items-center md:z-auto md:static absolute w-full left-0
                             md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500 text-white
-                             bg-[#ae633f] md:bg-inherit  z-[99999]">
-
+                            bg-[#ae633f] md:bg-inherit z-[99999]">
                     <li class="ml-4 my-4 md:my-0 z-[999]">
                         <a href="{% url 'home' %}" class="text-[17px] font-bold">Home</a>
                     </li>
                     <li class="ml-4 my-4 md:my-0 z-[999]">
-                        <a href="{% url 'reikhihealing' %}" class="text-[17px] font-bold">Workshop </a>
+                        <a href="{% url 'reikhihealing' %}" class="text-[17px] font-bold">Workshop</a>
                     </li>
-                    <!-- <li class="ml-4 my-4 md:my-0 z-[999]">
-                        <a href="#" class="text-[16px]">Blog</a>
+
+                    <!-- Dropdown for Report -->
+                    <li class="relative ml-4 my-4 md:my-0 z-[999]">
+                        <a href="javascript:void(0);" class="text-[17px] font-bold">Report</a>
+                        <!-- Dropdown Menu -->
+                        <ul
+                            class="absolute left-0 top-full w-[180px] bg-[#ae633f] opacity-0 invisible md:visible transition-all ease-in duration-300 text-white">
+                            <li class="py-2 px-4"><a href="#">Kundli report</a></li>
+                            <li class="py-2 px-4"><a href="#">Numerology report</a></li>
+                            <!-- <li class="py-2 px-4"><a href="#">Report 3</a></li> -->
+                        </ul>
                     </li>
-                    <li class="ml-4 my-4 md:my-0 z-[999]">
-                        <a href="#" class="text-[16px]">Testimonial</a>
-                    </li> -->
+
                     <li class="ml-4 my-4 md:my-0 z-[999]">
                         <a href="{% url 'contact' %}" class="text-[17px] font-bold">Contact</a>
                     </li>
 
                     <!-- Close Icon Inside the List -->
-                    <li class="w-[35px] h-[35px] bg-[#CEAB5C] rounded-[50%] flex items-center
-                 justify-center absolute top-0 right-0 mt-4 mr-4 cursor-pointer md:hidden">
+                    <li
+                        class="w-[35px] h-[35px] bg-[#CEAB5C] rounded-[50%] flex items-center justify-center absolute top-0 right-0 mt-4 mr-4 cursor-pointer md:hidden">
                         <i class="fa-solid fa-x text-[15px]" onclick="closeMenu()"></i>
                     </li>
-
                 </ul>
             </div>
 
@@ -164,7 +168,8 @@
                             <a href="https://www.instagram.com/shivcosmicenergysolutions" target="_blank">
                                 <i class="fa-brands fa-instagram text-[18px] text-[#fff]"></i>
                             </a>
-                            <a href="https://www.facebook.com/shivcosmicenergysolutions" class="mx-[10px] xl:mx-[20px]" target="_blank">
+                            <a href="https://www.facebook.com/shivcosmicenergysolutions" class="mx-[10px] xl:mx-[20px]"
+                                target="_blank">
                                 <i class="fa-brands fa-facebook-f text-[18px] text-[#fff]"></i>
                             </a>
                         </div>
@@ -177,8 +182,9 @@
                     </div>
                 </div>
             </div>
-
         </nav>
+
+
 
 
         {% block main-content %}
@@ -265,13 +271,16 @@
                                 <ul>
                                     <li><a href="{% url 'policy' %}" class="text-[#fff]">Privacy Policy </a></li>
                                     <li><a href="{% url 'terms' %}" class="text-[#fff]">Terms and Conditions</a></li>
-                                    <li><a href="{% url 'return' %}" class="text-[#fff]">Refund & Cancellation Policy </a></li>
+                                    <li><a href="{% url 'return' %}" class="text-[#fff]">Refund & Cancellation Policy
+                                        </a></li>
                                 </ul>
                             </div>
 
                             <div class="md:w-[34%] md:flex flex-col items-center">
-                                <img src="/static/assets/images/Logo/shiv cosmic logo w.png" alt="" class="max-w-[175px]">
-                                <p class="my-[10px] text-justify text-[#fff]">Empowering lives through the wisdom of astrology and
+                                <img src="/static/assets/images/Logo/shiv cosmic logo w.png" alt=""
+                                    class="max-w-[175px]">
+                                <p class="my-[10px] text-justify text-[#fff]">Empowering lives through the wisdom of
+                                    astrology and
                                     Vastu.
                                     Connect with
                                     Shiv
@@ -310,7 +319,8 @@
                         <h1 class="text-[#ffff89] text-start md:text-center font-bold text-[19px] mb-[10px]">We Do NOT
                             Believe In "Get Rich Quick
                             Programs"..</h1>
-                        <p class="text-[#fff]">We believe in hard and smart work, adding value and dedication to reach your goals. It's a
+                        <p class="text-[#fff]">We believe in hard and smart work, adding value and dedication to reach
+                            your goals. It's a
                             fact that
                             one
                             that does not do hard work will see no results whatsoever. The remedies and suggestions

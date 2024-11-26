@@ -1,6 +1,4 @@
 
-
-
 // Navigation 
 
 function Menu(e) {
@@ -24,6 +22,21 @@ function closeMenu() {
     }
     list.classList.remove('open');
 }
+
+// Toggle dropdown on mobile view
+document.querySelectorAll('.relative').forEach(item => {
+    item.addEventListener('click', function() {
+        if (window.innerWidth <= 767) {
+            this.classList.toggle('open');
+        }
+    });
+});
+
+
+
+
+
+
 
 // ------ sticky navigation ------ 
 
