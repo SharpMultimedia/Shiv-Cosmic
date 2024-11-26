@@ -10,8 +10,6 @@
     --Tertiary-colors: #CEAB5C;
 }
 
-
-
 h1,
 h2 {
     font-family: "Philosopher", sans-serif !important;
@@ -41,10 +39,6 @@ p {
     font-style: normal;
 }
 
-/* .Nav-section {
-    padding: 0 100px;
-} */
-
 .nav-bar {
     background-color: #d2833680;
     z-index: 9999;
@@ -56,9 +50,34 @@ p {
     opacity: 1 !important;
 }
 
+/* Desktop view: Show dropdown on hover */
+li.relative:hover .absolute {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Mobile view: Hide dropdown by default */
+@media (max-width: 767px) {
+    li.relative .absolute {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    li.relative.open .absolute {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
 .sticky {
     transition: all 0.3s ease-in-out;
 }
+
+
+/* --- Dropdown Nav link ---  */
+
+
+
 
 
 .bg-custom {
@@ -112,6 +131,8 @@ ul {
 
 .personalised-banner {
     background-image: url('/static/assets/images/Sub-Banner.jpg');
+    height: 520px;
+
 }
 
 .kundli-hero {
@@ -124,6 +145,10 @@ ul {
     background-image: url('/static/assets/images/q.jpg');
 }
 
+.numerology-hero {
+    background-image: url('/static/assets/images/numerology-banner.jpg');
+    height: 520px;
+}
 
 .astrological-image {
     animation: animName 18s linear infinite;
@@ -586,13 +611,17 @@ select::-webkit-scrollbar-thumb:hover {
     }
 
     .hero-section {
-        height: 900px;
+        height: 850px;
     }
 
     .image-contact,
     .image-reiki,
     .kundli-hero {
         height: 650px;
+    }
+
+    .personalised-banner {
+        height: 600px;
     }
 
     .subHeader {
@@ -923,7 +952,7 @@ select::-webkit-scrollbar-thumb:hover {
 
 .accordion button[aria-expanded='true']+.accordion-content {
     opacity: 1;
-    max-height: 9em;
+    max-height: 19em;
     transition: all 600ms linear;
     will-change: opacity, max-height;
 }
