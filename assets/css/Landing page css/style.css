@@ -41,7 +41,7 @@ p {
 
 .nav-bar {
     background-color: #d2833680;
-    z-index: 9999;
+    z-index: 9999 !important;
     box-shadow: 0 2px 30px rgba(23, 15, 73, .1);
 }
 
@@ -489,10 +489,6 @@ select::-webkit-scrollbar-thumb:hover {
         max-width: 60% !important;
     }
 
-    /* .Nav-section {
-        padding: 0 15px;
-    } */
-
     .mini-nav {
         padding-bottom: 10px;
         margin-bottom: 10px;
@@ -520,7 +516,9 @@ select::-webkit-scrollbar-thumb:hover {
         height: 560px !important;
     }
 
-
+    .astroheroimage{
+        top: 22% !important;
+    }
 
 }
 
@@ -548,11 +546,19 @@ select::-webkit-scrollbar-thumb:hover {
     .benefit-img {
         height: 1050px !important;
     }
+
+    .astroheroimage{
+        top: 26% !important;
+    }
 }
 
 @media (min-width:425px) and (max-width: 598px) {
     .subImage {
         max-width: 204px;
+    }
+
+    .astroheroimage{
+        top: 16% !important;
     }
 }
 
