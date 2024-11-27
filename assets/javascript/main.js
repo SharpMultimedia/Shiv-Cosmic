@@ -1,5 +1,8 @@
 
-// Navigation 
+// Navigation
+
+console.log("hello");
+
 
 function Menu(e) {
     let list = document.querySelector('.menuList');
