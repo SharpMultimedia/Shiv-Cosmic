@@ -2,7 +2,7 @@
 // Navigation 
 
 function Menu(e) {
-    let list = document.querySelector('ul');
+    let list = document.querySelector('.menuList');
     if (e.querySelector('i').classList.contains('fa-bars')) {
         e.querySelector('i').classList.remove('fa-bars');
         e.querySelector('i').classList.add('fa-times');
@@ -14,7 +14,7 @@ function Menu(e) {
 }
 
 function closeMenu() {
-    let list = document.querySelector('ul');
+    let list = document.querySelector('.menuList');
     let menuIcon = document.querySelector('.fa-times');
     if (menuIcon) {
         menuIcon.classList.remove('fa-times');
