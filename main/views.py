@@ -104,8 +104,10 @@ def payment(request):
 
         if kundli_type == "Basic Kundli":
             amount = 299
-        else:
+        elif kundli_type == "Pro Kundli":
             amount = 499
+        elif kundli_type == "Pro Numerology":
+            amount = 699
         # Construct the dynamic URLs
         base_url = request.build_absolute_uri('/')
         redirectUrl = base_url + 'payment_return/'
@@ -217,6 +219,8 @@ def payment_return(request):
                     return redirect('basic_horoscope')
                 elif kundli_type == "Pro Kundli":
                     return redirect('pro_horoscope')
+                elif kundli_type == "Pro Numerology":
+                    return redirect('pro_numerology')
                 else:
                     messages.error(request, "Invalid Kundli type. Please try again.")
                     return redirect('index')  # Redirect to index if kundli_type is invalid
@@ -278,8 +282,8 @@ def basic_horoscope(request):
             'company_info': '(Unit of Natural Healing and Meditation Center) \n an ISO 9000:2015 Certified Organization',
             'domain_url': 'https://www.shivcosmic.com',
             'company_email': 'info.nhmcpune@gmail.com',
-            'company_landline': '+91 9175932752',
-            'company_mobile': '+91 9175932752',
+            'company_landline': '+91 7030127129',
+            'company_mobile': '+91 7030127129',
         }
 
         # Authorization header
@@ -387,8 +391,113 @@ def pro_horoscope(request):
             'company_info': '(Unit of Natural Healing and Meditation Center) \n an ISO 9000:2015 Certified Organization',
             'domain_url': 'https://www.shivcosmic.com',
             'company_email': 'info.nhmcpune@gmail.com',
-            'company_landline': '+91 9175932752',
-            'company_mobile': '+91 9175932752',
+            'company_landline': '+91 7030127129',
+            'company_mobile': '+91 7030127129',
+        }
+
+        # Authorization header
+        auth = "Basic " + base64.b64encode((userId + ":" + apiKey).encode()).decode()
+
+        headers = {
+            "Authorization": auth,
+            "Content-Type": "application/json"
+        }
+
+        try:
+            response = requests.post(url, data=json.dumps(data), headers=headers, timeout=10)
+            response.raise_for_status()  # Raise an HTTPError for bad responses
+            if response.status_code == 200:
+                # Process the response data here
+                astrology_data = response.json()
+                pdf_url = astrology_data.get('pdf_url')
+
+                # Download the PDF file
+                pdf_response = requests.get(pdf_url, timeout=10)
+                pdf_response.raise_for_status()
+                pdf_content = pdf_response.content
+                pdf_content_b64 = base64.b64encode(pdf_content).decode('utf-8')
+
+                # Save the astrology data and PDF content to the session
+                request.session['astrology_data'] = astrology_data
+                request.session['pdf_content_b64'] = pdf_content_b64
+
+                try:
+                    email_message = EmailMessage(
+                        f"Kundali Report for {form_data['name']}",
+                        "Please find the attached PDF document.\n\n"
+                        f"Name: {form_data['name']}\n"
+                        f"Birthdate: {form_data['day']}/{form_data['month']}/{form_data['year']}\n"
+                        f"Time: {form_data['hour']}:{form_data['minute']}\n"
+                        f"Mobile: {mobile}\n"
+                        f"Email: {email}\n\n"
+                        "Kind Regards\nTeam Shiv Cosmic",
+                        settings.EMAIL_HOST_USER,
+                        [email],
+                        cc=["onkarauti1@gmail.com"]
+                    )
+
+                    # Attach the PDF file
+                    email_message.attach('astrology_report.pdf', pdf_content, 'application/pdf')
+                    email_message.send()
+
+                    messages.success(request, "Message Was Sent Successfully")
+                except BadHeaderError as e:
+                    # Log or print the exception for debugging
+                    print(f"Error sending email: {e}")
+
+            else:
+                print("Error:", response.status_code)
+        except requests.exceptions.RequestException as e:
+            print(f"Request failed: {e}")
+            return render(request, 'result.html')
+    else:
+        messages.info(request, "Your PDF has already been sent to your email. Please check your inbox.")
+
+    return render(request, 'result.html', {'astrology_data': astrology_data})
+
+def pro_numerology(request):
+    form_data = request.session.get('form_data')
+    mobile = request.session.get('mobile')
+    email = request.session.get('email')
+
+    if not form_data:
+        return redirect('index')
+
+    # Check if the API response is already in the session
+    astrology_data = request.session.get('astrology_data')
+    pdf_content_b64 = request.session.get('pdf_content_b64')
+
+    if not astrology_data or not pdf_content_b64:
+        # Your API credentials
+        userId = '616659'
+        apiKey = '73d704711428670b973f180f43b26f92'
+
+        # API endpoint
+        api = 'pro_numerology_report'
+        url = "https://pdf.astrologyapi.com/v1/" + api
+
+        # Data to be sent in the request
+        data = {
+            'name': form_data['name'],
+            'gender': form_data['gender'],
+            'day': form_data['day'],
+            'month': form_data['month'],
+            'year': form_data['year'],
+            'hour': form_data['hour'],
+            'minute': form_data['minute'],
+            'latitude': form_data['lat'],
+            'longitude': form_data['lon'],
+            'language': form_data['language'],
+            'timezone': form_data['tzone'],
+            'place': form_data['place'],
+            'footer_link': 'shivcosmic.com',
+            'logo_url': 'https://shivcosmic.com/static/assets/images/Logo/shiv%20cosmic%20logo%20w.png',
+            'company_name': 'Shiv Cosmic',
+            'company_info': '(Unit of Natural Healing and Meditation Center) \n an ISO 9000:2015 Certified Organization',
+            'domain_url': 'https://www.shivcosmic.com',
+            'company_email': 'info.nhmcpune@gmail.com',
+            'company_landline': '+91 7030127129',
+            'company_mobile': '+91 7030127129',
         }
 
         # Authorization header

@@ -16,4 +16,5 @@ urlpatterns = [
     path('contact_us/', views.contact, name='contact'),
     path('getkundali/', views.getkundali, name='getkundali'),
     path('numerology/', views.numerology, name='numerology'),
+    path('pro_numerology/', views.pro_numerology, name='pro_numerology'),
 ]
