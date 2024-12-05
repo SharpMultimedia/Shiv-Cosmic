@@ -56,15 +56,10 @@ label {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 
 .colLeft {
     width: 42%;
-
-    /* height: 650px; */
-    /* padding: 50px; */
-
     display: flex;
     align-items: center;
 }
@@ -252,7 +247,7 @@ input[type="checkbox"] {
 }
 
 .reviewCard {
-    width: 44%;
+    width: 48%;
 }
 
 .reviewCardTwo {
@@ -271,7 +266,9 @@ input[type="checkbox"] {
     border-bottom: 1px solid #ffff89;
     padding-bottom: 20px;
     margin-bottom: 20px;
-    color: #fff;
+    color: #ffff89;
+    font-weight: 600;
+
 }
 
 .reviewS {
@@ -284,7 +281,7 @@ input[type="checkbox"] {
 
 .reviewDate {
     display: flex;
-    margin: 15px 0;
+    margin: 10px 0;
 }
 
 .reviewDate h6 {
@@ -304,11 +301,10 @@ input[type="checkbox"] {
 .getContainer {
     justify-content: space-between;
     width: 100%;
-    padding-left: 15px;
 }
 
 .getContent {
-    width: 48%;
+    width: 100%;
 }
 
 .getContent ul li {
@@ -339,19 +335,12 @@ input[type="checkbox"] {
     font-size: 14px;
 }
 
-.pForm {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
 .EmailDetails {
-    margin-bottom: 25px;
-    width: 48%;
+    margin-bottom: 20px;
 }
 
 .EmailDetails input {
-    margin-top: 15px;
+    margin-top: 5px;
 }
 
 
@@ -515,10 +504,6 @@ input[type="checkbox"] {
         font-size: 16px;
     }
 
-    .labels {
-        margin-left: 10px;
-
-    }
 
     .radioData h6 {
         font-size: 14px;
@@ -526,10 +511,10 @@ input[type="checkbox"] {
 
     .priceContainer h5 {
         font-size: 15px;
-        display: flex;
+        /* display: flex;
         flex-direction: column;
         justify-content: end;
-        align-items: end;
+        align-items: end; */
     }
 
     .priceContainer h5 strike {

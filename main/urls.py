@@ -17,4 +17,5 @@ urlpatterns = [
     path('getkundali/', views.getkundali, name='getkundali'),
     path('numerology/', views.numerology, name='numerology'),
     path('pro_numerology/', views.pro_numerology, name='pro_numerology'),
+    path('astro_vastu/', views.astro_vastu, name='astro_vastu'),
 ]

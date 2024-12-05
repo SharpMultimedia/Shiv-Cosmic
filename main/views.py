@@ -611,3 +611,6 @@ def contact(request):
 
 def numerology(request):
     return render(request, 'numerology.html')
+
+def astro_vastu(request):
+    return render(request, 'astrovastu.html')

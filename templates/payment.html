@@ -28,7 +28,6 @@
         <div class="reviewMain mt-[40px] md:p-[30px] lg:p-[40px]">
 
             <div class="w-full">
-
                 <div class="w-full flex items-center flex-col">
                     <h1 class="font-bold text-[24px] lg:text-[35px] text-[#fff] leading-[38px]
                      text-center mb-[20px] lg:mb-[40px]">
@@ -39,7 +38,7 @@
                 <!-- offer  -->
                 <div class="inputContainer">
 
-                    <!-- <div class="radioBtn">z
+                    <!-- <div class="radioBtn">
                         <div class="radioData checkbox">
                             <div>
                                 <input type="checkbox" id="s-option" name="selector">
@@ -56,37 +55,40 @@
                         </div>
                     </div> -->
 
-                    <!-- Basic Kundli  -->
-                    <div class="radioBtn mb-[10px]">
+                    <div class="radioBtn">
                         <div class="radioData checkbox">
                             <label for="d-option" class="mainCheckbox">
                                 <div>
-                                    <input type="checkbox" id="d-option" name="kundliType" value="Basic Kundli" class="kundli-checkbox">
+                                    <input type="radio" id="d-option" name="kundliType" value="Basic Kundli"
+                                        class="kundli-checkbox" onclick="changeInfo('basicKundli')">
                                     <div class="checkbox__checkmark"></div>
                                     <input type="hidden" value="299" name="amount">
                                 </div>
                                 <div class="labels">
-                                    <label for="d-option" class="text-[#fff] text-[17px]">Basic Kundli</label>
+                                    <label for="d-option" class="text-[#fff] text-[17px] cursor-pointer">Basic
+                                        Kundli</label>
                                 </div>
                             </label>
                         </div>
-
                         <div class="priceContainer">
                             <h5><strike>₹699.00</strike> ₹299.00 </h5>
                         </div>
                     </div>
 
-                    <!-- Pro Kundli  -->
-                    <div class="radioBtn">
+                    <!-- Pro Kundli -->
+                    <div class="radioBtn my-[10px]">
+
                         <div class="radioData checkbox">
                             <label for="d2-option" class="mainCheckbox">
                                 <div>
-                                    <input type="checkbox" id="d2-option" name="kundliType" value="Pro Kundli" class="kundli-checkbox">
+                                    <input type="radio" id="d2-option" name="kundliType" value="Pro Kundli"
+                                        class="kundli-checkbox" onclick="changeInfo('proKundli')">
                                     <div class="checkbox__checkmark"></div>
                                     <input type="hidden" value="499" name="amount">
                                 </div>
                                 <div class="labels">
-                                    <label for="d2-option" class="text-[#fff] text-[17px]">Pro Kundli</label>
+                                    <label for="d2-option" class="text-[#fff] text-[17px] cursor-pointer">Pro
+                                        Kundli</label>
                                 </div>
                             </label>
                         </div>
@@ -96,23 +98,45 @@
                         </div>
                     </div>
 
-                    <!-- Pro Numerology  -->
-                    <div class="radioBtn">
+                    <!-- Pro Numerology -->
+                    <div class="radioBtn my-[10px]">
                         <div class="radioData checkbox">
                             <label for="d3-option" class="mainCheckbox">
                                 <div>
-                                    <input type="checkbox" id="d3-option" name="kundliType" value="Pro Numerology" class="kundli-checkbox">
+                                    <input type="radio" id="d3-option" name="kundliType" value="Pro Numerology"
+                                        class="kundli-checkbox" onclick="changeInfo('proNumerology')">
                                     <div class="checkbox__checkmark"></div>
                                     <input type="hidden" value="699" name="amount">
                                 </div>
                                 <div class="labels">
-                                    <label for="d3-option" class="text-[#fff] text-[17px]">Pro Numerology</label>
+                                    <label for="d3-option" class="text-[#fff] text-[17px] cursor-pointer">Pro
+                                        Numerology</label>
                                 </div>
                             </label>
                         </div>
-
                         <div class="priceContainer">
-                             <h5> <!-- <strike>₹999.00</strike> --> ₹699.00 </h5> 
+                            <h5>₹699.00 </h5>
+                        </div>
+                    </div>
+
+                    <!--  Astro-Vastu -->
+                    <div class="radioBtn">
+                        <div class="radioData checkbox">
+                            <label for="d4-option" class="mainCheckbox">
+                                <div>
+                                    <input type="radio" id="d4-option" name="kundliType" value="Astro-Vastu"
+                                        class="kundli-checkbox" onclick="changeInfo('astroVastu')">
+                                    <div class="checkbox__checkmark"></div>
+                                    <input type="hidden" value="699" name="amount">
+                                </div>
+                                <div class="labels">
+                                    <label for="d4-option"
+                                        class="text-[#fff] text-[17px] cursor-pointer">Astro-Vastu</label>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="priceContainer">
+                            <h5>₹699.00 </h5>
                         </div>
                     </div>
 
@@ -121,12 +145,204 @@
                 <!-- review details  -->
                 <div class="reviewDetails">
 
+                    <div id="kundli-info" class="w-full">
+
+                        <div class="getContainer md:flex">
+
+                            <!-- basicKundli -->
+                            <div class="reviewD getContent" id="basicKundli">
+                                <h2>What you get in Basic kundali Report?</h2>
+
+                                <ul>
+                                    <li><strong>Birth Chart (Janam Kundali)</strong>: Visual representation of
+                                        planetary positions at
+                                        the time of birth.</li>
+
+                                    <li><strong>Sun Sign and Moon Sign</strong>: Your core personality traits and
+                                        emotional
+                                        tendencies.</li>
+
+                                    <li><strong>Ascendant (Lagna)</strong>: Influences appearance, outer
+                                        personality, and behavior.
+                                    </li>
+
+                                    <li><strong>Planetary Placements</strong>: Basic details about where each planet
+                                        is located in
+                                        your chart.</li>
+
+                                    <li><strong>Houses Overview</strong>: General influence of the 12 houses (e.g.,
+                                        career,
+                                        relationships, health).</li>
+
+                                    <li><strong>Dasha Overview</strong>: High-level view of major planetary periods
+                                        affecting life
+                                        phases.</li>
+
+                                    <li><strong>Nakshatra Analysis</strong>: Understanding the star constellations
+                                        influencing you.
+                                    </li>
+
+                                    <li><strong>Basic Predictions</strong>: Short-term insights on career,
+                                        relationships, and health.
+                                    </li>
+
+                                    <li><strong>Compatibility Snapshot</strong>: Basic insights into potential
+                                        matches for marriage
+                                        or partnerships.</li>
+
+                                    <li><strong>Simple Remedies</strong>: General advice such as mantras or lucky
+                                        colors to improve
+                                        well-being.</li>
+                                </ul>
+                            </div>
+
+                            <!-- proKundli -->
+                            <div class="reviewD getContent" id="proKundli" style="display:none;">
+                                <h2>What you get in Pro kundali Report?</h2>
+
+                                <ul>
+                                    <li><strong>Detailed Birth Chart</strong>: Comprehensive planetary positions,
+                                        degrees, and their
+                                        influences.</li>
+
+                                    <li><strong>Advanced Dasha Report</strong>: Full breakdown of major and minor
+                                        planetary periods
+                                        with predictions.</li>
+
+                                    <li><strong>Nakshatra and Pada Analysis</strong>: In-depth information about
+                                        nakshatras and their
+                                        padas.</li>
+
+                                    <li><strong>Divisional Charts</strong>: Includes charts like Navamsha (marriage) and
+                                        Dashamsha
+                                        (career).</li>
+
+                                    <li><strong>Transit Predictions</strong>: Real-time analysis of how planetary
+                                        movements influence
+                                        your life.</li>
+
+                                    <li><strong>Yearly Forecast</strong>: Detailed predictions for health, wealth, and
+                                        relationships
+                                        over the coming year.</li>
+
+                                    <li><strong>Personalized Remedies</strong>: Specific mantras, gemstones, colors, or
+                                        rituals
+                                        tailored to your chart.</li>
+
+                                    <li><strong>Astrological Aspects</strong>: Detailed analysis of conjunctions,
+                                        oppositions, and
+                                        trines in your chart.</li>
+
+                                    <li><strong>Karma and Life Purpose</strong>: Insights into your soul's journey and
+                                        purpose based
+                                        on your chart.</li>
+
+                                    <li><strong>Comprehensive Compatibility</strong>: Detailed synastry and relationship
+                                        compatibility reports.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Numerology -->
+                            <div class="reviewD getContent" id="proNumerology" style="display:none;">
+                                <h2>What you get in Numerology Report?</h2>
+
+                                <ul>
+                                    <li><strong>Comprehensive Life Path Analysis:</strong> A deep dive into your
+                                        purpose, strengths, and challenges.</li>
+
+                                    <li><strong>Personal Year Number</strong>: Predicts how the current year will
+                                        unfold and key focus areas.</li>
+
+                                    <li><strong>Monthly and Daily Numbers</strong>: Personalized guidance for each
+                                        month and day.</li>
+
+                                    <li><strong>Balance Number</strong>: Offers advice on how to handle stress and
+                                        maintain equilibrium.</li>
+
+                                    <li><strong>Pinnacle Cycles</strong>: Explains four major cycles of life and
+                                        their unique characteristics.</li>
+
+                                    <li><strong>Karmic Lessons and Debts</strong>: Detailed exploration of the
+                                        numbers missing in your chart.</li>
+
+                                    <li><strong>Expression, Soul Urge, and Personality Numbers</strong>:
+                                        Comprehensive analysis of these core numbers.</li>
+
+                                    <li><strong>Intensification of Numbers</strong>: Examines repeated numbers and
+                                        their amplified influence.</li>
+
+                                    <li><strong>Advanced Compatibility Analysis</strong>: Detailed relationship
+                                        dynamics based on partner's numbers.</li>
+
+                                    <li><strong>Business and Career Guidance</strong>: Identifies favorable numbers
+                                        for success in professional endeavors.</li>
+
+                                </ul>
+                            </div>
+
+                            <!-- Astro-vastu -->
+                            <div class="reviewD getContent" id="astroVastu" style="display:none;">
+                                <h2>What you get in Astro-Vastu Report?</h2>
+
+                                <ul>
+                                    <li><strong>Comprehensive Kundali Analysis</strong>: Detailed planetary
+                                        positions, nakshatras, and their impact on your Vastu zones.</li>
+
+                                    <li><strong>Detailed Directional Insights</strong>: In-depth evaluation of all
+                                        16 directions for prosperity, health, and relationships.</li>
+
+                                    <li><strong>Custom Remedies for Each Direction</strong>: Tailored solutions like
+                                        color adjustments, object placements, and energy corrections.
+                                    </li>
+
+                                    <li><strong>Dasha and Planetary Period Analysis</strong>: Insights into how your
+                                        planetary cycles affect your Vastu alignment.</li>
+
+                                    <li><strong>Advanced Zonal Balancing</strong>: Specific actions for correcting
+                                        imbalances in wealth, health, or career directions.</li>
+
+                                    <li><strong>Astro-Vastu Compatibility</strong>: Detailed alignment report
+                                        between your astrological chart and home energy.</li>
+
+                                    <li><strong>Personalized Remedies</strong>: Advanced techniques such as specific
+                                        mantras, gemstone suggestions, and ritual practices.</li>
+
+                                    <li><strong>Real-Time Transit Effects</strong>: Analysis of how current
+                                        planetary movements influence your living space.</li>
+
+                                    <li><strong>Advanced Energy Programming</strong>: Use of subconscious techniques
+                                        like vision boards and symbolic images.</li>
+
+                                    <li><strong>Annual Predictions</strong>: Guidance for aligning home energies
+                                        with the upcoming year’s challenges and opportunities.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="reviewD reviewS">
+                            <h2>Varshaphal Year</h2>
+
+                            <div class="langSelect">
+                                <select name="" id="">
+                                    <option value="#">April 2023 - March 2024 </option>
+                                    <option value="#">April 2024 - March 2025 </option>
+                                    <option value="#">April 2025 - March 2026</option>
+                                </select>
+                            </div>
+                        </div> -->
+
+                </div>
+
+                <!-- Email and number details  -->
+                <div class="w-full md:flex justify-between">
+
                     <div class="reviewCard">
                         <div class="reviewD">
                             <h2>Review Birth Details</h2>
 
                             <div class="reviewSubD">
-                                <h5>{{ form_data.name }}</h5>
+                                <h5 class="capitalize">{{ form_data.name }}</h5>
 
                                 <div class="reviewDate">
                                     <h6>{{ form_data.day }}/{{ form_data.month }}/{{ form_data.year }}</h6>
@@ -140,87 +356,39 @@
                         </div>
                     </div>
 
+                    <div class="md:w-[48%] formDetails">
+                        <form action="" method="post" action="{% url 'payment' %}">
+                            {% csrf_token %}
 
-                    <div class="reviewCardTwo">
-                        <div class="reviewD">
-                            <h2>What you get in kundali?</h2>
+                            <!-- Hidden field for selected kundli type -->
+                            <input type="hidden" id="selectedKundli" name="kundliType" value="Basic Kundli">
 
-                            <div class="getContainer md:flex">
-                                <div class="getContent">
-
-                                    <ul>
-                                        <li>Basic Astrological Details</li>
-                                        <li>Planetary Positions</li>
-                                        <li>Horoscope Charts</li>
-                                        <li>Divisional Charts</li>
-                                        <li>House Cusps and Sandhi</li>
-                                        <li>Vimshottari, Yogini, Dasha</li>
-                                    </ul>
-
+                            <div class="">
+                                <div class="EmailDetails">
+                                    <div>
+                                        <label for="" class="text-[#fff] text-[16px]">Enter Your Email</label>
+                                    </div>
+                                    <div>
+                                        <input type="email" id="email" name="email" placeholder="Enter Your Email"
+                                            required>
+                                    </div>
                                 </div>
-                                <div class="getContent">
-                                    <ul>
-                                        <li>Favourable Points, Numerology Report</li>
-                                        <li>Kalsarpa Dosha Manglik Analysis</li>
-                                        <li>Sadhesati Analysis</li>
-                                        <li>Gemstone Suggestions</li>
-                                        <li>LIFE, BENEFIC & LUCKY STONE</li>
-                                        <li>Ascendant Report</li>
-                                    </ul>
+                                <div class="EmailDetails">
+                                    <div>
+                                        <label for="" class="text-[#fff] text-[16px]">Enter Your Mobile number</label>
+                                    </div>
+                                    <div>
+                                        <input type="number" id="mobile" name="mobile"
+                                            placeholder="Enter Your Mobile number" required>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-
-                        <!-- <div class="reviewD reviewS">
-                            <h2>Varshaphal Year</h2>
-
-                            <div class="langSelect">
-                                <select name="" id="">
-                                    <option value="#">April 2023 - March 2024 </option>
-                                    <option value="#">April 2024 - March 2025 </option>
-                                    <option value="#">April 2025 - March 2026</option>
-                                </select>
+                            <div class="">
+                                <input type="submit" value="Pay Now" class="submit_btn text-[15px]">
                             </div>
-                        </div> -->
+                        </form>
                     </div>
-
-
-                </div>
-
-                <!-- Email and number details  -->
-
-                <div class="formDetails">
-                    <form action="" method="post" action="{% url 'payment' %}">
-                        {% csrf_token %}
-
-                        <!-- Hidden field for selected kundli type -->
-                        <input type="hidden" id="selectedKundli" name="kundliType" value="Basic Kundli">
-
-                        <div class="pForm">
-                            <div class="EmailDetails">
-                                <div>
-                                    <label for="" class="text-[#fff] text-[16px]">Enter Your Email</label>
-                                </div>
-                                <div>
-                                    <input type="email" id="email" name="email" placeholder="Enter Your Email" required>
-                                </div>
-                            </div>
-                            <div class="EmailDetails">
-                                <div>
-                                    <label for="" class="text-[#fff] text-[16px]">Enter Your Mobile number</label>
-                                </div>
-                                <div>
-                                    <input type="number" id="mobile" name="mobile"
-                                        placeholder="Enter Your Mobile number" required>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="">
-                            <input type="submit" value="Pay Now" class="submit_btn text-[15px]">
-                        </div>
-                    </form>
                 </div>
 
             </div>
@@ -230,7 +398,7 @@
     <script>
         // Get all checkboxes
         const checkboxes = document.querySelectorAll('.kundli-checkbox');
-    
+
         checkboxes.forEach(checkbox => {
             checkbox.addEventListener('change', function () {
                 if (this.checked) {
@@ -262,11 +430,7 @@
         });
     </script>
 
-
-    <script>
-
-
-    </script>
+    <script src="/static/javascript/main.js"></script>
 </body>
 
 </html>

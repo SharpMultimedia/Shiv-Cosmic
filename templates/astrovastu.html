@@ -1,0 +1,282 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block hero-image %} Astro-Vastu-hero {% endblock hero-image %}
+{% block main-content %}
+
+    <!-- hero section  -->
+    <section class="w-full bg-center bg-cover bg-no-repeat flex
+                items-center justify-center flex-col relative Astro-Vastu-hero">
+
+        <div class="w-[80%] text-center absolute lg:top-[460px] top-[390px] subHeader">
+            <h1 class="font-bold text-[40px] lg:text-[45px] text-[#fff] leading-[42px]"><strong
+                    class="text-[#35c0ff]">Astro-Vastu</strong>
+            </h1>
+        </div>
+    </section>
+</header>
+
+    <!-- fixed button  -->
+
+    <section class="w-full fixed bottom-0 z-[100] pr-[0px] lg:pr-[30px]">
+        <div
+            class="w-[100%] py-[10px] lg:py-[20px] rounded-tl-[10px] rounded-tr-[10px] flex items-center justify-end bg-center bg-cover bg-no-repeat">
+            <a href="{% url 'horoscopeform' %}">
+                <button class="btn btn--snakeBorder">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Buy Astro-Vastu Report
+                </button>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Astro-Vastu  -->
+    <section class="bg-center bg-cover bg-no-repeat px-[15px] py-[25px] xl:px-[100px] xl:py-[60px]"
+        style="background-image: url('/static/assets/images/shiv-cosmic\ \ Purple-bg.jpg');">
+
+        <div class="w-full md:flex justify-between">
+            <div class="w-[48%] hidden lg:block">
+                <img src="/static/assets/images/Astro-Vastu.png" alt="" class="rounded-[15px]">
+            </div>
+            <div class="md:w-[48%] flex flex-col justify-center">
+                <p class="text-white text-justify">Astro-Vastu combines the wisdom of Astrology and Vastu Shastra, two
+                    ancient sciences deeply rooted in Indian tradition, to offer holistic solutions for leading a
+                    harmonious and fulfilling life. This synergy creates a personalized roadmap for enhancing various
+                    aspects of life, including health, relationships, career, and financial prosperity.
+                </p>
+
+                <p class="text-white my-[15px] text-justify">By analyzing planetary alignments (Astrology) and the
+                    energy flow of your living or working space
+                    (Vastu Shastra), Astro-Vastu helps identify imbalances that may hinder success or peace. With
+                    tailored remedies, it aligns cosmic and architectural energies to promote positivity and overall
+                    well-being.</p>
+
+
+                <a href="{% url 'horoscopeform' %}">
+                    <button class="btn btn--snakeBorder m-0">
+                        Get Your Free Astro-Vastu Report Now
+                    </button>
+                </a>
+
+            </div>
+        </div>
+
+
+    </section>
+
+    <!-- Why Astro-Vastu  -->
+    <section class="bg-center bg-cover bg-no-repeat px-[15px] py-[25px] xl:px-[100px] xl:py-[60px]"
+        style="background-image: url('/static/assets/images/q.jpg');">
+
+        <div class="w-full md:flex justify-center items-center">
+
+
+            <div class="md:w-[80%] bg-[#8765C4] p-[20px] lg:p-[40px] rounded-[15px]">
+                <div class="text-center mb-[10px] lg:mb-[15px]">
+                    <h1 class="font-bold text-[28px] lg:text-[32px] text-[#ffff89]">Why Astro-Vastu?</h1>
+                </div>
+
+                <p class="text-[#fff] text-justify">Astro-Vastu combines Astrology and Vastu Shastra to harmonize cosmic
+                    and spatial energies for a balanced and prosperous life. It provides personalized solutions by
+                    analyzing your horoscope and evaluating your space to resolve issues in health, relationships,
+                    career, and finances. Unlike traditional methods, Astro-Vastu offers a holistic approach, aligning
+                    celestial influences with environmental energy. Its practical remedies, like spatial adjustments and
+                    planetary tools, help create a positive environment that fosters growth, well-being, and success.
+                </p>
+            </div>
+
+    </section>
+
+    <!-- How does Numerology Work?  -->
+    <section class="bg-center bg-cover bg-no-repeat px-[15px] py-[25px] xl:px-[100px] xl:py-[60px]"
+        style="background-image: url('/static/assets/images/shiv-cosmic\ \ Purple-bg.jpg');">
+
+        <div class="w-full md:flex justify-between">
+
+            <div class="md:w-[60%] flex flex-col justify-center">
+                <div class=" mb-[10px] lg:mb-[15px] ">
+                    <h1 class="font-bold text-[28px] lg:text-[32px] text-[#ffff89] text-center lg:text-start">How does Astro-Vastu Work?</h1>
+                </div>
+
+                <p class="text-white text-justify">Astro-Vastu harmonizes the cosmic energies of astrology with the
+                    spatial principles of Vastu Shastra
+                    to create balance and positivity. It starts with analyzing your horoscope to understand the impact
+                    of planetary alignments on areas like health, relationships, finances, and career. Simultaneously,
+                    the layout and energy flow of your living or working space are assessed using Vastu principles to
+                    identify disruptions affecting harmony and success.</p>
+
+                <p class="text-white my-[15px] text-justify">The insights from astrology and Vastu are integrated to
+                    provide personalized solutions. For example,
+                    a weak Jupiter, governing wealth, may be countered by energizing the Northeast zone, while
+                    relationship issues tied to Venus could be resolved by adjusting the Southwest zone. Remedies
+                    include rearranging spaces, introducing specific colors or elements, and using tools like gemstones,
+                    yantras, or mantras.</p>
+
+                <p class="text-white my-[15px] text-justify">Astro-Vastu evolves with changing planetary influences,
+                    offering tailored remedies for dynamic
+                    challenges. This fusion ensures a harmonious environment that supports well-being, nurtures
+                    relationships, and fosters growth, helping individuals achieve a balanced and prosperous life.</p>
+
+                <a href="{% url 'horoscopeform' %}">
+                    <button class="btn btn--snakeBorder m-0">
+                        Get Your Free Astro-Vastu Report Now
+                    </button>
+                </a>
+
+            </div>
+            <div class="w-[35%] hidden lg:block">
+                <img src="/static/assets/images/astrovastu.jpg" alt="" class="rounded-[15px]">
+            </div>
+        </div>
+
+
+    </section>
+
+    <!-- Faqs  -->
+    <section class="bg-center bg-cover bg-no-repeat px-[15px] py-[25px] xl:px-[100px] xl:py-[60px]"
+        style="background-image: url('/static/assets/images/shiv-cosmic\ \ Purple-bg.jpg');">
+
+        <h1 class="font-bold text-[32px] lg:text-[35px] text-[#fff] leading-[38px] text-center mb-[40px]">FAQs about
+            <strong class="gradient-text">Astro-Vastu </strong>
+        </h1>
+
+        <div class="w-full">
+
+            <div class="accordion md:flex justify-between">
+
+                <div class="md:w-[48%]">
+
+                    <div class="accordion-item">
+                        <button id="accordion-button-1" aria-expanded="false">
+                            <span class="accordion-title">What is Astro-Vastu Report?
+                            </span>
+                            <span class="icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>
+                                Astro-Vastu combines the ancient sciences of Astrology and Vastu Shastra to provide
+                                personalized guidance for enhancing health, relationships, and financial well-being. It
+                                evaluates planetary alignments alongside the architectural energy of your space to
+                                create balance and prosperity.
+
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button id="accordion-button-2" aria-expanded="false">
+                            <span class="accordion-title">What Will You Get with an Astro-Vastu Report?</span>
+                            <span class="icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>
+                                Personalized insights into your Birth Kundali and Cusp Kundali.
+                                Detailed planetary influences and their effects on different life aspects.
+                                Step-by-step remedies to balance your home's Vastu directions.
+                                Tailored solutions for improving wealth, relationships, and overall life harmony.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button id="accordion-button-3" aria-expanded="false">
+                            <span class="accordion-title">Why Choose Astro-Vastu?</span>
+                            <span class="icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion-content">
+                            <p class="mb-[5px]">
+                                Aligns your living space with cosmic energies for holistic growth.
+                                Identifies imbalances in directions and offers actionable remedies.
+                                Enhances key areas like financial stability, health, and relationships.
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button id="accordion-button-4" aria-expanded="false">
+                            <span class="accordion-title">Steps to Balance Vastu Directions</span>
+                            <span class="icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>
+                                Colors: Discover the suitable and unsuitable colors for different zones.
+                                Clutter Management: Importance of de-cluttering to allow positive energy flow.
+                                Placement of Key Items: Proper positioning of elements like gas burners, toilets, and
+                                safes to maintain harmony.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="md:w-[48%]">
+                    <div class="accordion-item">
+                        <button id="accordion-button-5" aria-expanded="false">
+                            <span class="accordion-title">Remedies Offered</span>
+                            <span class="icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>
+                                Financial Prosperity: Remedies like using specific colors, patterns, and objects to
+                                enhance money flow.
+                                Positive Energy: Techniques like saltwater cleaning and the use of symbolic images for
+                                subconscious programming.
+                                Planetary Alignment: Mantras, offerings, and rituals to pacify negative planetary
+                                influences (e.g., Mars, Saturn, Rahu).
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button id="accordion-button-5" aria-expanded="false">
+                            <span class="accordion-title">What Makes Astro-Vastu Unique?</span>
+                            <span class="icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>
+                                Integration of Astrology and Vastu for personalized solutions.
+                                Easy-to-follow remedies for everyday life.
+                                Focus on sustainable growth through actionable insights and guidance.
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div class="accordion-item">
+                        <button id="accordion-button-5" aria-expanded="false">
+                            <span class="accordion-title">What is the difference between Vastu and Astro-Vastu?</span>
+                            <span class="icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>
+                                Vastu focuses solely on optimizing the spatial energy of a living or working space, while Astro-Vastu integrates Vastu principles with astrology, aligning both spatial and cosmic energies to provide personalized solutions for holistic well-being.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button id="accordion-button-5" aria-expanded="false">
+                            <span class="accordion-title">How soon can I see the results of remedies?</span>
+                            <span class="icon" aria-hidden="true"></span>
+                        </button>
+                        <div class="accordion-content">
+                            <p>
+                                While some Astro-Vastu remedies, such as rearranging furniture or adding certain elements, can be applied by yourself, it's recommended to consult an expert for more complex remedies. Proper guidance ensures that adjustments align with your unique astrological and spatial needs.
+                            </p>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    
+    {% endblock main-content %}
