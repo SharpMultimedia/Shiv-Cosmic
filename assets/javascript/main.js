@@ -134,3 +134,13 @@ var swiper = new Swiper(".testimonial-slider", {
 
 
 
+function changeInfo(option) {
+    // Hide all content sections
+    document.getElementById('basicKundli').style.display = 'none';
+    document.getElementById('proKundli').style.display = 'none';
+    document.getElementById('proNumerology').style.display = 'none';
+    document.getElementById('astroVastu').style.display = 'none';
+
+    // Show selected option
+    document.getElementById(option).style.display = 'block';
+}

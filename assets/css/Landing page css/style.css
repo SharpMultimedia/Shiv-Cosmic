@@ -136,17 +136,23 @@ ul {
 }
 
 .kundli-hero {
-    background-image: url('/static/assets/images/buy\ kundli.jpg');
+    background-image: url('/static/assets/images/Astro\ Form\ Banner.jpg');
     height: 560px;
 }
 
 .paymentPage-banner,
 .resultPage-banner {
     background-image: url('/static/assets/images/q.jpg');
+    /* height: 100vh; */
 }
 
 .numerology-hero {
-    background-image: url('/static/assets/images/numerology-banner.jpg');
+    background-image: url('/static/assets/images/numerology.jpg');
+    height: 520px;
+}
+
+.Astro-Vastu-hero {
+    background-image: url('/static/assets/images/astro_vastu\ banner.jpg');
     height: 520px;
 }
 
@@ -516,10 +522,13 @@ select::-webkit-scrollbar-thumb:hover {
         height: 560px !important;
     }
 
-    .astroheroimage{
+    .astroheroimage {
         top: 22% !important;
     }
 
+    .numerology-hero,.Astro-Vastu-hero  {
+        height: 450px;
+    }
 }
 
 
@@ -547,7 +556,7 @@ select::-webkit-scrollbar-thumb:hover {
         height: 1050px !important;
     }
 
-    .astroheroimage{
+    .astroheroimage {
         top: 26% !important;
     }
 }
@@ -557,7 +566,7 @@ select::-webkit-scrollbar-thumb:hover {
         max-width: 204px;
     }
 
-    .astroheroimage{
+    .astroheroimage {
         top: 16% !important;
     }
 }
