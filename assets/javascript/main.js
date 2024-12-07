@@ -1,9 +1,6 @@
 
 // Navigation
 
-console.log("hello");
-
-
 function Menu(e) {
     let list = document.querySelector('.menuList');
     if (e.querySelector('i').classList.contains('fa-bars')) {
@@ -28,16 +25,12 @@ function closeMenu() {
 
 // Toggle dropdown on mobile view
 document.querySelectorAll('.relative').forEach(item => {
-    item.addEventListener('click', function() {
+    item.addEventListener('click', function () {
         if (window.innerWidth <= 767) {
             this.classList.toggle('open');
         }
     });
 });
-
-
-
-
 
 
 
@@ -132,6 +125,9 @@ var swiper = new Swiper(".testimonial-slider", {
 });
 
 
+
+
+// -------------- 
 
 
 function changeInfo(option) {
