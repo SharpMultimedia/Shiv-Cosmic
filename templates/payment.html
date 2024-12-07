@@ -396,7 +396,7 @@
                             {% csrf_token %}
 
                             <!-- Hidden field for selected kundli type -->
-                            <input type="hidden" id="selectedKundli" name="kundliType" value="Basic Kundli">
+                            <input type="hidden" id="selectedKundliType" name="kundliType">
 
                             <div class="">
                                 <div class="EmailDetails">
@@ -491,7 +491,15 @@
     // Call the function on page load
     document.addEventListener('DOMContentLoaded', handleUserSelection);
 
-        console.log(localStorage.getItem('selectedPlan'));
+    document.querySelector('form').addEventListener('submit', () => {
+        const selectedCheckbox = document.querySelector('input[name="kundliType"]:checked');
+        if (selectedCheckbox) {
+            const hiddenInput = document.getElementById('selectedKundliType');
+            hiddenInput.value = selectedCheckbox.value;
+        }
+    });
+    
+    console.log(localStorage.getItem('selectedPlan'));
 
     </script>
 
