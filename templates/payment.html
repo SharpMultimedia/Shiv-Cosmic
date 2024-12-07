@@ -458,28 +458,38 @@
 
 
         // Function to handle checkbox and content mapping
-        function handleUserSelection() {
-            const selectedPlan = localStorage.getItem('selectedPlan');
+        
+  // Function to handle checkbox and content mapping with disable functionality
+  function handleUserSelection() {
+        const selectedPlan = localStorage.getItem('selectedPlan'); // Get the selected plan
 
-            if (selectedPlan) {
-                // Uncheck all checkboxes and hide all content sections
-                document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-                    checkbox.checked = false;
-                });
-                document.querySelectorAll('.getContent').forEach(content => {
-                    content.style.display = 'none';
-                });
+        if (selectedPlan) {
+            // Uncheck and disable all checkboxes by default
+            document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = false;
+                checkbox.disabled = true; // Disable all checkboxes
+            });
 
-                // Check the checkbox and show the content for the selected plan
-                const checkboxToCheck = document.getElementById(selectedPlan);
-                const contentToShow = document.getElementById(`content-${selectedPlan}`);
-                if (checkboxToCheck) checkboxToCheck.checked = true;
-                if (contentToShow) contentToShow.style.display = 'block';
+            // Hide all content sections
+            document.querySelectorAll('.getContent').forEach(content => {
+                content.style.display = 'none';
+            });
+
+            // Enable, check, and show the selected plan's checkbox and content
+            const checkboxToEnable = document.getElementById(selectedPlan);
+            const contentToShow = document.getElementById(`content-${selectedPlan}`);
+            if (checkboxToEnable) {
+                checkboxToEnable.checked = true; // Check the selected checkbox
+                checkboxToEnable.disabled = false; // Enable the selected checkbox
+            }
+            if (contentToShow) {
+                contentToShow.style.display = 'block'; // Show the corresponding content
             }
         }
+    }
 
-        // Call the function on page load
-        document.addEventListener('DOMContentLoaded', handleUserSelection);
+    // Call the function on page load
+    document.addEventListener('DOMContentLoaded', handleUserSelection);
 
         console.log(localStorage.getItem('selectedPlan'));
 

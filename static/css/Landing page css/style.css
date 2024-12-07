@@ -743,7 +743,7 @@ select::-webkit-scrollbar-thumb:hover {
 .btn {
     position: relative;
     display: inline-block;
-    padding: 12px 36px;
+    padding: 10px 25px;
     margin: 10px;
     color: #fff;
     font-size: 15px;
@@ -761,7 +761,7 @@ select::-webkit-scrollbar-thumb:hover {
             #c89852, #ceab5c);
     overflow: hidden;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .btn--snakeBorder::before {
