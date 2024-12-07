@@ -18,4 +18,5 @@ urlpatterns = [
     path('numerology/', views.numerology, name='numerology'),
     path('pro_numerology/', views.pro_numerology, name='pro_numerology'),
     path('astro_mapping/', views.astro_mapping, name='astro_mapping'),
+    path('astro_vastu/', views.astro_vastu, name='astro_vastu'),
 ]

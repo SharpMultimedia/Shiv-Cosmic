@@ -227,15 +227,15 @@ def payment_return(request):
                     return redirect('astro_vastu')
                 else:
                     messages.error(request, "Invalid Kundli type. Please try again.")
-                    return redirect('index')  # Redirect to index if kundli_type is invalid
+                    return redirect('home')  # Redirect to index if kundli_type is invalid
             else:
                 messages.error(request, "Payment was unsuccessful. Please try again.")
-                return redirect('index')  # Redirect to index if payment is unsuccessful
+                return redirect('home')  # Redirect to index if payment is unsuccessful
 
         except requests.exceptions.RequestException as e:
             print(f"Request failed: {e}")
             messages.error(request, "There was an error retrieving the payment status. Please try again.")
-            return redirect('index')  # Redirect to index if there's a request exception
+            return redirect('home')  # Redirect to index if there's a request exception
     else:
         messages.error(request, "Invalid transaction ID.")
     return render(request, 'Kundali.html', {'form_data': form_data})
@@ -619,7 +619,7 @@ def numerology(request):
 def astro_mapping(request):
     return render(request, 'astromapping.html')
 
-def pro_numerology(request):
+def astro_vastu(request):
     form_data = request.session.get('form_data')
     mobile = request.session.get('mobile')
     email = request.session.get('email')
