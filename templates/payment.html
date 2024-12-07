@@ -35,33 +35,17 @@
                     </h1>
                 </div>
 
-                <!-- offer  -->
                 <div class="inputContainer">
 
+                    <!-- Basic Kundli  -->
                     <!-- <div class="radioBtn">
-                        <div class="radioData checkbox">
-                            <div>
-                                <input type="checkbox" id="s-option" name="selector">
-                                <div class="checkbox__checkmark"></div>
-                            </div>
-                            <div class="labels">
-                                <label for="s-option">Varshphal Report</label>
-                                <h6>Your Yearly Predictions</h6>
-                            </div>
-                        </div>
-
-                        <div class="priceContainer">
-                            <h5><strike>₹495.00</strike> ₹384.00 </h5>
-                        </div>
-                    </div> -->
-
-                    <div class="radioBtn">
                         <div class="radioData checkbox">
                             <label for="d-option" class="mainCheckbox">
                                 <div>
                                     <input type="radio" id="d-option" name="kundliType" value="Basic Kundli"
                                         class="kundli-checkbox" onclick="changeInfo('basicKundli')">
                                     <div class="checkbox__checkmark"></div>
+
                                     <input type="hidden" value="299" name="amount">
                                 </div>
                                 <div class="labels">
@@ -73,10 +57,10 @@
                         <div class="priceContainer">
                             <h5><strike>₹699.00</strike> ₹299.00 </h5>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- Pro Kundli -->
-                    <div class="radioBtn my-[10px]">
+                    <!-- <div class="radioBtn my-[10px]">
 
                         <div class="radioData checkbox">
                             <label for="d2-option" class="mainCheckbox">
@@ -96,10 +80,10 @@
                         <div class="priceContainer">
                             <h5><strike>₹999.00</strike> ₹499.00 </h5>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- Pro Numerology -->
-                    <div class="radioBtn my-[10px]">
+                    <!-- <div class="radioBtn my-[10px]">
                         <div class="radioData checkbox">
                             <label for="d3-option" class="mainCheckbox">
                                 <div>
@@ -117,10 +101,10 @@
                         <div class="priceContainer">
                             <h5>₹699.00 </h5>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!--  Astro-Vastu -->
-                    <div class="radioBtn">
+                    <!-- <div class="radioBtn">
                         <div class="radioData checkbox">
                             <label for="d4-option" class="mainCheckbox">
                                 <div>
@@ -138,6 +122,57 @@
                         <div class="priceContainer">
                             <h5>₹699.00 </h5>
                         </div>
+                    </div> -->
+
+
+                    <!-- offer check box  -->
+                    <div>
+                        <!-- Basic Kundli  -->
+
+                        <div class="flex justify-between">
+                            <div class="form-group">
+                                <input type="checkbox" id="BasicKundli">
+                                <label for="BasicKundli">Basic Kundli</label>
+                            </div>
+
+                            <div class="priceContainer">
+                                <h5><strike>₹699.00</strike> ₹299.00 </h5>
+                            </div>
+                        </div>
+
+                        <!-- Pro Kundali -->
+                        <div class="flex justify-between">
+                            <div class="form-group">
+                                <input type="checkbox" id="ProKundli">
+                                <label for="ProKundli">Pro Kundali</label>
+                            </div>
+                            <div class="priceContainer">
+                                <h5><strike>₹699.00</strike> ₹299.00 </h5>
+                            </div>
+                        </div>
+
+                        <!-- Numerology  -->
+                        <div class="flex justify-between">
+                            <div class="form-group">
+                                <input type="checkbox" id="Numerology">
+                                <label for="Numerology">Numerology</label>
+                            </div>
+                            <div class="priceContainer">
+                                <h5><strike>₹699.00</strike> ₹299.00 </h5>
+                            </div>
+                        </div>
+
+                        <!-- Astromapping -->
+                        <div class="flex justify-between">
+                            <div class="form-group">
+                                <input type="checkbox" id="Astromapping">
+                                <label for="Astromapping">Astromapping</label>
+                            </div>
+                            <div class="priceContainer">
+                                <h5><strike>₹699.00</strike> ₹999.00 </h5>
+                            </div>
+                        </div>
+
                     </div>
 
                 </div>
@@ -150,7 +185,7 @@
                         <div class="getContainer md:flex">
 
                             <!-- basicKundli -->
-                            <div class="reviewD getContent" id="basicKundli">
+                            <div class="reviewD getContent" id="content-BasicKundli" style="display: none;">
                                 <h2>What you get in Basic kundali Report?</h2>
 
                                 <ul>
@@ -197,7 +232,7 @@
                             </div>
 
                             <!-- proKundli -->
-                            <div class="reviewD getContent" id="proKundli" style="display:none;">
+                            <div class="reviewD getContent" id="content-ProKundli" style="display: none;">
                                 <h2>What you get in Pro kundali Report?</h2>
 
                                 <ul>
@@ -243,7 +278,7 @@
                             </div>
 
                             <!-- Numerology -->
-                            <div class="reviewD getContent" id="proNumerology" style="display:none;">
+                            <div class="reviewD getContent" id="content-Numerology" style="display:none;">
                                 <h2>What you get in Numerology Report?</h2>
 
                                 <ul>
@@ -281,7 +316,7 @@
                             </div>
 
                             <!-- Astro-vastu -->
-                            <div class="reviewD getContent" id="astroVastu" style="display:none;">
+                            <div class="reviewD getContent" id="content-Astromapping" style="display:none;">
                                 <h2>What you get in Astro-Vastu Report?</h2>
 
                                 <ul>
@@ -395,42 +430,64 @@
         </div>
     </section>
 
+
+    <!-- javascript  -->
+
     <script>
-        // Get all checkboxes
-        const checkboxes = document.querySelectorAll('.kundli-checkbox');
+        // const pageCheckboxMapping = {
+        //     'BasicKundli': 'Basic',
+        //     'ProKundli': 'Pro',
+        //     'Numerology': 'Numerology',
+        //     'Astromapping': 'Astromapping'
+        // };
 
-        checkboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', function () {
-                if (this.checked) {
-                    // Uncheck all other checkboxes
-                    checkboxes.forEach(cb => {
-                        if (cb !== this) cb.checked = false;
-                    });
-                }
-            });
-        });
+        // const selectedPlan = localStorage.getItem('selectedPlan');
 
-        // Select all checkbox elements
-        const kundliCheckboxes = document.querySelectorAll('.kundli-checkbox');
-        const hiddenInput = document.getElementById('selectedKundli');
+        // if (selectedPlan && pageCheckboxMapping[selectedPlan]) {
+        //     const checkboxId = pageCheckboxMapping[selectedPlan];
+        //     const checkbox = document.getElementById(checkboxId);
+        //     if (checkbox) {
+        //         checkbox.checked = true;
+        //     }
+        // }
 
-        kundliCheckboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', function () {
-                if (this.checked) {
-                    // Uncheck all other checkboxes
-                    kundliCheckboxes.forEach(cb => {
-                        if (cb !== this) cb.checked = false;
-                    });
+        // localStorage.removeItem('selectedPlan');
 
-                    // Update the hidden input's value
-                    const label = this.parentElement.nextElementSibling.textContent.trim();
-                    hiddenInput.value = label;
-                }
-            });
-        });
+        // console.log(localStorage.getItem('selectedPlan'));
+
+
+
+        // Function to handle checkbox and content mapping
+        function handleUserSelection() {
+            const selectedPlan = localStorage.getItem('selectedPlan');
+
+            if (selectedPlan) {
+                // Uncheck all checkboxes and hide all content sections
+                document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+                document.querySelectorAll('.getContent').forEach(content => {
+                    content.style.display = 'none';
+                });
+
+                // Check the checkbox and show the content for the selected plan
+                const checkboxToCheck = document.getElementById(selectedPlan);
+                const contentToShow = document.getElementById(`content-${selectedPlan}`);
+                if (checkboxToCheck) checkboxToCheck.checked = true;
+                if (contentToShow) contentToShow.style.display = 'block';
+            }
+        }
+
+        // Call the function on page load
+        document.addEventListener('DOMContentLoaded', handleUserSelection);
+
+        console.log(localStorage.getItem('selectedPlan'));
+
     </script>
 
     <script src="/static/javascript/main.js"></script>
+
+
 </body>
 
 </html>
