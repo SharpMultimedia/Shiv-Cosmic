@@ -103,13 +103,13 @@ def payment(request):
         print(kundli_type)
 
         if kundli_type == "Basic Kundli":
-            amount = 299
+            amount = 1
         elif kundli_type == "Pro Kundli":
-            amount = 499
+            amount = 1
         elif kundli_type == "Pro Numerology":
-            amount = 699
+            amount = 1
         elif kundli_type == "Astro-Vastu":
-            amount = 999
+            amount = 1
         # Construct the dynamic URLs
         base_url = request.build_absolute_uri('/')
         redirectUrl = base_url + 'payment_return/'
@@ -259,7 +259,7 @@ def basic_horoscope(request):
     if not astrology_data or not pdf_content_b64:
         # Your API credentials
         userId = '616659'
-        apiKey = '73d704711428670b973f180f43b26f92'
+        apiKey = '0a9bf90337d14972e821a590d761404611abd507'
 
         # API endpoint
         api = 'basic_horoscope_pdf'
@@ -368,7 +368,7 @@ def pro_horoscope(request):
     if not astrology_data or not pdf_content_b64:
         # Your API credentials
         userId = '616659'
-        apiKey = '73d704711428670b973f180f43b26f92'
+        apiKey = '0a9bf90337d14972e821a590d761404611abd507'
 
         # API endpoint
         api = 'pro_horoscope_pdf'
@@ -474,7 +474,7 @@ def pro_numerology(request):
     if not astrology_data or not pdf_content_b64:
         # Your API credentials
         userId = '616659'
-        apiKey = '73d704711428670b973f180f43b26f92'
+        apiKey = '0a9bf90337d14972e821a590d761404611abd507'
 
         # API endpoint
         api = 'pro_numerology_report'
@@ -634,7 +634,7 @@ def astro_vastu(request):
     if not astrology_data or not pdf_content_b64:
         # Your API credentials
         userId = '616659'
-        apiKey = '73d704711428670b973f180f43b26f92'
+        apiKey = '0a9bf90337d14972e821a590d761404611abd507'
 
         # API endpoint
         api = 'custom_abundance_report'
