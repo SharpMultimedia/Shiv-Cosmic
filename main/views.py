@@ -237,20 +237,12 @@ def redirect_url(request):
     kundliType = request.session.get('kundliType', None)
     print(kundliType)
     if kundliType == "Basic Kundli":
-        del request.session['astrology_data']
-        del request.session['pdf_content_b64']
         return redirect('basic_horoscope')
     elif kundliType == "Pro Kundli":
-        del request.session['astrology_data']
-        del request.session['pdf_content_b64']
         return redirect('pro_horoscope')
     elif kundliType == "Pro Numerology":
-        # del request.session['astrology_data']
-        # del request.session['pdf_content_b64']
         return redirect('pro_numerology')
     elif kundliType == "Astro-Vastu":
-        del request.session['astrology_data']
-        del request.session['pdf_content_b64']
         return redirect('astro_vastu')
     else:
         messages.error(request, "Invalid Kundli type. Please try again.")
