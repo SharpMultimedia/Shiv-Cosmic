@@ -103,13 +103,13 @@ def payment(request):
         print(kundliType)
 
         if kundliType == "Basic Kundli":
-            amount = 100
+            amount = 10
         elif kundliType == "Pro Kundli":
-            amount = 100
+            amount = 10
         elif kundliType == "Pro Numerology":
-            amount = 100
+            amount = 10
         elif kundliType == "Astro-Vastu":
-            amount = 100
+            amount = 10
         # Construct the dynamic URLs
         base_url = request.build_absolute_uri('/')
         redirectUrl = base_url + 'payment_return/'
