@@ -495,9 +495,13 @@
         const selectedCheckbox = document.querySelector('input[name="kundliType"]:checked');
         if (selectedCheckbox) {
             const hiddenInput = document.getElementById('selectedKundliType');
-            hiddenInput.value = selectedCheckbox.value;
+            hiddenInput.value = selectedCheckbox.value; // Set the hidden field value
+        } else {
+            alert('Please select a Kundli type before proceeding.');
+            return false; // Prevent form submission if no option is selected
         }
     });
+    
     
     console.log(localStorage.getItem('selectedPlan'));
 

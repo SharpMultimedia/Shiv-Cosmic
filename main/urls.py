@@ -9,6 +9,7 @@ urlpatterns = [
     path('basic_horoscope/', views.basic_horoscope, name='basic_horoscope'),
     path('pro_horoscope/', views.pro_horoscope, name='pro_horoscope'),
     path('payment_return/', views.payment_return, name='payment_return'),
+    path('redirect_url/', views.redirect_url, name='redirect_url'),
     path('privacy_policy/', views.policy, name='policy'),
     path('terms_condition/', views.terms, name='terms'),
     path('return_and_refund/', views.returnrefund, name='return'),

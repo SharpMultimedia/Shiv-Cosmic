@@ -35,12 +35,12 @@
       <p class="text-[#fff]">Thank you for making a payment, you will get your kundali /horoscope report on your email.
         else you can download now from here. click on download button.</p>
 
-      <!-- {% if astrology_data %} -->
+      {% if astrology_data %}
       <a href="{{ astrology_data.pdf_url }}" target="_blank"><button><img src="/static/assets/icons/pdf.svg" alt="">
           Download PDF</button></a>
-      <!-- {% else %} -->
+      {% else %}
       <p class="text-[#fff]">No astrology data available.</p>
-      <!-- {% endif %} -->
+      {% endif %}
 
     </div>
   </section>

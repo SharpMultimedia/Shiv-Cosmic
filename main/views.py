@@ -99,17 +99,17 @@ def payment(request):
         email = request.POST.get('email')
         mobile = request.POST.get('mobile')
 
-        kundli_type = request.POST.get('kundliType', None)
-        print(kundli_type)
+        kundliType = request.POST.get('kundliType', None)
+        print(kundliType)
 
-        if kundli_type == "Basic Kundli":
-            amount = 1
-        elif kundli_type == "Pro Kundli":
-            amount = 1
-        elif kundli_type == "Pro Numerology":
-            amount = 1
-        elif kundli_type == "Astro-Vastu":
-            amount = 1
+        if kundliType == "Basic Kundli":
+            amount = 100
+        elif kundliType == "Pro Kundli":
+            amount = 100
+        elif kundliType == "Pro Numerology":
+            amount = 100
+        elif kundliType == "Astro-Vastu":
+            amount = 100
         # Construct the dynamic URLs
         base_url = request.build_absolute_uri('/')
         redirectUrl = base_url + 'payment_return/'
@@ -161,6 +161,7 @@ def payment(request):
             print(response_data)
             request.session['mobile'] = mobile
             request.session['email'] = email
+            request.session['kundliType'] = kundliType
         except requests.exceptions.RequestException as e:
             print(f"Request failed: {e}")
             messages.error(request, "There was an error processing your payment. Please try again.")
@@ -184,6 +185,9 @@ def payment_return(request):
     INDEX = "1"
     SALTKEY = "f35e2d5a-2d92-4cea-8404-7ef608af3522"
     merchantId = "M22REVYZNMPVY"
+    # url = "https://api-preprod.phonepe.com/apis/pg-sandbox/pg/v1/pay"
+    # SALTKEY = "14fa5465-f8a7-443f-8477-f986b8fcfde9"
+    # merchantId = "PGTESTPAYUAT77"
     form_data = request.POST
     form_data_dict = dict(form_data)
     transaction_id = form_data.get('transactionId', None)
@@ -192,8 +196,8 @@ def payment_return(request):
     print(form_data)
 
     # Retrieve kundli_type from the session
-    kundli_type = request.session.get('kundliType', None)
-    print(f"Kundli Type: {kundli_type}")
+    kundliType = request.session.get('kundliType', None)
+    print(f"Kundli Type: {kundliType}")
 
     # Check the payment status
     payment_status = form_data.get('code', None)
@@ -216,18 +220,7 @@ def payment_return(request):
             print(response_data)
 
             if payment_status == 'PAYMENT_SUCCESS':
-                # Redirect based on kundli_type
-                if kundli_type == "Basic Kundli":
-                    return redirect('basic_horoscope')
-                elif kundli_type == "Pro Kundli":
-                    return redirect('pro_horoscope')
-                elif kundli_type == "Pro Numerology":
-                    return redirect('pro_numerology')
-                elif kundli_type == "Astro-Vastu":
-                    return redirect('astro_vastu')
-                else:
-                    messages.error(request, "Invalid Kundli type. Please try again.")
-                    return redirect('home')  # Redirect to index if kundli_type is invalid
+                return redirect('redirect_url')
             else:
                 messages.error(request, "Payment was unsuccessful. Please try again.")
                 return redirect('home')  # Redirect to index if payment is unsuccessful
@@ -240,6 +233,28 @@ def payment_return(request):
         messages.error(request, "Invalid transaction ID.")
     return render(request, 'Kundali.html', {'form_data': form_data})
 
+def redirect_url(request):
+    kundliType = request.session.get('kundliType', None)
+    print(kundliType)
+    if kundliType == "Basic Kundli":
+        del request.session['astrology_data']
+        del request.session['pdf_content_b64']
+        return redirect('basic_horoscope')
+    elif kundliType == "Pro Kundli":
+        del request.session['astrology_data']
+        del request.session['pdf_content_b64']
+        return redirect('pro_horoscope')
+    elif kundliType == "Pro Numerology":
+        # del request.session['astrology_data']
+        # del request.session['pdf_content_b64']
+        return redirect('pro_numerology')
+    elif kundliType == "Astro-Vastu":
+        del request.session['astrology_data']
+        del request.session['pdf_content_b64']
+        return redirect('astro_vastu')
+    else:
+        messages.error(request, "Invalid Kundli type. Please try again.")
+        return redirect('home')  # Redirect to index if kundli_type is invalid
 
 def basic_horoscope(request):
     # Here you would integrate with a payment gateway.
@@ -259,8 +274,8 @@ def basic_horoscope(request):
     if not astrology_data or not pdf_content_b64:
         # Your API credentials
         userId = '616659'
-        apiKey = '0a9bf90337d14972e821a590d761404611abd507'
-
+        apiKey = '73d704711428670b973f180f43b26f92'
+        print("in kundali loop")
         # API endpoint
         api = 'basic_horoscope_pdf'
         url = "https://pdf.astrologyapi.com/v1/" + api
@@ -334,6 +349,8 @@ def basic_horoscope(request):
                     # Attach the PDF file
                     email_message.attach('astrology_report.pdf', pdf_content, 'application/pdf')
                     email_message.send()
+                    del request.session['astrology_data']
+                    del request.session['pdf_content_b64']
 
                     messages.success(request, "Message Was Sent Successfully")
                 except BadHeaderError as e:
@@ -368,7 +385,7 @@ def pro_horoscope(request):
     if not astrology_data or not pdf_content_b64:
         # Your API credentials
         userId = '616659'
-        apiKey = '0a9bf90337d14972e821a590d761404611abd507'
+        apiKey = '73d704711428670b973f180f43b26f92'
 
         # API endpoint
         api = 'pro_horoscope_pdf'
@@ -427,7 +444,7 @@ def pro_horoscope(request):
 
                 try:
                     email_message = EmailMessage(
-                        f"Kundali Report for {form_data['name']}",
+                        f"Pro Kundali Report for {form_data['name']}",
                         "Please find the attached PDF document.\n\n"
                         f"Name: {form_data['name']}\n"
                         f"Birthdate: {form_data['day']}/{form_data['month']}/{form_data['year']}\n"
@@ -443,6 +460,8 @@ def pro_horoscope(request):
                     # Attach the PDF file
                     email_message.attach('astrology_report.pdf', pdf_content, 'application/pdf')
                     email_message.send()
+                    del request.session['astrology_data']
+                    del request.session['pdf_content_b64']
 
                     messages.success(request, "Message Was Sent Successfully")
                 except BadHeaderError as e:
@@ -470,11 +489,13 @@ def pro_numerology(request):
     # Check if the API response is already in the session
     astrology_data = request.session.get('astrology_data')
     pdf_content_b64 = request.session.get('pdf_content_b64')
+    # del request.session['astrology_data']
+    # del request.session['pdf_content_b64']
 
     if not astrology_data or not pdf_content_b64:
         # Your API credentials
         userId = '616659'
-        apiKey = '0a9bf90337d14972e821a590d761404611abd507'
+        apiKey = '73d704711428670b973f180f43b26f92'
 
         # API endpoint
         api = 'pro_numerology_report'
@@ -518,7 +539,7 @@ def pro_numerology(request):
             if response.status_code == 200:
                 # Process the response data here
                 astrology_data = response.json()
-                pdf_url = astrology_data.get('pdf_url')
+                pdf_url = astrology_data['response']['pdf_url']
 
                 # Download the PDF file
                 pdf_response = requests.get(pdf_url, timeout=10)
@@ -532,7 +553,7 @@ def pro_numerology(request):
 
                 try:
                     email_message = EmailMessage(
-                        f"Kundali Report for {form_data['name']}",
+                        f"Pro Numerology Report for {form_data['name']}",
                         "Please find the attached PDF document.\n\n"
                         f"Name: {form_data['name']}\n"
                         f"Birthdate: {form_data['day']}/{form_data['month']}/{form_data['year']}\n"
@@ -548,6 +569,8 @@ def pro_numerology(request):
                     # Attach the PDF file
                     email_message.attach('astrology_report.pdf', pdf_content, 'application/pdf')
                     email_message.send()
+                    del request.session['astrology_data']
+                    del request.session['pdf_content_b64']
 
                     messages.success(request, "Message Was Sent Successfully")
                 except BadHeaderError as e:
@@ -634,7 +657,7 @@ def astro_vastu(request):
     if not astrology_data or not pdf_content_b64:
         # Your API credentials
         userId = '616659'
-        apiKey = '0a9bf90337d14972e821a590d761404611abd507'
+        apiKey = '73d704711428670b973f180f43b26f92'
 
         # API endpoint
         api = 'custom_abundance_report'
@@ -693,7 +716,7 @@ def astro_vastu(request):
 
                 try:
                     email_message = EmailMessage(
-                        f"Kundali Report for {form_data['name']}",
+                        f"Astro Vastu Report for {form_data['name']}",
                         "Please find the attached PDF document.\n\n"
                         f"Name: {form_data['name']}\n"
                         f"Birthdate: {form_data['day']}/{form_data['month']}/{form_data['year']}\n"
@@ -709,6 +732,8 @@ def astro_vastu(request):
                     # Attach the PDF file
                     email_message.attach('report.pdf', pdf_content, 'application/pdf')
                     email_message.send()
+                    del request.session['astrology_data']
+                    del request.session['pdf_content_b64']
 
                     messages.success(request, "Message Was Sent Successfully")
                 except BadHeaderError as e:
