@@ -1,11 +1,12 @@
 {% extends 'base.html'%}
 {% load static %}
+{% block hero-image %} personalised-banner {% endblock hero-image %}
 {% block main-content %}
 
 <!-- ------- Hero section ------  -->
 
 <section class="bg-center bg-cover bg-no-repeat px-[15px] py-[25px]
-     lg:px-[100px] py-lg:[60px] flex items-center flex-col personalised-banner">
+     lg:px-[100px] py-lg:[60px] flex items-center flex-col ">
 
     <div
         class="bg-[#fff] md:w-[80%] h-auto flex items-center justify-center rounded-[10px] mb-[0px] lg:my-[40px] py-[8px]">
@@ -31,13 +32,14 @@
 
 
 </section>
+</header>
 
 <!-- fixed button  -->
 
-<section class="w-full fixed bottom-0 z-[100] pr-[0px] lg:pr-[30px]">
+<section class="md:w-[16%] fixed bottom-0 right-[-15px] z-[100]">
 
     <!-- Pro kundli button  -->
-    <div class="w-[100%] py-[10px] rounded-tl-[10px] rounded-tr-[10px]
+    <div class="w-[80%] py-[10px] rounded-tl-[10px] rounded-tr-[10px]
          flex justify-end bg-center bg-cover bg-no-repeat">
 
         <a href="{% url 'horoscopeform' %}" onclick="localStorage.setItem('selectedPlan', 'ProKundli')">
@@ -52,7 +54,7 @@
     </div>
 
     <!-- Basic kundli button  -->
-    <div class="w-[100%] py-[10px] rounded-tl-[10px] rounded-tr-[10px]
+    <div class="w-[80%] py-[10px] rounded-tl-[10px] rounded-tr-[10px]
          flex justify-end bg-center bg-cover bg-no-repeat">
 
         <a href="{% url 'horoscopeform' %}" onclick="localStorage.setItem('selectedPlan', 'BasicKundli')">

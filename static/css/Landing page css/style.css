@@ -39,12 +39,6 @@ p {
     font-style: normal;
 }
 
-.nav-bar {
-    background-color: #d2833680;
-    z-index: 9999 !important;
-    box-shadow: 0 2px 30px rgba(23, 15, 73, .1);
-}
-
 .open {
     top: 0px !important;
     opacity: 1 !important;
@@ -73,12 +67,16 @@ li.relative:hover .absolute {
     transition: all 0.3s ease-in-out;
 }
 
+.active {
+    color: #fff;
+    font-weight: bold;
+    background: #0CB0EB;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
 
 /* --- Dropdown Nav link ---  */
-
-
-
-
 
 .bg-custom {
     background-color: #ae633f !important;
@@ -131,7 +129,7 @@ ul {
 
 .personalised-banner {
     background-image: url('/static/assets/images/Sub-Banner.jpg');
-    height: 520px;
+    height: 590px;
 
 }
 
@@ -278,6 +276,14 @@ ul {
     color: #0b0b0b;
     text-align: center;
     padding: 40px 100px;
+}
+
+.info-footer li{
+    font-family: "Roboto", sans-serif;
+}
+
+.footerBottom{
+    border-bottom: 2px solid #CEAB5C;
 }
 
 /* --- Reiki Healing Workshop page ----  */
@@ -526,7 +532,8 @@ select::-webkit-scrollbar-thumb:hover {
         top: 22% !important;
     }
 
-    .numerology-hero,.Astro-Vastu-hero  {
+    .numerology-hero,
+    .Astro-Vastu-hero {
         height: 450px;
     }
 }
