@@ -122,14 +122,14 @@
 
                 <ul class="menuList md:flex md:items-center md:z-auto md:static absolute w-full left-0
                 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500 text-white
-                bg-[#ae633f] md:bg-inherit z-[99999] active">
-                    <li class="ml-4 my-4 md:my-0 z-[999]">
+                bg-[#ae633f] md:bg-inherit z-[99999] gap-[24px] active">
+                    <li class="my-4 md:my-0 z-[999]">
                         <a href="{% url 'home' %}"
                             class="text-[17px] font-bold {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
                             Home
                         </a>
                     </li>
-                    <li class="ml-4 my-4 md:my-0 z-[999]">
+                    <li class="my-4 md:my-0 z-[999]">
                         <a href="{% url 'reikhihealing' %}"
                             class="text-[17px] font-bold {% if request.resolver_match.url_name == 'reikhihealing' %}active{% endif %}">
                             Workshop
@@ -137,11 +137,11 @@
                     </li>
 
                     <!-- Dropdown for Report -->
-                    <li class="relative ml-4 my-4 md:my-0 z-[999]">
+                    <li class="relative my-4 md:my-0 z-[999]">
                         <a href="javascript:void(0);" class="text-[17px] font-bold">Report</a>
                         <!-- Dropdown Menu -->
                         <ul
-                            class="absolute left-0 top-full w-[205px] bg-[#ae633f] opacity-0 invisible md:visible transition-all ease-in duration-300 text-white">
+                            class="dropdownList absolute left-0 top-full w-[260px]  opacity-0 invisible md:visible transition-all ease-in duration-300 text-white">
                             <li class="py-2 px-4">
                                 <a href="{% url 'kundali' %}"
                                     class="{% if request.resolver_match.url_name == 'kundali' %}active{% endif %}">
@@ -157,13 +157,13 @@
                             <li class="py-2 px-4">
                                 <a href="{% url 'astro_mapping' %}"
                                     class="{% if request.resolver_match.url_name == 'astro_mapping' %}active{% endif %}">
-                                    Astromapping
+                                    Astromapping Report
                                 </a>
                             </li>
                         </ul>
                     </li>
 
-                    <li class="ml-4 my-4 md:my-0 z-[999]">
+                    <li class="my-4 md:my-0 z-[999]">
                         <a href="{% url 'contact' %}"
                             class="text-[17px] font-bold {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
                             Contact
@@ -183,13 +183,14 @@
             <div class="lg:w-[10%] flex justify-between items-center">
                 <a href="{% url 'home' %}">
                     <img class="max-w-[95px] md:max-w-[105px] xl:max-w-[135px]"
-                        src="/static/assets/images/Logo/shiv cosmic logo w.png" alt="logo" loading="lazy">
+                        src="/static/assets/images/Logo/logo.png" alt="logo" loading="lazy">
                 </a>
             </div>
 
             <div class="w-[10%] md:w-[30%]">
                 <div class="flex items-center justify-end">
                     <div class="z-[999]">
+
                         <div class="my-4 flex items-start lg:block">
                             <a href="https://www.instagram.com/shivcosmicenergysolutions" target="_blank">
                                 <i class="fa-brands fa-instagram text-[18px] text-[#fff]"></i>
@@ -198,6 +199,12 @@
                                 target="_blank">
                                 <i class="fa-brands fa-facebook-f text-[18px] text-[#fff]"></i>
                             </a>
+
+                            <a href="https://www.youtube.com/channel/UCvM4OYpE1TArbmlIZFgBB7g?view_as=subscriber"
+                                class="xl:mr-[20px]" target="_blank">
+                                <i class="fa-brands fa-youtube text-[18px] text-[#fff]"></i>
+                            </a>
+
                         </div>
                     </div>
                     <div class="z-[999]">
@@ -210,11 +217,9 @@
             </div>
         </nav>
 
-
         {% block main-content %}
 
         {% endblock main-content %}
-
 
         <!-- footer  -->
 
@@ -228,79 +233,83 @@
 
                 <div class="content">
 
-                    <div class="w-full footerBottom pb-[20px] md:pb-[30px]">
+                    <div class="w-full">
 
-                        <div class="w-full flex items-center justify-between flex-col lg:flex-row">
+                        <div class="w-full flex justify-between flex-col lg:flex-row">
 
-                            <div class="lg:w-[10%]">
-                                <img src="/static/assets/images/Logo/shiv cosmic logo w.png" alt=""
-                                    class="max-w-[175px]">
+                            <div class="lg:w-[16%]">
+                                <img src="/static/assets/images/Logo/logo.png" alt="logo" class="max-w-[175px]">
                             </div>
 
-                            <div class="lg:w-[15%] my-[10px]">
-                                <ul class="">
-                                    <li><a href="{% url 'kundali' %}" class="text-[#fff]">Buy Kundli Report</a></li>
-                                    <li class="md:my-2"><a href="{% url 'numerology' %}" class="text-[#fff]">Buy Numerlogy Report</a></li>
-                                    <li><a href="{% url 'astro_mapping' %}" class="text-[#fff]">Buy Astromapping report</a></li>
+                            <div class="lg:w-[18%] my-4 md:m-0">
+                                <ul class="footerlinks flex flex-col items-start">
+                                    <li>
+                                        <a href="{% url 'kundali' %}" class="text-[#fff] flex gap-[6px]">
+                                            <img src="/static/assets/icons/parchment.png" alt=""
+                                                class="max-w-[20px] max-h-[20px] footer-icon">
+                                            Buy Kundli Report
+                                        </a>
+                                    </li>
+                                    <li class="my-2">
+                                        <a href="{% url 'numerology' %}" class="text-[#fff] flex gap-[6px]">
+                                            <img src="/static/assets/icons/numerology (1).png" alt=""
+                                                class="max-w-[20px] max-h-[20px] footer-icon">
+                                            Buy Numerlogy Report
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'astro_mapping' %}" class="text-[#fff] flex gap-[6px]">
+                                            <img src="/static/assets/icons/planet.png" alt=""
+                                                class="max-w-[20px] max-h-[20px] footer-icon">
+                                            Buy Astromapping report
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
 
-                            <div class="lg:w-[21%]">
-                                <ul class="info-footer">
+                            <div class="lg:w-[18%]">
+                                <ul class="info-footer flex flex-col items-start">
                                     <li class="text-[#fff]">
-                                        <i class="fa-regular fa-envelope text-[#CEAB5C] mr-[5px]"></i>
-                                        info.shivcosmic@gmail.com
+                                        <i class="fa-brands fa-whatsapp text-[#CEAB5C] mr-[5px] text-[18px]"></i>
+                                        <span>+(91) 7030127129</span>
+                                    </li>
+                                    <li class="text-[#fff] mt-2">
+                                        <i class="fa-regular fa-envelope text-[#CEAB5C] mr-[5px] text-[18px]"></i>
+                                        <span>info.shivcosmic@gmail.com</span>
                                     </li>
                                 </ul>
                             </div>
 
-                            <div class="lg:w-[19%]">
-                                <ul class="info-footer">
-                                    <li class="text-[#fff] mt-1"><i
-                                            class="fa-brands fa-whatsapp text-[#CEAB5C] mr-[5px]"></i> +(91) 7030127129
+                            <div class="lg:w-[18%] my-4 md:m-0">
+                                <ul class="footerlinks footerlinks flex flex-col items-start">
+
+                                    <li><a href="{% url 'policy' %}" class="text-[#fff] flex gap-[6px]"><img
+                                                src="/static/assets/icons/file.png" alt=""
+                                                class="max-w-[20px] max-h-[20px] footer-icon"> Privacy Policy </a></li>
+
+                                    <li class="my-2"><a href="{% url 'terms' %}" class="text-[#fff] flex gap-[6px]"><img
+                                                src="/static/assets/icons/terms-and-conditions.png" alt=""
+                                                class="max-w-[20px] max-h-[20px] footer-icon">Terms and Conditions</a>
                                     </li>
+
+                                    <li><a href="{% url 'return' %}" class="text-[#fff] flex gap-[6px]"><img
+                                                src="/static/assets/icons/contract.png" alt=""
+                                                class="max-w-[20px] max-h-[20px] footer-icon"> Refund & Cancellation
+                                            Policy
+                                        </a></li>
                                 </ul>
-                            </div>
-
-
-                            <div class="lg:w-[12%] flex items-start lg:block mt-[10px]">
-                                <a href="https://www.instagram.com/shivcosmicenergysolutions/" target="_blank"
-                                    class="w-[40px] h-[40px] border border-[#fff] border-solid rounded-full p-2 inline-flex items-center justify-center">
-                                    <i class="fa-brands fa-instagram text-[19px] text-[#fff]"></i>
-                                </a>
-
-                                <a href="https://www.facebook.com/nhmcpune"
-                                    class="mx-[10px]
-                                    w-[40px] h-[40px] border border-[#fff] border-solid rounded-full p-2 inline-flex items-center justify-center"
-                                    target="_blank">
-                                    <i class="fa-brands fa-facebook-f text-[19px] text-[#fff]"></i>
-                                </a>
-
-                                <a href="https://www.youtube.com/channel/UCvM4OYpE1TArbmlIZFgBB7g?view_as=subscriber"
-                                    target="_blank"
-                                    class="w-[40px] h-[40px] border border-[#fff] border-solid rounded-full p-2 inline-flex items-center justify-center">
-                                    <i class="fa-brands fa-youtube text-[19px] text-[#fff]"></i>
-                                </a>
                             </div>
                         </div>
-
                     </div>
 
-
-                    <div class="flex justify-between flex-col-reverse lg:flex-row mt-[20px]
+                    <div class="mt-[20px]
                      md:mt-[40px]">
                         <div class="md:mt-[10px] lg:m-0">
-                            <p class="text-[#fff] text-center lg:text-start ">© 2024 All rights reserved. NHMC.</p>
+                            <p class="text-[#fff] md:text-center text-start text-[14px] md:text-[16px]">Copyright © 2024
+                                – <span id="spanYear"></span> All rights
+                                reserved - Shivcosmic Energy Solutions.</p>
                         </div>
 
-                        <div class="mb-2 md:m-0">
-                            <ul class="lg:flex gap-[12px]">
-                                <li><a href="{% url 'policy' %}" class="text-[#fff]">Privacy Policy </a></li>
-                                <li><a href="{% url 'terms' %}" class="text-[#fff]">Terms and Conditions</a></li>
-                                <li><a href="{% url 'return' %}" class="text-[#fff]">Refund & Cancellation Policy
-                                    </a></li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
 
@@ -402,6 +411,12 @@
 
         <script src="/static/javascript/main.js" defer></script>
         <script src="/static/javascript/app.js"></script>
+
+        <script>
+            // footer copyright year to automatically update
+            let changeYear = document.getElementById('spanYear');
+            changeYear.textContent = new Date().getFullYear();
+        </script>
 
 </body>
 

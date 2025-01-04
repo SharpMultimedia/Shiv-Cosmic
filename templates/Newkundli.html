@@ -36,11 +36,12 @@
 
 <!-- fixed button  -->
 
-<section class="md:w-[16%] fixed bottom-0 right-[-15px] z-[100]">
+<section>
 
     <!-- Pro kundli button  -->
-    <div class="w-[80%] py-[10px] rounded-tl-[10px] rounded-tr-[10px]
-         flex justify-end bg-center bg-cover bg-no-repeat">
+    <div class="md:w-[22%] lg:w-[13%] rounded-tl-[10px] rounded-tr-[10px]
+    flex items-center justify-end bg-center bg-cover bg-no-repeat fixed bottom-[120px] 
+    right-[10px] md:right-[40px] z-[100]">
 
         <a href="{% url 'horoscopeform' %}" onclick="localStorage.setItem('selectedPlan', 'ProKundli')">
             <button class="btn btn--snakeBorder m-0">
@@ -54,8 +55,9 @@
     </div>
 
     <!-- Basic kundli button  -->
-    <div class="w-[80%] py-[10px] rounded-tl-[10px] rounded-tr-[10px]
-         flex justify-end bg-center bg-cover bg-no-repeat">
+    <div class="md:w-[22%] lg:w-[13%] rounded-tl-[10px] rounded-tr-[10px]
+    flex items-center justify-end bg-center bg-cover bg-no-repeat fixed bottom-[64px] 
+    right-[10px] md:right-[40px] z-[100]">
 
         <a href="{% url 'horoscopeform' %}" onclick="localStorage.setItem('selectedPlan', 'BasicKundli')">
             <button class="btn btn--snakeBorder m-0">

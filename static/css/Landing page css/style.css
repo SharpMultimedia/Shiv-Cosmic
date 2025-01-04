@@ -70,7 +70,7 @@ li.relative:hover .absolute {
 .active {
     color: #fff;
     font-weight: bold;
-    background: #AE633F;
+    background: #821837;
     padding: 5px 15px;
     border-radius: 5px;
 }
@@ -97,6 +97,18 @@ li.relative:hover .absolute {
 
 ul {
     position: relative;
+}
+
+.menuList li a {
+    padding: 5px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.menuList li a:hover {
+    background: #821837;
+    color: #fff;
 }
 
 /* .mini-nav {
@@ -237,6 +249,10 @@ ul {
     padding: 2px 0;
 } */
 
+.footer-icon {
+    filter: invert(62%) sepia(100%) saturate(230%) hue-rotate(4deg) brightness(96%) contrast(80%);
+}
+
 /* --------- footer video -----  */
 
 .video-background {
@@ -278,13 +294,11 @@ ul {
     padding: 40px 100px;
 }
 
-.info-footer li{
+.info-footer li {
     font-family: "Roboto", sans-serif;
 }
 
-.footerBottom{
-    border-bottom: 2px solid #CEAB5C;
-}
+
 
 /* --- Reiki Healing Workshop page ----  */
 
@@ -510,6 +524,14 @@ select::-webkit-scrollbar-thumb:hover {
         margin: 40px 15px;
     }
 
+    .menuList li a {
+        padding: 8px 15px;
+    }
+
+    .dropdownList{
+        background: #ae633f;
+    }
+
     .category-cart {
         top: 0;
     }
@@ -535,6 +557,12 @@ select::-webkit-scrollbar-thumb:hover {
     .numerology-hero,
     .Astro-Vastu-hero {
         height: 450px;
+    }
+
+    .info-footer li span,
+    .footerlinks li a {
+        /* line-height: 30px; */
+        font-size: 15px !important;
     }
 }
 
@@ -1007,6 +1035,10 @@ select::-webkit-scrollbar-thumb:hover {
         height: 510px;
     }
 
+    .personalised-banner {
+        height: 570px;
+    }
+
     .btn {
         padding: 10px 12px;
         font-size: 12px;
@@ -1020,6 +1052,7 @@ select::-webkit-scrollbar-thumb:hover {
         font-size: 15px;
         margin: 1em 0;
     }
+
 }
 
 /* new reiki page  */
