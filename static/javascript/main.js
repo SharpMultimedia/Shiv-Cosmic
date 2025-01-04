@@ -140,3 +140,5 @@ function changeInfo(option) {
     // Show selected option
     document.getElementById(option).style.display = 'block';
 }
+
+
