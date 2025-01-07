@@ -109,39 +109,39 @@
 
         <!-- Navigation  -->
         <nav class="w-full flex items-center justify-between py-[8px] px-[15px] xl:px-[100px] nav-bar">
-            <div class="md:w-[31%]">
+            <div class="lg:w-[31%]">
                 <div class="flex">
                     <div class="w-full flex justify-between items-center">
                         <div class="lg:w-[100%] flex z-[99999]">
-                            <div class="text-3xl cursor-pointer mx-2 md:hidden block" onclick="Menu(this)">
+                            <div class="text-3xl cursor-pointer mx-2 lg:hidden block" onclick="Menu(this)">
                                 <i class="fas fa-bars text-[#fff]"></i>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <ul class="menuList md:flex md:items-center md:z-auto md:static absolute w-full left-0
-                md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500 text-white
-                bg-[#ae633f] md:bg-inherit z-[99999] gap-[24px] active">
-                    <li class="my-4 md:my-0 z-[999]">
+        
+                <ul class="menuList lg:flex lg:items-center lg:z-auto lg:static absolute w-full left-0
+                lg:w-auto lg:py-0 py-4 lg:pl-0 pl-7 lg:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500 text-white
+                bg-[#ae633f] lg:bg-inherit z-[99999] gap-[24px] active">
+                    <li class="my-4 lg:my-0 z-[999]">
                         <a href="{% url 'home' %}"
                             class="text-[17px] font-bold {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
                             Home
                         </a>
                     </li>
-                    <li class="my-4 md:my-0 z-[999]">
+                    <li class="my-4 lg:my-0 z-[999]">
                         <a href="{% url 'reikhihealing' %}"
                             class="text-[17px] font-bold {% if request.resolver_match.url_name == 'reikhihealing' %}active{% endif %}">
                             Workshop
                         </a>
                     </li>
-
+        
                     <!-- Dropdown for Report -->
-                    <li class="relative my-4 md:my-0 z-[999]">
+                    <li class="relative my-4 lg:my-0 z-[999]">
                         <a href="javascript:void(0);" class="text-[17px] font-bold">Report</a>
                         <!-- Dropdown Menu -->
                         <ul
-                            class="dropdownList absolute left-0 top-full w-[260px]  opacity-0 invisible md:visible transition-all ease-in duration-300 text-white">
+                            class="dropdownList absolute left-0 top-full w-[260px] opacity-0 invisible lg:visible transition-all ease-in duration-300 text-white">
                             <li class="py-2 px-4">
                                 <a href="{% url 'kundali' %}"
                                     class="{% if request.resolver_match.url_name == 'kundali' %}active{% endif %}">
@@ -162,60 +162,57 @@
                             </li>
                         </ul>
                     </li>
-
-                    <li class="my-4 md:my-0 z-[999]">
+        
+                    <li class="my-4 lg:my-0 z-[999]">
                         <a href="{% url 'contact' %}"
                             class="text-[17px] font-bold {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
                             Contact
                         </a>
                     </li>
-
+        
                     <!-- Close Icon Inside the List -->
                     <li
-                        class="w-[35px] h-[35px] bg-[#CEAB5C] rounded-[50%] flex items-center justify-center absolute top-0 right-0 mt-4 mr-4 cursor-pointer md:hidden">
+                        class="w-[35px] h-[35px] bg-[#CEAB5C] rounded-[50%] flex items-center justify-center absolute top-0 right-0 mt-4 mr-4 cursor-pointer lg:hidden">
                         <i class="fa-solid fa-x text-[15px]" onclick="closeMenu()"></i>
                     </li>
                 </ul>
-
-
             </div>
-
+        
             <div class="lg:w-[10%] flex justify-between items-center">
                 <a href="{% url 'home' %}">
-                    <img class="max-w-[95px] md:max-w-[105px] xl:max-w-[135px]"
+                    <img class="max-w-[95px] md:max-w-[105px] lg:max-w-[135px]"
                         src="/static/assets/images/Logo/logo.png" alt="logo" loading="lazy">
                 </a>
             </div>
-
-            <div class="w-[10%] md:w-[30%]">
+        
+            <div class="w-[10%] lg:w-[30%]">
                 <div class="flex items-center justify-end">
                     <div class="z-[999]">
-
                         <div class="my-4 flex items-start lg:block">
                             <a href="https://www.instagram.com/shivcosmicenergysolutions" target="_blank">
                                 <i class="fa-brands fa-instagram text-[18px] text-[#fff]"></i>
                             </a>
-                            <a href="https://www.facebook.com/shivcosmicenergysolutions" class="mx-[10px] xl:mx-[20px]"
+                            <a href="https://www.facebook.com/shivcosmicenergysolutions" class="mx-[10px] lg:mx-[20px]"
                                 target="_blank">
                                 <i class="fa-brands fa-facebook-f text-[18px] text-[#fff]"></i>
                             </a>
-
+        
                             <a href="https://www.youtube.com/channel/UCvM4OYpE1TArbmlIZFgBB7g?view_as=subscriber"
-                                class="xl:mr-[20px]" target="_blank">
+                                class="lg:mr-[20px]" target="_blank">
                                 <i class="fa-brands fa-youtube text-[18px] text-[#fff]"></i>
                             </a>
-
                         </div>
                     </div>
                     <div class="z-[999]">
-                        <a href="#" class="hidden md:block">
+                        <a href="#" class="hidden lg:block">
                             <button class="hoverEffect gradientBtn text-[#fff] py-[5px]
-                             px-[15px] xl:px-[30px] rounded-[2px]">Consultation</button>
+                                px-[15px] lg:px-[30px] rounded-[2px]">Consultation</button>
                         </a>
                     </div>
                 </div>
             </div>
         </nav>
+        
 
         {% block main-content %}
 
@@ -238,12 +235,12 @@
                         <div class="w-full flex items-center justify-between flex-col lg:flex-row lg:items-start">
 
                             <div
-                                class="w-full lg:w-[16%] flex justify-center pb-4 lg:p-0 lg:border-0 border-b-[#CEAB5C] border-b border-solid">
+                                class="w-full xl:w-[16%] flex justify-center pb-4 lg:p-0 lg:border-0 border-b-[#CEAB5C] border-b border-solid">
                                 <img src="/static/assets/images/Logo/logo.png" alt="logo" class="max-w-[175px]">
                             </div>
 
                             <div
-                                class="w-full lg:w-[18%] my-4 mr-[25px] md:m-0 pb-4 lg:p-0 lg:border-0 border-b-[#CEAB5C] border-b border-solid flex justify-center">
+                                class="w-full xl:w-[18%] my-4 mr-[25px] md:m-0 pb-4 lg:p-0 lg:border-0 border-b-[#CEAB5C] border-b border-solid flex justify-center">
                                 <ul class="footerlinks flex flex-col items-start">
                                     <li>
                                         <a href="{% url 'kundali' %}" class="text-[#fff] flex gap-[6px]">
@@ -270,7 +267,7 @@
                             </div>
 
                             <div
-                                class="w-full lg:w-[18%] pb-4 lg:p-0 lg:border-0 border-b-[#CEAB5C] border-b border-solid flex justify-center">
+                                class="w-full xl:w-[18%] pb-4 lg:p-0 lg:border-0 border-b-[#CEAB5C] border-b border-solid flex justify-center">
                                 <ul class="info-footer flex flex-col items-start">
                                     <li class="text-[#fff]">
                                         <i class="fa-brands fa-whatsapp text-[#CEAB5C] mr-[5px] text-[18px]"></i>
@@ -284,7 +281,7 @@
                             </div>
 
                             <div
-                                class="w-full lg:w-[18%] my-4 md:m-0 pb-4 lg:p-0 lg:border-0 border-b-[#CEAB5C] border-b border-solid flex justify-center">
+                                class="w-full xl:w-[18%] my-4 md:m-0 pb-4 lg:p-0 lg:border-0 border-b-[#CEAB5C] border-b border-solid flex justify-center">
                                 <ul class="footerlinks footerlinks flex flex-col items-start">
 
                                     <li><a href="{% url 'policy' %}" class="text-[#fff] flex gap-[6px]"><img
