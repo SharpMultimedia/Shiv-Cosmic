@@ -69,6 +69,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'main.context_processors.recaptcha',
             ],
         },
     },
@@ -151,3 +152,5 @@ EMAIL_USE_TLS = True
 # reCAPTCHA_Keys
 RECAPTCHA_PRIVATE_KEY = '6LcPftUpAAAAAN8cLid7cUSB1Wt_9LhStDYhe3Vr'
 RECAPTCHA_PUBLIC_KEY = '6LcPftUpAAAAAFn_tCyqIOY-wknp3FxAI3vJexUo'
+
+# uofd pygi yqzf jhbj 

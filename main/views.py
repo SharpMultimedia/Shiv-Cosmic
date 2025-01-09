@@ -11,7 +11,7 @@ from django.core.mail import EmailMessage
 from django.core.mail import send_mail, BadHeaderError
 from django.conf import settings    
 from django.contrib import messages
-from .models import Contact
+from .models import Contact,Rekhi_Form
 
 import urllib
 from urllib.request import urlopen,Request
@@ -580,7 +580,46 @@ def pro_numerology(request):
     return render(request, 'result.html', {'astrology_data': astrology_data})
 
 def reikhihealing(request):
-    return render(request, 'Newreiki.html')
+    if request.method == 'POST':
+        recaptcha_response = request.POST.get('g-recaptcha-response')
+        
+        # Verify reCAPTCHA v3
+        url = 'https://www.google.com/recaptcha/api/siteverify'
+        data = {
+            'secret': settings.RECAPTCHA_PRIVATE_KEY,
+            'response': recaptcha_response
+        }
+        
+        try:
+            # Make request to verify the token
+            response = requests.post(url, data=data)
+            result = response.json()
+            
+            # Check if verification was successful and score is above threshold
+            if result.get('success') and result.get('score', 0) > 0.5:  # Adjust threshold as needed
+                # Create new Rekhi_Form instance
+                form = Rekhi_Form(
+                    firstname=request.POST.get('firstname'),
+                    lastname=request.POST.get('lastname'),
+                    phone=request.POST.get('phone'),
+                    email=request.POST.get('email'),
+                    message=request.POST.get('message')
+                )
+                form.save()
+                messages.success(request, 'Form submitted successfully!')
+            else:
+                messages.error(request, 'reCAPTCHA verification failed. Please try again.')
+        except Exception as e:
+            print(f"reCAPTCHA verification error: {e}")
+            messages.error(request, 'An error occurred. Please try again.')
+        
+        return redirect('reikhihealing')
+
+    # Add reCAPTCHA site key to template context
+    context = {
+        'recaptcha_site_key': settings.RECAPTCHA_PUBLIC_KEY
+    }
+    return render(request, 'Newreiki.html', context)
 
 def policy(request):
     return render(request, 'policy.html')
@@ -741,3 +780,9 @@ def astro_vastu(request):
         messages.info(request, "Your PDF has already been sent to your email. Please check your inbox.")
 
     return render(request, 'result.html', {'astrology_data': astrology_data})
+
+def base(request):
+    context = {
+        'recaptcha_site_key': settings.RECAPTCHA_PUBLIC_KEY
+    }
+    return render(request, 'base.html', context)

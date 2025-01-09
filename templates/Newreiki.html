@@ -296,7 +296,7 @@
 
 </section>
 
-<!-- form  -->
+<!--  name=""  -->
 <section
     class="bg-center bg-cover bg-no-repeat px-[25px] py-[15px] xl:px-[100px] xl:py-[60px] flex items-center justify-center flex-col"
     style="background-image: url('/static/assets/images/shiv-cosmic\ \ Purple-bg.jpg');">
@@ -308,16 +308,31 @@
     </div>
 
     <div class="xl:w-[60%] md:w-[75%] w-full">
-
-        <form action="" class="reiki-form w-full">
-
+        <!-- Add messages section -->
+        {% if messages %}
+        <div class="mb-4">
+            {% for message in messages %}
+            <div class="p-4 mb-2 rounded-lg {% if message.tags == 'success' %}bg-green-100 text-green-700{% elif message.tags == 'error' %}bg-red-100 text-red-700{% endif %}">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <form action="{% url 'reikhihealing' %}" method="POST" class="reiki-form w-full" id="reikiForm">
+            {% csrf_token %}
+            
+            <!-- Your existing form fields -->
+            
+            <!-- Add hidden input for reCAPTCHA response -->
+            <input type="hidden" name="g-recaptcha-response" id="recaptchaResponse">
+            
             <div class="w-full md:flex justify-between">
                 <div class="md:w-[48%]">
                     <div class="">
                         <label for="" class="text-[#fff]">First Name</label>
                     </div>
                     <div class="">
-                        <input type="text" placeholder="Enter your First Name">
+                        <input type="text" name="firstname" placeholder="Enter your First Name">
                     </div>
                 </div>
 
@@ -326,7 +341,7 @@
                         <label for="" class="text-[#fff]">Last Name</label>
                     </div>
                     <div>
-                        <input type="text" placeholder="Enter your Last Name">
+                        <input type="text" name="lastname" placeholder="Enter your Last Name">
                     </div>
                 </div>
             </div>
@@ -338,7 +353,7 @@
                         <label for="" class="text-[#fff]">Phone no</label>
                     </div>
                     <div>
-                        <input type="text" placeholder="Enter your Phone Number">
+                        <input type="text" name="phone" placeholder="Enter your Phone Number">
                     </div>
                 </div>
 
@@ -347,7 +362,7 @@
                         <label for="" class="text-[#fff]">Email</label>
                     </div>
                     <div>
-                        <input type="text" placeholder="Enter your Email">
+                        <input type="text" name="email" placeholder="Enter your Email">
                     </div>
                 </div>
 
@@ -360,14 +375,13 @@
                         <label for="" class="text-[#fff]">Message</label>
                     </div>
                     <div class="">
-                        <textarea name="" id="" placeholder="Enter your Message"></textarea>
+                        <textarea name="message" id="" placeholder="Enter your Message"></textarea>
                     </div>
                 </div>
             </div>
 
             <div class="mt-[10px]">
-                <button type="submit" class="w-full bg-[#AE633F] text-[#fff]
-                     py-[10px] rounded-[10px]">Send</button>
+                <button type="submit" class="w-full bg-[#AE633F] text-[#fff] py-[10px] rounded-[10px]">Send</button>
             </div>
 
         </form>
@@ -377,5 +391,4 @@
 </section>
 
 
-<script src="/static/javascript/main.js"></script>
 {% endblock main-content %}
