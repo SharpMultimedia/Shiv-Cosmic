@@ -23,8 +23,8 @@
 <!-- fixed button  -->
 
 <section>
-    <div class="w-[19%] rounded-tl-[10px] rounded-tr-[10px] flex items-center justify-end
-     bg-center bg-cover bg-no-repeat fixed bottom-[30px] right-[-25px] z-[100]">
+    <div class="md:w-[28%] xl:w-[19%] rounded-tl-[10px] rounded-tr-[10px] flex items-center justify-end
+     bg-center bg-cover bg-no-repeat fixed bottom-[30px] md:bottom-[75px] right-[-25px] md:right-[-60px] lg:right-[40px] z-[100]">
         <a href="{% url 'horoscopeform' %}" onclick="localStorage.setItem('selectedPlan', 'Astromapping')">
             <button class="btn btn-rotate btn--snakeBorder">
                 <span></span>
@@ -43,7 +43,7 @@
 
     <div class="w-full md:flex justify-between">
         <div class="w-[48%] hidden md:block">
-            <img src="/static/assets/images/astromapping.png" alt="" class="rounded-[15px]">
+            <img src="/static/assets/images/astromapping.png" alt="" class="w-full rounded-[15px]">
         </div>
         <div class="md:w-[48%] flex flex-col justify-center">
             <p class="text-white text-justify">Astromapping combines the wisdom of Astrology and Vastu Shastra, two

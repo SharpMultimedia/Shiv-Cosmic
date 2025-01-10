@@ -109,7 +109,7 @@
 
         <!-- Navigation  -->
         <nav class="w-full flex items-center justify-between py-[8px] px-[15px] xl:px-[100px] nav-bar">
-            <div class="lg:w-[31%]">
+            <div class="lg:w-[35%]">
                 <div class="flex">
                     <div class="w-full flex justify-between items-center">
                         <div class="lg:w-[100%] flex z-[99999]">
@@ -119,7 +119,7 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <ul class="menuList lg:flex lg:items-center lg:z-auto lg:static absolute w-full left-0
                 lg:w-auto lg:py-0 py-4 lg:pl-0 pl-7 lg:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500 text-white
                 bg-[#ae633f] lg:bg-inherit z-[99999] gap-[24px] active">
@@ -135,7 +135,7 @@
                             Workshop
                         </a>
                     </li>
-        
+
                     <!-- Dropdown for Report -->
                     <li class="relative my-4 lg:my-0 z-[999]">
                         <a href="javascript:void(0);" class="text-[17px] font-bold">Report</a>
@@ -162,14 +162,14 @@
                             </li>
                         </ul>
                     </li>
-        
+
                     <li class="my-4 lg:my-0 z-[999]">
                         <a href="{% url 'contact' %}"
                             class="text-[17px] font-bold {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
                             Contact
                         </a>
                     </li>
-        
+
                     <!-- Close Icon Inside the List -->
                     <li
                         class="w-[35px] h-[35px] bg-[#CEAB5C] rounded-[50%] flex items-center justify-center absolute top-0 right-0 mt-4 mr-4 cursor-pointer lg:hidden">
@@ -177,15 +177,15 @@
                     </li>
                 </ul>
             </div>
-        
-            <div class="lg:w-[10%] flex justify-between items-center">
+
+            <div class="lg:w-[24%] flex justify-center">
                 <a href="{% url 'home' %}">
                     <img class="max-w-[95px] md:max-w-[105px] lg:max-w-[135px]"
                         src="/static/assets/images/Logo/logo.png" alt="logo" loading="lazy">
                 </a>
             </div>
-        
-            <div class="w-[10%] lg:w-[30%]">
+
+            <div class="w-[10%] lg:w-[35%]">
                 <div class="flex items-center justify-end">
                     <div class="z-[999]">
                         <div class="my-4 flex items-start lg:block">
@@ -196,7 +196,7 @@
                                 target="_blank">
                                 <i class="fa-brands fa-facebook-f text-[18px] text-[#fff]"></i>
                             </a>
-        
+
                             <a href="https://www.youtube.com/channel/UCvM4OYpE1TArbmlIZFgBB7g?view_as=subscriber"
                                 class="lg:mr-[20px]" target="_blank">
                                 <i class="fa-brands fa-youtube text-[18px] text-[#fff]"></i>
@@ -212,7 +212,7 @@
                 </div>
             </div>
         </nav>
-        
+
 
         {% block main-content %}
 

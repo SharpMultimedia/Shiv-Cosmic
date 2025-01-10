@@ -4,35 +4,50 @@
 {% block main-content %}
 
 <!-- ------- Hero section ------  -->
+<section class="bg-center bg-cover bg-no-repeat flex
+             items-center flex-col relative">
 
-<section class="bg-center bg-cover bg-no-repeat px-[15px] py-[25px]
-     lg:px-[100px] py-lg:[60px] flex items-center flex-col ">
-
-    <div
-        class="bg-[#fff] md:w-[80%] h-auto flex items-center justify-center rounded-[10px] mb-[0px] lg:my-[40px] py-[8px]">
-        <h1 class="font-bold text-[16px] leading-[23px] lg:leading-[28px] lg:text-[21px] text-[#222222] text-center">Attention If You're Seeking Life
-            Guidance –
-            Get Your
-            Personalized Janam Kundli Report Today!</h1>
+    <div class="w-[80%] text-center absolute lg:top-[530px] top-[330px] md:top-[405px]
+     subHeader kundliHeader">
+        <h1 class="font-bold text-[38px] lg:text-[45px] text-[#fff] leading-[42px]">
+            <strong class="text-[#ffff89]">Kundli Report</strong>
+        </h1>
     </div>
-
-    <div class="md:w-[80%] text-center mt-[40px]">
-        <h1 class="font-bold text-[28px] xl:text-[38px] text-[#fff] leading-[35px] lg:leading-[42px]">Unlock the <strong
-                class="text-[#42c4ff]">Secrets of Your Future</strong> with an
-            Accurate Janam Kundli Report – Delivered
-            Instantly!</h1>
-
-        <p class="text-[#fff] text-[16px] lg:text-[18px] mt-[20px]">Unlock personalized insights into your love life,
-            finances,
-            health, and career
-            through the wisdom of ancient
-            Vedic astrology <br> with a detailed Kundli based on your birth date and time.</p>
-    </div>
-
-
 
 </section>
 </header>
+
+<!-- <section class="bg-center bg-cover bg-no-repeat px-[15px] py-[25px]
+     lg:px-[100px] py-lg:[60px] flex items-center flex-col ">
+
+    <div>
+        <div
+            class="bg-[#fff] md:w-[80%] h-auto flex items-center justify-center rounded-[10px] mb-[0px] lg:my-[40px] py-[8px]">
+            <h1
+                class="font-bold text-[16px] leading-[23px] lg:leading-[28px] lg:text-[21px] text-[#222222] text-center">
+                Attention If You're Seeking Life
+                Guidance –
+                Get Your
+                Personalized Janam Kundli Report Today!</h1>
+        </div>
+
+        <div class="md:w-[80%] text-center mt-[40px]">
+            <h1 class="font-bold text-[28px] xl:text-[38px] text-[#fff] leading-[35px] lg:leading-[42px]">Unlock the
+                <strong class="text-[#42c4ff]">Secrets of Your Future</strong> with an
+                Accurate Janam Kundli Report – Delivered
+                Instantly!
+            </h1>
+
+            <p class="text-[#fff] text-[16px] lg:text-[18px] mt-[20px]">Unlock personalized insights into your love
+                life,
+                finances,
+                health, and career
+                through the wisdom of ancient
+                Vedic astrology <br> with a detailed Kundli based on your birth date and time.</p>
+        </div>
+    </div>
+</section>
+</header> -->
 
 <!-- fixed button  -->
 
@@ -40,7 +55,7 @@
     <!-- Pro kundli button  -->
     <div class="md:w-[22%] lg:w-[13%] rounded-tl-[10px] rounded-tr-[10px]
     flex items-center justify-end bg-center bg-cover bg-no-repeat fixed bottom-[60px] 
-    right-[-34px] md:right-[40px] z-[100]">
+    right-[-34px] lg:right-[40px] z-[100]">
 
         <a href="{% url 'horoscopeform' %}" onclick="localStorage.setItem('selectedPlan', 'ProKundli')">
             <button class="btn btn-rotate btn--snakeBorder m-0">
@@ -56,7 +71,7 @@
     <!-- Basic kundli button  -->
     <div class="md:w-[22%] lg:w-[13%] rounded-tl-[10px] rounded-tr-[10px]
     flex items-center justify-end bg-center bg-cover bg-no-repeat fixed bottom-[64px] lg:bottom-[10px]
-    right-[5px] md:right-[40px] z-[100]">
+    right-[5px] lg:right-[40px] z-[100]">
 
         <a href="{% url 'horoscopeform' %}" onclick="localStorage.setItem('selectedPlan', 'BasicKundli')">
             <button class="btn btn-rotate btn--snakeBorder m-0">
@@ -72,7 +87,7 @@
 
 <!-- Kundli  -->
 
-<section class="flex items-center flex-col justify-center">
+<section class="flex items-center flex-col justify-center mt-[20px]  lg:mt-[60px]">
 
     <div class="">
         <img src="/static/assets/images/kundli2.jpg" alt="">
@@ -293,8 +308,8 @@
             </div>
 
             <!-- middle col  -->
-            <div class="md:w-[30%] my-[20px] md:m-0">
-                <img src="/static/assets/images/kundli format.png" alt="kundli-format">
+            <div class="md:w-[30%] my-[20px] md:m-0 contents">
+                <img src="/static/assets/images/Kundli front.jpg" alt="kundli-format">
             </div>
 
             <!-- right col  -->
