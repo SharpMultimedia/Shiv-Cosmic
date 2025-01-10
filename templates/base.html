@@ -98,6 +98,7 @@
             });
         });
     </script>
+    <script src="https://www.google.com/recaptcha/api.js?render={{ recaptcha_site_key }}"></script>
 
 </head>
 
@@ -417,7 +418,18 @@
             let changeYear = document.getElementById('spanYear');
             changeYear.textContent = new Date().getFullYear();
         </script>
-
+        <script>
+            grecaptcha.ready(function() {
+                document.getElementById('reikiForm').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    grecaptcha.execute('{{ recaptcha_site_key }}', {action: 'submit'})
+                        .then(function(token) {
+                            document.getElementById('recaptchaResponse').value = token;
+                            document.getElementById('reikiForm').submit();
+                        });
+                });
+            });
+        </script>
 </body>
 
 </html>
