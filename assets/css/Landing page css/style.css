@@ -140,7 +140,7 @@ ul {
 }
 
 .personalised-banner {
-    background-image: url('/static/assets/images/Sub-Banner.jpg');
+    background-image: url('/static/assets/images/Kundli\ report\ banner.jpg');
     height: 730px;
 }
 
@@ -527,7 +527,7 @@ select::-webkit-scrollbar-thumb:hover {
         padding: 8px 15px;
     }
 
-    .dropdownList{
+    .dropdownList {
         background: #ae633f;
     }
 
@@ -650,6 +650,7 @@ select::-webkit-scrollbar-thumb:hover {
     .main-container {
         margin: 30px 30px;
     }
+
     .content {
         padding: 40px 10px;
     }
@@ -663,13 +664,13 @@ select::-webkit-scrollbar-thumb:hover {
     }
 
     .hero-section {
-        height: 850px;
+        height: 910px;
     }
 
     .image-contact,
     .image-reiki,
     .kundli-hero {
-        height: 650px;
+        height: 1030px;
     }
 
     .personalised-banner {
@@ -677,11 +678,14 @@ select::-webkit-scrollbar-thumb:hover {
     }
 
     .subHeader {
-        top: 475px !important;
+        top: 765px !important;
+    }
+    .kundliHeader {
+        top: 865px !important;
     }
 
     .subHeaderContact {
-        top: 240px !important;
+        top: 725px !important;
     }
 
     .subHeader h1,
@@ -708,8 +712,7 @@ select::-webkit-scrollbar-thumb:hover {
     }
 
     .personalised-banner {
-        height: 800px !important;
-        justify-content: center;
+        height: 1050px !important;
     }
 }
 
@@ -1071,12 +1074,13 @@ select::-webkit-scrollbar-thumb:hover {
     border-radius: 5px 0 0 5px;
 }
 
-    /* Mobile-specific styles using rotate */
-    @media (max-width: 768px) {
+/* Mobile-specific styles using rotate */
+@media (max-width: 768px) {
 
-        .btn-rotate {
-            transform: rotate(90deg); /* Re-align the button text */
-            font-size: 10px;
-        }
-        
+    .btn-rotate {
+        transform: rotate(90deg);
+        /* Re-align the button text */
+        font-size: 10px;
     }
+
+}
