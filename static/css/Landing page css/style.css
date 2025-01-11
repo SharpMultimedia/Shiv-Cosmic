@@ -135,7 +135,7 @@ ul {
 }
 
 .image-contact {
-    background-image: url('/static/assets/images/Banner\ 3\ \(1\).jpg');
+    background-image: url('/static/assets/images/contact\ banner.jpg');
     height: 730px;
 }
 
@@ -505,7 +505,29 @@ select::-webkit-scrollbar-thumb:hover {
     color: white;
 }
 
-/* Responsive work  */
+/* Hide the dropdown initially */
+.hidden {
+    display: none;
+}
+
+/* Dropdown button hover styles (optional) */
+#dropdownButton:hover {
+    cursor: pointer;
+}
+
+/* Dropdown menu visible styles (toggle with JavaScript) */
+.show {
+    display: block;
+}
+
+
+
+
+
+
+
+
+/* ----------------- Responsive work --------------  */
 
 
 @media (max-width:868px) {
@@ -658,7 +680,7 @@ select::-webkit-scrollbar-thumb:hover {
 }
 
 
-@media only screen and (min-width: 1820px) {
+@media only screen and (min-width: 1900px) {
     .hero-head {
         top: 340px !important;
     }
@@ -670,18 +692,19 @@ select::-webkit-scrollbar-thumb:hover {
     .image-contact,
     .image-reiki,
     .kundli-hero {
-        height: 1030px;
+        height: 910px;
     }
 
-    .personalised-banner {
+    /* .personalised-banner {
         height: 600px;
-    }
+    } */
 
     .subHeader {
-        top: 765px !important;
+        top: 710px !important;
     }
+
     .kundliHeader {
-        top: 865px !important;
+        top: 715px !important;
     }
 
     .subHeaderContact {
@@ -706,16 +729,36 @@ select::-webkit-scrollbar-thumb:hover {
     }
 }
 
-@media only screen and (min-width: 2250px) {
+@media only screen and (min-width: 2200px) {
     .astroheroimage {
         top: -195% !important;
     }
 
+    .kundliHeader {
+        top: 740px !important;
+    }
+
+    .image-contact,
+    .image-reiki,
+    .kundli-hero,
     .personalised-banner {
-        height: 1050px !important;
+        height: 910px;
     }
 }
 
+/* .personalised-banner {
+    height: 1050px !important;
+}
+
+.kundliHeader {
+    top: 865px !important;
+}
+
+.image-contact,
+.image-reiki,
+.kundli-hero {
+    height: 1050px;
+} */
 
 /* -------- New Design Landing page For only testing -------  */
 
