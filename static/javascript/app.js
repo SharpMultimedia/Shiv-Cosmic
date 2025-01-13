@@ -1,3 +1,20 @@
+// ------- contact us dropdown button ----- 
+document.getElementById("dropdownButton").addEventListener("click", function () {
+    const wrapper = document.getElementById("dropdownWrapper");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+
+    // Toggle dropdown menu visibility
+    dropdownMenu.classList.toggle("hidden");
+    dropdownMenu.classList.toggle("show");
+
+    // Adjust the wrapper's bottom property
+    if (dropdownMenu.classList.contains("show")) {
+        wrapper.style.bottom = "145px"; // Dropdown open
+    } else {
+        wrapper.style.bottom = "30px"; // Dropdown closed
+    }
+});
+
 
 
 var swiper = new Swiper(".mySwiper", {
@@ -40,4 +57,7 @@ swiperContainer.addEventListener('mouseleave', () => {
 });
 
 
-console.log('hey app.js');
+
+
+
+

@@ -165,9 +165,9 @@
                     </li>
 
                     <li class="my-4 lg:my-0 z-[999]">
-                        <a href="{% url 'contact' %}"
+                        <a href="#"
                             class="text-[17px] font-bold {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
-                            Contact
+                            Consultation
                         </a>
                     </li>
 
@@ -187,8 +187,10 @@
             </div>
 
             <div class="w-[10%] lg:w-[35%]">
+
+
                 <div class="flex items-center justify-end">
-                    <div class="z-[999]">
+                    <!-- <div class="z-[999]">
                         <div class="my-4 flex items-start lg:block">
                             <a href="https://www.instagram.com/shivcosmicenergysolutions" target="_blank">
                                 <i class="fa-brands fa-instagram text-[18px] text-[#fff]"></i>
@@ -203,13 +205,24 @@
                                 <i class="fa-brands fa-youtube text-[18px] text-[#fff]"></i>
                             </a>
                         </div>
-                    </div>
-                    <div class="z-[999]">
+                    </div> -->
+
+                    <!-- <div class="z-[999]">
                         <a href="#" class="hidden lg:block">
                             <button class="hoverEffect gradientBtn text-[#fff] py-[5px]
                                 px-[15px] lg:px-[30px] rounded-[2px]">Consultation</button>
                         </a>
+                    </div> -->
+
+                    <div class="z-[999]">
+                        <ul>
+                            <li class="text-[#fff] my-2">
+                                <i class="fa-regular fa-envelope text-[#CEAB5C] mr-[5px] text-[18px]"></i>
+                                <span>info.shivcosmic@gmail.com</span>
+                            </li>
+                        </ul>
                     </div>
+
                 </div>
             </div>
         </nav>
@@ -274,9 +287,13 @@
                                         <i class="fa-brands fa-whatsapp text-[#CEAB5C] mr-[5px] text-[18px]"></i>
                                         <span>+(91) 7030127129</span>
                                     </li>
-                                    <li class="text-[#fff] mt-2">
+                                    <li class="text-[#fff] my-2">
                                         <i class="fa-regular fa-envelope text-[#CEAB5C] mr-[5px] text-[18px]"></i>
                                         <span>info.shivcosmic@gmail.com</span>
+                                    </li>
+                                    <li class="text-[#fff]">
+                                        <i class="fa-solid fa-location-dot text-[#CEAB5C] mr-[5px]"></i>
+                                        <span>Wagholi, Pune, Maharashtra</span>
                                     </li>
                                 </ul>
                             </div>
@@ -419,11 +436,11 @@
             changeYear.textContent = new Date().getFullYear();
         </script>
         <script>
-            grecaptcha.ready(function() {
-                document.getElementById('reikiForm').addEventListener('submit', function(e) {
+            grecaptcha.ready(function () {
+                document.getElementById('reikiForm').addEventListener('submit', function (e) {
                     e.preventDefault();
-                    grecaptcha.execute('{{ recaptcha_site_key }}', {action: 'submit'})
-                        .then(function(token) {
+                    grecaptcha.execute('{{ recaptcha_site_key }}', { action: 'submit' })
+                        .then(function (token) {
                             document.getElementById('recaptchaResponse').value = token;
                             document.getElementById('reikiForm').submit();
                         });
