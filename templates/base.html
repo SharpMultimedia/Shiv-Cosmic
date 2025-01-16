@@ -124,22 +124,23 @@
                 <ul class="menuList lg:flex lg:items-center lg:z-auto lg:static absolute w-full left-0
                 lg:w-auto lg:py-0 py-4 lg:pl-0 pl-7 lg:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500 text-white
                 bg-[#ae633f] lg:bg-inherit z-[99999] gap-[24px] active">
+
                     <li class="my-4 lg:my-0 z-[999]">
                         <a href="{% url 'home' %}"
-                            class="text-[17px] font-bold {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+                            class="lg:text-[16px] xl:text-[17px] font-bold {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
                             Home
                         </a>
                     </li>
                     <li class="my-4 lg:my-0 z-[999]">
                         <a href="{% url 'reikhihealing' %}"
-                            class="text-[17px] font-bold {% if request.resolver_match.url_name == 'reikhihealing' %}active{% endif %}">
+                            class="lg:text-[16px] xl:text-[17px] font-bold {% if request.resolver_match.url_name == 'reikhihealing' %}active{% endif %}">
                             Workshop
                         </a>
                     </li>
 
                     <!-- Dropdown for Report -->
                     <li class="relative my-4 lg:my-0 z-[999]">
-                        <a href="javascript:void(0);" class="text-[17px] font-bold">Report</a>
+                        <a href="javascript:void(0);" class="lg:text-[16px] xl:text-[17px] font-bold">Report</a>
                         <!-- Dropdown Menu -->
                         <ul
                             class="dropdownList absolute left-0 top-full w-[260px] opacity-0 invisible lg:visible transition-all ease-in duration-300 text-white">
@@ -166,7 +167,7 @@
 
                     <li class="my-4 lg:my-0 z-[999]">
                         <a href="#"
-                            class="text-[17px] font-bold {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
+                            class="lg:text-[16px] xl:text-[17px] font-bold {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
                             Consultation
                         </a>
                     </li>
@@ -217,8 +218,11 @@
                     <div class="z-[999]">
                         <ul>
                             <li class="text-[#fff] my-2">
-                                <i class="fa-regular fa-envelope text-[#CEAB5C] mr-[5px] text-[18px]"></i>
-                                <span>info.shivcosmic@gmail.com</span>
+                                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info.shivcosmic@gmail.com" target="_blank" class="flex items-center gap-[5px]">
+                                    <i class="fa-regular fa-envelope text-[#fff] mr-[5px] text-[21px] lg:text-[18px]"></i>
+                                    <span class="hidden lg:block">info.shivcosmic@gmail.com</span>
+                                </a>
+                                
                             </li>
                         </ul>
                     </div>

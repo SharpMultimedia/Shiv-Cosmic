@@ -20,26 +20,41 @@
 </header>
 
 
-<!-- fixed button  -->
+<!-- Social icons  -->
 
-<!-- social icons  -->
-<div class="sticky-icon">
-    <a href="https://www.instagram.com/shivcosmicenergysolutions" class="Instagram"><i class="fab fa-instagram"></i>
-        Instagram </a>
-    <a href="https://www.facebook.com/shivcosmicenergysolutions" class="Facebook"><i class="fab fa-facebook-f"> </i>
-        Facebook </a>
+<div class="mobileviewSocial">
+    <ul class="flex items-center flex-col">
+        <li class="toggleIcon"><i class="fa-solid fa-plus"></i></li>
 
-    <a href="https://www.youtube.com/channel/UCvM4OYpE1TArbmlIZFgBB7g?view_as=subscriber" class="Youtube"><i
-            class="fab fa-youtube"></i> Youtube </a>
-            
-    <a href="#" class="whatsapp"><i
-            class="fa-brands fa-whatsapp"></i> whatsapp </a>
+        <li class="whatsapp hiddenn">
+            <a href="#">
+                <img src="/static/assets/icons/What's app.png" alt="What'sapp">
+            </a>
+        </li>
+        <li class="instagram hiddenn">
+            <a href="https://www.instagram.com/shivcosmicenergysolutions">
+                <img src="/static/assets/icons/instagram.png" alt="instagram">
+            </a>
+        </li>
+        <li class="facebook hiddenn">
+            <a href="https://www.facebook.com/shivcosmicenergysolutions">
+                <img src="/static/assets/icons/facebook.png" alt="facebook">
+            </a>
+        </li>
+        <li class="youtube hiddenn m-0">
+            <a href="https://www.youtube.com/channel/UCvM4OYpE1TArbmlIZFgBB7g?view_as=subscriber">
+                <img src="/static/assets/icons/youtube.png" alt="youtube">
+            </a>
+        </li>
+    </ul>
 </div>
+
+<!-- fixed button  -->
 
 <section>
     <div
         class="md:w-[28%] xl:w-[19%] rounded-tl-[10px] rounded-tr-[10px] flex items-center justify-end
-     bg-center bg-cover bg-no-repeat fixed bottom-[30px] md:bottom-[75px] xl:bottom-[30px] right-[-25px] md:right-[-60px] lg:right-[40px] z-[100]">
+     bg-center bg-cover bg-no-repeat fixed bottom-[74px] md:bottom-[75px] lg:bottom-[25px] xl:bottom-[30px] right-[-72px] md:right-[-60px] lg:right-[10px] xl:right-[40px] z-[100]">
         <a href="{% url 'horoscopeform' %}" onclick="localStorage.setItem('selectedPlan', 'Astromapping')">
             <button class="btn btn-rotate btn--snakeBorder">
                 <span></span>
@@ -74,7 +89,8 @@
                 well-being.</p>
 
 
-            <a href="{% url 'horoscopeform' %}" onclick="localStorage.setItem('selectedPlan', 'Astromapping')">
+            <a href="{% url 'horoscopeform' %}" onclick="localStorage.setItem('selectedPlan', 'Astromapping')"
+                class="hidden lg:block">
                 <button class="btn btn--snakeBorder m-0">
                     Get Your Free Astromapping Report Now
                 </button>
@@ -140,7 +156,8 @@
                 challenges. This fusion ensures a harmonious environment that supports well-being, nurtures
                 relationships, and fosters growth, helping individuals achieve a balanced and prosperous life.</p>
 
-            <a href="{% url 'horoscopeform' %}" onclick="localStorage.setItem('selectedPlan', 'Astromapping')">
+            <a href="{% url 'horoscopeform' %}" onclick="localStorage.setItem('selectedPlan', 'Astromapping')"
+                class="hidden lg:block">
                 <button class="btn btn--snakeBorder m-0">
                     Get Your Free Astromapping Report Now
                 </button>
@@ -158,7 +175,7 @@
 <section class="bg-center bg-cover bg-no-repeat px-[15px] py-[25px] xl:px-[100px] xl:py-[60px]"
     style="background-image: url('/static/assets/images/shiv-cosmic\ \ Purple-bg.jpg');">
 
-    <h1 class="font-bold text-[32px] lg:text-[35px] text-[#fff] leading-[38px] text-center mb-[40px]">FAQs about
+    <h1 class="font-bold text-[32px] lg:text-[35px] text-[#fff] leading-[32px] lg:leading-[38px] text-center md:mb-[40px]">FAQs about
         <strong class="gradient-text">Astromapping </strong>
     </h1>
 
@@ -304,4 +321,27 @@
 
 </section>
 
+
+<script>
+    //  Social icons toggle button open / close 
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const toggleIcon = document.querySelector(".toggleIcon");
+        const socialIcons = document.querySelectorAll(".mobileviewSocial ul li:not(.toggleIcon)");
+        const toggleIconSymbol = toggleIcon.querySelector("i");
+
+        toggleIcon.addEventListener("click", () => {
+            socialIcons.forEach(icon => {
+                icon.classList.toggle("visible");
+            });
+
+            // Toggle the "+" and "-" icon
+            if (toggleIconSymbol.classList.contains("fa-plus")) {
+                toggleIconSymbol.classList.replace("fa-plus", "fa-minus");
+            } else {
+                toggleIconSymbol.classList.replace("fa-minus", "fa-plus");
+            }
+        });
+    });
+</script>
 {% endblock main-content %}

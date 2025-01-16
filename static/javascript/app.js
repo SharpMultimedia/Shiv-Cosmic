@@ -16,6 +16,27 @@ document.getElementById("dropdownButton").addEventListener("click", function () 
 });
 
 
+//  Social icons toggle button open / close 
+
+document.addEventListener("DOMContentLoaded", function () {
+    const toggleIcon = document.querySelector(".toggleIcon");
+    const socialIcons = document.querySelectorAll(".mobileviewSocial ul li:not(.toggleIcon)");
+    const toggleIconSymbol = toggleIcon.querySelector("i");
+
+    toggleIcon.addEventListener("click", () => {
+        socialIcons.forEach(icon => {
+            icon.classList.toggle("visible");
+        });
+
+        // Toggle the "+" and "-" icon
+        if (toggleIconSymbol.classList.contains("fa-plus")) {
+            toggleIconSymbol.classList.replace("fa-plus", "fa-minus");
+        } else {
+            toggleIconSymbol.classList.replace("fa-minus", "fa-plus");
+        }
+    });
+});
+
 
 var swiper = new Swiper(".mySwiper", {
     slidesPerView: 4,

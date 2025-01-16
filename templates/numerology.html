@@ -18,26 +18,42 @@
 </section>
 </header>
 
+<!-- Social icons  -->
+
+<div class="mobileviewSocial">
+    <ul class="flex items-center flex-col">
+        <li class="toggleIcon"><i class="fa-solid fa-plus"></i></li>
+
+        <li class="whatsapp hiddenn">
+            <a href="#">
+                <img src="/static/assets/icons/What's app.png" alt="What'sapp">
+            </a>
+        </li>
+        <li class="instagram hiddenn">
+            <a href="https://www.instagram.com/shivcosmicenergysolutions">
+                <img src="/static/assets/icons/instagram.png" alt="instagram">
+            </a>
+        </li>
+        <li class="facebook hiddenn">
+            <a href="https://www.facebook.com/shivcosmicenergysolutions">
+                <img src="/static/assets/icons/facebook.png" alt="facebook">
+            </a>
+        </li>
+        <li class="youtube hiddenn m-0">
+            <a href="https://www.youtube.com/channel/UCvM4OYpE1TArbmlIZFgBB7g?view_as=subscriber">
+                <img src="/static/assets/icons/youtube.png" alt="youtube">
+            </a>
+        </li>
+    </ul>
+</div>
+
 
 <!-- fixed button  -->
 
-<!-- social icons  -->
-<div class="sticky-icon">
-    <a href="https://www.instagram.com/shivcosmicenergysolutions" class="Instagram"><i class="fab fa-instagram"></i>
-        Instagram </a>
-    <a href="https://www.facebook.com/shivcosmicenergysolutions" class="Facebook"><i class="fab fa-facebook-f"> </i>
-        Facebook </a>
-
-    <a href="https://www.youtube.com/channel/UCvM4OYpE1TArbmlIZFgBB7g?view_as=subscriber" class="Youtube"><i
-            class="fab fa-youtube"></i> Youtube </a>
-
-    <a href="#" class="whatsapp"><i class="fa-brands fa-whatsapp"></i> whatsapp </a>
-</div>
-
 <section>
     <div
-        class="md:w-[22%] lg:w-[17%] rounded-tl-[10px] rounded-tr-[10px] flex items-center justify-end
-     bg-center bg-cover bg-no-repeat fixed bottom-[70px] xl:bottom-[30px] right-[-65px] md:right-[-45px] lg:right-[40px] z-[100]">
+        class="md:w-[22%] lg:w-[26%] xl:w-[17%] rounded-tl-[10px] rounded-tr-[10px] flex items-center justify-end
+     bg-center bg-cover bg-no-repeat fixed bottom-[70px] lg:bottom-[25px] xl:bottom-[30px] right-[-65px] md:right-[-45px] lg:right-[10px] xl:right-[40px] z-[100]">
         <a href="{% url 'horoscopeform' %}" onclick="localStorage.setItem('selectedPlan', 'Numerology')">
             <button class="btn btn-rotate btn--snakeBorder">
                 <span></span>
@@ -51,6 +67,7 @@
 </section>
 
 <!-- About Numerology  -->
+
 <section class="bg-center bg-cover bg-no-repeat px-[15px] py-[25px] xl:px-[100px] xl:py-[60px]"
     style="background-image: url('/static/assets/images/shiv-cosmic\ \ Purple-bg.jpg');">
 
@@ -76,7 +93,8 @@
             </p>
 
 
-            <a href="{% url 'horoscopeform' %}" onclick="localStorage.setItem('selectedPlan', 'Numerology')">
+            <a href="{% url 'horoscopeform' %}" onclick="localStorage.setItem('selectedPlan', 'Numerology')"
+                class="hidden lg:block">
                 <button class="btn btn--snakeBorder m-0">
                     Get Your Free Numerology Report Now
                 </button>
@@ -156,7 +174,9 @@
                 that language. Shiv Cosmic presents you with a complete numerology report of the Astro Numerology
                 Calculator based on Vedic Principles, which allows us to better understand ourselves as individuals
                 and the world.</p>
-            <a href="{% url 'horoscopeform' %}" onclick="localStorage.setItem('selectedPlan', 'Numerology')">
+
+            <a href="{% url 'horoscopeform' %}" onclick="localStorage.setItem('selectedPlan', 'Numerology')"
+                class="hidden lg:block">
                 <button class="btn btn--snakeBorder m-0">
                     Get Your Free Numerology Report Now
                 </button>
@@ -373,4 +393,27 @@
 
 </section>
 
+
+<script>
+    //  Social icons toggle button open / close 
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const toggleIcon = document.querySelector(".toggleIcon");
+        const socialIcons = document.querySelectorAll(".mobileviewSocial ul li:not(.toggleIcon)");
+        const toggleIconSymbol = toggleIcon.querySelector("i");
+
+        toggleIcon.addEventListener("click", () => {
+            socialIcons.forEach(icon => {
+                icon.classList.toggle("visible");
+            });
+
+            // Toggle the "+" and "-" icon
+            if (toggleIconSymbol.classList.contains("fa-plus")) {
+                toggleIconSymbol.classList.replace("fa-plus", "fa-minus");
+            } else {
+                toggleIconSymbol.classList.replace("fa-minus", "fa-plus");
+            }
+        });
+    });
+</script>
 {% endblock main-content %}

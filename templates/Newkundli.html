@@ -7,7 +7,7 @@
 <section class="bg-center bg-cover bg-no-repeat flex
              items-center flex-col relative">
 
-    <div class="w-[80%] text-center absolute lg:top-[530px] top-[330px] md:top-[405px]
+    <div class="w-[80%] text-center absolute lg:top-[530px] top-[420px] md:top-[405px]
      subHeader kundliHeader">
         <h1 class="font-bold text-[38px] lg:text-[45px] text-[#fff] leading-[42px]">
             <strong class="text-[#ffff89]">Kundli Report</strong>
@@ -49,28 +49,43 @@
 </section>
 </header> -->
 
-<!-- fixed button  -->
 
-<!-- social icons  -->
-<div class="sticky-icon">
-    <a href="https://www.instagram.com/shivcosmicenergysolutions" class="Instagram"><i class="fab fa-instagram"></i>
-        Instagram </a>
-    <a href="https://www.facebook.com/shivcosmicenergysolutions" class="Facebook"><i class="fab fa-facebook-f"> </i>
-        Facebook </a>
+<!-- Social icons  -->
 
-    <a href="https://www.youtube.com/channel/UCvM4OYpE1TArbmlIZFgBB7g?view_as=subscriber" class="Youtube"><i
-            class="fab fa-youtube"></i> Youtube </a>
+<div class="mobileviewSocial">
+    <ul class="flex items-center flex-col">
+        <li class="toggleIcon"><i class="fa-solid fa-plus"></i></li>
 
-    <a href="#" class="whatsapp"><i
-            class="fa-brands fa-whatsapp"></i> whatsapp </a>
+        <li class="whatsapp hiddenn">
+            <a href="#">
+                <img src="/static/assets/icons/What's app.png" alt="What'sapp">
+            </a>
+        </li>
+        <li class="instagram hiddenn">
+            <a href="https://www.instagram.com/shivcosmicenergysolutions">
+                <img src="/static/assets/icons/instagram.png" alt="instagram">
+            </a>
+        </li>
+        <li class="facebook hiddenn">
+            <a href="https://www.facebook.com/shivcosmicenergysolutions">
+                <img src="/static/assets/icons/facebook.png" alt="facebook">
+            </a>
+        </li>
+        <li class="youtube hiddenn m-0">
+            <a href="https://www.youtube.com/channel/UCvM4OYpE1TArbmlIZFgBB7g?view_as=subscriber">
+                <img src="/static/assets/icons/youtube.png" alt="youtube">
+            </a>
+        </li>
+    </ul>
 </div>
 
+<!-- fixed button  -->
 
 <section>
     <!-- Pro kundli button  -->
-    <div class="md:w-[22%] lg:w-[13%] rounded-tl-[10px] rounded-tr-[10px]
+    <div class="md:w-[22%] xl:w-[13%] rounded-tl-[10px] rounded-tr-[10px]
     flex items-center justify-end bg-center bg-cover bg-no-repeat fixed bottom-[60px] lg:bottom-[80px] 
-    right-[-34px] lg:right-[40px] z-[100]">
+    right-[-34px] lg:right-[10px] xl:right-[40px] z-[100]">
 
         <a href="{% url 'horoscopeform' %}" onclick="localStorage.setItem('selectedPlan', 'ProKundli')">
             <button class="btn btn-rotate btn--snakeBorder m-0">
@@ -84,9 +99,9 @@
     </div>
 
     <!-- Basic kundli button  -->
-    <div class="md:w-[22%] lg:w-[13%] rounded-tl-[10px] rounded-tr-[10px]
+    <div class="md:w-[22%] xl:w-[13%] rounded-tl-[10px] rounded-tr-[10px]
     flex items-center justify-end bg-center bg-cover bg-no-repeat fixed bottom-[64px] lg:bottom-[25px]
-    right-[5px] lg:right-[40px] z-[100]">
+    right-[5px] lg:right-[10px] xl:right-[40px] z-[100]">
 
         <a href="{% url 'horoscopeform' %}" onclick="localStorage.setItem('selectedPlan', 'BasicKundli')">
             <button class="btn btn-rotate btn--snakeBorder m-0">
@@ -119,7 +134,7 @@
         </div>
     </div>
 
-    <div class="w-full flex items-center justify-center">
+    <div class="w-full hidden lg:flex items-center justify-center">
         <a href="{% url 'horoscopeform' %}" onclick="localStorage.setItem('selectedPlan', 'BasicKundli')">
             <button class="btn btn--snakeBorder">
                 Buy Your Basic Kundli
@@ -133,7 +148,6 @@
         </a>
     </div>
 </section>
-
 
 <!-- Difference between basic and pro kundli  -->
 
@@ -272,7 +286,7 @@
             <div class="md:w-[32%]">
 
                 <div class="w-full">
-                    <div class="w-[8%] bg-[#AE633F] flex items-center justify-center h-[30px] rounded-[5px] mb-[10px]">
+                    <div class="w-[8%] md:w-[17%] bg-[#AE633F] flex items-center justify-center h-[30px] rounded-[5px] mb-[10px]">
                         <i class="fa-solid fa-heart-crack text-[#fff] text-[21px]"></i>
                     </div>
 
@@ -287,7 +301,7 @@
                 </div>
 
                 <div class="w-full my-[15px]">
-                    <div class="w-[8%] bg-[#AE633F] flex items-center justify-center h-[30px] rounded-[5px] mb-[10px]">
+                    <div class="w-[8%] md:w-[17%]  bg-[#AE633F] flex items-center justify-center h-[30px] rounded-[5px] mb-[10px]">
 
                         <img src="/static/assets/icons/loss.png" alt="graph" class="max-w-[25px] graph-white">
                     </div>
@@ -303,7 +317,7 @@
                 </div>
 
                 <div class="w-full">
-                    <div class="w-[8%] bg-[#AE633F] flex items-center justify-center h-[30px] rounded-[5px] mb-[10px]">
+                    <div class="w-[8%] md:w-[17%] bg-[#AE633F] flex items-center justify-center h-[30px] rounded-[5px] mb-[10px]">
                         <img src="/static/assets/icons/price-down.png" alt="graph" class="max-w-[25px] graph-white">
                     </div>
 
@@ -317,12 +331,10 @@
                             time & date of birth.</p>
                     </div>
                 </div>
-
-
             </div>
 
             <!-- middle col  -->
-            <div class="md:w-[30%] my-[20px] md:m-0 contents">
+            <div class="md:w-[30%] my-[20px] md:m-0 md:flex items-center lg:contents">
                 <img src="/static/assets/images/Kundli front.jpg" alt="kundli-format">
             </div>
 
@@ -330,7 +342,7 @@
             <div class="md:w-[33%] pl-[0px] md:pl-[30px]">
 
                 <div class="w-full">
-                    <div class="w-[8%] bg-[#AE633F] flex items-center justify-center h-[30px] rounded-[5px] mb-[10px]">
+                    <div class="w-[8%] md:w-[17%]  bg-[#AE633F] flex items-center justify-center h-[30px] rounded-[5px] mb-[10px]">
                         <i class="fa-solid fa-heart-circle-xmark text-[#fff] text-[21px]"></i>
                     </div>
 
@@ -345,7 +357,7 @@
                 </div>
 
                 <div class="w-full my-[15px]">
-                    <div class="w-[8%] bg-[#AE633F] flex items-center justify-center h-[30px] rounded-[5px] mb-[10px]">
+                    <div class="w-[8%] md:w-[17%] bg-[#AE633F] flex items-center justify-center h-[30px] rounded-[5px] mb-[10px]">
                         <i class="fas fa-briefcase text-[#fff] text-[21px]"></i>
                     </div>
 
@@ -360,7 +372,7 @@
                 </div>
 
                 <div class="w-full">
-                    <div class="w-[8%] bg-[#AE633F] flex items-center justify-center h-[30px] rounded-[5px] mb-[10px]">
+                    <div class="w-[8%] md:w-[17%]  bg-[#AE633F] flex items-center justify-center h-[30px] rounded-[5px] mb-[10px]">
                         <i class="fas fa-gem text-[#fff] text-[21px]"></i>
                     </div>
 
@@ -626,7 +638,7 @@
 
     </div>
 
-    <div class="flex items-center justify-center mt-[20px] lg:mt-[40px]">
+    <div class="hidden lg:flex items-center justify-center mt-[20px] lg:mt-[40px]">
         <a href="{% url 'horoscopeform' %}" onclick="localStorage.setItem('selectedPlan', 'BasicKundli')">
             <button class="btn btn--snakeBorder">
                 Buy Your Basic Kundli
@@ -887,4 +899,28 @@
 
 
 <script src="/static/javascript/main.js"></script>
+
+<script>
+    //  Social icons toggle button open / close 
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const toggleIcon = document.querySelector(".toggleIcon");
+        const socialIcons = document.querySelectorAll(".mobileviewSocial ul li:not(.toggleIcon)");
+        const toggleIconSymbol = toggleIcon.querySelector("i");
+
+        toggleIcon.addEventListener("click", () => {
+            socialIcons.forEach(icon => {
+                icon.classList.toggle("visible");
+            });
+
+            // Toggle the "+" and "-" icon
+            if (toggleIconSymbol.classList.contains("fa-plus")) {
+                toggleIconSymbol.classList.replace("fa-plus", "fa-minus");
+            } else {
+                toggleIconSymbol.classList.replace("fa-minus", "fa-plus");
+            }
+        });
+    });
+</script>
+
 {% endblock main-content %}

@@ -36,25 +36,44 @@
 
 </header>
 
-<!-- ---------- fixed button ---------- -->
+<!-- Social icons  -->
 
-<!-- social icons  -->
-<div class="sticky-icon">
-    <a href="https://www.instagram.com/shivcosmicenergysolutions" class="Instagram"><i class="fab fa-instagram"></i>  Instagram </a>
-    <a href="https://www.facebook.com/shivcosmicenergysolutions" class="Facebook"><i class="fab fa-facebook-f"> </i> Facebook </a>
+<div class="mobileviewSocial">
+    <ul class="flex items-center flex-col">
+        <li class="toggleIcon"><i class="fa-solid fa-plus"></i></li>
 
-    <a href="https://www.youtube.com/channel/UCvM4OYpE1TArbmlIZFgBB7g?view_as=subscriber" class="Youtube"><i class="fab fa-youtube"></i> Youtube </a>
-
-    <a href="#" class="whatsapp"><i class="fa-brands fa-whatsapp"></i> whatsapp </a>
+        <li class="whatsapp hiddenn">
+            <a href="#">
+                <img src="/static/assets/icons/What's app.png" alt="What'sapp">
+            </a>
+        </li>
+        <li class="instagram hiddenn">
+            <a href="https://www.instagram.com/shivcosmicenergysolutions">
+                <img src="/static/assets/icons/instagram.png" alt="instagram">
+            </a>
+        </li>
+        <li class="facebook hiddenn">
+            <a href="https://www.facebook.com/shivcosmicenergysolutions">
+                <img src="/static/assets/icons/facebook.png" alt="facebook">
+            </a>
+        </li>
+        <li class="youtube hiddenn m-0">
+            <a href="https://www.youtube.com/channel/UCvM4OYpE1TArbmlIZFgBB7g?view_as=subscriber">
+                <img src="/static/assets/icons/youtube.png" alt="youtube">
+            </a>
+        </li>
+    </ul>
 </div>
 
+<!-- fixed button  -->
 
 <!-- Get Your Report button  -->
+
 <section>
 
     <div id="dropdownWrapper"
-        class="md:w-[13%] rounded-tl-[10px] rounded-tr-[10px]
-         flex items-center justify-end bg-center bg-cover bg-no-repeat fixed bottom-[55px] xl:bottom-[30px] right-[-45px] md:right-[40px] z-[100] transition-all duration-300">
+        class="xl:w-[13%] md:w-[25%] rounded-tl-[10px] rounded-tr-[10px]
+         flex items-center justify-end bg-center bg-cover bg-no-repeat fixed bottom-[55px] lg:bottom-[25px] xl:bottom-[30px] right-[-45px] lg:right-[10px] xl:right-[40px] z-[100] transition-all duration-300">
 
 
         <div>
@@ -418,7 +437,6 @@ flex items-center justify-center flex-col" style="background-image: url('/static
 </section>
 
 </main>
-
 
 
 {% endblock main-content %}
