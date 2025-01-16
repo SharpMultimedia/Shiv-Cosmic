@@ -98,8 +98,8 @@
             });
         });
     </script>
-    <script src="https://www.google.com/recaptcha/api.js?render={{ recaptcha_site_key }}"></script>
-
+    {% block recaptcha-content %}
+    {% endblock recaptcha-content %}
 </head>
 
 <body>

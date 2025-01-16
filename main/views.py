@@ -559,7 +559,7 @@ def pro_numerology(request):
                     )
 
                     # Attach the PDF file
-                    email_message.attach('astrology_report.pdf', pdf_content, 'application/pdf')
+                    email_message.attach('numerology_report.pdf', pdf_content, 'application/pdf')
                     email_message.send()
                     del request.session['astrology_data']
                     del request.session['pdf_content_b64']
