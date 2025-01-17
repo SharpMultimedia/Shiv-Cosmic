@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/static/css/Landing page css/style.css">
-  <link rel="stylesheet" href="/static/css/style.css">
-
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <title>Kundali / Horoscope report</title>
-</head>
-
-<body>
+{% extends 'base.html'%}
+{% load static %}
+{% block hero-image %} resultPage-banner {% endblock hero-image %}
+{% block main-content %}
   <!-- 
   <h2>Astrology Data Result</h2>
   {% if astrology_data %}
@@ -22,7 +11,7 @@
   {% endif %} -->
 
   <section class="bg-center bg-cover bg-no-repeat px-[15px] py-[25px] xl:px-[100px] xl:py-[60px]
-  flex flex-col items-center justify-center h-[660px] lg:h-[750px] resultPage-banner">
+  flex flex-col items-center justify-center h-[660px] lg:h-[750px] ">
 
     <div>
       <img src="/static/assets/images/Logo/logo.png" alt=""
@@ -44,7 +33,4 @@
 
     </div>
   </section>
-
-</body>
-
-</html>
+{% endblock main-content %}
