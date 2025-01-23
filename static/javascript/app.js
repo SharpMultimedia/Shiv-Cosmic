@@ -1,4 +1,5 @@
 // ------- contact us dropdown button ----- 
+
 document.getElementById("dropdownButton").addEventListener("click", function () {
     const wrapper = document.getElementById("dropdownWrapper");
     const dropdownMenu = document.getElementById("dropdownMenu");
@@ -23,19 +24,47 @@ document.addEventListener("DOMContentLoaded", function () {
     const socialIcons = document.querySelectorAll(".mobileviewSocial ul li:not(.toggleIcon)");
     const toggleIconSymbol = toggleIcon.querySelector("i");
 
-    toggleIcon.addEventListener("click", () => {
-        socialIcons.forEach(icon => {
-            icon.classList.toggle("visible");
-        });
-
-        // Toggle the "+" and "-" icon
-        if (toggleIconSymbol.classList.contains("fa-plus")) {
+    // Helper function to update the view based on screen size
+    const updateView = () => {
+        if (window.innerWidth > 768) {
+            // Desktop view: Icons visible by default, toggle shows minus
+            socialIcons.forEach(icon => icon.classList.add("visible"));
             toggleIconSymbol.classList.replace("fa-plus", "fa-minus");
         } else {
+            // Mobile view: Icons hidden by default, toggle shows plus
+            socialIcons.forEach(icon => icon.classList.remove("visible"));
             toggleIconSymbol.classList.replace("fa-minus", "fa-plus");
         }
+    };
+
+    // Toggle functionality for both mobile and desktop views
+    toggleIcon.addEventListener("click", () => {
+        const isAnyIconVisible = Array.from(socialIcons).some(icon => icon.classList.contains("visible"));
+
+        if (isAnyIconVisible) {
+            // Hide icons and switch to plus
+            socialIcons.forEach(icon => icon.classList.remove("visible"));
+            socialIcons.forEach(icon => icon.classList.add("hiddenn"));
+            toggleIconSymbol.classList.replace("fa-minus", "fa-plus");
+        } else {
+            // Show icons and switch to minus
+            socialIcons.forEach(icon => icon.classList.add("visible"));
+            socialIcons.forEach(icon => icon.classList.remove("hiddenn"));
+            toggleIconSymbol.classList.replace("fa-plus", "fa-minus");
+        }
     });
+
+    // Handle resizing to update view
+    window.addEventListener("resize", updateView);
+
+    // Initial setup
+    updateView();
 });
+
+
+
+
+
 
 
 var swiper = new Swiper(".mySwiper", {
