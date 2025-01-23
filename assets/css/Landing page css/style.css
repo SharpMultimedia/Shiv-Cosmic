@@ -541,6 +541,23 @@ select::-webkit-scrollbar-thumb:hover {
     z-index: 1000;
 }
 
+/* .hiddenn {
+    opacity: 1;
+    transform: scaleY(0);
+    transform-origin: top;
+    overflow: hidden;
+    display: block;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.visible {
+    opacity: 1;
+    transform: scaleY(1);
+    transform-origin: top;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+} */
+
+
 .hiddenn {
     opacity: 0;
     transform: scaleY(0);
@@ -556,6 +573,24 @@ select::-webkit-scrollbar-thumb:hover {
     transform-origin: top;
     transition: transform 0.5s ease, opacity 0.5s ease;
 }
+
+@media (min-width: 769px) {
+    .hiddenn {
+        /* Remove forced visibility in desktop view */
+        opacity: 0; 
+        transform: scaleY(0);
+    }
+
+    .visible {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}
+
+
+
+
+
 
 .toggleIcon {
     width: 40px;
