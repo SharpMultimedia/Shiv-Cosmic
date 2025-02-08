@@ -122,7 +122,7 @@ def payment(request):
         CALLBACK_URL = callbackUrl
         API_KEY = "f35e2d5a-2d92-4cea-8404-7ef608af3522"
         ENDPOINT = "/pg/v1/pay"
-        INDEX = '1'
+        INDEX = '1' 
         payload = {
             "merchantId": MERCHANT_ID,
             "merchantTransactionId": shortuuid.uuid(),
@@ -446,7 +446,7 @@ def pro_horoscope(request):
                         "Kind Regards\nTeam Shiv Cosmic",
                         settings.EMAIL_HOST_USER,
                         [email],
-                        cc=["onkarauti1@gmail.com"]
+                        cc=["info.shivcosmic@gmail.com"]
                     )
 
                     # Attach the PDF file
@@ -531,7 +531,14 @@ def pro_numerology(request):
             if response.status_code == 200:
                 # Process the response data here
                 astrology_data = response.json()
-                pdf_url = astrology_data['response']['pdf_url']
+                if 'response' in astrology_data and 'pdf_url' in astrology_data['response']:
+                    # For pro_numerology endpoint
+                    pdf_url = astrology_data['response']['pdf_url']
+                    # Create a compatible structure
+                    astrology_data = {
+                        'pdf_url': pdf_url,
+                        'response': astrology_data['response']  # Keep original response if needed
+                    }
 
                 # Download the PDF file
                 pdf_response = requests.get(pdf_url, timeout=10)
@@ -555,7 +562,7 @@ def pro_numerology(request):
                         "Kind Regards\nTeam Shiv Cosmic",
                         settings.EMAIL_HOST_USER,
                         [email],
-                        cc=["onkarauti1@gmail.com"]
+                        cc=["info.shivcosmic@gmail.com"]
                     )
 
                     # Attach the PDF file
@@ -757,7 +764,7 @@ def astro_vastu(request):
                         "Kind Regards\nTeam Shiv Cosmic",
                         settings.EMAIL_HOST_USER,
                         [email],
-                        cc=["onkarauti1@gmail.com"]
+                        cc=["info.shivcosmic@gmail.com"]
                     )
 
                     # Attach the PDF file
