@@ -103,13 +103,13 @@ def payment(request):
         print(kundliType)
 
         if kundliType == "Basic Kundli":
-            amount = 299
+            amount = 1
         elif kundliType == "Pro Kundli":
-            amount = 499
+            amount = 1
         elif kundliType == "Pro Numerology":
-            amount = 699
+            amount = 1
         elif kundliType == "Astro-Vastu":
-            amount = 999
+            amount = 1
         # Construct the dynamic URLs
         base_url = request.build_absolute_uri('/')
         redirectUrl = base_url + 'payment_return/'
@@ -768,7 +768,7 @@ def astro_vastu(request):
                     )
 
                     # Attach the PDF file
-                    email_message.attach('report.pdf', pdf_content, 'application/pdf')
+                    email_message.attach('Vastu Report.pdf', pdf_content, 'application/pdf')
                     email_message.send()
                     del request.session['astrology_data']
                     del request.session['pdf_content_b64']
