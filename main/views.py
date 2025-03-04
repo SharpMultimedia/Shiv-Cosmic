@@ -120,9 +120,9 @@ def payment(request):
         MERCHANT_USER_ID = "MUID123"
         REDIRECT_URL = redirectUrl
         CALLBACK_URL = callbackUrl
-        API_KEY = "f35e2d5a-2d92-4cea-8404-7ef608af3522"
+        API_KEY = "71dedcf7-11d5-461a-bb1c-a5bc7231b45f"
         ENDPOINT = "/pg/v1/pay"
-        INDEX = '1' 
+        INDEX = '2' 
         payload = {
             "merchantId": MERCHANT_ID,
             "merchantTransactionId": shortuuid.uuid(),
@@ -182,8 +182,8 @@ def payment(request):
 @csrf_exempt
 def payment_return(request):
     print('payment-return')
-    INDEX = "1"
-    SALTKEY = "f35e2d5a-2d92-4cea-8404-7ef608af3522"
+    INDEX = "2"
+    SALTKEY = "71dedcf7-11d5-461a-bb1c-a5bc7231b45f"
     merchantId = "M22REVYZNMPVY"
     # url = "https://api-preprod.phonepe.com/apis/pg-sandbox/pg/v1/pay"
     # SALTKEY = "14fa5465-f8a7-443f-8477-f986b8fcfde9"
