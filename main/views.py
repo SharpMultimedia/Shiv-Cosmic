@@ -515,6 +515,7 @@ def pro_numerology(request):
             'company_email': 'info.nhmcpune@gmail.com',
             'company_landline': '+91 7030127129',
             'company_mobile': '+91 7030127129',
+            'model_name':'THEME_COSMIC'
         }
 
         # Authorization header
