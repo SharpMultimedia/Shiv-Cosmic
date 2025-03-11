@@ -199,6 +199,12 @@ ul {
     /* background: #85302b; */
 }
 
+
+.heroSection {
+    height: 85vh;
+}
+
+
 /* --------- end -------- */
 
 /* team  */
@@ -531,7 +537,7 @@ select::-webkit-scrollbar-thumb:hover {
 } */
 
 
-/* ------------------------ social icons fixed -------------  */
+/* ---------- social icons fixed -------------  */
 
 .mobileviewSocial {
     position: fixed;
@@ -800,8 +806,12 @@ select::-webkit-scrollbar-thumb:hover {
         top: 340px !important;
     }
 
+    .heroSection {
+        height: 60vh;
+    }
+
     .hero-section {
-        height: 910px;
+        height: 1160px;
     }
 
     .image-contact,
@@ -1190,7 +1200,10 @@ select::-webkit-scrollbar-thumb:hover {
         max-width: 100% !important;
     }
 
-    .hero-section,
+    .hero-section {
+        height: 630px;
+    }
+
     .kundli-hero {
         height: 510px;
     }
