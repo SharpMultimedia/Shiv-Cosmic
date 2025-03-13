@@ -199,6 +199,10 @@ ul {
     /* background: #85302b; */
 }
 
+.heroSection {
+    height: 85vh;
+}
+
 /* --------- end -------- */
 
 /* team  */
@@ -766,6 +770,9 @@ select::-webkit-scrollbar-thumb:hover {
         height: 701px;
     }
 
+    .heroSection {
+        height: 70vh;
+    }
     .astrological-image {
         max-width: 40% !important;
     }
@@ -800,8 +807,12 @@ select::-webkit-scrollbar-thumb:hover {
         top: 340px !important;
     }
 
+    .heroSection {
+        height: 60vh;
+    }
+
     .hero-section {
-        height: 910px;
+        height: 1160px;
     }
 
     .image-contact,
@@ -1190,7 +1201,10 @@ select::-webkit-scrollbar-thumb:hover {
         max-width: 100% !important;
     }
 
-    .hero-section,
+    .hero-section {
+        height: 610px;
+    }
+
     .kundli-hero {
         height: 510px;
     }
@@ -1239,9 +1253,6 @@ select::-webkit-scrollbar-thumb:hover {
     }
 
 }
-
-
-
 
 /* Video  */
 
