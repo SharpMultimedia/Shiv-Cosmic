@@ -106,13 +106,13 @@ def payment(request):
         print(kundliType)
 
         if kundliType == "Basic Kundli":
-            amount = 299
+            amount = 1
         elif kundliType == "Pro Kundli":
-            amount = 499
+            amount = 1
         elif kundliType == "Pro Numerology":
-            amount = 699
+            amount = 1
         elif kundliType == "Astro-Vastu":
-            amount = 999
+            amount = 1
         # Construct the dynamic URLs
         base_url = request.build_absolute_uri('/')
         redirectUrl = base_url + 'payment_return/'
@@ -123,9 +123,9 @@ def payment(request):
         MERCHANT_USER_ID = "MUID123"
         REDIRECT_URL = redirectUrl
         CALLBACK_URL = callbackUrl
-        API_KEY = "f35e2d5a-2d92-4cea-8404-7ef608af3522"
+        API_KEY = "71dedcf7-11d5-461a-bb1c-a5bc7231b45f"
         ENDPOINT = "/pg/v1/pay"
-        INDEX = '1' 
+        INDEX = '2' 
         payload = {
             "merchantId": MERCHANT_ID,
             "merchantTransactionId": shortuuid.uuid(),
@@ -185,8 +185,8 @@ def payment(request):
 @csrf_exempt
 def payment_return(request):
     print('payment-return')
-    INDEX = "1"
-    SALTKEY = "f35e2d5a-2d92-4cea-8404-7ef608af3522"
+    INDEX = "2"
+    SALTKEY = "71dedcf7-11d5-461a-bb1c-a5bc7231b45f"
     merchantId = "M22REVYZNMPVY"
     # url = "https://api-preprod.phonepe.com/apis/pg-sandbox/pg/v1/pay"
     # SALTKEY = "14fa5465-f8a7-443f-8477-f986b8fcfde9"
@@ -518,6 +518,7 @@ def pro_numerology(request):
             'company_email': 'info.nhmcpune@gmail.com',
             'company_landline': '+91 7030127129',
             'company_mobile': '+91 7030127129',
+            'model_name':'THEME_COSMIC'
         }
 
         # Authorization header
@@ -771,7 +772,7 @@ def astro_vastu(request):
                     )
 
                     # Attach the PDF file
-                    email_message.attach('report.pdf', pdf_content, 'application/pdf')
+                    email_message.attach('Vastu Report.pdf', pdf_content, 'application/pdf')
                     email_message.send()
                     del request.session['astrology_data']
                     del request.session['pdf_content_b64']
