@@ -23,6 +23,9 @@ def home(request):
 def kundali(request):
     return render(request, 'Newkundli.html')
 
+def bookappointment(request):
+    return render(request, 'bookappointment.html')
+
 def horoscopeform(request):
     if request.method == 'POST':
         # Get form data
