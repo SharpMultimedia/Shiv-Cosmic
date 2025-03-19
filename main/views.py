@@ -903,7 +903,15 @@ def book_astro_payment_return(request):
                     booking.paid = True
                     booking.save()
                 return render(request, "payment_success.html", {"booking": booking})
-                return redirect('redirect_url')
+                return redirect('home')
             else:
                 messages.error(request, "Payment was unsuccessful. Please try again.")
                 return redirect('home')  # Redirect to index if payment is unsuccessful
+        except requests.exceptions.RequestException as e:
+            print(f"Request failed: {e}")
+            messages.error(request, "There was an error retrieving the payment status. Please try again.")
+            return redirect('home')  # Redirect to index if there's a request exception
+
+    else:
+        messages.error(request, "Invalid transaction ID.")
+    return render(request, 'index.html')        
