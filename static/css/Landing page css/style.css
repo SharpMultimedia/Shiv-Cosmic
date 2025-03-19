@@ -808,7 +808,7 @@ select::-webkit-scrollbar-thumb:hover {
     }
 
     .heroSection {
-        height: 60vh;
+        height: 75vh;
     }
 
     .hero-section {
@@ -879,6 +879,14 @@ select::-webkit-scrollbar-thumb:hover {
     .sticky-icon {
         top: 22%;
     }
+
+    .bookastro iframe{
+        height: 601px;
+    }
+
+    .LandingVideo iframe{
+        height: 650px;
+    }
 }
 
 
@@ -892,10 +900,6 @@ select::-webkit-scrollbar-thumb:hover {
 }
 
 .gradient-text {
-    /* background: linear-gradient(to right top, #ae633f, #b87444, #c1864a,
-            #c89852, #ceab5c);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
     font-weight: 900;
     color: #ffff89;
 }
@@ -921,13 +925,11 @@ select::-webkit-scrollbar-thumb:hover {
 
 .serviceCard {
     box-shadow: 0 2px 30px rgba(23, 15, 73, .1);
-    /* border-radius: 75px 4px 4px 4px; */
     border-radius: 40px;
 }
 
 .rotate-icon {
     transform: rotate(45deg);
-    /* Rotate by 45 degrees */
 }
 
 .rotate-icon img {
@@ -1232,8 +1234,6 @@ select::-webkit-scrollbar-thumb:hover {
 /* new reiki page  */
 
 .meditationBox {
-    /* background-image: linear-gradient(to right top, #efefef, #c3bfd4, #9a91b8,
-            #74649c, #4e3a7f); */
     background-image: linear-gradient(to right top, #b698e3, #9b7fc9,
             #8167b0, #675097, #4e3a7f);
     padding: 0px 15px 0px 0;
@@ -1248,55 +1248,11 @@ select::-webkit-scrollbar-thumb:hover {
 
     .btn-rotate {
         transform: rotate(90deg);
-        /* Re-align the button text */
         font-size: 10px;
     }
 
 }
 
-/* Video  */
 
-.video-section {
-    background-image: url("/static/assets/images/contact\ banner.jpg");
-    width: 100%;
-    height: 80%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 40px 250px;
-}
 
-.video-container {
-    position: relative;
-    padding-bottom: 56.2%;
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-    border-radius: 20px;
-}
 
-.video-container video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-@media (max-width: 850px) {
-    .video-section {
-        padding: 40px 25px;
-    }
-}
-
-@media (max-width: 640px) {
-    .video-container {
-        padding-bottom: 56%;
-    }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
-    .video-container {
-        padding-bottom: 56.25%;
-    }
-}
