@@ -224,7 +224,7 @@ def payment_return(request):
             response = requests.get(request_url, headers=headers, timeout=10)
             response_data = response.json()
             print(response_data)
-
+             
             if payment_status == 'PAYMENT_SUCCESS':
                 return redirect('redirect_url')
             else:
@@ -1032,7 +1032,7 @@ def book_astro_payment_return(request):
                 response = requests.get(request_url, headers=headers, timeout=10)
                 response_data = response.json()
                 print(response_data)
-
+                payment_status = response_data.get('code') 
                 if payment_status == 'PAYMENT_SUCCESS':
                     booking_id = int(merchantTransactionId.replace("TRANS", ""))
                     booking = AstroBooking.objects.filter(id=booking_id).first()
