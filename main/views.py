@@ -16,9 +16,7 @@ from .models import *
 import urllib
 from urllib.request import urlopen,Request
 import json
-from django.contrib.sessions.backends.db import SessionStore
-import logging
-logger = logging.getLogger(__name__)
+
 
 def home(request):
     return render(request, 'NewLandingpage.html')
@@ -1011,7 +1009,7 @@ def book_astro_payment_return(request):
     merchantId = "M22REVYZNMPVY"
     
     if request.method == 'POST':
-        merchantTransactionId = request.GET.get("merchantTransactionId")
+        merchantTransactionId = request.POST.get("merchantTransactionId")
         print("Returned merchantTransactionId: ", merchantTransactionId)
              
         
