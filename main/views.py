@@ -951,16 +951,16 @@ def bookastro(request):
         callbackUrl = f"{base_url}book_astro_payment_return/?merchantTransactionId=TRANS{new_booking.id}"
 
      
-        url = "https://api-preprod.phonepe.com/apis/hermes/pg/v1/pay"
-        MERCHANT_ID = "PGTESTPAYUAT77"
+        url = "https://api.phonepe.com/apis/hermes/pg/v1/pay"
+        MERCHANT_ID = "M22REVYZNMPVY"
    
         MERCHANT_USER_ID = "MUID123"
         amount = 100  # ₹99.00
         REDIRECT_URL = redirectUrl
         CALLBACK_URL = callbackUrl
-        API_KEY = "14fa5465-f8a7-443f-8477-f986b8fcfde9"
+        API_KEY = "71dedcf7-11d5-461a-bb1c-a5bc7231b45f"
         ENDPOINT = "/pg/v1/pay"
-        INDEX = '1' 
+        INDEX = '2' 
         payload = {
             "merchantId": MERCHANT_ID,
             "merchantTransactionId":f"TRANS{new_booking.id}",
@@ -1006,9 +1006,9 @@ def bookastro(request):
 def book_astro_payment_return(request):
     
     print('payment-return')
-    INDEX = "1"
-    SALTKEY = "14fa5465-f8a7-443f-8477-f986b8fcfde9"
-    merchantId = "PGTESTPAYUAT77"
+    INDEX = "2"
+    SALTKEY = "71dedcf7-11d5-461a-bb1c-a5bc7231b45f"
+    merchantId = "M22REVYZNMPVY"
     
     if request.method == 'POST':
         merchantTransactionId = request.GET.get("merchantTransactionId")
@@ -1016,7 +1016,7 @@ def book_astro_payment_return(request):
              
         
         if merchantTransactionId:
-            request_url = f"https://api-preprod.phonepe.com/apis/hermes/pg/v1/status/{merchantId}/{merchantTransactionId}"
+            request_url = f'https://api.phonepe.com/apis/hermes/pg/v1/status/{merchantId}/{merchantTransactionId}'
             sha256_Pay_load_String = f'/pg/v1/status/{merchantId}/{merchantTransactionId}{SALTKEY}'
             sha256_val = calculate_sha256_string(sha256_Pay_load_String)
             checksum = sha256_val + '###' + INDEX
