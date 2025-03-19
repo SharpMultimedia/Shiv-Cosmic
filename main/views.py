@@ -1016,7 +1016,7 @@ def book_astro_payment_return(request):
              
         
         if merchantTransactionId:
-            request_url = f'https://api.phonepe.com/apis/hermes/pg/v1/status/{merchantId}/{merchantTransactionId}'
+            request_url = f"https://api-preprod.phonepe.com/apis/hermes/pg/v1/status/{merchantId}/{merchantTransactionId}"
             sha256_Pay_load_String = f'/pg/v1/status/{merchantId}/{merchantTransactionId}{SALTKEY}'
             sha256_val = calculate_sha256_string(sha256_Pay_load_String)
             checksum = sha256_val + '###' + INDEX
@@ -1033,7 +1033,7 @@ def book_astro_payment_return(request):
                 response_data = response.json()
                 print(response_data)
 
-                if response_data.get('success') and response_data.get('code') == 'PAYMENT_SUCCESS':
+                if payment_status == 'PAYMENT_SUCCESS':
                     booking_id = int(merchantTransactionId.replace("TRANS", ""))
                     booking = AstroBooking.objects.filter(id=booking_id).first()
                     if booking:
