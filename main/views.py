@@ -862,8 +862,8 @@ def bookastro(request):
         }
         response = requests.post(url, headers=headers, json=json_data)
         response_data = response.json()
-
-        merchantTransactionId = request.session.get(f"TRANS{new_booking.id}")
+        request.session['merchantTransactionId'] = f"TRANS{new_booking.id}"
+        
         
         if 'data' in response_data and 'instrumentResponse' in response_data['data'] and 'redirectInfo' in response_data['data']['instrumentResponse']:
             return redirect(response_data['data']['instrumentResponse']['redirectInfo']['url'])
