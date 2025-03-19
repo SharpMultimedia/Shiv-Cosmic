@@ -44,8 +44,8 @@
             <div class="md:w-[48%] flex flex-col justify-center">
                 <!-- Add messages section -->
 
-                <form action="#" method="POST" class="reiki-form w-full" id="reikiForm">
-
+                <form action="{% url 'bookastro' %}" method="POST" class="reiki-form w-full" id="reikiForm">
+                    {% csrf_token %}  
                     <div class="w-full md:flex justify-between">
                         <div class="md:w-[48%]">
                             <div class="">

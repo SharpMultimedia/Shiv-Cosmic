@@ -21,4 +21,6 @@ urlpatterns = [
     path('astro_mapping/', views.astro_mapping, name='astro_mapping'),
     path('astro_vastu/', views.astro_vastu, name='astro_vastu'),
     path('bookappointment/', views.bookappointment, name='bookappointment'),
+    path('bookastro/', views.bookastro, name='bookastro'),
+    path('book_astro_payment_return/', views.book_astro_payment_return, name='book_astro_payment_return'),
 ]
