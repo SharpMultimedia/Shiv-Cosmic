@@ -871,47 +871,98 @@ def bookastro(request):
     return render(request, 'bookastro.html')
 
 
+# @csrf_exempt
+# def book_astro_payment_return(request):
+#     print('payment-return')
+#     INDEX = "2"
+#     SALTKEY = "71dedcf7-11d5-461a-bb1c-a5bc7231b45f"
+#     merchantId = "M22REVYZNMPVY"
+#     transaction_id = request.session.get("merchantTransactionId")
+#     print(transaction_id)
+#     if transaction_id:
+#         request_url = f'https://api.phonepe.com/apis/hermes/pg/v1/status/{merchantId}/{transaction_id}'
+#         sha256_Pay_load_String = f'/pg/v1/status/{merchantId}/{transaction_id}{SALTKEY}'
+#         sha256_val = calculate_sha256_string(sha256_Pay_load_String)
+#         checksum = sha256_val + '###' + INDEX
+
+#         headers = {
+#             'Content-Type': 'application/json',
+#             'X-VERIFY': checksum,
+#             'X-MERCHANT-ID': transaction_id,
+#             'accept': 'application/json',
+#         }
+#         try:
+#             response = requests.get(request_url, headers=headers, timeout=10)
+#             response_data = response.json()
+#             print(response_data)
+
+#             if response_data.get('code') == 'PAYMENT_SUCCESS':
+#                 booking_id = int(transaction_id.replace("TRANS", ""))
+#                 booking = AstroBooking.objects.filter(id=booking_id).first()
+#                 if booking:
+#                     booking.paid = True
+#                     booking.save()
+#                 return render(request, "payment_success.html", {"booking": booking})
+#                 return redirect('home')
+#             else:
+#                 messages.error(request, "Payment was unsuccessful. Please try again.")
+#                 return redirect('home')  # Redirect to index if payment is unsuccessful
+#         except requests.exceptions.RequestException as e:
+#             print(f"Request failed: {e}")
+#             messages.error(request, "There was an error retrieving the payment status. Please try again.")
+#             return redirect('home')  # Redirect to index if there's a request exception
+
+#     else:
+#         messages.error(request, "Invalid transaction ID.")
+#     return render(request, 'index.html')  
+
 @csrf_exempt
 def book_astro_payment_return(request):
     print('payment-return')
     INDEX = "2"
     SALTKEY = "71dedcf7-11d5-461a-bb1c-a5bc7231b45f"
     merchantId = "M22REVYZNMPVY"
-    transaction_id = request.session.get("merchantTransactionId")
-    print(transaction_id)
-    if transaction_id:
-        request_url = f'https://api.phonepe.com/apis/hermes/pg/v1/status/{merchantId}/{transaction_id}'
-        sha256_Pay_load_String = f'/pg/v1/status/{merchantId}/{transaction_id}{SALTKEY}'
-        sha256_val = calculate_sha256_string(sha256_Pay_load_String)
-        checksum = sha256_val + '###' + INDEX
+    
+    if request.method == 'POST':
+        data = request.POST
+        merchantTransactionId = data.get("transactionId") or data.get("merchantTransactionId")
+        print("Returned merchantTransactionId: ", merchantTransactionId)
+        
+        if merchantTransactionId:
+            request_url = f'https://api.phonepe.com/apis/hermes/pg/v1/status/{merchantId}/{merchantTransactionId}'
+            sha256_Pay_load_String = f'/pg/v1/status/{merchantId}/{merchantTransactionId}{SALTKEY}'
+            sha256_val = calculate_sha256_string(sha256_Pay_load_String)
+            checksum = sha256_val + '###' + INDEX
 
-        headers = {
-            'Content-Type': 'application/json',
-            'X-VERIFY': checksum,
-            'X-MERCHANT-ID': transaction_id,
-            'accept': 'application/json',
-        }
-        try:
-            response = requests.get(request_url, headers=headers, timeout=10)
-            response_data = response.json()
-            print(response_data)
+            headers = {
+                'Content-Type': 'application/json',
+                'X-VERIFY': checksum,
+                'X-MERCHANT-ID': merchantTransactionId,
+                'accept': 'application/json',
+            }
 
-            if response_data.get('code') == 'PAYMENT_SUCCESS':
-                booking_id = int(transaction_id.replace("TRANS", ""))
-                booking = AstroBooking.objects.filter(id=booking_id).first()
-                if booking:
-                    booking.paid = True
-                    booking.save()
-                return render(request, "payment_success.html", {"booking": booking})
+            try:
+                response = requests.get(request_url, headers=headers, timeout=10)
+                response_data = response.json()
+                print(response_data)
+
+                if response_data.get('success') and response_data.get('code') == 'PAYMENT_SUCCESS':
+                    booking_id = int(merchantTransactionId.replace("TRANS", ""))
+                    booking = AstroBooking.objects.filter(id=booking_id).first()
+                    if booking:
+                        booking.paid = True
+                        booking.save()
+                    return render(request, "payment_success.html", {"booking": booking})
+                else:
+                    messages.error(request, "Payment was unsuccessful. Please try again.")
+                    return redirect('home')
+            except requests.exceptions.RequestException as e:
+                print(f"Request failed: {e}")
+                messages.error(request, "Error checking payment status. Please try again.")
                 return redirect('home')
-            else:
-                messages.error(request, "Payment was unsuccessful. Please try again.")
-                return redirect('home')  # Redirect to index if payment is unsuccessful
-        except requests.exceptions.RequestException as e:
-            print(f"Request failed: {e}")
-            messages.error(request, "There was an error retrieving the payment status. Please try again.")
-            return redirect('home')  # Redirect to index if there's a request exception
-
+        else:
+            messages.error(request, "Merchant Transaction ID missing in callback.")
     else:
-        messages.error(request, "Invalid transaction ID.")
-    return render(request, 'index.html')        
+        messages.error(request, "Invalid request method.")
+    
+    return redirect('home')
