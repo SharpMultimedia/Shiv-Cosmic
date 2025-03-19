@@ -898,7 +898,7 @@ def book_astro_payment_return(request):
 
             if response_data.get('code') == 'PAYMENT_SUCCESS':
                 booking_id = int(transaction_id.replace("TRANS", ""))
-                 booking = AstroBooking.objects.filter(id=booking_id).first()
+                booking = AstroBooking.objects.filter(id=booking_id).first()
                 if booking:
                     booking.paid = True
                     booking.save()
