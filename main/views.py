@@ -1019,7 +1019,8 @@ def book_astro_payment_return(request):
     merchantId = "M22REVYZNMPVY"
     
     if request.method == 'POST':
-        merchantTransactionId = request.GET.get("merchantTransactionId")
+        merchantTransactionId = request.POST.get("merchantTransactionId") or request.GET.get("merchantTransactionId")
+
         print("Returned merchantTransactionId: ", merchantTransactionId)
              
         
@@ -1037,7 +1038,7 @@ def book_astro_payment_return(request):
             }
 
             try:
-                response = requests.get(request_url, headers=headers, timeout=10)
+                response = requests.get(request_url, headers=headers)
                 response_data = response.json()
                 print(response_data)
                 payment_status = response_data.get('code') 
