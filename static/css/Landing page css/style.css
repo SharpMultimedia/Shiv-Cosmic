@@ -859,10 +859,18 @@ select::-webkit-scrollbar-thumb:hover {
         top: 21%;
     }
 
+    .bookSession {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
 }
 
 @media only screen and (min-width: 2200px) {
-    
+
     .astroheroimage {
         top: -160% !important;
     }
@@ -893,6 +901,8 @@ select::-webkit-scrollbar-thumb:hover {
     .heroSection {
         height: 75vh;
     }
+
+ 
 }
 
 
