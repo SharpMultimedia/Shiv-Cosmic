@@ -773,6 +773,7 @@ select::-webkit-scrollbar-thumb:hover {
     .heroSection {
         height: 70vh;
     }
+
     .astrological-image {
         max-width: 40% !important;
     }
@@ -808,7 +809,7 @@ select::-webkit-scrollbar-thumb:hover {
     }
 
     .heroSection {
-        height: 75vh;
+        height: 70vh;
     }
 
     .hero-section {
@@ -861,6 +862,7 @@ select::-webkit-scrollbar-thumb:hover {
 }
 
 @media only screen and (min-width: 2200px) {
+    
     .astroheroimage {
         top: -160% !important;
     }
@@ -880,12 +882,16 @@ select::-webkit-scrollbar-thumb:hover {
         top: 22%;
     }
 
-    .bookastro iframe{
+    .bookastro iframe {
         height: 601px;
     }
 
-    .LandingVideo iframe{
+    .LandingVideo iframe {
         height: 650px;
+    }
+
+    .heroSection {
+        height: 75vh;
     }
 }
 
@@ -1252,7 +1258,3 @@ select::-webkit-scrollbar-thumb:hover {
     }
 
 }
-
-
-
-
