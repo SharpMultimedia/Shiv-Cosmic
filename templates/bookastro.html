@@ -43,6 +43,17 @@
 
             <div class="md:w-[48%] flex flex-col justify-center">
                 <!-- Add messages section -->
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert 
+                            {% if message.tags == 'success' %}alert-success
+                            {% elif message.tags == 'error' %}alert-danger
+                            {% else %}alert-info
+                            {% endif %}" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
 
                 <form action="{% url 'bookastro' %}" method="POST" class="reiki-form w-full" id="reikiForm">
                     {% csrf_token %}  

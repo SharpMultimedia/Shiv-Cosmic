@@ -1037,14 +1037,15 @@ def book_astro_payment_return(request):
                     if booking:
                         booking.paid = True
                         booking.save()
-                    return render(request, "payment_successful.html", {"booking": booking})
+                    messages.success(request, "Payment Successful! Thank you for your booking.")    
+                    return render(request, 'bookastro.html')
                 else:
                     messages.error(request, "Payment was unsuccessful. Please try again.")
-                    return redirect('home')
+                    return render(request, 'bookastro.html')
             except requests.exceptions.RequestException as e:
                 print(f"Request failed: {e}")
-                messages.error(request, "Error checking payment status. Please try again.")
-                return redirect('home')
+                messages.error(request, "Error checking payment status. Please try again.", {"response_data": response_data})
+                return render(request, 'bookastro.html')
         else:
             messages.error(request, "Merchant Transaction ID missing in callback.")
     else:
