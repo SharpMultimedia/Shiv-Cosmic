@@ -963,7 +963,7 @@ def bookastro(request):
         MERCHANT_ID = "M22REVYZNMPVY"
    
         MERCHANT_USER_ID = "MUID123"
-        amount = 100  # ₹99.00
+        amount = 9900  # ₹99.00
         REDIRECT_URL = redirectUrl
         CALLBACK_URL = callbackUrl
         API_KEY = "71dedcf7-11d5-461a-bb1c-a5bc7231b45f"
