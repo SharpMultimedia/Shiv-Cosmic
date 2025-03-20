@@ -799,6 +799,10 @@ def base(request):
     }
     return render(request, 'base.html', context)
 
+
+
+#test 
+
 # def bookastro(request):
 #     if request.method == "POST":  
 #         first_name = request.POST.get('firstname')  
@@ -818,19 +822,20 @@ def base(request):
 #         print(new_booking.id)
 #         # Construct the dynamic URLs
 #         base_url = request.build_absolute_uri('/')
-#         redirectUrl = base_url + 'book_astro_payment_return/'
-#         callbackUrl = base_url + 'book_astro_payment_return/'
+#         redirectUrl = f"{base_url}book_astro_payment_return/?merchantTransactionId=TRANS{new_booking.id}"
+#         callbackUrl = f"{base_url}book_astro_payment_return/?merchantTransactionId=TRANS{new_booking.id}"
+
      
-#         url = "https://api.phonepe.com/apis/hermes/pg/v1/pay"
-#         MERCHANT_ID = "M22REVYZNMPVY"
+#         url = "https://api-preprod.phonepe.com/apis/pg-sandbox/pg/v1/pay"
+#         MERCHANT_ID = "PGTESTPAYUAT77"
    
 #         MERCHANT_USER_ID = "MUID123"
 #         amount = 100  # ₹99.00
 #         REDIRECT_URL = redirectUrl
 #         CALLBACK_URL = callbackUrl
-#         API_KEY = "71dedcf7-11d5-461a-bb1c-a5bc7231b45f"
+#         API_KEY = "14fa5465-f8a7-443f-8477-f986b8fcfde9"
 #         ENDPOINT = "/pg/v1/pay"
-#         INDEX = '2' 
+#         INDEX = '1' 
 #         payload = {
 #             "merchantId": MERCHANT_ID,
 #             "merchantTransactionId":f"TRANS{new_booking.id}",
@@ -863,9 +868,9 @@ def base(request):
 #         }
 #         response = requests.post(url, headers=headers, json=json_data)
 #         response_data = response.json()
-#         request.session['merchantTransactionId'] = f"TRANS{new_booking.id}"
+#         print(response_data)
         
-        
+
 #         if 'data' in response_data and 'instrumentResponse' in response_data['data'] and 'redirectInfo' in response_data['data']['instrumentResponse']:
 #             return redirect(response_data['data']['instrumentResponse']['redirectInfo']['url'])
 #         return render(request, 'bookastro.html')
@@ -874,18 +879,20 @@ def base(request):
 
 # @csrf_exempt
 # def book_astro_payment_return(request):
+    
 #     print('payment-return')
-#     INDEX = "2"
-#     SALTKEY = "71dedcf7-11d5-461a-bb1c-a5bc7231b45f"
-#     merchantId = "M22REVYZNMPVY"
+#     INDEX = "1"
+#     SALTKEY = "14fa5465-f8a7-443f-8477-f986b8fcfde9"
+#     merchantId = "PGTESTPAYUAT77"
     
 #     if request.method == 'POST':
-#         data = request.POST
-#         merchantTransactionId = data.get("merchantTransactionId")
+#         merchantTransactionId = request.GET.get("merchantTransactionId")
 #         print("Returned merchantTransactionId: ", merchantTransactionId)
+             
         
 #         if merchantTransactionId:
-#             request_url = f'https://api.phonepe.com/apis/hermes/pg/v1/status/{merchantId}/{merchantTransactionId}'
+#             request_url = f"https://api-preprod.phonepe.com/apis/hermes/pg/v1/status/{merchantId}/{merchantTransactionId}"
+
 #             sha256_Pay_load_String = f'/pg/v1/status/{merchantId}/{merchantTransactionId}{SALTKEY}'
 #             sha256_val = calculate_sha256_string(sha256_Pay_load_String)
 #             checksum = sha256_val + '###' + INDEX
@@ -901,21 +908,22 @@ def base(request):
 #                 response = requests.get(request_url, headers=headers, timeout=10)
 #                 response_data = response.json()
 #                 print(response_data)
-
-#                 if response_data.get('success') and response_data.get('code') == 'PAYMENT_SUCCESS':
+#                 payment_status = response_data.get('code') 
+#                 if payment_status == 'PAYMENT_SUCCESS':
 #                     booking_id = int(merchantTransactionId.replace("TRANS", ""))
 #                     booking = AstroBooking.objects.filter(id=booking_id).first()
 #                     if booking:
 #                         booking.paid = True
 #                         booking.save()
-#                     return render(request, "payment_success.html", {"booking": booking})
+#                     messages.success(request, "Payment Successful! Thank you for your booking.")    
+#                     return render(request, 'bookastro.html')
 #                 else:
 #                     messages.error(request, "Payment was unsuccessful. Please try again.")
-#                     return redirect('home')
+#                     return render(request, 'bookastro.html')
 #             except requests.exceptions.RequestException as e:
 #                 print(f"Request failed: {e}")
-#                 messages.error(request, "Error checking payment status. Please try again.")
-#                 return redirect('home')
+#                 messages.error(request, "Error checking payment status. Please try again.", {"response_data": response_data})
+#                 return render(request, 'bookastro.html')
 #         else:
 #             messages.error(request, "Merchant Transaction ID missing in callback.")
 #     else:
@@ -925,6 +933,8 @@ def base(request):
 
 
 
+
+#live
 
 def bookastro(request):
     if request.method == "POST":  
@@ -1009,7 +1019,7 @@ def book_astro_payment_return(request):
     merchantId = "M22REVYZNMPVY"
     
     if request.method == 'POST':
-        merchantTransactionId = request.POST.get("merchantTransactionId")
+        merchantTransactionId = request.GET.get("merchantTransactionId")
         print("Returned merchantTransactionId: ", merchantTransactionId)
              
         
