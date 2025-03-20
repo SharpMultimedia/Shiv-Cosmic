@@ -1017,7 +1017,8 @@ def book_astro_payment_return(request):
     INDEX = "2"
     SALTKEY = "71dedcf7-11d5-461a-bb1c-a5bc7231b45f"
     merchantId = "M22REVYZNMPVY"
-    
+    form_data = request.POST
+    payment_status = form_data.get('code', None)
     if request.method == 'POST':
         merchantTransactionId = request.POST.get("merchantTransactionId") or request.GET.get("merchantTransactionId")
 
@@ -1041,7 +1042,7 @@ def book_astro_payment_return(request):
                 response = requests.get(request_url, headers=headers)
                 response_data = response.json()
                 print(response_data)
-                payment_status = response_data.get('code') 
+                # payment_status = response_data.get('code') 
                 if payment_status == 'PAYMENT_SUCCESS':
                     booking_id = int(merchantTransactionId.replace("TRANS", ""))
                     booking = AstroBooking.objects.filter(id=booking_id).first()
