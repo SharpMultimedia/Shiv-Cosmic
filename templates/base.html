@@ -165,12 +165,12 @@
                         </ul>
                     </li>
 
-                    <li class="my-4 lg:my-0 z-[999]">
+                    <!-- <li class="my-4 lg:my-0 z-[999]">
                         <a href="#"
                             class="lg:text-[16px] xl:text-[17px] font-bold {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
                             Consultation
                         </a>
-                    </li>
+                    </li> -->
 
                     <!-- Close Icon Inside the List -->
                     <li
@@ -216,13 +216,20 @@
                     </div> -->
 
                     <div class="z-[999]">
-                        <ul>
+                        <ul class="flex items-center gap-5">
                             <li class="text-[#fff] my-2">
                                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info.shivcosmic@gmail.com" target="_blank" class="flex items-center gap-[5px]">
                                     <i class="fa-regular fa-envelope text-[#fff] mr-[5px] text-[21px] lg:text-[18px]"></i>
                                     <span class="hidden lg:block">info.shivcosmic@gmail.com</span>
                                 </a>
                                 
+                            </li>
+
+                            <li class="md:block hidden">
+                                <a href="{% url 'bookappointment' %}" target="_blank">
+                                    <button class="bg-[#821837] text-[15px] text-[#fff] py-[5px] px-[25px] rounded-[10px] z-50">Book
+                                        appointment</button>
+                                </a>
                             </li>
                         </ul>
                     </div>

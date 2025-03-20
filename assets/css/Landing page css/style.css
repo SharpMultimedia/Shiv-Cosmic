@@ -773,6 +773,10 @@ select::-webkit-scrollbar-thumb:hover {
     .heroSection {
         height: 70vh;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> f9adc3e1965c557bd8f353577f63a359ac5345ea
     .astrological-image {
         max-width: 40% !important;
     }
@@ -808,7 +812,11 @@ select::-webkit-scrollbar-thumb:hover {
     }
 
     .heroSection {
+<<<<<<< HEAD
         height: 60vh;
+=======
+        height: 70vh;
+>>>>>>> f9adc3e1965c557bd8f353577f63a359ac5345ea
     }
 
     .hero-section {
@@ -858,9 +866,18 @@ select::-webkit-scrollbar-thumb:hover {
         top: 21%;
     }
 
+    .bookSession {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
 }
 
 @media only screen and (min-width: 2200px) {
+
     .astroheroimage {
         top: -160% !important;
     }
@@ -879,6 +896,20 @@ select::-webkit-scrollbar-thumb:hover {
     .sticky-icon {
         top: 22%;
     }
+
+    .bookastro iframe {
+        height: 601px;
+    }
+
+    .LandingVideo iframe {
+        height: 650px;
+    }
+
+    .heroSection {
+        height: 75vh;
+    }
+
+ 
 }
 
 
@@ -892,10 +923,6 @@ select::-webkit-scrollbar-thumb:hover {
 }
 
 .gradient-text {
-    /* background: linear-gradient(to right top, #ae633f, #b87444, #c1864a,
-            #c89852, #ceab5c);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
     font-weight: 900;
     color: #ffff89;
 }
@@ -921,13 +948,11 @@ select::-webkit-scrollbar-thumb:hover {
 
 .serviceCard {
     box-shadow: 0 2px 30px rgba(23, 15, 73, .1);
-    /* border-radius: 75px 4px 4px 4px; */
     border-radius: 40px;
 }
 
 .rotate-icon {
     transform: rotate(45deg);
-    /* Rotate by 45 degrees */
 }
 
 .rotate-icon img {
@@ -1232,8 +1257,6 @@ select::-webkit-scrollbar-thumb:hover {
 /* new reiki page  */
 
 .meditationBox {
-    /* background-image: linear-gradient(to right top, #efefef, #c3bfd4, #9a91b8,
-            #74649c, #4e3a7f); */
     background-image: linear-gradient(to right top, #b698e3, #9b7fc9,
             #8167b0, #675097, #4e3a7f);
     padding: 0px 15px 0px 0;
@@ -1248,10 +1271,10 @@ select::-webkit-scrollbar-thumb:hover {
 
     .btn-rotate {
         transform: rotate(90deg);
-        /* Re-align the button text */
         font-size: 10px;
     }
 
+<<<<<<< HEAD
 }
 
 /* Video  */
@@ -1299,4 +1322,6 @@ select::-webkit-scrollbar-thumb:hover {
     .video-container {
         padding-bottom: 56.25%;
     }
+=======
+>>>>>>> f9adc3e1965c557bd8f353577f63a359ac5345ea
 }

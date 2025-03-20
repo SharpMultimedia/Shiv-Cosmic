@@ -14,12 +14,17 @@
 
 <body>
 
-    <section class="md:h-screen bg-center bg-cover bg-no-repeat px-[25px] py-[15px] xl:px-[100px]
-     xl:py-[60px] flex items-center justify-center flex-col"
+    <section class="bg-center bg-cover bg-no-repeat px-[25px] py-[15px] xl:px-[100px]
+     xl:py-[60px] bookSession"
         style="background-image: url('/static/assets/images/t.jpeg');">
 
-        <div class="mb-[40px] flex flex-col items-center justify-center">
-            <h1 class="font-bold text-[25px] md:text-[35px] text-[#fff] leading-[32px] md:leading-[38px] text-center mb-[20px]">
+        <div class="mb-[20px] lg:mb-[40px] flex flex-col items-center justify-center">
+
+            <a href="/">
+                <img class="max-w-[95px] md:max-w-[105px] lg:max-w-[135px]" src="/static/assets/images/Logo/logo.png" alt="logo" loading="lazy">
+            </a>
+
+            <h1 class="font-bold text-[25px] md:text-[35px] text-[#fff] leading-[32px] md:leading-[38px] text-center my-[20px]">
                 Welcome to <strong class="gradient-text"> Shiv Cosmic Energy Solutions </strong>
             </h1>
             <p class="md:w-[60%]  text-[#fdfdfd] text-[16px] text-center md:text-[18px] xl:text-[20px]">
@@ -31,17 +36,17 @@
         </div>
 
 
-        <div class="w-full md:flex justify-between">
+        <div class="w-full flex flex-col items-center justify-between">
 
-            <div class="md:w-[48%] mb-4 md:m-0 bookastro">
-                <iframe class="w-[100%] md:h-[350px] rounded-[15px]"
+            <div class="md:w-[58%] bookastro">
+                <iframe class="w-[100%] md:h-[350px] lg:h-[450px] rounded-[15px]"
                     src="https://www.youtube.com/embed/-7oALzHZES8?si=BjEFD3Dce7w_jjFi&autoplay=1&mute=1"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
 
-            <div class="md:w-[48%] flex flex-col justify-center">
+            <div class="w-full md:w-[48%] flex flex-col justify-center mt-[20px] lg:mt-[40px]">
                 <!-- Add messages section -->
                 {% if messages %}
                     {% for messages in messages %}
@@ -102,7 +107,7 @@
 
                     <div class="mt-[20px]">
                         <button type="submit"
-                            class="w-full bg-[#AE633F] text-[#fff] py-[10px] rounded-[10px]">Send</button>
+                            class="w-full bg-[#AE633F] text-[#fff] py-[10px] rounded-[10px]">Submit</button>
                     </div>
 
                 </form>

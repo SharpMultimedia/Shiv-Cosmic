@@ -142,5 +142,18 @@ function changeInfo(option) {
 }
 
 
+// ------------- 
 
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Get the selected plan from localStorage
+    const selectedPlan = localStorage.getItem("selectedPlan");
+
+    if (selectedPlan === "Numerology") {
+        // Hide specific input fields
+        document.getElementById("hourDiv").closest("div").style.display = "none";
+        document.getElementById("minDiv").closest("div").style.display = "none";
+        document.getElementById("placeDiv").closest("div").style.display = "none";
+    }
+});
   
