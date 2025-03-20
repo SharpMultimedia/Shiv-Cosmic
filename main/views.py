@@ -1051,7 +1051,7 @@ def book_astro_payment_return(request):
                     messages.success(request, "Payment Successful! Thank you for your booking.")    
                     return render(request, 'bookastro.html')
                 else:
-                    messages.error(request, "Payment was unsuccessful. Please try again.")
+                    messages.error(request, "Payment was unsuccessful. Please try again.", {"response_data": response_data})
                     return render(request, 'bookastro.html')
             except requests.exceptions.RequestException as e:
                 print(f"Request failed: {e}")
