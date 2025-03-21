@@ -701,7 +701,7 @@ select::-webkit-scrollbar-thumb:hover {
 }
 
 
-@media (min-width:320px) and (max-width: 425px) {
+@media (min-width:320px) and (max-width: 426px) {
     .hero-section {
         height: 670px;
     }
@@ -712,6 +712,13 @@ select::-webkit-scrollbar-thumb:hover {
 
     .subImage {
         max-width: 180px;
+    }
+    .bookSession{
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 }
 
@@ -738,6 +745,7 @@ select::-webkit-scrollbar-thumb:hover {
     .astroheroimage {
         top: 16% !important;
     }
+
 }
 
 @media (min-width:375px) and (max-width: 598px) {
@@ -750,13 +758,27 @@ select::-webkit-scrollbar-thumb:hover {
         height: 920px !important;
     }
 
-
+    .bookSession{
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 @media (min-width:600px) and (max-width: 768px) {
 
     .benefit-img {
         height: 760px !important;
+    }
+
+    .bookSession{
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 }
 
