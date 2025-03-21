@@ -701,7 +701,7 @@ select::-webkit-scrollbar-thumb:hover {
 }
 
 
-@media (min-width:320px) and (max-width: 425px) {
+@media (min-width:320px) and (max-width: 426px) {
     .hero-section {
         height: 670px;
     }
@@ -712,6 +712,13 @@ select::-webkit-scrollbar-thumb:hover {
 
     .subImage {
         max-width: 180px;
+    }
+    .bookSession{
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 }
 
@@ -738,6 +745,7 @@ select::-webkit-scrollbar-thumb:hover {
     .astroheroimage {
         top: 16% !important;
     }
+
 }
 
 @media (min-width:375px) and (max-width: 598px) {
@@ -750,13 +758,27 @@ select::-webkit-scrollbar-thumb:hover {
         height: 920px !important;
     }
 
-
+    .bookSession{
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 @media (min-width:600px) and (max-width: 768px) {
 
     .benefit-img {
         height: 760px !important;
+    }
+
+    .bookSession{
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 }
 
@@ -773,10 +795,7 @@ select::-webkit-scrollbar-thumb:hover {
     .heroSection {
         height: 70vh;
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> f9adc3e1965c557bd8f353577f63a359ac5345ea
     .astrological-image {
         max-width: 40% !important;
     }
@@ -812,11 +831,7 @@ select::-webkit-scrollbar-thumb:hover {
     }
 
     .heroSection {
-<<<<<<< HEAD
-        height: 60vh;
-=======
         height: 70vh;
->>>>>>> f9adc3e1965c557bd8f353577f63a359ac5345ea
     }
 
     .hero-section {
@@ -867,7 +882,6 @@ select::-webkit-scrollbar-thumb:hover {
     }
 
     .bookSession {
-        height: 100vh;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -1274,54 +1288,4 @@ select::-webkit-scrollbar-thumb:hover {
         font-size: 10px;
     }
 
-<<<<<<< HEAD
-}
-
-/* Video  */
-
-.video-section {
-    background-image: url("/static/assets/images/contact\ banner.jpg");
-    width: 100%;
-    height: 80%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 40px 250px;
-}
-
-.video-container {
-    position: relative;
-    padding-bottom: 56.2%;
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-    border-radius: 20px;
-}
-
-.video-container video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-@media (max-width: 850px) {
-    .video-section {
-        padding: 40px 25px;
-    }
-}
-
-@media (max-width: 640px) {
-    .video-container {
-        padding-bottom: 56%;
-    }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
-    .video-container {
-        padding-bottom: 56.25%;
-    }
-=======
->>>>>>> f9adc3e1965c557bd8f353577f63a359ac5345ea
 }
