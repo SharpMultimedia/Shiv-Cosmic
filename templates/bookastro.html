@@ -47,10 +47,16 @@
             </div>
 
             <div class="flex items-center gap-3 mt-[20px]">
-                <a href="#" target="_blank">
+                <form action="{% url 'bookastro' %}" method="POST" class="reiki-form w-full" id="reikiForm">
+                {% csrf_token %}
                     <button class="btn--snakeBorder text-[15px] text-[#fff] py-[7px] px-[25px] rounded-[10px] z-50">Book
-                        appointment / Consultation</button>
-                </a>
+                        Appointment / Consultation @ 99</button>
+                </form>
+            </div>
+
+            <div class="mb-[20px] lg:mb-[40px] flex flex-col items-center justify-center">
+                <br>
+                <p class="md:w-[60%]  text-[#fdfdfd] text-[16px] text-center md:text-[18px] xl:text-[20px]">If you are not satisfied, you will receive a refund.</p>
             </div>
 
             <!-- <div class="w-full md:w-[48%] flex flex-col justify-center mt-[20px] lg:mt-[40px]">

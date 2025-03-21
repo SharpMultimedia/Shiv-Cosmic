@@ -107,13 +107,13 @@ def payment(request):
         print(kundliType)
 
         if kundliType == "Basic Kundli":
-            amount = 1
+            amount = 299
         elif kundliType == "Pro Kundli":
-            amount = 1
+            amount = 499
         elif kundliType == "Pro Numerology":
-            amount = 1
+            amount = 699
         elif kundliType == "Astro-Vastu":
-            amount = 1
+            amount = 999
         # Construct the dynamic URLs
         base_url = request.build_absolute_uri('/')
         redirectUrl = base_url + 'payment_return/'
@@ -938,25 +938,26 @@ def base(request):
 
 def bookastro(request):
     if request.method == "POST":  
-        first_name = request.POST.get('firstname')  
-        last_name  = request.POST.get('lastname')  
-        phone      = request.POST.get('phone')  
-        email      = request.POST.get('email')  
+        # first_name = request.POST.get('firstname')  
+        # last_name  = request.POST.get('lastname')  
+        # phone      = request.POST.get('phone')  
+        # email      = request.POST.get('email')  
 
         
-        new_booking = AstroBooking.objects.create(  
-                        first_name=first_name,  
-                        last_name=last_name,  
-                        phone=phone,  
-                        email=email,  
-                        paid=False  
-                    ) 
-        print("id") 
-        print(new_booking.id)
+        # new_booking = AstroBooking.objects.create(  
+        #                 first_name=first_name,  
+        #                 last_name=last_name,  
+        #                 phone=phone,  
+        #                 email=email,  
+        #                 paid=False  
+        #             ) 
+        # print("id") 
+        # print(new_booking.id)
+
         # Construct the dynamic URLs
         base_url = request.build_absolute_uri('/')
-        redirectUrl = f"{base_url}book_astro_payment_return/?merchantTransactionId=TRANS{new_booking.id}"
-        callbackUrl = f"{base_url}book_astro_payment_return/?merchantTransactionId=TRANS{new_booking.id}"
+        redirectUrl = f"{base_url}book_astro_payment_return/?merchantTransactionId={shortuuid.uuid()}"
+        callbackUrl = f"{base_url}book_astro_payment_return/?merchantTransactionId={shortuuid.uuid()}"
 
      
         url = "https://api.phonepe.com/apis/hermes/pg/v1/pay"
@@ -971,13 +972,13 @@ def bookastro(request):
         INDEX = '2' 
         payload = {
             "merchantId": MERCHANT_ID,
-            "merchantTransactionId":f"TRANS{new_booking.id}",
+            "merchantTransactionId":shortuuid.uuid(),
             "merchantUserId": MERCHANT_USER_ID,
             "amount": amount,
             "redirectUrl": REDIRECT_URL,
             "redirectMode": "POST",
             "callbackUrl": CALLBACK_URL,
-            "mobileNumber": phone,
+            "mobileNumber": "7841888451",
             "paymentInstrument": {
                 "type": "PAY_PAGE",
             }
