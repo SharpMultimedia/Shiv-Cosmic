@@ -1013,7 +1013,8 @@ def bookastro(request):
 
 @csrf_exempt
 def book_astro_payment_return(request):
-    payment_status = response_data.get('code') 
+    form_data = request.POST
+    payment_status = form_data.get('code', None)
     if payment_status == 'PAYMENT_SUCCESS':
         return redirect('bookappointment')
     else:
