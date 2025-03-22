@@ -19,7 +19,7 @@
         style="background-image: url('/static/assets/images/t.jpeg');">
         {% if messages %}
             {% for messages in messages %}
-                <div class="alert 
+                <div class="alert text-center mb-[10px] text-[18px] md:text-[20px] text-[#ffff89]
                     {% if message.tags == 'success' %}alert-success
                     {% elif message.tags == 'error' %}alert-danger
                     {% else %}alert-info
@@ -29,6 +29,7 @@
                 </div>
             {% endfor %}
         {% endif %}
+
         <div class="mb-[20px] lg:mb-[40px] flex flex-col items-center justify-center">
 
             <a href="/">
@@ -61,13 +62,13 @@
                 <form action="{% url 'bookastro' %}" method="POST" class="reiki-form w-full" id="reikiForm">
                 {% csrf_token %}
                     <button class="btn--snakeBorder text-[15px] text-[#fff] py-[7px] px-[25px] rounded-[10px] z-50">Book
-                        Appointment / Consultation @ 99 ₹ </button>
+                        Appointment / Consultation @ Rs.99  </button>
                 </form>
             </div>
 
-            <div class="mb-[20px] lg:mb-[40px] flex flex-col items-center justify-center">
+            <div class="flex flex-col items-center justify-center">
                 <br>
-                <p class="md:w-[60%]  text-[#fdfdfd] text-[16px] text-center md:text-[18px] xl:text-[20px]">If you are not satisfied, you will receive a refund.</p>
+                <p class=" text-[#fdfdfd] text-[16px] text-center md:text-[18px] xl:text-[20px]"> If you're not satisfied, you'll get a full refund.</p>
             </div>
 
             <!-- <div class="w-full md:w-[48%] flex flex-col justify-center mt-[20px] lg:mt-[40px]">
