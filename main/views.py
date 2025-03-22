@@ -964,7 +964,7 @@ def bookastro(request):
         MERCHANT_ID = "M22REVYZNMPVY"
    
         MERCHANT_USER_ID = "MUID123"
-        amount = 100  # ₹99.00
+        amount = 9900  # ₹99.00
         REDIRECT_URL = redirectUrl
         CALLBACK_URL = callbackUrl
         API_KEY = "71dedcf7-11d5-461a-bb1c-a5bc7231b45f"
@@ -1018,7 +1018,7 @@ def book_astro_payment_return(request):
     if payment_status == 'PAYMENT_SUCCESS':
         return redirect('bookappointment')
     else:
-        messages.error(request, "Payment was unsuccessful. Please try again.")
+        messages.error(request, "Payment unsuccessful. Please try again.")
         return render(request, 'bookastro.html')   
     # print('payment-return')
     # INDEX = "2"
