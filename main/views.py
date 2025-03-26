@@ -107,13 +107,13 @@ def payment(request):
         print(kundliType)
 
         if kundliType == "Basic Kundli":
-            amount = 299
+            amount = 1
         elif kundliType == "Pro Kundli":
-            amount = 499
+            amount = 1
         elif kundliType == "Pro Numerology":
-            amount = 699
+            amount = 1
         elif kundliType == "Astro-Vastu":
-            amount = 999
+            amount = 1
         # Construct the dynamic URLs
         base_url = request.build_absolute_uri('/')
         redirectUrl = base_url + 'payment_return/'
@@ -798,143 +798,6 @@ def base(request):
         'recaptcha_site_key': settings.RECAPTCHA_PUBLIC_KEY
     }
     return render(request, 'base.html', context)
-
-
-
-#test 
-
-# def bookastro(request):
-#     if request.method == "POST":  
-#         first_name = request.POST.get('firstname')  
-#         last_name  = request.POST.get('lastname')  
-#         phone      = request.POST.get('phone')  
-#         email      = request.POST.get('email')  
-
-        
-#         new_booking = AstroBooking.objects.create(  
-#                         first_name=first_name,  
-#                         last_name=last_name,  
-#                         phone=phone,  
-#                         email=email,  
-#                         paid=False  
-#                     ) 
-#         print("id") 
-#         print(new_booking.id)
-#         # Construct the dynamic URLs
-#         base_url = request.build_absolute_uri('/')
-#         redirectUrl = f"{base_url}book_astro_payment_return/?merchantTransactionId=TRANS{new_booking.id}"
-#         callbackUrl = f"{base_url}book_astro_payment_return/?merchantTransactionId=TRANS{new_booking.id}"
-
-     
-#         url = "https://api-preprod.phonepe.com/apis/pg-sandbox/pg/v1/pay"
-#         MERCHANT_ID = "PGTESTPAYUAT77"
-   
-#         MERCHANT_USER_ID = "MUID123"
-#         amount = 100  # ₹99.00
-#         REDIRECT_URL = redirectUrl
-#         CALLBACK_URL = callbackUrl
-#         API_KEY = "14fa5465-f8a7-443f-8477-f986b8fcfde9"
-#         ENDPOINT = "/pg/v1/pay"
-#         INDEX = '1' 
-#         payload = {
-#             "merchantId": MERCHANT_ID,
-#             "merchantTransactionId":f"TRANS{new_booking.id}",
-#             "merchantUserId": MERCHANT_USER_ID,
-#             "amount": amount,
-#             "redirectUrl": REDIRECT_URL,
-#             "redirectMode": "POST",
-#             "callbackUrl": CALLBACK_URL,
-#             "mobileNumber": phone,
-#             "paymentInstrument": {
-#                 "type": "PAY_PAGE",
-#             }
-#         }
-
-#         # Base64 encode the payload
-#         base64_string = base64_encode(payload)
-
-#         # Calculate checksum using API key
-#         sha256_val = calculate_sha256_string(base64_string + ENDPOINT + API_KEY)
-#         check_sum = sha256_val + '###' + INDEX
-
-#         headers = {
-#             "accept": "application/json",
-#             'X-VERIFY': check_sum,
-#             "Content-Type": "application/json"
-#         }
-
-#         json_data = {
-#             'request': base64_string,
-#         }
-#         response = requests.post(url, headers=headers, json=json_data)
-#         response_data = response.json()
-#         print(response_data)
-        
-
-#         if 'data' in response_data and 'instrumentResponse' in response_data['data'] and 'redirectInfo' in response_data['data']['instrumentResponse']:
-#             return redirect(response_data['data']['instrumentResponse']['redirectInfo']['url'])
-#         return render(request, 'bookastro.html')
-#     return render(request, 'bookastro.html')
-
-
-# @csrf_exempt
-# def book_astro_payment_return(request):
-    
-#     print('payment-return')
-#     INDEX = "1"
-#     SALTKEY = "14fa5465-f8a7-443f-8477-f986b8fcfde9"
-#     merchantId = "PGTESTPAYUAT77"
-    
-#     if request.method == 'POST':
-#         merchantTransactionId = request.GET.get("merchantTransactionId")
-#         print("Returned merchantTransactionId: ", merchantTransactionId)
-             
-        
-#         if merchantTransactionId:
-#             request_url = f"https://api-preprod.phonepe.com/apis/hermes/pg/v1/status/{merchantId}/{merchantTransactionId}"
-
-#             sha256_Pay_load_String = f'/pg/v1/status/{merchantId}/{merchantTransactionId}{SALTKEY}'
-#             sha256_val = calculate_sha256_string(sha256_Pay_load_String)
-#             checksum = sha256_val + '###' + INDEX
-
-#             headers = {
-#                 'Content-Type': 'application/json',
-#                 'X-VERIFY': checksum,
-#                 'X-MERCHANT-ID': merchantTransactionId,
-#                 'accept': 'application/json',
-#             }
-
-#             try:
-#                 response = requests.get(request_url, headers=headers, timeout=10)
-#                 response_data = response.json()
-#                 print(response_data)
-#                 payment_status = response_data.get('code') 
-#                 if payment_status == 'PAYMENT_SUCCESS':
-#                     booking_id = int(merchantTransactionId.replace("TRANS", ""))
-#                     booking = AstroBooking.objects.filter(id=booking_id).first()
-#                     if booking:
-#                         booking.paid = True
-#                         booking.save()
-#                     messages.success(request, "Payment Successful! Thank you for your booking.")    
-#                     return render(request, 'bookastro.html')
-#                 else:
-#                     messages.error(request, "Payment was unsuccessful. Please try again.")
-#                     return render(request, 'bookastro.html')
-#             except requests.exceptions.RequestException as e:
-#                 print(f"Request failed: {e}")
-#                 messages.error(request, "Error checking payment status. Please try again.", {"response_data": response_data})
-#                 return render(request, 'bookastro.html')
-#         else:
-#             messages.error(request, "Merchant Transaction ID missing in callback.")
-#     else:
-#         messages.error(request, "Invalid request method.")
-    
-#     return redirect('home')
-
-
-
-
-#live
 
 def bookastro(request):
     if request.method == "POST":  
