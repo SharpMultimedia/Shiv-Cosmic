@@ -876,56 +876,62 @@ def bookastro(request):
 
 @csrf_exempt
 def book_astro_payment_return(request):
-    
-    print('payment-return')
-    INDEX = "2"
-    SALTKEY = "71dedcf7-11d5-461a-bb1c-a5bc7231b45f"
-    merchantId = "M22REVYZNMPVY"
     form_data = request.POST
     payment_status = form_data.get('code', None)
-    if request.method == 'POST':
-        merchantTransactionId = request.POST.get("merchantTransactionId") or request.GET.get("merchantTransactionId")
+    if payment_status == 'PAYMENT_SUCCESS':
+        return redirect('bookappointment')
+    else:
+        messages.error(request, "Payment unsuccessful. Please try again.")
+        return render(request, 'bookastro.html')   
+    # print('payment-return')
+    # INDEX = "2"
+    # SALTKEY = "71dedcf7-11d5-461a-bb1c-a5bc7231b45f"
+    # merchantId = "M22REVYZNMPVY"
+    # form_data = request.POST
+    # payment_status = form_data.get('code', None)
+    # if request.method == 'POST':
+    #     merchantTransactionId = request.POST.get("merchantTransactionId") or request.GET.get("merchantTransactionId")
 
-        print("Returned merchantTransactionId: ", merchantTransactionId)
+    #     print("Returned merchantTransactionId: ", merchantTransactionId)
              
         
-        if merchantTransactionId:
-            request_url = f"https://api.phonepe.com/apis/hermes/pg/v1/status/{merchantId}/{merchantTransactionId}"
-            sha256_Pay_load_String = f'/pg/v1/status/{merchantId}/{merchantTransactionId}{SALTKEY}'
-            sha256_val = calculate_sha256_string(sha256_Pay_load_String)
-            checksum = sha256_val + '###' + INDEX
+    #     if merchantTransactionId:
+    #         request_url = f"https://api.phonepe.com/apis/hermes/pg/v1/status/{merchantId}/{merchantTransactionId}"
+    #         sha256_Pay_load_String = f'/pg/v1/status/{merchantId}/{merchantTransactionId}{SALTKEY}'
+    #         sha256_val = calculate_sha256_string(sha256_Pay_load_String)
+    #         checksum = sha256_val + '###' + INDEX
 
-            headers = {
-                'Content-Type': 'application/json',
-                'X-VERIFY': checksum,
-                'X-MERCHANT-ID': merchantTransactionId,
-                'accept': 'application/json',
-            }
+    #         headers = {
+    #             'Content-Type': 'application/json',
+    #             'X-VERIFY': checksum,
+    #             'X-MERCHANT-ID': merchantTransactionId,
+    #             'accept': 'application/json',
+    #         }
 
-            try:
-                response = requests.get(request_url, headers=headers)
-                response_data = response.json()
-                print(response_data)
-                # payment_status = response_data.get('code') 
-                if payment_status == 'PAYMENT_SUCCESS':
-                    booking_id = int(merchantTransactionId.replace("TRANS", ""))
-                    booking = AstroBooking.objects.filter(id=booking_id).first()
-                    if booking:
-                        booking.paid = True
-                        booking.save()
-                    messages.success(request, "Payment Successful! Thank you for your booking.")    
-                    return render(request, 'bookastro.html')
-                else:
-                    messages.error(request, "Payment was unsuccessful. Please try again.", {"response_data": response_data})
-                    return render(request, 'bookastro.html')
-            except requests.exceptions.RequestException as e:
-                print(f"Request failed: {e}")
-                messages.error(request, "Error checking payment status. Please try again.", {"response_data": response_data})
-                return render(request, 'bookastro.html')
-        else:
-            messages.error(request, "Merchant Transaction ID missing in callback.")
-    else:
-        messages.error(request, "Invalid request method.")
+    #         try:
+    #             response = requests.get(request_url, headers=headers)
+    #             response_data = response.json()
+    #             print(response_data)
+    #             # payment_status = response_data.get('code') 
+    #             if payment_status == 'PAYMENT_SUCCESS':
+    #                 booking_id = int(merchantTransactionId.replace("TRANS", ""))
+    #                 booking = AstroBooking.objects.filter(id=booking_id).first()
+    #                 if booking:
+    #                     booking.paid = True
+    #                     booking.save()
+    #                 messages.success(request, "Payment Successful! Thank you for your booking.")    
+    #                 return render(request, 'bookastro.html')
+    #             else:
+    #                 messages.error(request, "Payment was unsuccessful. Please try again.", {"response_data": response_data})
+    #                 return render(request, 'bookastro.html')
+    #         except requests.exceptions.RequestException as e:
+    #             print(f"Request failed: {e}")
+    #             messages.error(request, "Error checking payment status. Please try again.", {"response_data": response_data})
+    #             return render(request, 'bookastro.html')
+    #     else:
+    #         messages.error(request, "Merchant Transaction ID missing in callback.")
+    # else:
+    #     messages.error(request, "Invalid request method.")
     
-    return redirect('home')
+   
 
