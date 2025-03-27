@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +11,7 @@
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/player.style/demuxed-2022/+esm"></script>
 </head>
 
 <body>
@@ -54,11 +56,16 @@
             <!-- video  -->
              
             <div class="md:w-[58%] bookastro">
-                <iframe class="w-[100%] md:h-[350px] lg:h-[450px] rounded-[15px]"
-                    src="https://www.youtube.com/embed/-7oALzHZES8?si=BjEFD3Dce7w_jjFi&autoplay=1&mute=1"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <media-theme-demuxed-2022>
+                    <video
+                      slot="media"
+                      src="{% static 'assets/videos/Shivcosmic.mp4' %}"
+                      playsinline
+                      crossorigin
+                      autoplay
+                      type="video/mp4"
+                    ></video>
+                  </media-theme-demuxed-2022>
             </div>
 
 
@@ -66,8 +73,7 @@
             <div class="flex items-center gap-3 mt-[20px]">
                 <form action="{% url 'bookastro' %}" method="POST" class="reiki-form w-full" id="reikiForm">
                 {% csrf_token %}
-                    <button class="btn--snakeBorder text-[15px] text-[#fff] py-[7px] px-[25px] rounded-[10px] z-50">Book
-                        Appointment / Consultation @ Rs.99  </button>
+                    <button class="btn--snakeBorder text-[15px] text-[#fff] py-[7px] px-[25px] rounded-[10px] z-50">Book Consultation @ Rs.99  </button>
                 </form>
             </div>
 
