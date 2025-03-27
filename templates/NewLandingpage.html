@@ -43,11 +43,16 @@
 
         <div class="md:w-[58%] mt-[20px] md:m-0 z-50 LandingVideo">
 
-            <video autoplay playsinline loop >
-                <source src="{% static 'assets/videos/Shivcosmic.mp4' %}" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            
+            <media-theme-demuxed-2022>
+                <video
+                  slot="media"
+                  src="{% static 'assets/videos/Shivcosmic.mp4' %}"
+                  playsinline
+                  crossorigin
+                  autoplay
+                  type="video/mp4"
+                ></video>
+              </media-theme-demuxed-2022>            
 
         </div>
     </div>
