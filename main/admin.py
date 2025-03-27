@@ -5,3 +5,4 @@ from .models import *
 admin.site.register(Payment)
 admin.site.register(Rekhi_Form)
 admin.site.register(AstroBooking)
+admin.site.register(Report)
