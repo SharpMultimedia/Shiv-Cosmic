@@ -146,7 +146,6 @@ function changeInfo(option) {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Get the selected plan from localStorage
     const selectedPlan = localStorage.getItem("selectedPlan");
 
     if (selectedPlan === "Numerology") {
@@ -154,6 +153,39 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("hourDiv").closest("div").style.display = "none";
         document.getElementById("minDiv").closest("div").style.display = "none";
         document.getElementById("placeDiv").closest("div").style.display = "none";
+
+        // Remove required attribute from the hidden fields
+        document.getElementById("hour").removeAttribute("required");
+        document.getElementById("min").removeAttribute("required");
+        document.getElementById("place").removeAttribute("required");
+        document.getElementById("tzone").removeAttribute("required");
+        document.getElementById("lat").removeAttribute("required");
+        document.getElementById("lon").removeAttribute("required");
+
+        // Set default values for hidden fields to pass validation
+        document.getElementById("place").value = "Default";
+        document.getElementById("tzone").value = "5.5";  // Default timezone for India
+        document.getElementById("lat").value = "0";
+        document.getElementById("lon").value = "0";
+        
+        // Disable the place autocomplete validation if it exists
+        if (window.google && window.google.maps) {
+            const placeInput = document.getElementById("place");
+            if (placeInput) {
+                placeInput.setAttribute("data-skip-validation", "true");
+            }
+        }
+    }
+
+    // Modify form submission validation
+    const form = document.querySelector(".reiki-form");
+    if (form) {
+        form.addEventListener("submit", function(e) {
+            if (selectedPlan === "Numerology") {
+                // Skip place validation for numerology
+                return true;
+            }
+            // ... rest of your existing form validation ...
+        });
     }
 });
-  
