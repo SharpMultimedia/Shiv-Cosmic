@@ -298,8 +298,7 @@
                       defaultsubtitles="{{defaultsubtitles}}"
                       defaultduration="{{defaultduration}}"
                       gesturesdisabled="{{disabled}}"
-                      hotkeys="{{hotkeys}}"
-                      nohotkeys="{{nohotkeys}}"
+                      nohotkeys
                       defaultstreamtype="on-demand"
                     >
                       <slot name="media" slot="media"></slot>
@@ -456,6 +455,28 @@
 
 
     </section>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const video = document.querySelector('video');
+        
+        // Prevent arrow key controls
+        document.addEventListener('keydown', function(e) {
+          if ([37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+            // Prevent arrow keys (left: 37, up: 38, right: 39, down: 40)
+            e.preventDefault();
+          }
+        });
+
+        // Optional: Disable seeking through video timeline
+        if (video) {
+          video.addEventListener('seeking', function(e) {
+            e.preventDefault();
+            return false;
+          });
+        }
+      });
+    </script>
 </body>
 
 </html>
