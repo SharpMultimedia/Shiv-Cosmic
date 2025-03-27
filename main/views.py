@@ -107,13 +107,13 @@ def payment(request):
         print(kundliType)
 
         if kundliType == "Basic Kundli":
-            amount = 1
+            amount = 299
         elif kundliType == "Pro Kundli":
-            amount = 1
+            amount = 499
         elif kundliType == "Pro Numerology":
-            amount = 1
+            amount = 699
         elif kundliType == "Astro-Vastu":
-            amount = 1
+            amount = 999
         # Construct the dynamic URLs
         base_url = request.build_absolute_uri('/')
         redirectUrl = base_url + 'payment_return/'
@@ -323,6 +323,14 @@ def basic_horoscope(request):
                 pdf_content = pdf_response.content
                 pdf_content_b64 = base64.b64encode(pdf_content).decode('utf-8')
 
+                Report.objects.create(
+                    name=form_data['name'],
+                    email=email,
+                    mobile=mobile,
+                    pdf_url=pdf_url,
+                    report_type='Basic Horoscope'
+                )
+
                 # Save the astrology data and PDF content to the session
                 request.session['astrology_data'] = astrology_data
                 request.session['pdf_content_b64'] = pdf_content_b64
@@ -434,6 +442,14 @@ def pro_horoscope(request):
                 pdf_content = pdf_response.content
                 pdf_content_b64 = base64.b64encode(pdf_content).decode('utf-8')
 
+                Report.objects.create(
+                    name=form_data['name'],
+                    email=email,
+                    mobile=mobile,
+                    pdf_url=pdf_url,
+                    report_type='Pro Horoscope'
+                )
+
                 # Save the astrology data and PDF content to the session
                 request.session['astrology_data'] = astrology_data
                 request.session['pdf_content_b64'] = pdf_content_b64
@@ -504,13 +520,13 @@ def pro_numerology(request):
             'day': form_data['day'],
             'month': form_data['month'],
             'year': form_data['year'],
-            'hour': form_data['hour'],
-            'minute': form_data['minute'],
-            'latitude': form_data['lat'],
-            'longitude': form_data['lon'],
+            # 'hour': form_data['hour'],
+            # 'minute': form_data['minute'],
+            # 'latitude': form_data['lat'],
+            # 'longitude': form_data['lon'],
             'language': form_data['language'],
-            'timezone': form_data['tzone'],
-            'place': form_data['place'],
+            # 'timezone': form_data['tzone'],
+            # 'place': form_data['place'],
             'footer_link': 'shivcosmic.com',
             'logo_url': 'https://shivcosmic.com/static/assets/images/Logo/shiv%20cosmic%20logo%20w.png',
             'company_name': 'Shiv Cosmic',
@@ -550,6 +566,14 @@ def pro_numerology(request):
                 pdf_response.raise_for_status()
                 pdf_content = pdf_response.content
                 pdf_content_b64 = base64.b64encode(pdf_content).decode('utf-8')
+
+                Report.objects.create(
+                    name=form_data['name'],
+                    email=email,
+                    mobile=mobile,
+                    pdf_url=pdf_url,
+                    report_type='Pro Numerology'
+                )
 
                 # Save the astrology data and PDF content to the session
                 request.session['astrology_data'] = astrology_data
@@ -753,6 +777,14 @@ def astro_vastu(request):
                 pdf_content = pdf_response.content
                 pdf_content_b64 = base64.b64encode(pdf_content).decode('utf-8')
 
+                Report.objects.create(
+                    name=form_data['name'],
+                    email=email,
+                    mobile=mobile,
+                    pdf_url=pdf_url,
+                    report_type='Astro Vastu'
+                )
+
                 # Save the astrology data and PDF content to the session
                 request.session['astrology_data'] = astrology_data
                 request.session['pdf_content_b64'] = pdf_content_b64
@@ -876,62 +908,56 @@ def bookastro(request):
 
 @csrf_exempt
 def book_astro_payment_return(request):
+    
+    print('payment-return')
+    INDEX = "2"
+    SALTKEY = "71dedcf7-11d5-461a-bb1c-a5bc7231b45f"
+    merchantId = "M22REVYZNMPVY"
     form_data = request.POST
     payment_status = form_data.get('code', None)
-    if payment_status == 'PAYMENT_SUCCESS':
-        return redirect('bookappointment')
-    else:
-        messages.error(request, "Payment unsuccessful. Please try again.")
-        return render(request, 'bookastro.html')   
-    # print('payment-return')
-    # INDEX = "2"
-    # SALTKEY = "71dedcf7-11d5-461a-bb1c-a5bc7231b45f"
-    # merchantId = "M22REVYZNMPVY"
-    # form_data = request.POST
-    # payment_status = form_data.get('code', None)
-    # if request.method == 'POST':
-    #     merchantTransactionId = request.POST.get("merchantTransactionId") or request.GET.get("merchantTransactionId")
+    if request.method == 'POST':
+        merchantTransactionId = request.POST.get("merchantTransactionId") or request.GET.get("merchantTransactionId")
 
-    #     print("Returned merchantTransactionId: ", merchantTransactionId)
+        print("Returned merchantTransactionId: ", merchantTransactionId)
              
         
-    #     if merchantTransactionId:
-    #         request_url = f"https://api.phonepe.com/apis/hermes/pg/v1/status/{merchantId}/{merchantTransactionId}"
-    #         sha256_Pay_load_String = f'/pg/v1/status/{merchantId}/{merchantTransactionId}{SALTKEY}'
-    #         sha256_val = calculate_sha256_string(sha256_Pay_load_String)
-    #         checksum = sha256_val + '###' + INDEX
+        if merchantTransactionId:
+            request_url = f"https://api.phonepe.com/apis/hermes/pg/v1/status/{merchantId}/{merchantTransactionId}"
+            sha256_Pay_load_String = f'/pg/v1/status/{merchantId}/{merchantTransactionId}{SALTKEY}'
+            sha256_val = calculate_sha256_string(sha256_Pay_load_String)
+            checksum = sha256_val + '###' + INDEX
 
-    #         headers = {
-    #             'Content-Type': 'application/json',
-    #             'X-VERIFY': checksum,
-    #             'X-MERCHANT-ID': merchantTransactionId,
-    #             'accept': 'application/json',
-    #         }
+            headers = {
+                'Content-Type': 'application/json',
+                'X-VERIFY': checksum,
+                'X-MERCHANT-ID': merchantTransactionId,
+                'accept': 'application/json',
+            }
 
-    #         try:
-    #             response = requests.get(request_url, headers=headers)
-    #             response_data = response.json()
-    #             print(response_data)
-    #             # payment_status = response_data.get('code') 
-    #             if payment_status == 'PAYMENT_SUCCESS':
-    #                 booking_id = int(merchantTransactionId.replace("TRANS", ""))
-    #                 booking = AstroBooking.objects.filter(id=booking_id).first()
-    #                 if booking:
-    #                     booking.paid = True
-    #                     booking.save()
-    #                 messages.success(request, "Payment Successful! Thank you for your booking.")    
-    #                 return render(request, 'bookastro.html')
-    #             else:
-    #                 messages.error(request, "Payment was unsuccessful. Please try again.", {"response_data": response_data})
-    #                 return render(request, 'bookastro.html')
-    #         except requests.exceptions.RequestException as e:
-    #             print(f"Request failed: {e}")
-    #             messages.error(request, "Error checking payment status. Please try again.", {"response_data": response_data})
-    #             return render(request, 'bookastro.html')
-    #     else:
-    #         messages.error(request, "Merchant Transaction ID missing in callback.")
-    # else:
-    #     messages.error(request, "Invalid request method.")
+            try:
+                response = requests.get(request_url, headers=headers)
+                response_data = response.json()
+                print(response_data)
+                # payment_status = response_data.get('code') 
+                if payment_status == 'PAYMENT_SUCCESS':
+                    booking_id = int(merchantTransactionId.replace("TRANS", ""))
+                    booking = AstroBooking.objects.filter(id=booking_id).first()
+                    if booking:
+                        booking.paid = True
+                        booking.save()
+                    messages.success(request, "Payment Successful! Thank you for your booking.")    
+                    return render(request, 'bookastro.html')
+                else:
+                    messages.error(request, "Payment was unsuccessful. Please try again.", {"response_data": response_data})
+                    return render(request, 'bookastro.html')
+            except requests.exceptions.RequestException as e:
+                print(f"Request failed: {e}")
+                messages.error(request, "Error checking payment status. Please try again.", {"response_data": response_data})
+                return render(request, 'bookastro.html')
+        else:
+            messages.error(request, "Merchant Transaction ID missing in callback.")
+    else:
+        messages.error(request, "Invalid request method.")
     
-   
+    return redirect('home')
 
