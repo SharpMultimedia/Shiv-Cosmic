@@ -35,13 +35,17 @@ def horoscopeform(request):
         day = int(request.POST.get('day'))
         month = int(request.POST.get('month'))
         year = int(request.POST.get('year'))
-        hour = int(request.POST.get('hour'))
-        minute = int(request.POST.get('min'))
-        lat = request.POST.get('lat')
-        lon = request.POST.get('lon')
-        tzone = request.POST.get('tzone')
+        
+        # Add default values for hour and minute if they're not present
+        hour = int(request.POST.get('hour', 0))  # Default to 0 if not present
+        minute = int(request.POST.get('min', 0))  # Default to 0 if not present
+        
+        # Add default values for location data if not present
+        lat = request.POST.get('lat', '0')
+        lon = request.POST.get('lon', '0')
+        tzone = request.POST.get('tzone', '5.5')  # Default timezone for India
         language = request.POST.get('language')
-        place = request.POST.get('place')
+        place = request.POST.get('place', 'Default')
 
         # Validate and convert lat, lon, tzone to float
         try:
@@ -107,13 +111,13 @@ def payment(request):
         print(kundliType)
 
         if kundliType == "Basic Kundli":
-            amount = 299
+            amount = 1
         elif kundliType == "Pro Kundli":
-            amount = 499
+            amount = 1
         elif kundliType == "Pro Numerology":
-            amount = 699
+            amount = 1
         elif kundliType == "Astro-Vastu":
-            amount = 999
+            amount = 1
         # Construct the dynamic URLs
         base_url = request.build_absolute_uri('/')
         redirectUrl = base_url + 'payment_return/'

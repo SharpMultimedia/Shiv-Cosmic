@@ -280,8 +280,7 @@
                   defaultsubtitles="{{defaultsubtitles}}"
                   defaultduration="{{defaultduration}}"
                   gesturesdisabled="{{disabled}}"
-                  hotkeys="{{hotkeys}}"
-                  nohotkeys="{{nohotkeys}}"
+                  nohotkeys
                   defaultstreamtype="on-demand"
                 >
                   <slot name="media" slot="media"></slot>
@@ -761,5 +760,45 @@ flex items-center justify-center flex-col" style="background-image: url('/static
 
 </main>
 
+{% block video-script %}
 
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const video = document.querySelector('video');
+    const mediaController = document.querySelector('media-controller');
+
+    // Prevent keyboard controls
+    document.addEventListener('keydown', function(e) {
+        // List of keys to disable
+        const disabledKeys = [
+            32,  // Space
+            37,  // Left arrow
+            38,  // Up arrow
+            39,  // Right arrow
+            40,  // Down arrow
+            70,  // F (fullscreen)
+            77,  // M (mute)
+            75,  // K (play/pause)
+            74,  // J (rewind)
+            76   // L (forward)
+        ];
+
+        if (disabledKeys.includes(e.keyCode)) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        }
+    }, true);
+
+    // Additional prevention for media controller
+    if (mediaController) {
+        mediaController.addEventListener('keydown', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        }, true);
+    }
+  });
+</script>
+{% endblock video-script %}
 {% endblock main-content %}
