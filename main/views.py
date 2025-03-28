@@ -111,13 +111,13 @@ def payment(request):
         print(kundliType)
 
         if kundliType == "Basic Kundli":
-            amount = 1
+            amount = 299
         elif kundliType == "Pro Kundli":
-            amount = 1
+            amount = 499
         elif kundliType == "Pro Numerology":
-            amount = 1
+            amount = 699
         elif kundliType == "Astro-Vastu":
-            amount = 1
+            amount = 999
         # Construct the dynamic URLs
         base_url = request.build_absolute_uri('/')
         redirectUrl = base_url + 'payment_return/'
@@ -394,6 +394,7 @@ def pro_horoscope(request):
         # Your API credentials
         userId = '616659'
         apiKey = '73d704711428670b973f180f43b26f92'
+        print("in Pro kundali loop")
 
         # API endpoint
         api = 'pro_horoscope_pdf'
