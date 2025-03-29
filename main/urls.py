@@ -4,6 +4,9 @@ from . import views
 urlpatterns = [
     path('', views.home, name='home'),
     path('kundali-form', views.horoscopeform, name='horoscopeform'),
+    path('pro-kundali-form', views.prohoroscopeform, name='prohoroscopeform'),
+    path('numerology-form', views.numerologyform, name='numerologyform'),
+    path('astromapping-form', views.astromappingform, name='astromappingform'),
     path('kundali', views.kundali, name='kundali'),
     path('payment/', views.payment, name='payment'),
     path('basic_horoscope/', views.basic_horoscope, name='basic_horoscope'),

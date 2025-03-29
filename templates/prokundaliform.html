@@ -1,0 +1,502 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block hero-image %} kundli-hero {% endblock hero-image %}
+{% block main-content %}
+
+<!-- ------- Hero section ------  -->
+
+<section class="w-full bg-center bg-cover bg-no-repeat flex
+             items-center justify-center flex-col relative">
+
+    <div class="w-[80%] text-center absolute top-[90px]">
+        <h1 class="font-bold text-[45px] text-[#fff] leading-[42px]">
+            <strong class="text-[#ffff89]">
+        </h1>
+    </div>
+</section>
+
+</header>
+
+<!-- Social icons  -->
+
+<div class="mobileviewSocial">
+    <ul class="flex items-center flex-col">
+        <li class="toggleIcon"><i class="fa-solid fa-plus"></i></li>
+
+        <li class="whatsapp hiddenn">
+            <a href="https://wa.link/xtl382" target="_blank">
+                <img src="/static/assets/icons/What's app.png" alt="What'sapp">
+            </a>
+        </li>
+        <li class="instagram hiddenn">
+            <a href="https://www.instagram.com/shivcosmicenergysolutions" target="_blank">
+                <img src="/static/assets/icons/instagram.png" alt="instagram">
+            </a>
+        </li>
+        <li class="facebook hiddenn">
+            <a href="https://www.facebook.com/shivcosmicenergysolutions" target="_blank">
+                <img src="/static/assets/icons/facebook.png" alt="facebook">
+            </a>
+        </li>
+        <li class="youtube hiddenn m-0">
+            <a href="https://www.youtube.com/channel/UCvM4OYpE1TArbmlIZFgBB7g?view_as=subscriber" target="_blank">
+                <img src="/static/assets/icons/youtube.png" alt="youtube">
+            </a>
+        </li>
+    </ul>
+</div>
+
+<!-- Form  -->
+
+<section class="bg-center bg-cover bg-no-repeat px-[15px] py-[25px] xl:px-[100px] xl:py-[60px]
+                      flex flex-col items-center" style="background-image: url('/static/assets/images/q.jpg');">
+
+    <div class="w-full flex items-center flex-col">
+        <h1 class="font-bold text-[32px] lg:text-[35px] text-[#fff] leading-[38px] text-center mb-[20px] lg:mb-[40px]">
+            Fill Out Your Details to Unlock Your
+            <strong class="gradient-text"> Personalized Life Insights</strong>
+        </h1>
+    </div>
+
+    <div class="category-card md:w-[70%] w-full md:flex justify-between
+         z-10 border-[#CEAB5C] border xl:p-[60px] p-[20px]
+         border-solid rounded-[15px]">
+
+        <form method="post" class="reiki-form w-full">
+            {% csrf_token %}
+            <div class="w-full md:flex justify-between">
+
+                <div class="md:w-[49%]">
+                    <div>
+                        <label for="name" class="text-[#fff]">Your Name</label>
+                    </div>
+                    <div>
+                        <input type="text" id="name" placeholder="YOUR NAME" name="name" autocomplete="off" required>
+                    </div>
+                </div>
+
+                <div class="md:w-[49%] mt-[10px] lg:m-0">
+                    <div>
+                        <label for="gender" class="text-[#fff]">Gender</label>
+                    </div>
+
+                    <div>
+                        <select id="gender" name="gender" required>
+                            <option value="" disabled selected>Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="w-full md:flex justify-between lg:my-[20px]">
+
+                <div class="md:w-[32%] mt-[10px] lg:m-0">
+                    <div>
+                        <label for="day" class="text-[#fff]">Day</label>
+                    </div>
+
+                    <select id="day" name="day" required>
+                        <option value="" disabled selected class="optionLabel">DD</option>
+                        {% for day in days %}
+                        <option data-value="{{ day }}">{{ day }}</option>
+                        {% endfor %}
+                    </select>
+
+                </div>
+
+                <div class="md:w-[32%] mt-[10px] lg:m-0">
+                    <div>
+                        <label for="month" class="text-[#fff]">Month</label>
+                    </div>
+
+                    <div>
+                        <select id="month" name="month" required>
+                            <option value="" disabled selected>MM</option>
+                            {% for month in months %}
+                            <option value="{{ month }}">{{ month }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="md:w-[32%] mt-[10px] lg:m-0">
+                    <div>
+                        <label for="year" class="text-[#fff]">Year</label>
+                    </div>
+
+                    <div>
+                        <select id="year" name="year" required>
+                            <option value="" disabled selected>YYYY</option>
+                            {% for year in years %}
+                            <option value="{{ year }}">{{ year }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+            <div class="w-full md:flex justify-between">
+
+                <div class="md:w-[49%] mt-[10px] lg:m-0" id="hourDiv">
+                    <div>
+                        <label for="hour" class="text-[#fff]">Hour</label>
+                    </div>
+
+                    <div>
+                        <select id="hour" name="hour" required>
+                            <option value="" disabled selected>HH</option>
+                            {% for hour in hours %}
+                            <option value="{{ hour }}">{{ hour }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="md:w-[49%] mt-[10px] lg:m-0" id="minDiv">
+                    <div>
+                        <label for="min" class="text-[#fff]">Minutes</label>
+                    </div>
+
+                    <div>
+                        <select id="min" name="min" required>
+                            <option value="" disabled selected>MM</option>
+                            {% for minute in minutes %}
+                            <option value="{{ minute }}">{{ minute }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="w-full md:flex justify-between lg:my-[20px]">
+
+                <div class="md:w-[49%] mt-[10px] lg:m-0">
+                    <div>
+                        <label for="language" class="text-[#fff]">Kundali / Horoscope language</label>
+                    </div>
+
+                    <div>
+                        <select id="language" name="language" required>
+                            <option value="" disabled selected>Language</option>
+                            <option value="en">English</option>
+                            <option value="hi">हिंदी</option>
+                            <option value="ma">मराठी</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="md:w-[49%] mt-[10px] lg:m-0" id="placeDiv">
+                    <div>
+                        <label for="place" class="text-[#fff]">Birth Place</label>
+                    </div>
+                    <div>
+                        <input type="text" id="place" name="place" placeholder="BIRTH PLACE" required>
+                        <input type="hidden" id="tzone" name="tzone" required>
+                        <input type="hidden" id="lat" name="lat">
+                        <input type="hidden" id="lon" name="lon">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="md:flex justify-end gap-[20px]">
+                <!-- <div class="mt-[20px] w-[100%] lg:w-[20%]">
+                    <input class="submit_btn" type="submit" value="Buy Basic Kundali">
+                </div> -->
+                <div class="mt-[20px] w-[100%] lg:w-[20%]">
+                    <input class="submit_btn" type="submit" onclick="localStorage.setItem('selectedPlan', 'ProKundli')" value="Buy Now">
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+</section>
+
+<!-- Kundli -->
+
+<!-- <section class="bg-center bg-cover bg-no-repeat px-[15px] py-[25px] xl:px-[100px] xl:py-[60px]"
+    style="background-image: url('/static/assets/images/shiv-cosmic\ \ Purple-bg.jpg');">
+
+    <div class="w-full md:flex justify-between">
+
+        <div class="md:w-[48%] flex flex-col justify-center">
+            <h1 class="text-[#ffff89] font-bold text-[32px] lg:text-[35px] mb-[20px]">What is Kundli
+            </h1>
+
+            <p class="text-[#fff]">The word "kundli" is derived from the Sanskrit word "kundala," which means
+                "coiled snake." In
+                Vedic
+                astrology, a kundli is a Birth Chart or a Horoscope. It is a graphical representation of a
+                person's
+                birth details, planetary positions, and other astrological aspects.</p>
+
+            <p class="mt-4 text-[#fff]">Based on ancient Vedic principles, Kundli has the power to reveal what you
+                are truly
+                destined for. An
+                individual’s birthchart/ Kundali is divided into 12 houses, each depicting a specific sign and
+                planet and these factors influence and control multiple aspects of your life such as your
+                personality, characteristics, attributes, habits, strengths, weaknesses, & so on.</p>
+        </div>
+
+        <div class="md:w-[48%] mt-[20px] lg:m-0">
+            <img src="/static/assets/images/kundali-2.jpeg" alt="kundali" loading="lazy" class="rounded-[15px] w-full">
+        </div>
+
+    </div>
+
+</section> -->
+
+<!-- What you get in Kundli's  -->
+
+<!-- <section class="bg-center bg-cover bg-no-repeat px-[15px] py-[25px] xl:px-[100px] xl:py-[60px]
+        flex flex-col items-center" style="background-image: url('/static/assets/images/q.jpg');">
+
+    <div class="w-full md:flex justify-between">
+
+        <div class="md:w-[48%]">
+            <div class="w-full flex items-center flex-col">
+                <h1 class="font-bold text-[32px] lg:text-[35px] text-[#fff] leading-[38px]
+                     text-center mb-[20px] lg:mb-[40px]">
+                    What you get in <strong class="gradient-text">Basic Kundli</strong>
+                </h1>
+            </div>
+
+            <div>
+                <p class="text-[#fff]">The Basic Kundli is perfect for individuals seeking a foundational
+                    understanding of their astrological influences. It includes:</p>
+
+                <div>
+                    <ul class="mt-[15px]">
+                        <li class="text-[#fff]">
+                            <Strong class="text-[#ffff89]">Astrological Details:</Strong>
+                            Your unique planetary positions and basic astrological information.
+                        </li>
+                        <li class="text-[#fff] my-[10px]">
+                            <Strong class="text-[#ffff89]">Horoscope Overview:</Strong>
+                            A broad analysis of your primary horoscope and divisional charts.
+                        </li>
+                        <li class="text-[#fff]">
+                            <Strong class="text-[#ffff89]">Dasha Analysis:</Strong>
+                            Key insights into major dashas like Vimshottari to understand life’s timing and phases.
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="md:w-[48%] mt-[25px] md:mt-0">
+
+            <div class="w-full flex items-center flex-col">
+                <h1 class="font-bold text-[32px] lg:text-[35px] text-[#fff] leading-[38px]
+                     text-center mb-[20px] lg:mb-[40px]">
+                    What you get in <strong class="gradient-text">Pro Kundli</strong>
+                </h1>
+            </div>
+
+            <div>
+                <p class="text-[#fff]">The Pro Kundli is a comprehensive package for those looking for a deeper dive
+                    into their astrological profile. It includes everything in the Basic Kundli, plus:</p>
+
+                <div>
+                    <ul class="mt-[15px]">
+                        <li class="text-[#fff]">
+                            <Strong class="text-[#ffff89]">Advanced Horoscope Analysis:</Strong>
+                            Detailed charts, house cusps, and Sandhi insights.
+                        </li>
+                        <li class="text-[#fff] my-[10px]">
+                            <Strong class="text-[#ffff89]">Dosha Evaluation:</Strong>
+                            Identification and remedies for Kalsarpa Dosha, Manglik Dosha, and Sadhesati effects.
+                        </li>
+                        <li class="text-[#fff]">
+                            <Strong class="text-[#ffff89]">Personalized Guidance:</Strong>
+                            Tailored numerology insights, gemstone suggestions, and ascendant analysis.
+                        </li>
+                        <li class="text-[#fff]">
+                            <Strong class="text-[#ffff89]">Career & Relationship Focus:</Strong>
+                            Professional growth, financial prospects, and compatibility insights.
+                        </li>
+                    </ul>
+                </div>
+
+               
+
+            </div>
+        </div>
+
+    </div>
+
+</section> -->
+
+<!-- <div class="mt-4 text-[#fff]">
+                        <div class="w-full md:flex justify-between">
+                            <div class="md:w-[24%] flex items-center gap-[12px]">
+                                <img src="/static/assets/images/Frame (15).png" alt="Frame" loading="lazy">
+                                <h2>Basic Astrological Details</h2>
+                            </div>
+                            <div class="md:w-[24%] flex items-center gap-[12px] my-[10px] lg:m-0">
+                                <img src="/static/assets/images/Frame (15).png" alt="Frame" loading="lazy">
+                                <h2>Planetary Positions</h2>
+                            </div>
+                            <div class="md:w-[24%] flex items-center gap-[12px]">
+                                <img src="/static/assets/images/Frame (15).png" alt="Frame" loading="lazy">
+                                <h2>Horoscope Charts</h2>
+                            </div>
+                            <div class="md:w-[24%] flex items-center gap-[12px] my-[10px] lg:m-0">
+                                <img src="/static/assets/images/Frame (15).png" alt="Frame" loading="lazy">
+                                <h2>Divisional Charts</h2>
+                            </div>
+                        </div>
+
+                        <div class="w-full md:flex justify-between lg:my-[15px]">
+                            <div class="md:w-[24%] flex items-center gap-[12px]">
+                                <img src="/static/assets/images/Frame (15).png" alt="Frame" loading="lazy">
+                                <h2>House Cusps and Sandhi</h2>
+                            </div>
+                            <div class="md:w-[24%] flex items-center gap-[12px] my-[10px] lg:m-0">
+                                <img src="/static/assets/images/Frame (15).png" alt="Frame" loading="lazy">
+                                <h2>Vimshottari, Yogini, Dasha</h2>
+                            </div>
+                            <div class="md:w-[24%] flex items-center gap-[12px]">
+                                <img src="/static/assets/images/Frame (15).png" alt="Frame" loading="lazy">
+                                <h2>Favourable Points, Numerology Report</h2>
+                            </div>
+                            <div class="md:w-[24%] flex items-center gap-[12px] my-[10px] lg:m-0">
+                                <img src="/static/assets/images/Frame (15).png" alt="Frame" loading="lazy">
+                                <h2>Kalsarpa Dosha Manglik Analysis</h2>
+                            </div>
+                        </div>
+                        <div class="w-full md:flex justify-between">
+                            <div class="md:w-[24%] flex items-center gap-[12px]">
+                                <img src="/static/assets/images/Frame (15).png" alt="Frame" loading="lazy">
+                                <h2>Sadhesati Analysis</h2>
+                            </div>
+                            <div class="md:w-[24%] flex items-center gap-[12px] my-[10px] lg:m-0">
+                                <img src="/static/assets/images/Frame (15).png" alt="Frame" loading="lazy">
+                                <h2>Gemstone Suggestions</h2>
+                            </div>
+                            <div class="md:w-[24%] flex items-center gap-[12px]">
+                                <img src="/static/assets/images/Frame (15).png" alt="Frame" loading="lazy">
+                                <h2>LIFE, BENEFIC & LUCKY STONE</h2>
+                            </div>
+                            <div class="md:w-[24%] flex items-center gap-[12px] my-[10px] lg:m-0">
+                                <img src="/static/assets/images/Frame (15).png" alt="Frame" loading="lazy">
+                                <h2>Ascendant Report</h2>
+                            </div>
+                        </div>
+                    </div> -->
+
+<!-- Choose Your Own Language -->
+
+<!-- <section class="bg-center bg-cover bg-no-repeat px-[15px] py-[25px] xl:px-[100px] xl:py-[60px]
+    flex flex-col items-center" style="background-image: url('/static/assets/images/5441113.jpg');">
+
+    <div class="w-full flex items-center flex-col">
+        <h1 class="font-bold text-[32px] lg:text-[35px] text-[#fff] leading-[38px] text-center mb-[20px] lg:mb-[40px]">
+            Tailored
+            Astrological Insights in Your Preferred<strong class="gradient-text"> Language</strong>
+        </h1>
+    </div>
+
+    <div>
+        <p class="text-[#fff]">Our astrology service stands out by offering you the unique ability to choose your
+            preferred language
+            for
+            your kundli. Whether you are most comfortable with Hindi, English, or Marathi, we ensure that your
+            horoscope is not only accurate but also accessible in the language that resonates with you the most.
+            This allows you to connect deeply with the insights and guidance provided, making the experience
+            more
+            personalized and meaningful.
+        </p>
+
+        <p class="mt-4 text-[#fff]">Understanding the nuances of your astrological chart is essential, and language
+            should
+            never
+            be a barrier. With our service, you have the flexibility to receive your kundli in the language that
+            best fits your cultural and personal preferences. Whether you want to explore your horoscope in your
+            mother tongue or share it with someone who speaks a different language, we make it easy for you to
+            understand and appreciate the celestial insights tailored just for you.</p>
+    </div>
+</section> -->
+
+<!-- 1 Free Counsultation Call  -->
+
+<!-- <section class="bg-center bg-cover bg-no-repeat px-[15px] py-[25px] xl:px-[100px] xl:py-[60px]"
+    style="background-image: url('/static/assets/images/shiv-cosmic\ \ Purple-bg.jpg');">
+
+    <div class="w-full flex justify-between flex-col-reverse md:flex-row">
+        <div class="md:w-[48%] mt-[20px] md:m-0">
+            <img src="/static/assets/images/astro.jpg" alt="kundali" loading="lazy" class="rounded-[15px] w-full">
+        </div>
+
+        <div class="md:w-[48%] mt-[20px] md:m-0 flex flex-col justify-center">
+            <h1 class="text-[#ffff89] font-bold text-[32px] lg:text-[35px] leading-[34px] mb-[10px]">1 Free
+                Counsultation Call
+            </h1>
+
+            <strong class="text-[#fff] text-[17px] lg:text-[18px]">Get Started with a Free Consultation
+                Call</strong>
+            <p class="mt-[10px] text-[#fff] text-[15px] lg:text-[16px]">TTo ensure that you receive the most
+                accurate and personalized
+                astrological
+                guidance, we offer a
+                complimentary consultation call with every kundli. This free consultation gives you the
+                opportunity
+                to discuss your horoscope in detail with our expert astrologers, helping you understand the
+                deeper
+                meanings and implications of your celestial chart. Whether you have specific questions or simply
+                wish to gain a clearer perspective on your life path, this consultation is designed to provide
+                you
+                with valuable insights and clarity.</p>
+
+            <p class="mt-4 text-[#fff] text-[15px] lg:text-[16px]">Our goal is to make astrology accessible and
+                beneficial for everyone. This
+                free
+                consultation call is our way of ensuring that you feel confident and informed as you navigate
+                the
+                complex world of astrology. By connecting directly with our astrologers, you can explore your
+                kundli
+                with expert guidance, allowing you to make the most of the wisdom it offers.</p>
+        </div>
+    </div>
+</section> -->
+
+<script>
+    //  Social icons toggle button open / close 
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const toggleIcon = document.querySelector(".toggleIcon");
+        const socialIcons = document.querySelectorAll(".mobileviewSocial ul li:not(.toggleIcon)");
+        const toggleIconSymbol = toggleIcon.querySelector("i");
+
+        toggleIcon.addEventListener("click", () => {
+            socialIcons.forEach(icon => {
+                icon.classList.toggle("visible");
+            });
+
+            // Toggle the "+" and "-" icon
+            if (toggleIconSymbol.classList.contains("fa-plus")) {
+                toggleIconSymbol.classList.replace("fa-plus", "fa-minus");
+            } else {
+                toggleIconSymbol.classList.replace("fa-minus", "fa-plus");
+            }
+        });
+    });
+</script>
+
+{% endblock main-content %}

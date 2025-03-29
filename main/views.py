@@ -35,15 +35,11 @@ def horoscopeform(request):
         day = int(request.POST.get('day'))
         month = int(request.POST.get('month'))
         year = int(request.POST.get('year'))
-        
-        # Add default values for hour and minute if they're not present
-        hour = int(request.POST.get('hour', 0))  # Default to 0 if not present
-        minute = int(request.POST.get('min', 0))  # Default to 0 if not present
-        
-        # Add default values for location data if not present
-        lat = request.POST.get('lat', '0')
-        lon = request.POST.get('lon', '0')
-        tzone = request.POST.get('tzone', '5.5')  # Default timezone for India
+        hour = int(request.POST.get('hour'))
+        minute = int(request.POST.get('min'))
+        lat = request.POST.get('lat')
+        lon = request.POST.get('lon')
+        tzone = request.POST.get('tzone')
         language = request.POST.get('language')
         place = request.POST.get('place', 'Default')
 
@@ -89,7 +85,162 @@ def horoscopeform(request):
         'hours': hours,
         'minutes': minutes
     })
-        
+
+def prohoroscopeform(request):
+    if request.method == 'POST':
+        # Get form data
+        name = request.POST.get('name')
+        gender = request.POST.get('gender')
+        day = int(request.POST.get('day'))
+        month = int(request.POST.get('month'))
+        year = int(request.POST.get('year'))
+        hour = int(request.POST.get('hour'))
+        minute = int(request.POST.get('min'))
+        lat = request.POST.get('lat')
+        lon = request.POST.get('lon')
+        tzone = request.POST.get('tzone')
+        language = request.POST.get('language')
+        place = request.POST.get('place', 'Default')
+
+        # Validate and convert lat, lon, tzone to float
+        try:
+            lat = float(lat)
+            lon = float(lon)
+            tzone = float(tzone)
+        except ValueError as e:
+            print(f"Error converting to float: {e}")
+            messages.error(request, "Invalid location data.")
+            return render(request, 'kundali.html')
+
+        # Save form data to session
+        request.session['form_data'] = {
+            'name': name,
+            'gender': gender,
+            'day': day,
+            'month': month,
+            'year': year,
+            'hour': hour,
+            'minute': minute,
+            'lat': lat,
+            'lon': lon,
+            'language': language,
+            'tzone': tzone,
+            'place': place
+        }
+
+        return redirect('payment')
+
+    days = list(range(1, 32))
+    months = list(range(1, 13))
+    years = list(range(1900, 2025))
+    years.reverse()
+    hours = list(range(0, 24))
+    minutes = list(range(0, 60))
+
+    return render(request, 'prokundaliform.html', {
+        'days': days,
+        'months': months,
+        'years': years,
+        'hours': hours,
+        'minutes': minutes
+    })
+
+def numerologyform(request):
+    if request.method == 'POST':
+        # Get form data
+        name = request.POST.get('name')
+        gender = request.POST.get('gender')
+        day = int(request.POST.get('day'))
+        month = int(request.POST.get('month'))
+        year = int(request.POST.get('year'))
+        language = request.POST.get('language')
+
+        # Save form data to session
+        request.session['form_data'] = {
+            'name': name,
+            'gender': gender,
+            'day': day,
+            'month': month,
+            'year': year,
+            'language': language,
+        }
+
+        return redirect('payment')
+
+    days = list(range(1, 32))
+    months = list(range(1, 13))
+    years = list(range(1900, 2025))
+    years.reverse()
+    hours = list(range(0, 24))
+    minutes = list(range(0, 60))
+
+    return render(request, 'numerologyform.html', {
+        'days': days,
+        'months': months,
+        'years': years,
+        'hours': hours,
+        'minutes': minutes
+    })
+
+def astromappingform(request):
+    if request.method == 'POST':
+        # Get form data
+        name = request.POST.get('name')
+        gender = request.POST.get('gender')
+        day = int(request.POST.get('day'))
+        month = int(request.POST.get('month'))
+        year = int(request.POST.get('year'))
+        hour = int(request.POST.get('hour'))
+        minute = int(request.POST.get('min'))
+        lat = request.POST.get('lat')
+        lon = request.POST.get('lon')
+        tzone = request.POST.get('tzone')
+        language = request.POST.get('language')
+        place = request.POST.get('place', 'Default')
+
+        # Validate and convert lat, lon, tzone to float
+        try:
+            lat = float(lat)
+            lon = float(lon)
+            tzone = float(tzone)
+        except ValueError as e:
+            print(f"Error converting to float: {e}")
+            messages.error(request, "Invalid location data.")
+            return render(request, 'kundali.html')
+
+        # Save form data to session
+        request.session['form_data'] = {
+            'name': name,
+            'gender': gender,
+            'day': day,
+            'month': month,
+            'year': year,
+            'hour': hour,
+            'minute': minute,
+            'lat': lat,
+            'lon': lon,
+            'language': language,
+            'tzone': tzone,
+            'place': place
+        }
+
+        return redirect('payment')
+
+    days = list(range(1, 32))
+    months = list(range(1, 13))
+    years = list(range(1900, 2025))
+    years.reverse()
+    hours = list(range(0, 24))
+    minutes = list(range(0, 60))
+
+    return render(request, 'astromappingform.html', {
+        'days': days,
+        'months': months,
+        'years': years,
+        'hours': hours,
+        'minutes': minutes
+    })
+
 def calculate_sha256_string(input_string):
     sha256 = hashlib.sha256()
     sha256.update(input_string.encode('utf-8'))
