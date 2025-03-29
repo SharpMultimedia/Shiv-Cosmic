@@ -414,6 +414,7 @@ def basic_horoscope(request):
     form_data = request.session.get('form_data')
     mobile = request.session.get('mobile')
     email = request.session.get('email')
+    report_name = "Basic Kundali"
 
     if not form_data:
         return redirect('index')
@@ -524,7 +525,7 @@ def basic_horoscope(request):
     else:
         messages.info(request, "Your PDF has already been sent to your email. Please check your inbox.")
 
-    return render(request, 'result.html', {'astrology_data': astrology_data})
+    return render(request, 'result.html', {'astrology_data': astrology_data,'report_name':report_name})
 
 def pro_horoscope(request):
     # Here you would integrate with a payment gateway.
@@ -534,6 +535,8 @@ def pro_horoscope(request):
     mobile = request.session.get('mobile')
     email = request.session.get('email')
 
+    report_name = "Pro Kundali"
+    
     if not form_data:
         return redirect('index')
 
@@ -644,12 +647,13 @@ def pro_horoscope(request):
     else:
         messages.info(request, "Your PDF has already been sent to your email. Please check your inbox.")
 
-    return render(request, 'result.html', {'astrology_data': astrology_data})
+    return render(request, 'result.html', {'astrology_data': astrology_data, 'report_name':report_name})
 
 def pro_numerology(request):
     form_data = request.session.get('form_data')
     mobile = request.session.get('mobile')
     email = request.session.get('email')
+    report_name = "Numerology"
 
     if not form_data:
         return redirect('index')
@@ -741,7 +745,6 @@ def pro_numerology(request):
                         "Please find the attached PDF document.\n\n"
                         f"Name: {form_data['name']}\n"
                         f"Birthdate: {form_data['day']}/{form_data['month']}/{form_data['year']}\n"
-                        f"Time: {form_data['hour']}:{form_data['minute']}\n"
                         f"Mobile: {mobile}\n"
                         f"Email: {email}\n\n"
                         "Kind Regards\nTeam Shiv Cosmic",
@@ -769,7 +772,7 @@ def pro_numerology(request):
     else:
         messages.info(request, "Your PDF has already been sent to your email. Please check your inbox.")
 
-    return render(request, 'result.html', {'astrology_data': astrology_data})
+    return render(request, 'result.html', {'astrology_data': astrology_data,'report_name':report_name})
 
 def reikhihealing(request):
     if request.method == 'POST':
@@ -869,6 +872,7 @@ def astro_vastu(request):
     form_data = request.session.get('form_data')
     mobile = request.session.get('mobile')
     email = request.session.get('email')
+    report_name = "Astromapping"
 
     if not form_data:
         return redirect('index')
@@ -979,7 +983,7 @@ def astro_vastu(request):
     else:
         messages.info(request, "Your PDF has already been sent to your email. Please check your inbox.")
 
-    return render(request, 'result.html', {'astrology_data': astrology_data})
+    return render(request, 'result.html', {'astrology_data': astrology_data,'report_name':report_name})
 
 def base(request):
     context = {
