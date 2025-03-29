@@ -99,6 +99,11 @@ ul {
     position: relative;
 }
 
+.nav-bar {
+    background-image: linear-gradient(to right top, #aa6732, #9a4f35, #843b37,
+     #6b2b36, #4f1e31);
+}
+
 .menuList li a {
     padding: 5px 15px;
     border-radius: 5px;
@@ -121,8 +126,8 @@ ul {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    width: 100%;
-    height: 730px;
+    /* width: 100%;
+    height: 730px; */
 }
 
 .image-home {
@@ -139,10 +144,10 @@ ul {
     height: 730px;
 }
 
-.personalised-banner {
+/* .personalised-banner {
     background-image: url('/static/assets/images/Kundli\ report\ banner.jpg');
     height: 730px;
-}
+} */
 
 .kundli-hero {
     background-image: url('/static/assets/images/Astro\ Form\ Banner\ \(1\).jpg');
@@ -155,15 +160,15 @@ ul {
     /* height: 560px; */
 }
 
-.numerology-hero {
+/* .numerology-hero {
     background-image: url('/static/assets/images/Banner\ 5.jpg');
     height: 730px;
-}
+} */
 
-.Astromapping-hero {
+/* .Astromapping-hero {
     background-image: url('/static/assets/images/Banner\ 4.jpg');
     height: 730px;
-}
+} */
 
 .astrological-image {
     animation: animName 18s linear infinite;
@@ -702,9 +707,9 @@ select::-webkit-scrollbar-thumb:hover {
 
 
 @media (min-width:320px) and (max-width: 426px) {
-    .hero-section {
+    /* .hero-section {
         height: 670px;
-    }
+    } */
 
     .benefit-img {
         height: 1050px !important;
@@ -713,7 +718,8 @@ select::-webkit-scrollbar-thumb:hover {
     .subImage {
         max-width: 180px;
     }
-    .bookSession{
+
+    .bookSession {
         height: 100vh;
         display: flex;
         flex-direction: column;
@@ -750,15 +756,15 @@ select::-webkit-scrollbar-thumb:hover {
 
 @media (min-width:375px) and (max-width: 598px) {
 
-    .hero-section {
+    /* .hero-section {
         height: 695px;
-    }
+    } */
 
     .benefit-img {
         height: 920px !important;
     }
 
-    .bookSession{
+    .bookSession {
         height: 100vh;
         display: flex;
         flex-direction: column;
@@ -773,7 +779,7 @@ select::-webkit-scrollbar-thumb:hover {
         height: 760px !important;
     }
 
-    .bookSession{
+    .bookSession {
         height: 100vh;
         display: flex;
         flex-direction: column;
@@ -788,9 +794,9 @@ select::-webkit-scrollbar-thumb:hover {
         top: -58% !important;
     }
 
-    .hero-section {
+    /* .hero-section {
         height: 701px;
-    }
+    } */
 
     .heroSection {
         height: 70vh;
@@ -830,13 +836,13 @@ select::-webkit-scrollbar-thumb:hover {
         top: 340px !important;
     }
 
-    .heroSection {
+    /* .heroSection {
         height: 70vh;
-    }
+    } */
 
-    .hero-section {
+    /* .hero-section {
         height: 1160px;
-    }
+    } */
 
     .image-contact,
     .image-reiki,
@@ -902,8 +908,7 @@ select::-webkit-scrollbar-thumb:hover {
 
     .image-contact,
     .image-reiki,
-    .kundli-hero,
-    .personalised-banner {
+    .kundli-hero {
         height: 910px;
     }
 
@@ -923,7 +928,7 @@ select::-webkit-scrollbar-thumb:hover {
         height: 75vh;
     }
 
- 
+
 }
 
 
@@ -1240,17 +1245,17 @@ select::-webkit-scrollbar-thumb:hover {
         max-width: 100% !important;
     }
 
-    .hero-section {
+    /* .hero-section {
         height: 610px;
-    }
+    } */
 
     .kundli-hero {
         height: 510px;
     }
 
-    .personalised-banner {
+    /* .personalised-banner {
         height: 570px;
-    }
+    } */
 
     .btn {
         padding: 10px 12px;

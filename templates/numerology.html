@@ -1,21 +1,23 @@
 {% extends 'base.html'%}
 {% load static %}
-{% block hero-image %} numerology-hero {% endblock hero-image %}
+<!-- {% block hero-image %} personalised-banner {% endblock hero-image %} -->
 {% block main-content %}
 
 <!-- hero section  -->
 
 
-<section class="bg-center bg-cover bg-no-repeat flex
-             items-center justify-center flex-col relative">
+<!-- <section class="bg-center bg-cover bg-no-repeat flex
+             items-center flex-col relative">
 
-    <div class="w-[80%] text-center absolute top-[360px] lg:top-[520px] subHeaderContact">
-        <h1 class="font-bold text-[38px] lg:text-[55px] text-[#fff] leading-[42px]">
-            <strong class="text-[#ffff89]">Numerology</strong>
+    <div class="w-[80%] text-center absolute lg:top-[530px] top-[420px] md:top-[405px]
+     subHeader kundliHeader">
+        <h1 class="font-bold text-[38px] lg:text-[45px] text-[#fff] leading-[42px]">
+            <strong class="text-[#ffff89]">Numerology Report</strong>
         </h1>
     </div>
 
-</section>
+</section> -->
+
 </header>
 
 <!-- Social icons  -->
@@ -47,7 +49,6 @@
     </ul>
 </div>
 
-
 <!-- fixed button  -->
 
 <section>
@@ -66,9 +67,44 @@
     </div>
 </section>
 
+
+<section class="flex items-center flex-col justify-center mt-[20px] lg:my-[60px] px-[15px] py-[25px]">
+
+    <div class="">
+        <img src="/static/assets/images/profile_numerology.jpg" alt="profile numerology" class="w-[450px] h-auto lg:h-[601px]  object-cover rounded-[10px]">
+    </div>
+
+    <div class="lg:w-[60%] flex flex-col justify-center mt-4 md:mt-8">
+
+        <div class="md:flex justify-between md:mb-[15px]">
+          
+            <div class="md:w-[48%] flex items-center md:justify-end gap-[10px] mb-4 md:m-0">
+                <i class="fa-solid fa-circle-check text-[22px] text-[#AE633F]"></i>
+                <p class="text-[17px]">Unlock the Secrets of Your Numbers for Career, Love & Success</p>
+            </div>
+            <div class="md:w-[48%] flex items-center gap-[10px]">
+                <i class="fa-solid fa-circle-check text-[22px] text-[#AE633F]"></i>
+                <p class="text-[17px]">Accurate & Personalized Numerology Reports Based on Ancient Methods</p>
+            </div>
+        </div>
+
+        <div class="flex items-center justify-center">
+            <a href="{% url 'horoscopeform' %}" onclick="localStorage.setItem('selectedPlan', 'Numerology')"
+                class="hidden lg:block">
+                <button class="btn btn--snakeBorder m-0">
+                    Get Your Numerology Report Now
+                </button>
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+
 <!-- About Numerology  -->
 
-<section class="bg-center bg-cover bg-no-repeat px-[15px] py-[25px] xl:px-[100px] xl:py-[60px]"
+<!-- <section class="bg-center bg-cover bg-no-repeat px-[15px] py-[25px] xl:px-[100px] xl:py-[60px]"
     style="background-image: url('/static/assets/images/shiv-cosmic\ \ Purple-bg.jpg');">
 
     <div class="w-full md:flex justify-between">
@@ -104,7 +140,7 @@
     </div>
 
 
-</section>
+</section> -->
 
 <!-- Why Numerology  -->
 
@@ -393,7 +429,6 @@
 
 </section>
 
-
 <script>
     //  Social icons toggle button open / close 
 
@@ -416,4 +451,5 @@
         });
     });
 </script>
+
 {% endblock main-content %}

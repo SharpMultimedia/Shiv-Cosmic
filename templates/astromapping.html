@@ -1,12 +1,12 @@
 {% extends 'base.html'%}
 {% load static %}
-{% block hero-image %} Astromapping-hero {% endblock hero-image %}
+<!-- {% block hero-image %} Astromapping-hero {% endblock hero-image %} -->
 {% block main-content %}
 
 <!-- hero section  -->
 
 
-<section class="bg-center bg-cover bg-no-repeat flex
+<!-- <section class="bg-center bg-cover bg-no-repeat flex
              items-center justify-center flex-col relative">
 
     <div class="w-[80%] text-center absolute top-[360px] lg:top-[525px] subHeaderContact">
@@ -15,7 +15,7 @@
         </h1>
     </div>
 
-</section>
+</section> -->
 
 </header>
 
@@ -66,6 +66,40 @@
         </a>
     </div>
 </section>
+
+<section class="flex items-center flex-col justify-center mt-[20px] lg:my-[60px] px-[15px] py-[25px]">
+
+    <div class="">
+        <img src="/static/assets/images/profile_astromapping.jpg" alt="profile astromapping" class="w-[450px] h-auto lg:h-[601px] object-cover rounded-[10px]">
+    </div>
+
+    <div class="lg:w-[68%] flex flex-col justify-center mt-4 md:mt-8">
+
+        <div class="md:flex justify-between md:mb-[15px]">
+          
+            <div class="md:w-[48%] flex items-center md:justify-end gap-[10px] mb-4 md:m-0">
+                <i class="fa-solid fa-circle-check text-[22px] text-[#AE633F]"></i>
+                <p class="text-[17px]">Discover Your Best Locations for Career, Wealth & Happiness</p>
+            </div>
+            <div class="md:w-[48%] flex items-center gap-[10px]">
+                <i class="fa-solid fa-circle-check text-[22px] text-[#AE633F]"></i>
+                <p class="text-[17px]">Harness the Power of Astrocartography for Life-Changing Decisions</p>
+            </div>
+        </div>
+
+        <div class="flex items-center justify-center">
+            <a href="{% url 'horoscopeform' %}" onclick="localStorage.setItem('selectedPlan', 'Astromapping')"
+            class="hidden lg:block">
+            <button class="btn btn--snakeBorder m-0">
+                Get Your Free Astromapping Report Now
+            </button>
+        </a>
+        </div>
+
+    </div>
+
+</section>
+
 
 <!-- About Astromapping  -->
 <section class="bg-center bg-cover bg-no-repeat px-[15px] py-[25px] xl:px-[100px] xl:py-[60px]"
