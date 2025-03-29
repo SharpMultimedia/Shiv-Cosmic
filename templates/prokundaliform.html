@@ -1,11 +1,11 @@
 {% extends 'base.html'%}
 {% load static %}
-{% block hero-image %} kundli-hero {% endblock hero-image %}
+<!-- {% block hero-image %} kundli-hero {% endblock hero-image %} -->
 {% block main-content %}
 
 <!-- ------- Hero section ------  -->
 
-<section class="w-full bg-center bg-cover bg-no-repeat flex
+<!-- <section class="w-full bg-center bg-cover bg-no-repeat flex
              items-center justify-center flex-col relative">
 
     <div class="w-[80%] text-center absolute top-[90px]">
@@ -13,9 +13,16 @@
             <strong class="text-[#ffff89]">
         </h1>
     </div>
-</section>
+</section> -->
 
 </header>
+
+<section class="flex items-center flex-col justify-center mt-[20px]  lg:my-[60px]">
+    <div>
+        <img src="/static/assets/images/kundli.png" alt="">
+    </div>
+</section>
+
 
 <!-- Social icons  -->
 
@@ -217,7 +224,8 @@
                     <input class="submit_btn" type="submit" value="Buy Basic Kundali">
                 </div> -->
                 <div class="mt-[20px] w-[100%] lg:w-[20%]">
-                    <input class="submit_btn" type="submit" onclick="localStorage.setItem('selectedPlan', 'ProKundli')" value="Buy Now">
+                    <input class="submit_btn" type="submit" onclick="localStorage.setItem('selectedPlan', 'ProKundli')"
+                        value="Buy Now">
                 </div>
             </div>
 

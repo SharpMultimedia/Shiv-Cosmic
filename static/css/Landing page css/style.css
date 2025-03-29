@@ -149,10 +149,10 @@ ul {
     height: 730px;
 } */
 
-.kundli-hero {
+/* .kundli-hero {
     background-image: url('/static/assets/images/Astro\ Form\ Banner\ \(1\).jpg');
     height: 730px;
-}
+} */
 
 .paymentPage-banner,
 .resultPage-banner {
@@ -845,8 +845,7 @@ select::-webkit-scrollbar-thumb:hover {
     } */
 
     .image-contact,
-    .image-reiki,
-    .kundli-hero {
+    .image-reiki{
         height: 910px;
     }
 
@@ -907,8 +906,7 @@ select::-webkit-scrollbar-thumb:hover {
     }
 
     .image-contact,
-    .image-reiki,
-    .kundli-hero {
+    .image-reiki {
         height: 910px;
     }
 
