@@ -274,14 +274,14 @@ def payment(request):
         redirectUrl = base_url + 'payment_return/'
         callbackUrl = base_url + 'payment_return/'
 
-        url = "https://api.phonepe.com/apis/hermes/pg/v1/pay"
-        MERCHANT_ID = "M22REVYZNMPVY"
+        url = "https://api-preprod.phonepe.com/apis/pg-sandbox/pg/v1/pay"
+        MERCHANT_ID = "PGTESTPAYUAT77"
         MERCHANT_USER_ID = "MUID123"
         REDIRECT_URL = redirectUrl
         CALLBACK_URL = callbackUrl
-        API_KEY = "71dedcf7-11d5-461a-bb1c-a5bc7231b45f"
+        API_KEY = "14fa5465-f8a7-443f-8477-f986b8fcfde9"
         ENDPOINT = "/pg/v1/pay"
-        INDEX = '2' 
+        INDEX = '1' 
         payload = {
             "merchantId": MERCHANT_ID,
             "merchantTransactionId": shortuuid.uuid(),
@@ -554,6 +554,15 @@ def pro_horoscope(request):
         api = 'pro_horoscope_pdf'
         url = "https://pdf.astrologyapi.com/v1/" + api
 
+        # First create the authorization header
+        auth = "Basic " + base64.b64encode((userId + ":" + apiKey).encode()).decode()
+
+        # Define headers before trying to print them
+        headers = {
+            "Authorization": auth,
+            "Content-Type": "application/json"
+        }
+
         # Data to be sent in the request
         data = {
             'name': form_data['name'],
@@ -570,7 +579,7 @@ def pro_horoscope(request):
             'place': form_data['place'],
             'chart_style': 'NORTH_INDIAN',
             'footer_link': 'shivcosmic.com',
-            'logo_url': 'https://shivcosmic.com/static/assets/images/Logo/shiv%20cosmic%20logo%20w.png',
+            'logo_url': 'https://sharpmultimedia.in/static/assets/icons/Sharp%20Multimedi%20Pvt.%20Ltd%20Logo%2001.png',
             'company_name': 'Shiv Cosmic',
             'company_info': '(Unit of Natural Healing and Meditation Center) \n an ISO 9000:2015 Certified Organization',
             'domain_url': 'https://www.shivcosmic.com',
@@ -579,13 +588,14 @@ def pro_horoscope(request):
             'company_mobile': '+91 7030127129',
         }
 
-        # Authorization header
-        auth = "Basic " + base64.b64encode((userId + ":" + apiKey).encode()).decode()
-
-        headers = {
-            "Authorization": auth,
-            "Content-Type": "application/json"
-        }
+        # Now print the request data
+        print("\n=== API Request Data ===")
+        print(f"URL: {url}")
+        print("\nHeaders:")
+        print(headers)
+        print("\nRequest Data:")
+        print(json.dumps(data, indent=2))
+        print("=====================\n")
 
         try:
             response = requests.post(url, data=json.dumps(data), headers=headers, timeout=10)
