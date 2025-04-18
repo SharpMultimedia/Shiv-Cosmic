@@ -274,14 +274,14 @@ def payment(request):
         redirectUrl = base_url + 'payment_return/'
         callbackUrl = base_url + 'payment_return/'
 
-        url = "https://api-preprod.phonepe.com/apis/pg-sandbox/pg/v1/pay"
-        MERCHANT_ID = "PGTESTPAYUAT77"
+        url = "https://api.phonepe.com/apis/hermes/pg/v1/pay"
+        MERCHANT_ID = "M22REVYZNMPVY"
         MERCHANT_USER_ID = "MUID123"
         REDIRECT_URL = redirectUrl
         CALLBACK_URL = callbackUrl
-        API_KEY = "14fa5465-f8a7-443f-8477-f986b8fcfde9"
+        API_KEY = "71dedcf7-11d5-461a-bb1c-a5bc7231b45f"
         ENDPOINT = "/pg/v1/pay"
-        INDEX = '1' 
+        INDEX = '2' 
         payload = {
             "merchantId": MERCHANT_ID,
             "merchantTransactionId": shortuuid.uuid(),
