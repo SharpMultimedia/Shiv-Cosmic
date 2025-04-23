@@ -264,7 +264,8 @@ def payment(request):
         if kundliType == "Basic Kundli":
             amount = 299
         elif kundliType == "Pro Kundli":
-            amount = 1
+            amount = 499
+            
         elif kundliType == "Pro Numerology":
             amount = 699
         elif kundliType == "Astro-Vastu":
