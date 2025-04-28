@@ -380,12 +380,7 @@ def payment_return(request):
             print(response_data)
              
             if payment_status == 'PAYMENT_SUCCESS':
-                booking = AstroBooking.objects.filter(merchant_transaction_id=transaction_id).first()
-                if booking:
-                    booking.paid = True
-                    booking.save()
-                messages.success(request, "Payment Successful! Thank you for your booking.")    
-                return render(request, 'bookastro.html')
+                return redirect('redirect_url')
             else:
                 messages.error(request, "Payment was unsuccessful. Please try again.")
                 return redirect('home')  # Redirect to index if payment is unsuccessful
@@ -1116,10 +1111,11 @@ def book_astro_payment_return(request):
                 print(response_data)
                 # payment_status = response_data.get('code') 
                 if payment_status == 'PAYMENT_SUCCESS':
-                    booking = AstroBooking.objects.filter(merchant_transaction_id=merchantTransactionId).first()
-                    if booking:
-                        booking.paid = True
-                        booking.save()
+                    # booking_id = int(merchantTransactionId.replace("TRANS", ""))
+                    # booking = AstroBooking.objects.filter(id=booking_id).first()
+                    # if booking:
+                    #     booking.paid = True
+                    #     booking.save()
                     messages.success(request, "Payment Successful! Thank you for your booking.")    
                     return render(request, 'bookastro.html')
                 else:
