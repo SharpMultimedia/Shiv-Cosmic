@@ -1117,7 +1117,7 @@ def book_astro_payment_return(request):
                     #     booking.paid = True
                     #     booking.save()
                     messages.success(request, "Payment Successful! Thank you for your booking.")    
-                    return render(request, 'bookastro.html')
+                    return render(request, 'thankyou.html')
                 else:
                     messages.error(request, "Payment was unsuccessful. Please try again.", {"response_data": response_data})
                     return render(request, 'bookastro.html')
