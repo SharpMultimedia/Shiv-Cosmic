@@ -1017,14 +1017,12 @@ def bookastro(request):
                     ) 
         print("id") 
         print(new_booking.id)
-
-        
-        
-
+        merchant_transaction_id = f"ASTROBOOK_{new_booking.id}_{int(time.time())}"
+        print(merchant_transaction_id)
         # Construct the dynamic URLs
         base_url = request.build_absolute_uri('/')
-        redirectUrl = f"{base_url}book_astro_payment_return/?merchantTransactionId={new_booking.id}"
-        callbackUrl = f"{base_url}book_astro_payment_return/?merchantTransactionId={new_booking.id}"
+        redirectUrl = f"{base_url}book_astro_payment_return/?merchantTransactionId={merchant_transaction_id}"
+        callbackUrl = f"{base_url}book_astro_payment_return/?merchantTransactionId={merchant_transaction_id}"
 
      
         url = "https://api.phonepe.com/apis/hermes/pg/v1/pay"
@@ -1039,7 +1037,7 @@ def bookastro(request):
         INDEX = '2' 
         payload = {
             "merchantId": MERCHANT_ID,
-            "merchantTransactionId":new_booking.id,
+            "merchantTransactionId":merchant_transaction_id,
             "merchantUserId": MERCHANT_USER_ID,
             "amount": amount,
             "redirectUrl": REDIRECT_URL,
@@ -1112,7 +1110,12 @@ def book_astro_payment_return(request):
                 print(response_data)
                 # payment_status = response_data.get('code') 
                 if payment_status == 'PAYMENT_SUCCESS':
-                    booking_id = merchantTransactionId
+                    try:
+                        booking_id = int(merchantTransactionId.split('_')[1])
+                    except (IndexError, ValueError) as e:
+                        print(f"Invalid merchantTransactionId format: {merchantTransactionId}")
+                        messages.error(request, "Invalid transaction ID.")
+                        return redirect("/")
                     booking = AstroBooking.objects.filter(id=booking_id).first()
                     if booking:
                         booking.paid = True
