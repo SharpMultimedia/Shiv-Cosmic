@@ -390,12 +390,61 @@
 
 
 
-            <div class="flex items-center gap-3 mt-[20px]">
+            <!-- <div class="flex items-center gap-3 mt-[20px]">
                 <form action="{% url 'bookastro' %}" method="POST" class="reiki-form w-full" id="reikiForm">
                 {% csrf_token %}
                     <button class="btn--snakeBorder text-[15px] text-[#fff] py-[7px] px-[25px] rounded-[10px] z-50">Book Consultation @ Rs.99  </button>
                 </form>
+            </div> -->
+
+            <!-- Trigger Button -->
+            <div class="flex items-center gap-3 mt-[20px]">
+                <button 
+                    class="btn--snakeBorder text-[15px] text-[#fff] py-[7px] px-[25px] rounded-[10px] z-50"
+                    type="button"
+                    id="openModalBtn">
+                    Book Consultation @ Rs.99
+                </button>
             </div>
+
+            <!-- Modal -->
+            <div id="userModal"
+                class="fixed inset-0 hidden items-center justify-center bg-gray-900 bg-opacity-60 z-50">
+                <div class="bg-white rounded-lg p-6 w-80 relative">
+                    <h2 class="text-xl font-bold text-gray-800">Enter Your Details</h2>
+                    <form id="userDetailsForm" class="mt-4 space-y-4">
+                        <div>
+                            <label class="block text-gray-600">Full Name</label>
+                            <input required type="text" name="name" id="name"
+                                class="w-full border rounded p-2">
+                        </div>
+                        <div>
+                            <label class="block text-gray-600">Email</label>
+                            <input required type="email" name="email" id="email"
+                                class="w-full border rounded p-2">
+                        </div>
+                        <div>
+                            <label class="block text-gray-600">Mobile No</label>
+                            <input required type="tel" name="mobile" id="mobile"
+                                class="w-full border rounded p-2" pattern="[0-9]{10}" placeholder="10 digits">
+                        </div>
+                        <div class="flex justify-end space-x-3 mt-4">
+                            <button type="button" id="closeModalBtn"
+                                    class="bg-gray-300 rounded py-2 px-4">Cancel</button>
+                            <button type="submit"
+                                    class="bg-yellow-500 rounded py-2 px-4 text-white font-bold">Continue</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Final Form to Book Astro -->
+            <form action="{% url 'bookastro' %}" method="POST" id="finalBookForm" class="hidden">
+                {% csrf_token %}
+                <input type="hidden" name="name" id="final_name">
+                <input type="hidden" name="email" id="final_email">
+                <input type="hidden" name="mobile" id="final_mobile">
+            </form>
 
             <div class="flex flex-col items-center justify-center">
                 <br>
@@ -512,6 +561,44 @@
             }, true);
         }
       });
+    </script>
+
+    <!-- Scripts -->
+    <script>
+        const openBtn = document.getElementById('openModalBtn');
+        const modal = document.getElementById('userModal');
+        const closeBtn = document.getElementById('closeModalBtn');
+        const userDetailsForm = document.getElementById('userDetailsForm');
+        const finalForm = document.getElementById('finalBookForm');
+
+        openBtn.addEventListener('click', () => {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        });
+        closeBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        });
+        userDetailsForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Get values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const mobile = document.getElementById('mobile').value.trim();
+
+            // Simple Validation
+            if (!name || !email || !mobile) {
+                alert('Please fill all fields!');
+                return;
+            }
+            // All good, fill hidden form
+            document.getElementById('final_name').value = name;
+            document.getElementById('final_email').value = email;
+            document.getElementById('final_mobile').value = mobile;
+
+            // Submit Final Form
+            finalForm.submit();
+        });
     </script>
 </body>
 
