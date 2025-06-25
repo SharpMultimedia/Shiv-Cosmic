@@ -1011,7 +1011,7 @@ def bookastro(request):
         
         new_booking = AstroBooking.objects.create(  
                         name=name, 
-                        phone=phone,  
+                        phone=mobile,  
                         email=email,  
                         paid=False  
                     ) 
