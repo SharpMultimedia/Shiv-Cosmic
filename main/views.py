@@ -1004,33 +1004,32 @@ def base(request):
 
 def bookastro(request):
     if request.method == "POST":  
-        # first_name = request.POST.get('firstname')  
-        # last_name  = request.POST.get('lastname')  
-        # phone      = request.POST.get('phone')  
-        # email      = request.POST.get('email')  
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        mobile = request.POST.get('mobile') 
 
         
-        # new_booking = AstroBooking.objects.create(  
-        #                 first_name=first_name,  
-        #                 last_name=last_name,  
-        #                 phone=phone,  
-        #                 email=email,  
-        #                 paid=False  
-        #             ) 
-        # print("id") 
-        # print(new_booking.id)
-
+        new_booking = AstroBooking.objects.create(  
+                        name=name, 
+                        phone=mobile,  
+                        email=email,  
+                        paid=False  
+                    ) 
+        print("id") 
+        print(new_booking.id)
+        merchant_transaction_id = f"ASTROBOOK_{new_booking.id}_{int(time.time())}"
+        print(merchant_transaction_id)
         # Construct the dynamic URLs
         base_url = request.build_absolute_uri('/')
-        redirectUrl = f"{base_url}book_astro_payment_return/?merchantTransactionId={shortuuid.uuid()}"
-        callbackUrl = f"{base_url}book_astro_payment_return/?merchantTransactionId={shortuuid.uuid()}"
+        redirectUrl = f"{base_url}book_astro_payment_return/?merchantTransactionId={merchant_transaction_id}"
+        callbackUrl = f"{base_url}book_astro_payment_return/?merchantTransactionId={merchant_transaction_id}"
 
      
         url = "https://api.phonepe.com/apis/hermes/pg/v1/pay"
         MERCHANT_ID = "M22REVYZNMPVY"
    
         MERCHANT_USER_ID = "MUID123"
-        amount = 100  # ₹99.00
+        amount = 9900  # ₹99.00
         REDIRECT_URL = redirectUrl
         CALLBACK_URL = callbackUrl
         API_KEY = "71dedcf7-11d5-461a-bb1c-a5bc7231b45f"
@@ -1038,7 +1037,7 @@ def bookastro(request):
         INDEX = '2' 
         payload = {
             "merchantId": MERCHANT_ID,
-            "merchantTransactionId":shortuuid.uuid(),
+            "merchantTransactionId":merchant_transaction_id,
             "merchantUserId": MERCHANT_USER_ID,
             "amount": amount,
             "redirectUrl": REDIRECT_URL,
@@ -1111,11 +1110,16 @@ def book_astro_payment_return(request):
                 print(response_data)
                 # payment_status = response_data.get('code') 
                 if payment_status == 'PAYMENT_SUCCESS':
-                    # booking_id = int(merchantTransactionId.replace("TRANS", ""))
-                    # booking = AstroBooking.objects.filter(id=booking_id).first()
-                    # if booking:
-                    #     booking.paid = True
-                    #     booking.save()
+                    try:
+                        booking_id = int(merchantTransactionId.split('_')[1])
+                    except (IndexError, ValueError) as e:
+                        print(f"Invalid merchantTransactionId format: {merchantTransactionId}")
+                        messages.error(request, "Invalid transaction ID.")
+                        return redirect("/")
+                    booking = AstroBooking.objects.filter(id=booking_id).first()
+                    if booking:
+                        booking.paid = True
+                        booking.save()
                     messages.success(request, "Payment Successful! Thank you for your booking.")    
                     return render(request, 'thankyou.html')
                 else:

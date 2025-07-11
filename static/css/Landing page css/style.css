@@ -101,7 +101,7 @@ ul {
 
 .nav-bar {
     background-image: linear-gradient(to right top, #aa6732, #9a4f35, #843b37,
-     #6b2b36, #4f1e31);
+            #6b2b36, #4f1e31);
 }
 
 .menuList li a {
@@ -539,6 +539,9 @@ select::-webkit-scrollbar-thumb:hover {
     display: none;
 } */
 
+input::placeholder {
+    font-size: 14px;
+}
 
 /* ------------------------ social icons fixed -------------  */
 
@@ -845,7 +848,7 @@ select::-webkit-scrollbar-thumb:hover {
     } */
 
     .image-contact,
-    .image-reiki{
+    .image-reiki {
         height: 910px;
     }
 
