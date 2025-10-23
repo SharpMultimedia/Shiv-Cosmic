@@ -111,12 +111,21 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '494938784373325');
+
+    fbq('init', '288884345755056', {}, {
+        autoConfig: true,
+        xfbml: true,
+        agent: 'pltcl',
+        allowCrossDomain: true
+    });
+
     fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=494938784373325&ev=PageView&noscript=1"
-    /></noscript>
+
+    <noscript>
+    <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=288884345755056&ev=PageView&noscript=1"/>
+    </noscript>
     <!-- End Meta Pixel Code -->
 
     <!-- video player -->
